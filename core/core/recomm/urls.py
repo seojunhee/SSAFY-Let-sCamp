@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     # 추천 키워드 기반 추천
-    path('', views.recommend_campings),
+    path('<str:category>/<str:animal>/<str:keywords>', views.recommend_campings),
 ]
