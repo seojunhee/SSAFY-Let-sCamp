@@ -7,7 +7,7 @@ WORKDIR ${WORKSPACE}
 
 # copy code & build
 COPY . .
-RUN ./gradlew clean bootJar
+RUN ./letscamp/gradlew clean bootJar
 
 WORKDIR ${BUILD_TARGET}
 RUN jar -xf *.jar
