@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine
 
 # set arg
-ARG WORKSPACE=/var/jenkins_home/jobs/letscamp/workspace/BE/
+ARG WORKSPACE=/var/jenkins_home/jobs/letscamp/workspace/BE/letscamp/
 ARG BUILD_TARGET=${WORKSPACE}/build/libs
 WORKDIR ${WORKSPACE}
 
