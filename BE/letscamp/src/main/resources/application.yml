@@ -3,21 +3,26 @@ server:
   servlet:
     context-path: /api
 spring:
-  autoconfigure:
-      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+#  autoconfigure:
+#      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://k7b308.p.ssafy.io:3306/letscamp?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: camp
+    password: camp308
+
+  jpa:
+    hibernate:
+      ddl-auto: update #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+# SpringBoot 2.6 ???? swagger???? ???? ??? ?? ?? ??? ??
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://j7b209.p.ssafy.io:3306/gsdd?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-#    username: gsdd
-#    password: gsdd2725
 
-#  jpa:
-#    hibernate:
-#      ddl-auto: update #create update none
-#      naming:
-#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-#    show-sql: true
 
