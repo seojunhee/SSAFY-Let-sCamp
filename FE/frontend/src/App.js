@@ -1,10 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Login from "./Components/Member/Login.js";
+import SignUp from "./Components/Member/SignUp.js";
 
 function App() {
   return (
     <div className="App">
-      테스트입니다.
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
     </div>
   );
 }
