@@ -19,7 +19,7 @@ public class ReviewFindResponse {
 
     public ReviewFindResponse(Review review) {
         this.id = review.getId();
-        this.userId = review.getUserId();
+        this.userId = review.getUser().getId();
         this.campingId = review.getCampingId();
         this.rate = review.getRate();
         this.comment = review.getComment();

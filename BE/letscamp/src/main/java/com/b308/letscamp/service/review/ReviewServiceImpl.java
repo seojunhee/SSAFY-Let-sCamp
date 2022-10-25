@@ -1,4 +1,4 @@
-package com.b308.letscamp.service;
+package com.b308.letscamp.service.review;
 
 import com.b308.letscamp.Exception.ReviewNotFoundException;
 import com.b308.letscamp.dto.review.ReviewFindAllResponse;
@@ -6,7 +6,9 @@ import com.b308.letscamp.dto.review.ReviewFindResponse;
 import com.b308.letscamp.dto.review.ReviewSaveRequest;
 import com.b308.letscamp.dto.review.ReviewUpdateRequest;
 import com.b308.letscamp.entity.Review;
+import com.b308.letscamp.entity.User;
 import com.b308.letscamp.repository.ReviewRepository;
+import com.b308.letscamp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
+    private final UserRepository userRepository;
 
     @Override
     public List<ReviewFindAllResponse> findAll() {
@@ -37,7 +40,11 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Transactional
     @Override
-    public Long create(ReviewSaveRequest dto) {
+    public Long create(String userId, ReviewSaveRequest dto) {
+        User user = userRepository.findByUserId(userId);
+
+        dto.setUser(user);
+
         return reviewRepository.save(dto.toEntity()).getId();
     }
 

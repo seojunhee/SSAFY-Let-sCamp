@@ -18,8 +18,9 @@ public class Review {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id") // 외래키
+    private User user;
 
     @Column(name = "camping_id", nullable = false)
     private Long campingId;

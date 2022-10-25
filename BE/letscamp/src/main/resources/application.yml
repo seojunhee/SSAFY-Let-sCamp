@@ -7,9 +7,9 @@ spring:
 #      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/camp?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: ssafy
+    url: jdbc:mysql://k7b308.p.ssafy.io:3306/letscamp?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: camp
+    password: camp308
 
   jpa:
     hibernate:
@@ -17,4 +17,9 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
+
+# SpringBoot 2.6 ???? swagger???? ???? ??? ?? ?? ??? ??
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
