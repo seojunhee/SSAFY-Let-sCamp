@@ -1,16 +1,14 @@
 package com.b308.letscamp.controller;
 
-import com.b308.letscamp.dto.user.UserLoginRequest;
-import com.b308.letscamp.dto.user.UserSaveRequest;
-import com.b308.letscamp.dto.user.UserSaveResponse;
+import com.b308.letscamp.dto.review.ReviewUpdateRequest;
+import com.b308.letscamp.dto.user.*;
+import com.b308.letscamp.entity.User;
 import com.b308.letscamp.service.user.UserService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,4 +33,17 @@ public class UserController {
         return new UserSaveResponse(id);
     }
 
+    @PutMapping("/user/update")
+    @ApiOperation(value = "회원정보 수정", notes = "회원정보를 수정하는 요청")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public UserUpdateResponse update(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+                                     @RequestBody @ApiParam(value = "수정할 정보를 담고있는 user 객체", required = true) UserUpdateRequest request) {
+        UserFindResponse user = userService.findByUserId(userId);
+        request.setId(user.getId());
+        Long id = userService.update(request);
+        return new UserUpdateResponse(id);
+    }
 }

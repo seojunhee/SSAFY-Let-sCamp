@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserLoginResponse {
+public class UserFindResponse {
     private Long id;
     private String userId;
     private String userPw;
@@ -18,7 +18,7 @@ public class UserLoginResponse {
     private Long exp;
     private String address;
 
-    public UserLoginResponse(User user) {
+    public UserFindResponse(User user) {
         this.id = user.getId();
         this.userId = user.getUserId();
         this.userPw = user.getUserPw();

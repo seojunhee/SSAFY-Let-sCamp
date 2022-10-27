@@ -8,7 +8,7 @@ import com.b308.letscamp.dto.review.ReviewUpdateRequest;
 import java.util.List;
 
 public interface ReviewService {
-    List<ReviewFindAllResponse> findAll();
+    List<ReviewFindAllResponse> findByCampingId(Long campId);
     ReviewFindResponse findById(Long id);
     Long create(String userId, ReviewSaveRequest dto);
     Long update(ReviewUpdateRequest dto);

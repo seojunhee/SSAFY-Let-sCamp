@@ -1,10 +1,12 @@
 package com.b308.letscamp.service.review;
 
 import com.b308.letscamp.Exception.ReviewNotFoundException;
+import com.b308.letscamp.Exception.UserNotFoundException;
 import com.b308.letscamp.dto.review.ReviewFindAllResponse;
 import com.b308.letscamp.dto.review.ReviewFindResponse;
 import com.b308.letscamp.dto.review.ReviewSaveRequest;
 import com.b308.letscamp.dto.review.ReviewUpdateRequest;
+import com.b308.letscamp.dto.user.UserFindResponse;
 import com.b308.letscamp.entity.Review;
 import com.b308.letscamp.entity.User;
 import com.b308.letscamp.repository.ReviewRepository;
@@ -24,15 +26,15 @@ public class ReviewServiceImpl implements ReviewService {
     private final UserRepository userRepository;
 
     @Override
-    public List<ReviewFindAllResponse> findAll() {
-        return reviewRepository.findAll().stream().map(ReviewFindAllResponse::new)
+    public List<ReviewFindAllResponse> findByCampingId(Long campId) {
+        return reviewRepository.findByCampingId(campId).stream().map(ReviewFindAllResponse::new)
                 .collect(Collectors.toList());
     }
 
     @Override
     public ReviewFindResponse findById(Long id) {
         Optional<Review> reviewOptional = reviewRepository.findById(id);
-        if(reviewOptional.isEmpty()) {
+        if (reviewOptional.isEmpty()) {
             throw new ReviewNotFoundException();
         }
         return reviewOptional.map(ReviewFindResponse::new).orElse(null);
@@ -41,8 +43,19 @@ public class ReviewServiceImpl implements ReviewService {
     @Transactional
     @Override
     public Long create(String userId, ReviewSaveRequest dto) {
-        User user = userRepository.findByUserId(userId);
-
+        Optional<User> userOptional = userRepository.findByUserId(userId);
+        if (userOptional.isEmpty()) {
+            throw new UserNotFoundException();
+        }
+        UserFindResponse userFindResponse = userOptional.map(UserFindResponse::new).orElse(null);
+        User user = User.builder()
+                .id(userFindResponse.getId())
+                .userId(userFindResponse.getUserId())
+                .userPw(userFindResponse.getUserPw())
+                .nickName(userFindResponse.getNickName())
+                .exp(userFindResponse.getExp())
+                .address(userFindResponse.getAddress())
+                .build();
         dto.setUser(user);
 
         return reviewRepository.save(dto.toEntity()).getId();

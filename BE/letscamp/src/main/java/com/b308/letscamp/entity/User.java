@@ -29,11 +29,24 @@ public class User {
 
     @Column(name = "exp", nullable = false)
     @ColumnDefault("0")
-    private int exp;
+    private Long exp;
 
     @Column(name = "address", nullable = false)
     private String address;
 
     @OneToMany(mappedBy = "user")
     private List<Review> review = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Reservation> reservations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Hate> hate = new ArrayList<>();
+
+    public User update(String nickName, String address, String userPw) {
+        this.nickName = nickName;
+        this.address = address;
+        this.userPw = userPw;
+        return this;
+    }
 }

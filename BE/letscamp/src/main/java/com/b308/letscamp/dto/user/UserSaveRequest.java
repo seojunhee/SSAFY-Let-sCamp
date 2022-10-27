@@ -14,7 +14,7 @@ public class UserSaveRequest {
     private String userId;
     private String userPw;
     private String nickName;
-    private int exp;
+    private Long exp;
     private String address;
 
     public User toEntity() {
