@@ -1,0 +1,26 @@
+
+.userinfo{
+    font-size: 32px;
+}
+
+.userinfo-img{
+ width: 250px;
+ height: 250px;
+ border-radius: 70%;
+}
+
+.userinfo-id{
+ display: flex;
+ justify-content: space-between;
+ width: 530px;
+}
+.userinfo-pw{   
+    display: flex;
+    justify-content:space-between;
+    width: 530px;
+}
+.userinfo-address{
+    display: flex;
+    justify-content: space-between;
+    width: 530px;
+}

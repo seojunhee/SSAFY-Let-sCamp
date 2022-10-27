@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Login from "./Components/Member/Login.js";
+import SignUp from "./Components/Member/SignUp.js";
+import SignUpSucess from "./Components/Member/SignUpSucess.js";
+import Start from "./pages/StartPage";
+import Mypage from "./pages/MyPage.js";
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RecoilRoot>
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signupsucess" element={<SignUpSucess />} />
+          <Route path="/mypage" element={<Mypage />} />
+        </Routes>
+      </RecoilRoot>
     </div>
   );
 }
