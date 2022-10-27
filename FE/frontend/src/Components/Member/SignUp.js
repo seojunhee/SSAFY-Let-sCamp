@@ -1,6 +1,13 @@
 import React from "react";
+/*
+import { userState } from "../../Store/state.js";
+import { useRecoilState } from "recoil";
+*/
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  //const [user] = useRecoilState(userState);
+
   return (
     <div className="SignUp">
       <div>회원가입</div>
@@ -21,7 +28,9 @@ const SignUp = () => {
         <input placeholder="비밀번호 확인" />
       </div>
       <div>
-        <button>회원가입</button>
+        <Link to="/signupsucess">
+          <button>회원가입</button>
+        </Link>
       </div>
     </div>
   );

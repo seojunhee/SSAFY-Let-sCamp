@@ -1,0 +1,11 @@
+.uservisited-box{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+}
+
+.uservisited-box-rating{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
