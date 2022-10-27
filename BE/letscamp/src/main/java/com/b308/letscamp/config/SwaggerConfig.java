@@ -18,8 +18,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Let's camp api info")
-                .description("Let's camp API")
+                .title("Let's Camp API Info")
+                .description("Let's Camp API")
                 .build();
     }
 
