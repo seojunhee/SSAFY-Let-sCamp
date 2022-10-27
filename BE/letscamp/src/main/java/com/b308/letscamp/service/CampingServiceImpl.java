@@ -72,6 +72,7 @@ public class CampingServiceImpl implements CampingService {
 		for (int i = 0; i < jsonArray.size(); i++) {
 			String str = jsonArray.get(i).toString();
 			Long id = Long.parseLong(str);
+			id = id + 1L;
 			CampingFindResponse camping = findById(id);
 			campingList.add(camping);
 		}
