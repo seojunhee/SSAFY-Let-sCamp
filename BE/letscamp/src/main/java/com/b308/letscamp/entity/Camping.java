@@ -22,10 +22,10 @@ public class Camping {
 	@Column(name = "name", nullable = false)
 	private String name;
 	
-	@Column(name = "simple_des")
+	@Column(name = "simple_des", length = 1000)
 	private String simple_des;
 	
-	@Column(name = "description")
+	@Column(name = "description", length = 1000)
 	private String description;
 	
 	@Column(name = "running", nullable = false)
@@ -43,7 +43,7 @@ public class Camping {
 	@Column(name = "gugun", nullable = false)
 	private String gugun;
 	
-	@Column(name = "address", nullable = false)
+	@Column(name = "address", nullable = false, length = 1000)
 	private String address;
 	
 	@Column(name = "lon", nullable = false)
@@ -55,16 +55,16 @@ public class Camping {
 	@Column(name = "tel")
 	private String tel;
 	
-	@Column(name = "homepage")
+	@Column(name = "homepage", length = 1000)
 	private String homepage;
 	
-	@Column(name = "reserve_url")
+	@Column(name = "reserve_url", length = 1000)
 	private String reserve_url;
 	
-	@Column(name = "gramp_fac")
+	@Column(name = "gramp_fac", length = 1000)
 	private String gramp_fac;
 	
-	@Column(name = "caravan_fac")
+	@Column(name = "caravan_fac", length = 1000)
 	private String caravan_fac;
 	
 	@Column(name = "running_season")
@@ -73,10 +73,10 @@ public class Camping {
 	@Column(name = "running_day")
 	private String running_day;
 	
-	@Column(name = "sub_fac")
+	@Column(name = "sub_fac", length = 1000)
 	private String sub_fac;
 	
-	@Column(name = "sur_fac")
+	@Column(name = "sur_fac", length = 1000)
 	private String sur_fac;
 	
 	@Column(name = "exp_program")
@@ -88,9 +88,9 @@ public class Camping {
 	@Column(name = "animal", nullable = false)
 	private String animal;
 	
-	@Column(name = "thumb")
+	@Column(name = "thumb", length = 1000)
 	private String thumb;
 	
-	@Column(name = "keywords", nullable = false)
+	@Column(name = "keywords", nullable = false, length = 1000)
 	private String keywords;
 }
