@@ -25,7 +25,7 @@ public class Camping {
 	@Column(name = "simple_des", length = 1000)
 	private String simple_des;
 	
-	@Column(name = "description", length = 1000)
+	@Column(name = "description", length = 2000)
 	private String description;
 	
 	@Column(name = "running", nullable = false)
