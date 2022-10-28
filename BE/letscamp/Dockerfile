@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:11
 
 # set arg
 ARG WORKSPACE=/var/jenkins_home/jobs/letscamp/workspace/BE/letscamp/
