@@ -18,15 +18,6 @@ const Question = () => {
       return <h2 className="contanier">"언제 가시나요?"</h2>
   }
   
-
-
-  // return (
-  //   <>
-  //     <header>
-  //       <h2>{ question }</h2>
-  //     </header>
-  //   </>
-  // )
 };
 
 export default Question;
