@@ -1,8 +1,12 @@
 import React from "react"
+
+// Components
 import Header from "../Components/Question/Header.js"
 import MoveButton from "../Components/Question/MoveButton.js"
 import ChoiceButton from "../Components/Question/ChoiceButton.js"
 import Question from "../Components/Question/Question.js";
+
+// data
 import { useRecoilState } from "recoil";
 import { questionPage } from "../Store/state.js";
 import "../App.css"
