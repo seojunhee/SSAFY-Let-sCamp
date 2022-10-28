@@ -12,10 +12,12 @@ const Questions = () => {
   // 페이지에 따라 ChoiceButton과 Question, MoveButton의 변화가 필요하다.
   const [page] = useRecoilState(questionPage);
 
+  
+
   return (
   <>
     <Header />
-    <Question question="몇 명이 가시나요?"/>
+    <Question />
     <ChoiceButton />
     <MoveButton />
     <div>{page}</div>
