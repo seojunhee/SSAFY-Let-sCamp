@@ -17,16 +17,17 @@ import java.util.List;
 public class ReservationController {
     private final ReservationService reservationService;
 
-    @PostMapping("/reservation")
+    @PostMapping("/reservation/{id}")
     @ApiOperation(value = "예약 작성", notes = "예약를 작성하는 요청")
     @ApiResponses({
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public ReservationSaveResponse create(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+                                          @PathVariable @ApiParam(value = "Camping ID", required = true) Long id,
                                           @RequestBody @ApiParam(value = "작성할 예약의 정보가 담긴 객체", required = true)ReservationSaveRequest request) {
-        Long id = reservationService.create(userId, request);
-        return new ReservationSaveResponse(id);
+        Long resultId = reservationService.create(userId, id, request);
+        return new ReservationSaveResponse(resultId);
     }
 
     @GetMapping("/reservation")

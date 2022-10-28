@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -93,4 +96,13 @@ public class Camping {
 	
 	@Column(name = "keywords", nullable = false, length = 1000)
 	private String keywords;
+
+	@OneToMany(mappedBy = "camping")
+	List<Review> review = new ArrayList<>();
+
+	@OneToMany(mappedBy = "camping")
+	List<Reservation> reservation = new ArrayList<>();
+
+	@OneToMany(mappedBy = "camping")
+	List<Hate> hate = new ArrayList<>();
 }
