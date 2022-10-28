@@ -6,6 +6,7 @@ import Start from "./pages/StartPage";
 import Mypage from "./pages/MyPage.js";
 import Questions from "./pages/QuestionsPage.js";
 import EditInfo from "./pages/EditInfoPage.js";
+import RecommendResult from "./pages/RecommResultPage";
 
 import { RecoilRoot } from "recoil";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/question" element={<Questions />} />
           <Route path="/editinfo" element={<EditInfo />} />
+          <Route path="/recommend" element={<RecommendResult />} />
         </Routes>
       </RecoilRoot>
     </div>
