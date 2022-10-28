@@ -1,7 +1,10 @@
 import React from "react";
-import "./UserInfo.css";
+import { useNavigate } from "react-router-dom";
+import "./style/UserInfo.css";
 
 const UserInfo = () => {
+  const navigate = useNavigate();
+
   const User = {
     id: "test",
     password: "test1234",
@@ -19,19 +22,40 @@ const UserInfo = () => {
         <div className="userinfo-id">
           <div>아이디</div>
           <div>
-            {User.id} <button>변경하기</button>
+            {User.id}{" "}
+            <button
+              onClick={() => {
+                navigate("/editinfo");
+              }}
+            >
+              변경하기
+            </button>
           </div>
         </div>
         <div className="userinfo-pw">
           비밀번호
           <div>
-            {User.password} <button>변경하기</button>
+            {User.password}{" "}
+            <button
+              onClick={() => {
+                navigate("/editinfo");
+              }}
+            >
+              변경하기
+            </button>
           </div>
         </div>
         <div className="userinfo-address">
           주소
           <div>
-            {User.address} <button>변경하기</button>
+            {User.address}{" "}
+            <button
+              onClick={() => {
+                navigate("/editinfo");
+              }}
+            >
+              변경하기
+            </button>
           </div>
         </div>
       </div>

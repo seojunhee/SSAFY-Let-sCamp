@@ -1,5 +1,5 @@
 import React from "react";
-import "./UserReserve.css";
+import "./style/UserReserve.css";
 
 const UserReserve = () => {
   return (
