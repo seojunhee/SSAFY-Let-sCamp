@@ -2,21 +2,18 @@ import React from "react";
 import UserInfo from "../Components/MyPage/UserInfo";
 import UserReserve from "../Components/MyPage/UserReserve";
 import UserVisited from "../Components/MyPage/UserVisited";
-import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import { pageNameState } from "../Store/state";
 import "./style/MyPage.css";
+import Header from "../Components/Header/Header.js";
 
 const Mypage = () => {
-  const navigate = useNavigate();
-
-  const goBack = () => {
-    navigate(-1);
-  };
+  const setPageName = useSetRecoilState(pageNameState);
+  setPageName("마이페이지");
 
   return (
     <div className="mypage">
-      <div>
-        <button onClick={goBack}>뒤로가기</button> 마이페이지
-      </div>
+      <Header></Header>
       <hr />
       <UserInfo></UserInfo>
       <hr />

@@ -1,13 +1,17 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style/Login.css";
 import axios from "axios";
-import { userState } from "../Store/state.js";
-import { useRecoilState } from "recoil";
+import { pageNameState, userState } from "../Store/state.js";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import Header from "../Components/Header/Header.js";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [user] = useRecoilState(userState);
+
+  const setPageName = useSetRecoilState(pageNameState);
+  setPageName("로그인");
+
   const url = "주소값";
   const submit = () => {
     axios
@@ -23,17 +27,7 @@ const Login = () => {
   };
   return (
     <div className="Login">
-      <div className="top">
-        <span
-          className="back"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          &lt;
-        </span>
-        <span>로그인</span>
-      </div>
+      <Header></Header>
       <div>
         <input placeholder="아이디" className="input" />
       </div>
@@ -45,13 +39,14 @@ const Login = () => {
           로그인
         </button>
       </div>
-      <div className="sub">
-        <Link to="/signup">
-          <span className="signup">회원가입 </span>
-        </Link>
-        <span className="findpw">비밀번호 찾기</span>
+      <div className="subbox">
+        <div className="sub">
+          <Link to="/signup">
+            <span className="signup">회원가입 </span>
+          </Link>
+          <span className="findpw">비밀번호 찾기</span>
+        </div>
       </div>
-      <div>리코일 사용 {user}</div>
     </div>
   );
 };

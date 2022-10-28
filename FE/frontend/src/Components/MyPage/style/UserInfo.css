@@ -12,15 +12,12 @@
 .userinfo-id{
  display: flex;
  justify-content: space-between;
- width: 530px;
 }
 .userinfo-pw{   
     display: flex;
     justify-content:space-between;
-    width: 530px;
 }
 .userinfo-address{
     display: flex;
     justify-content: space-between;
-    width: 530px;
 }

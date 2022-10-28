@@ -5,6 +5,7 @@ import SignUp from "./pages/SignUpPage.js";
 import Start from "./pages/StartPage";
 import Mypage from "./pages/MyPage.js";
 import Questions from "./pages/QuestionsPage.js";
+import EditInfo from "./pages/EditInfoPage.js";
 
 import { RecoilRoot } from "recoil";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/question" element={<Questions />} />
+          <Route path="/editinfo" element={<EditInfo />} />
         </Routes>
       </RecoilRoot>
     </div>

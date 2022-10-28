@@ -1,5 +1,5 @@
 import React from "react";
-import "./UserVisited.css";
+import "./style/UserVisited.css";
 
 const UserVisited = () => {
   return (

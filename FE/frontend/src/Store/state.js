@@ -5,6 +5,11 @@ export const userState = atom({
   default: "temp",
 });
 
+export const pageNameState = atom({
+  key: "pageName",
+  default: "",
+});
+
 export const userCountState = selector({
   key: "charCountState", // unique ID (with respect to other atoms/selectors)
   get: ({ get }) => {
