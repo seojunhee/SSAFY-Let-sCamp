@@ -11,7 +11,7 @@ import com.b308.letscamp.dto.user.UserFindResponse;
 import com.b308.letscamp.entity.NormalCamping;
 import com.b308.letscamp.entity.Reservation;
 import com.b308.letscamp.entity.User;
-import com.b308.letscamp.repository.NormalRepository;
+import com.b308.letscamp.repository.NormalCampingRepository;
 import com.b308.letscamp.repository.ReservationRepository;
 import com.b308.letscamp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class NormalCampingServiceImpl implements NormalCampingService {
-    private final NormalRepository normalRepository;
+    private final NormalCampingRepository normalRepository;
     private final UserRepository userRepository;
     private final ReservationRepository reservationRepository;
 
