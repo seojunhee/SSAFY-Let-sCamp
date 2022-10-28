@@ -16,7 +16,11 @@ const MoveButton = () => {
   const resetPage = () => {
     setPage(1)
   }
-
+  const submitButton = (
+    <Link>
+      <button>제출</button>
+    </Link>
+  )
   return (
     <>
       <div className="container">
@@ -26,6 +30,7 @@ const MoveButton = () => {
         </Link>
         
         {page < 5 && <button onClick={ moveNextPage }>다음</button>}
+        {page === 5 && submitButton}
       </div>
     </>
   )
