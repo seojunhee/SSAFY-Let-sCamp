@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/LoginPage.js";
+import SignUp from "./pages/SignUpPage.js";
+import Start from "./pages/StartPage";
+import Mypage from "./pages/MyPage.js";
+import Questions from "./pages/QuestionsPage.js";
+import EditInfo from "./pages/EditInfoPage.js";
+import RecommendResult from "./pages/RecommResultPage";
+
+import { RecoilRoot } from "recoil";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RecoilRoot>
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/mypage" element={<Mypage />} />
+          <Route path="/question" element={<Questions />} />
+          <Route path="/editinfo" element={<EditInfo />} />
+          <Route path="/recommend" element={<RecommendResult />} />
+        </Routes>
+      </RecoilRoot>
     </div>
   );
 }
