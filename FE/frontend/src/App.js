@@ -1,14 +1,12 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Login from "./Components/Member/Login.js";
-import SignUp from "./Components/Member/SignUp.js";
-import SignUpSucess from "./Components/Member/SignUpSucess.js";
+import Login from "./pages/LoginPage.js";
+import SignUp from "./pages/SignUpPage.js";
 import Start from "./pages/StartPage";
 import Mypage from "./pages/MyPage.js";
-import Questions from "./pages/Questions.js"
+import Questions from "./pages/QuestionsPage.js";
 
 import { RecoilRoot } from "recoil";
-
 
 function App() {
   return (
@@ -18,7 +16,6 @@ function App() {
           <Route path="/" element={<Start />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/signupsucess" element={<SignUpSucess />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/question" element={<Questions />} />
         </Routes>

@@ -3,7 +3,7 @@ import UserInfo from "../Components/MyPage/UserInfo";
 import UserReserve from "../Components/MyPage/UserReserve";
 import UserVisited from "../Components/MyPage/UserVisited";
 import { useNavigate } from "react-router-dom";
-import "./MyPage.css";
+import "./style/MyPage.css";
 
 const Mypage = () => {
   const navigate = useNavigate();
