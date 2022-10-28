@@ -9,7 +9,9 @@ const Start = () => {
       <div>초보자를 위한 캠핑 추천 서비스</div>
       <div>렛츠 캠프!</div>
       <div>
-        <button>가입 없이 바로 추천받으러 가기 </button>
+        <Link to="/question">
+          <button>가입 없이 바로 추천받으러 가기 </button>
+        </Link>
       </div>
       <div>
         <Link to="/login">

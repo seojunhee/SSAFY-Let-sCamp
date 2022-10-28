@@ -1,12 +1,36 @@
 import React from "react";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { Link } from "react-router-dom";
+import { questionPage } from "../../Store/state";
 
 const MoveButton = () => {
+  const [page] = useRecoilState(questionPage);
+  const setPage =  useSetRecoilState(questionPage);
+
+  const moveNextPage = () => {
+    setPage(page + 1)
+  }
+  const movePrePage = () => {
+    setPage(page - 1)
+  }
+  const resetPage = () => {
+    setPage(1)
+  }
+  const submitButton = (
+    <Link>
+      <button>제출</button>
+    </Link>
+  )
   return (
     <>
       <div className="container">
-        <button>이전</button>
-        <button>홈으로</button>
-        <button>다음</button>
+        {page > 1 && (<button onClick={ movePrePage }>이전</button>)}
+        <Link to="/">
+          <button onClick={ resetPage }>홈으로</button>
+        </Link>
+        
+        {page < 5 && <button onClick={ moveNextPage }>다음</button>}
+        {page === 5 && submitButton}
       </div>
     </>
   )

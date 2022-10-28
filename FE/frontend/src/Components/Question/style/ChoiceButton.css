@@ -1,0 +1,13 @@
+.choice-area{
+  width: 80vh;
+  height :50vh;
+  border: 3px solid black;
+  display: 'flex';
+}
+
+.choice-who{
+  width: 19vh;
+  height :50vh;
+  border: 1px solid black;
+  float: left;
+}
