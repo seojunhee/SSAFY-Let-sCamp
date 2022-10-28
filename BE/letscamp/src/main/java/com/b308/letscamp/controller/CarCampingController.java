@@ -1,7 +1,6 @@
 package com.b308.letscamp.controller;
 
 import com.b308.letscamp.dto.carCamping.*;
-import com.b308.letscamp.dto.normalCamping.NormalCampingUpdateRequest;
 import com.b308.letscamp.service.carCamping.CarCampingService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +23,7 @@ public class CarCampingController {
     public CarCampingSaveResponse create(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         Long resultId = carCampingService.create(userId, reservationId);
-        return new CarCampingSaveResponse(reservationId);
+        return new CarCampingSaveResponse(resultId);
     }
 
     @DeleteMapping("/carCamping/{reservationId}")
