@@ -25,9 +25,25 @@ const ChoiceButton = () => {
 
   const question3 = (
     <div className="choice-area">
-      <div className="choice-who">네</div>
-      <div className="choice-who">아니요</div>
+      <div className="choice-who">산</div>
+      <div className="choice-who">바다</div>
+      <div className="choice-who">도심</div>
+      <div className="choice-who">숲</div>
+      <div className="choice-who">섬</div>
     </div>
+  )
+
+  const question4 = (
+    <div className="choice-area">
+      <div className="choice-who">텐트</div>
+      <div className="choice-who">오토캠핑</div>
+      <div className="choice-who">카라반</div>
+      <div className="choice-who">글램핑</div>
+    </div>
+  )
+
+  const question5 = (
+    <input type="date"/>
   )
 
   switch (page){
@@ -36,11 +52,11 @@ const ChoiceButton = () => {
     case 2:
       return question2
     case 3:
-      return <h2 className="contanier">"좋아하는 장소를 골라주세요"</h2>
+      return question3
     case 4:
-      return <h2 className="contanier">"캠핑 유형을 선택해주세요"</h2>
+      return question4
     default:
-      return <h2 className="contanier">"언제 가시나요?"</h2>
+      return question5
   }
 };
 
