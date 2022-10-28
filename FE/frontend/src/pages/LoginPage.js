@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
+import "./style/Login.css";
 import axios from "axios";
-import { userState } from "../../Store/state.js";
+import { userState } from "../Store/state.js";
 import { useRecoilState } from "recoil";
 
 const Login = () => {
@@ -38,7 +38,7 @@ const Login = () => {
         <input placeholder="아이디" className="input" />
       </div>
       <div>
-        <input placeholder="비밀번호" className="input2" type="password" />
+        <input placeholder="비밀번호" className="input" type="password" />
       </div>
       <div>
         <button className="button" onClick={submit}>
