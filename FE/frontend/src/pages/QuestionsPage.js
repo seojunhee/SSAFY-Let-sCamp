@@ -5,6 +5,7 @@ import ChoiceButton from "../Components/Question/ChoiceButton.js"
 import Question from "../Components/Question/Question.js";
 import { useRecoilState } from "recoil";
 import { questionPage } from "../Store/state.js";
+import "../App.css"
 
 const Questions = () => {
 
@@ -15,13 +16,13 @@ const Questions = () => {
   
 
   return (
-  <>
-    <Header />
-    <Question />
-    <ChoiceButton />
-    <MoveButton />
-    <div>{page}</div>
-  </>);
+    <div className="App">
+      <Header />
+      <Question />
+      <ChoiceButton />
+      <MoveButton />
+      <div>{page}</div>
+    </div>);
 
 }
 

@@ -7,7 +7,7 @@ const Question = () => {
   
   switch (page){
     case 1:
-      return <h2 className="contanier">"몇 명이 가시나요?"</h2>
+      return <h2 className="contanier">"누구와 가시나요?"</h2>
     case 2:
       return <h2 className="contanier">"반려견과 함께 가나요?"</h2>
     case 3:
