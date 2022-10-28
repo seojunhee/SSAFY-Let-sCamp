@@ -12,3 +12,8 @@ export const userCountState = selector({
     return text.length;
   },
 });
+
+export const questionPage = atom({
+  key: "questionPage",
+  default: 1,
+})
