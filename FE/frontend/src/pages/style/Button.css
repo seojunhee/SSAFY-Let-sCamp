@@ -10,3 +10,13 @@
   font-weight: 600;
   transition: 0.25s;
 }
+
+.w-btn-blue {
+  background-color: #35C2BD;
+  color: black;
+}
+
+.w-btn-again {
+  background-color: #F6EFB4;
+  color: black;
+}

@@ -7,9 +7,9 @@ const Header = () => {
   return (
     <>
       <div className="container">
-        <button className="w-btn">다시 추천 받기</button>
+        <button className="w-btn w-btn-again">다시 추천 받기</button>
         <Link to="/reserve">
-          <button className="w-btn">Let's Camp!</button>
+          <button className="w-btn w-btn-blue">Let's Camp!</button>
         </Link>
       </div>
       <div>더 알아보기</div>
