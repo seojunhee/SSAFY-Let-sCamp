@@ -3,6 +3,7 @@ package com.b308.letscamp.service.hate;
 import com.b308.letscamp.Exception.CampingNotFoundException;
 import com.b308.letscamp.Exception.UserNotFoundException;
 import com.b308.letscamp.dto.camping.CampingFindResponse;
+import com.b308.letscamp.dto.hate.HateFindResponse;
 import com.b308.letscamp.dto.hate.HateSaveRequest;
 import com.b308.letscamp.dto.user.UserFindResponse;
 import com.b308.letscamp.entity.Camping;
@@ -14,7 +15,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -83,5 +86,17 @@ public class HateServieImpl implements HateService{
     @Override
     public void delete(Long id) {
         hateRepository.deleteById(id);
+    }
+
+    @Override
+    public List<HateFindResponse> findByUserId(String userId) {
+        Optional<User> userOptional = userRepository.findByUserId(userId);
+        if (userOptional.isEmpty()) {
+            throw new UserNotFoundException();
+        }
+        UserFindResponse userFindResponse = userOptional.map(UserFindResponse::new).orElse(null);
+
+        return hateRepository.findByUserId(userFindResponse.getId())
+                .stream().map(HateFindResponse::new).collect(Collectors.toList());
     }
 }

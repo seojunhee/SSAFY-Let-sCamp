@@ -44,7 +44,7 @@ public class CarCampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<CarCampingFindResponse> readByUserIAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<CarCampingFindResponse> readByUserIdAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                             @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         List<CarCampingFindResponse> list = carCampingService.findByUserIdAndReservationId(userId, reservationId);
         return list;
@@ -56,7 +56,7 @@ public class CarCampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<CarCampingFindResponse> readByUserIAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<CarCampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                     @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                     @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         List<CarCampingFindResponse> list = carCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);

@@ -45,7 +45,7 @@ public class GlampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<GlampingFindResponse> readByUserIAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<GlampingFindResponse> readByUserIdAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                           @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         List<GlampingFindResponse> list = glampingService.findByUserIdAndReservationId(userId, reservationId);
         return list;
@@ -57,7 +57,7 @@ public class GlampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<GlampingFindResponse> readByUserIAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<GlampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                   @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                   @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         List<GlampingFindResponse> list = glampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);

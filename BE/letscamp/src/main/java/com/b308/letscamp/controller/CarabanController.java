@@ -46,7 +46,7 @@ public class CarabanController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<CarabanFindResponse> readByUserIAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<CarabanFindResponse> readByUserIdAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationId(userId, reservationId);
         return list;
@@ -58,7 +58,7 @@ public class CarabanController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<CarabanFindResponse> readByUserIAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<CarabanFindResponse> readByUserIdAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                  @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                  @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
