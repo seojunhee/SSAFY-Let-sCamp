@@ -64,7 +64,7 @@ public class CarabanServiceImpl implements CarabanService{
         carabanRepository.save(dto.toEntity());
 
         dto.setItem("모기약");
-        dto.setLevel(1L);
+        dto.setLevel(3L);
         carabanRepository.save(dto.toEntity());
 
         dto.setItem("긴팔/긴바지");
@@ -76,7 +76,7 @@ public class CarabanServiceImpl implements CarabanService{
         carabanRepository.save(dto.toEntity());
 
         dto.setItem("설거지통");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         carabanRepository.save(dto.toEntity());
 
         dto.setItem("세면도구");
@@ -104,11 +104,11 @@ public class CarabanServiceImpl implements CarabanService{
         carabanRepository.save(dto.toEntity());
 
         dto.setItem("블루투스 스피커");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         carabanRepository.save(dto.toEntity());
 
         dto.setItem("슬리퍼");
-        dto.setLevel(1L);
+        dto.setLevel(3L);
         return carabanRepository.save(dto.toEntity()).getId();
     }
 
