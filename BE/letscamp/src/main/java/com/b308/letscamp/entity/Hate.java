@@ -19,9 +19,10 @@ public class Hate {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")   // 외래키
     private User user;
 
-    @Column(name = "camping_id", nullable = false)
-    private Long campingId;
+    @ManyToOne
+    @JoinColumn(name = "camping_id")    // 외래키
+    private Camping camping;
 }

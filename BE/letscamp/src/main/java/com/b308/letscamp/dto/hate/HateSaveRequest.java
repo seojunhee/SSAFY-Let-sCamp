@@ -1,5 +1,6 @@
 package com.b308.letscamp.dto.hate;
 
+import com.b308.letscamp.entity.Camping;
 import com.b308.letscamp.entity.Hate;
 import com.b308.letscamp.entity.User;
 import lombok.AllArgsConstructor;
@@ -13,12 +14,12 @@ import lombok.NoArgsConstructor;
 @Builder
 public class HateSaveRequest {
     private User user;
-    private Long campingId;
+    private Camping camping;
 
     public Hate toEntity() {
         return Hate.builder()
                 .user(user)
-                .campingId(campingId)
+                .camping(camping)
                 .build();
     }
 }

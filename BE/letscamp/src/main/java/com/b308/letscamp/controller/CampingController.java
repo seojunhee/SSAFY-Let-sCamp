@@ -5,6 +5,7 @@ import java.util.List;
 import org.json.simple.parser.ParseException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,10 +32,10 @@ public class CampingController {
 	
 	@GetMapping("/camping/recomm/{category}/{animal}/{keywords}")
 	public List<CampingFindResponse> readByCore(
-			@ApiParam(value = "선택된 캠핑장 유형", required = true) @RequestParam String category,
-			@ApiParam(value = "선택된 반려견 동반 여부", required = true) @RequestParam String animal,
-			@ApiParam(value = "선택된 캠핑장 키워드들", required = true) @RequestParam String keywords,
-			@ApiParam(value = "jwt토큰", required = true) @RequestParam String jwtToken) throws ParseException {
-		return campingService.findByCore(category, animal, keywords, jwtToken);
+			@ApiParam(value = "현재 유저 PK", required = true) @RequestHeader String userId,
+			@ApiParam(value = "선택된 캠핑장 유형", required = true) @PathVariable  String category,
+			@ApiParam(value = "선택된 반려견 동반 여부", required = true) @PathVariable String animal,
+			@ApiParam(value = "선택된 캠핑장 키워드들", required = true) @PathVariable String keywords) throws ParseException {
+		return campingService.findByCore(userId, category, animal, keywords);
 	}
 }
