@@ -24,8 +24,8 @@ public class CarabanController {
     })
     public CarabanSaveResponse create(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                       @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        Long resultid = carabanService.create(userId, reservationId);
-        return new CarabanSaveResponse(resultid);
+        Long resultId = carabanService.create(userId, reservationId);
+        return new CarabanSaveResponse(resultId);
     }
 
     @DeleteMapping("/caraban/{reservationId}")
