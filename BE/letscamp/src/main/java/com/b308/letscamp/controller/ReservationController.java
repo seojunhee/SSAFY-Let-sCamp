@@ -36,7 +36,6 @@ public class ReservationController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<ReservationFindByUserIdResponse> readByUserId(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId) {
-        System.out.println(userId);
         List<ReservationFindByUserIdResponse> list = reservationService.findByUserId(userId);
         return list;
     }
