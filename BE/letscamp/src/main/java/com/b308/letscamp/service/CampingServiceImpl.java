@@ -47,7 +47,7 @@ public class CampingServiceImpl implements CampingService {
 
 	@Override
 	@ApiOperation(value = "캠핑장 추천 조회", notes = "캠핑장 추천 조회")
-	public List<CampingFindResponse> findByCore(String userId, String category, String animal, String keywords, String jwtToken) throws ParseException {
+	public List<CampingFindResponse> findByCore(String userId, String category, String animal, String keywords) throws ParseException {
 		// 1. 파라미터를 이용하여 core 서버에 추천 요청
 		ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
 				.codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(-1))
@@ -55,7 +55,7 @@ public class CampingServiceImpl implements CampingService {
 		String path = category + "/" + animal + "/" + keywords;
 		WebClient webClient = WebClient.builder()
 				.exchangeStrategies(exchangeStrategies)
-				.baseUrl("http://k7b308.p.ssafy.io:8000/recomm/")
+				.baseUrl("http://127.0.0.1:8000/recomm/")
 				.build();
 		String apiResponseToJson = webClient
 				.get()
@@ -73,6 +73,8 @@ public class CampingServiceImpl implements CampingService {
 		List<CampingFindResponse> campingList = new ArrayList<>();
 		for (int i = 0; i < jsonArray.size(); i++) {
 			String str = jsonArray.get(i).toString();
+			str = str.substring(1);
+			str = str.substring(0, str.length() - 1);
 			Long id = Long.parseLong(str);
 			id = id + 1L;
 			CampingFindResponse camping = findById(id);
@@ -80,7 +82,7 @@ public class CampingServiceImpl implements CampingService {
 		}
 		
 		// 4. 싫어요한 캠핑장 제외하고 추천
-		if(jwtToken != null) {
+		if(userId != null) {
 			List<HateFindResponse> hateList = hateService.findByUserId(userId);
 			for (int i = 0; i < hateList.size(); i++) {
 				for (int j = 0; j < campingList.size(); j++) {

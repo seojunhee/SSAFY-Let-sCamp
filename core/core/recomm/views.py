@@ -50,7 +50,7 @@ def recommend_campings(request, category, animal, keywords):
         similar_indexes = sorted_ind[base_index]
         result = pd.DataFrame(similar_indexes)
         result.columns = ['인덱스']
-        new_result = result[result['인덱스'].isin(df.index.to_list())].head(10)
+        new_result = result[result['인덱스'].isin(df.index.to_list())].head(200)
 
         return Response(new_result.values, status=status.HTTP_200_OK)
     # 반려 동물 동반일 경우
@@ -83,6 +83,6 @@ def recommend_campings(request, category, animal, keywords):
         similar_indexes = sorted_ind[base_index]
         result = pd.DataFrame(similar_indexes)
         result.columns = ['인덱스']
-        new_result = result[result['인덱스'].isin(df.index.to_list())].head(10)
+        new_result = result[result['인덱스'].isin(df.index.to_list())].head(200)
 
         return Response(new_result.values, status=status.HTTP_200_OK)

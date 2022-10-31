@@ -6,19 +6,17 @@ spring:
   redis:
     host: k7b308.p.ssafy.io
     port: 6379
-#  autoconfigure:
-#      exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://k7b308.p.ssafy.io:3306/letscamp?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-#    username: camp
-#    password: camp308
-
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/letscamp?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: root
+    url: jdbc:mysql://k7b308.p.ssafy.io:3306/letscamp?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: camp
+    password: camp308
+
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/letscamp?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: root
+#    password: root
 
   jpa:
     hibernate:

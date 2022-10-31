@@ -32,11 +32,10 @@ public class CampingController {
 	
 	@GetMapping("/camping/recomm/{category}/{animal}/{keywords}")
 	public List<CampingFindResponse> readByCore(
-			@ApiParam(value = "현재 유저 PK", required = true) @RequestParam String userId,
-			@ApiParam(value = "선택된 캠핑장 유형", required = true) @RequestParam String category,
-			@ApiParam(value = "선택된 반려견 동반 여부", required = true) @RequestParam String animal,
-			@ApiParam(value = "선택된 캠핑장 키워드들", required = true) @RequestParam String keywords,
-			@ApiParam(value = "jwt토큰", required = true) @RequestHeader String jwtToken) throws ParseException {
-		return campingService.findByCore(userId, category, animal, keywords, jwtToken);
+			@ApiParam(value = "현재 유저 PK", required = true) @RequestHeader String userId,
+			@ApiParam(value = "선택된 캠핑장 유형", required = true) @PathVariable  String category,
+			@ApiParam(value = "선택된 반려견 동반 여부", required = true) @PathVariable String animal,
+			@ApiParam(value = "선택된 캠핑장 키워드들", required = true) @PathVariable String keywords) throws ParseException {
+		return campingService.findByCore(userId, category, animal, keywords);
 	}
 }
