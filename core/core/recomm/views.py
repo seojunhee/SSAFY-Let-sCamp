@@ -13,9 +13,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 @api_view(['GET'])
 def recommend_campings(request, category, animal, keywords):
-    # 현재 유저 id 값 추출
-    # user_id = userId
-
     # MySQL 테이블 connect
     engine = create_engine(
         'mysql+pymysql://camp:camp308@k7b308.p.ssafy.io:3306/letscamp', convert_unicode=True)
@@ -23,10 +20,6 @@ def recommend_campings(request, category, animal, keywords):
 
     # Camping 테이블, Hate 테이블 연동
     campings = pd.read_sql_table('Camping', conn)
-    hates = pd.read_sql_table('Hate', conn)
-
-    # 현재 유저의 Hate 정보 추출
-    # user_hates = hates['userId'] == user_id
 
     # 반려 동물 비동반일 경우
     if animal == '비동반':
