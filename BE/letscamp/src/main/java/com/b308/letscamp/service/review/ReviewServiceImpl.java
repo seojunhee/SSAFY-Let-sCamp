@@ -1,14 +1,18 @@
 package com.b308.letscamp.service.review;
 
+import com.b308.letscamp.Exception.CampingNotFoundException;
 import com.b308.letscamp.Exception.ReviewNotFoundException;
 import com.b308.letscamp.Exception.UserNotFoundException;
+import com.b308.letscamp.dto.camping.CampingFindResponse;
 import com.b308.letscamp.dto.review.ReviewFindAllResponse;
 import com.b308.letscamp.dto.review.ReviewFindResponse;
 import com.b308.letscamp.dto.review.ReviewSaveRequest;
 import com.b308.letscamp.dto.review.ReviewUpdateRequest;
 import com.b308.letscamp.dto.user.UserFindResponse;
+import com.b308.letscamp.entity.Camping;
 import com.b308.letscamp.entity.Review;
 import com.b308.letscamp.entity.User;
+import com.b308.letscamp.repository.CampingRepository;
 import com.b308.letscamp.repository.ReviewRepository;
 import com.b308.letscamp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +28,7 @@ import java.util.stream.Collectors;
 public class ReviewServiceImpl implements ReviewService {
     private final ReviewRepository reviewRepository;
     private final UserRepository userRepository;
+    private final CampingRepository campingRepository;
 
     @Override
     public List<ReviewFindAllResponse> findByCampingId(Long campId) {
@@ -42,7 +47,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Transactional
     @Override
-    public Long create(String userId, ReviewSaveRequest dto) {
+    public Long create(String userId, Long campingId, ReviewSaveRequest dto) {
         Optional<User> userOptional = userRepository.findByUserId(userId);
         if (userOptional.isEmpty()) {
             throw new UserNotFoundException();
@@ -57,6 +62,41 @@ public class ReviewServiceImpl implements ReviewService {
                 .address(userFindResponse.getAddress())
                 .build();
         dto.setUser(user);
+
+        Optional<Camping> campingOptional = campingRepository.findById(campingId);
+        if(campingOptional.isEmpty()) {
+            throw new CampingNotFoundException();
+        }
+        CampingFindResponse campingFindResponse = campingOptional.map(CampingFindResponse::new).orElse(null);
+        Camping camping = Camping.builder()
+                .id(campingFindResponse.getId())
+                .name(campingFindResponse.getName())
+                .simple_des(campingFindResponse.getSimple_des())
+                .description(campingFindResponse.getDescription())
+                .running(campingFindResponse.getRunning())
+                .category(campingFindResponse.getCategory())
+                .environment(campingFindResponse.getEnvironment())
+                .dosi(campingFindResponse.getDosi())
+                .gugun(campingFindResponse.getGugun())
+                .address(campingFindResponse.getAddress())
+                .lon(campingFindResponse.getLon())
+                .lat(campingFindResponse.getLat())
+                .tel(campingFindResponse.getTel())
+                .homepage(campingFindResponse.getHomepage())
+                .reserve_url(campingFindResponse.getReserve_url())
+                .gramp_fac(campingFindResponse.getGramp_fac())
+                .caravan_fac(campingFindResponse.getCaravan_fac())
+                .running_season(campingFindResponse.getRunning_season())
+                .running_day(campingFindResponse.getRunning_day())
+                .sub_fac(campingFindResponse.getSub_fac())
+                .sur_fac(campingFindResponse.getSur_fac())
+                .exp_program(campingFindResponse.getExp_program())
+                .theme(campingFindResponse.getTheme())
+                .animal(campingFindResponse.getAnimal())
+                .thumb(campingFindResponse.getThumb())
+                .keywords(campingFindResponse.getKeywords())
+                .build();
+        dto.setCamping(camping);
 
         return reviewRepository.save(dto.toEntity()).getId();
     }
