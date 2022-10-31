@@ -11,6 +11,5 @@ import com.b308.letscamp.dto.camping.CampingFindResponse;
 public interface CampingService {
 	CampingFindResponse findById(long id);
 	List<CampingFindAllResponse> findAll();
-	Long findUserId(String jwtToken);
-	List<CampingFindResponse> findByCore(String category, String animal, String keywords, String jwtToken) throws ParseException;
+	List<CampingFindResponse> findByCore(Long userId, String category, String animal, String keywords) throws ParseException;
 }
