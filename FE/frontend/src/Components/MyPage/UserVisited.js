@@ -5,7 +5,7 @@ const UserVisited = () => {
   return (
     <div className="uservisited">
       <div className="uservisited-box">
-        <img src="" alt="캠핑장 사진" />
+        <img src="/asset/campingcar.png" alt="캠핑장사진" />
         <div className="">캠핑장 정보</div>
         <div className="uservisited-box-">
           <div>내가 준 별점</div>
@@ -13,7 +13,7 @@ const UserVisited = () => {
         </div>
       </div>
       <div className="uservisited-box">
-        <img src="" alt="캠핑장 사진" />
+        <img src="/asset/campingcar.png" alt="캠핑장사진" />
         <div className="">캠핑장 정보</div>
         <div className="uservisited-box-">
           <div>내가 준 별점</div>
@@ -21,7 +21,7 @@ const UserVisited = () => {
         </div>
       </div>
       <div className="uservisited-box">
-        <img src="" alt="캠핑장 사진" />
+        <img src="/asset/campingcar.png" alt="캠핑장사진" />
         <div className="">캠핑장 정보</div>
         <div className="uservisited-box-">
           <div>내가 준 별점</div>

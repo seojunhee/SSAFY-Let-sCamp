@@ -14,7 +14,6 @@ const Mypage = () => {
   return (
     <div className="mypage">
       <Header pageName={"마이페이지"}></Header>
-      <hr />
       <UserInfo></UserInfo>
       <hr />
       <UserReserve></UserReserve>
