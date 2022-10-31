@@ -1,23 +1,41 @@
 
 .userinfo{
-    font-size: 32px;
+    width:100%;
+    font-size: 24px;
 }
 
 .userinfo-img{
- width: 250px;
- height: 250px;
+ width: 200px;
+ height: 200px;
  border-radius: 70%;
+ border: 0.5px solid;
+}
+
+.userinfo-img-box{
+    width:100%;
+}
+
+.userinfo-pencilimg{
+    margin-left: 10px;
+    width:20px;
+    height:20px;
 }
 
 .userinfo-id{
  display: flex;
  justify-content: space-between;
+ width: 90%;
+ margin-left: 5%;
 }
 .userinfo-pw{   
     display: flex;
     justify-content:space-between;
+    width: 90%;
+    margin-left: 5%;
 }
 .userinfo-address{
     display: flex;
     justify-content: space-between;
+    width: 90%;
+    margin-left: 5%;
 }
