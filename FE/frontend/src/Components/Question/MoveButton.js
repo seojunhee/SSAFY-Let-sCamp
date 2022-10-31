@@ -17,7 +17,7 @@ const MoveButton = () => {
     setPage(1)
   }
   const submitButton = (
-    <Link>
+    <Link to="/recommend">
       <button>제출</button>
     </Link>
   )

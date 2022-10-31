@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -20,11 +22,12 @@ public class Reservation {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")   // 외래키
     private User user;
 
-    @Column(name = "camping_id", nullable = false)
-    private Long campingId;
+    @ManyToOne
+    @JoinColumn(name = "camping_id")    // 외래키
+    private Camping camping;
 
     @Column(name = "start_date", nullable = false)
     private String startDate;
@@ -41,4 +44,7 @@ public class Reservation {
     @Column(name = "level", nullable = false)
     @ColumnDefault("0")
     private Long level;
+
+    @OneToMany(mappedBy = "reservation")
+    private List<NormalCamping> normalCampings = new ArrayList<>();
 }

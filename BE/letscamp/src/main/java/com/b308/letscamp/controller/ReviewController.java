@@ -14,16 +14,17 @@ import java.util.List;
 public class ReviewController {
     private final ReviewService reviewService;
 
-    @PostMapping("/review")
+    @PostMapping("/review/{id}")
     @ApiOperation(value = "후기 작성", notes = "후기를 작성하는 요청")
     @ApiResponses({
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public ReviewSaveResponse create(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+                                     @PathVariable @ApiParam(value = "Camping ID", required = true) Long id,
                                      @RequestBody @ApiParam(value = "작성할 후기의 정보가 담긴 객체", required = true) ReviewSaveRequest request) {
-        Long id = reviewService.create(userId, request);
-        return new ReviewSaveResponse(id);
+        Long resultId = reviewService.create(userId, id, request);
+        return new ReviewSaveResponse(resultId);
     }
 
 //    @GetMapping("/review/{id}")

@@ -11,11 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserSaveRequest {
+
     private String userId;
     private String userPw;
     private String nickName;
     private Long exp;
     private String address;
+    private String role;
 
     public User toEntity() {
         return User.builder()
@@ -24,6 +26,7 @@ public class UserSaveRequest {
                 .nickName(nickName)
                 .exp(exp)
                 .address(address)
+                .role("USER")
                 .build();
     }
 }

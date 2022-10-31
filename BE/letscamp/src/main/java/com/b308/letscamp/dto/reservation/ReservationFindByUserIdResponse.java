@@ -23,7 +23,7 @@ public class ReservationFindByUserIdResponse {
     public ReservationFindByUserIdResponse(Reservation reservation) {
         this.id = reservation.getId();
         this.userId = reservation.getUser().getId();
-        this.campingId = reservation.getCampingId();
+        this.campingId = reservation.getCamping().getId();
         this.startDate = reservation.getStartDate();
         this.endDate = reservation.getEndDate();
         this.category = reservation.getCategory();
