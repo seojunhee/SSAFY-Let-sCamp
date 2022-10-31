@@ -4,6 +4,7 @@ import React from "react"
 import Header from "../Components/RecommResultPage/Header.js";
 import CampSite from "../Components/RecommResultPage/CampSite.js";
 import MoreButton from "../Components/RecommResultPage/MoreButton.js"
+import "./style/Button.css"
 
 import { Link, useNavigate } from "react-router-dom";
 
