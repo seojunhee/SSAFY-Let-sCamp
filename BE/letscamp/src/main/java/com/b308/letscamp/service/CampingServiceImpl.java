@@ -47,7 +47,7 @@ public class CampingServiceImpl implements CampingService {
 
 	@Override
 	@ApiOperation(value = "캠핑장 추천 조회", notes = "캠핑장 추천 조회")
-	public List<CampingFindResponse> findByCore(String userId, String category, String animal, String keywords) throws ParseException {
+	public List<CampingFindResponse> findByCore(String userId, String category, String animal, String keywords, String jwtToken) throws ParseException {
 		// 1. 파라미터를 이용하여 core 서버에 추천 요청
 		ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
 				.codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(-1))
@@ -80,11 +80,13 @@ public class CampingServiceImpl implements CampingService {
 		}
 		
 		// 4. 싫어요한 캠핑장 제외하고 추천
-		List<HateFindResponse> hateList = hateService.findByUserId(userId);
-		for (int i = 0; i < hateList.size(); i++) {
-			for (int j = 0; j < campingList.size(); j++) {
-				if(hateList.get(i).getCampingId() == campingList.get(j).getId()) {
-					campingList.remove(j);
+		if(jwtToken != null) {
+			List<HateFindResponse> hateList = hateService.findByUserId(userId);
+			for (int i = 0; i < hateList.size(); i++) {
+				for (int j = 0; j < campingList.size(); j++) {
+					if(hateList.get(i).getCampingId() == campingList.get(j).getId()) {
+						campingList.remove(j);
+					}
 				}
 			}
 		}
