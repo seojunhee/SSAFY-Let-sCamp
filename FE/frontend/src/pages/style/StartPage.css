@@ -9,9 +9,9 @@ html { font-family: 'Inter', sans-serif; }
 }
 
 .startpage-img{
-    width: 100px;
-    height: 100px;
-    margin-top: 32%
+    width: 300px;
+    height: 300px;
+    margin-top: 15%
 }
 
 .startpage-title{
@@ -25,7 +25,7 @@ html { font-family: 'Inter', sans-serif; }
     font-weight: bold;
 }
 .startpage-buttonsbox{
-    margin-top: 300px;
+    margin-top: 100px;
     font-family: 'Inter';
     font-weight: bold;
 }

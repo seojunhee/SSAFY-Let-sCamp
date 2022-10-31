@@ -1,10 +1,17 @@
 import React from "react";
 import "./style/UserVisited.css";
+import { useNavigate } from "react-router-dom";
 
 const UserVisited = () => {
+  const navigate = useNavigate();
   return (
     <div className="uservisited">
-      <div className="uservisited-box">
+      <div
+        className="uservisited-box"
+        onClick={() => {
+          navigate("/detail");
+        }}
+      >
         <img src="/asset/campingcar.png" alt="캠핑장사진" />
         <div className="">캠핑장 정보</div>
         <div className="uservisited-box-">
