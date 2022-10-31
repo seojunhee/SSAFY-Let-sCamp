@@ -31,7 +31,7 @@ public class CampingController {
 	
 	@GetMapping("/camping/recomm/{category}/{animal}/{keywords}")
 	public List<CampingFindResponse> readByCore(
-			@ApiParam(value = "현재 유저 PK", required = true) @RequestParam Long userId,
+			@ApiParam(value = "현재 유저 PK", required = true) @RequestParam String userId,
 			@ApiParam(value = "선택된 캠핑장 유형", required = true) @RequestParam String category,
 			@ApiParam(value = "선택된 반려견 동반 여부", required = true) @RequestParam String animal,
 			@ApiParam(value = "선택된 캠핑장 키워드들", required = true) @RequestParam String keywords,
