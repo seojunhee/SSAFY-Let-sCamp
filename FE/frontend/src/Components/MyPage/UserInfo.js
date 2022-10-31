@@ -24,7 +24,7 @@ const UserInfo = () => {
       <div className="userinfo-nickname">
         {User.nickname}
         <img
-          src="/asset/icons/image 7.png"
+          src="/asset/icons/image7.png"
           alt="이미지"
           className="userinfo-pencilimg"
           onClick={() => {
@@ -42,7 +42,7 @@ const UserInfo = () => {
           <div>
             {User.password}
             <img
-              src="/asset/icons/image 7.png"
+              src="/asset/icons/image7.png"
               alt="이미지"
               className="userinfo-pencilimg"
               onClick={() => {
@@ -56,7 +56,7 @@ const UserInfo = () => {
           <div>
             {User.address}{" "}
             <img
-              src="/asset/icons/image 7.png"
+              src="/asset/icons/image7.png"
               alt="이미지"
               className="userinfo-pencilimg"
               onClick={() => {
