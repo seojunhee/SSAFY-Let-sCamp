@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const CampSite = () => {
   // 캠핑장 추천 장소 리스트
