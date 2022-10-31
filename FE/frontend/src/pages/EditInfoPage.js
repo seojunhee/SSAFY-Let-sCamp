@@ -1,37 +1,51 @@
 import React from "react";
-import { useSetRecoilState } from "recoil";
 import { Link } from "react-router-dom";
-import { pageNameState } from "../Store/state";
 import Header from "../Components/Header/Header.js";
+import "./style/EditInfoPage.css";
 
 const EditInfoPage = () => {
-  const setPageName = useSetRecoilState(pageNameState);
-
-  setPageName("회원정보 수정");
-
   return (
-    <div className="SignUp">
-      <Header></Header>
-      <hr />
-      <div>회원정보를 수정해주세요</div>
-      <div>
-        <input placeholder="아이디(이메일) 수정불가" />
+    <div className="editinfo">
+      <Header pageName={"회원정보 수정"}></Header>
+      <div className="editinfo-subtitle-box">
+        <div className="editinfo-subtitle">회원정보를 수정해주세요</div>
       </div>
-      <div>
-        <input placeholder="닉네임" />
-      </div>
-      <div>
-        <input placeholder="주소" />
-      </div>
-      <div>
-        <input placeholder="비밀번호" />
-      </div>
-      <div>
-        <input placeholder="비밀번호 확인" />
+      <div className="editinfo-input-box">
+        <div>
+          <input
+            placeholder="아이디(이메일) 수정불가"
+            className="editinfo-input"
+          />
+          <hr className="editinfo-underline" />
+        </div>
+        <div>
+          <input placeholder="닉네임" className="editinfo-input" />
+          <hr className="editinfo-underline" />
+        </div>
+        <div>
+          <input placeholder="주소" className="editinfo-input" />
+          <hr className="editinfo-underline" />
+        </div>
+        <div>
+          <input
+            placeholder="비밀번호"
+            className="editinfo-input"
+            type="password"
+          />
+          <hr className="editinfo-underline" />
+        </div>
+        <div>
+          <input
+            placeholder="비밀번호 확인"
+            className="editinfo-input"
+            type="password"
+          />
+          <hr className="editinfo-underline" />
+        </div>
       </div>
       <div>
         <Link to="/signupsucess">
-          <button>변경</button>
+          <button className="editinfo-submit">변경</button>
         </Link>
       </div>
     </div>

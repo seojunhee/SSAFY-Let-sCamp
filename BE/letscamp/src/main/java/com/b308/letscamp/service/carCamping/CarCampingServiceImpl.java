@@ -60,7 +60,7 @@ public class CarCampingServiceImpl implements CarCampingService{
         dto.setReservation(reservation);
 
         dto.setItem("차박용 텐트");
-        dto.setLevel(1L);
+        dto.setLevel(2L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("차량 평탄화 매트");
@@ -72,11 +72,11 @@ public class CarCampingServiceImpl implements CarCampingService{
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("이불 혹은 침낭");
-        dto.setLevel(1L);
+        dto.setLevel(3L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("차량용 냉장고");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("테이블");
@@ -88,7 +88,7 @@ public class CarCampingServiceImpl implements CarCampingService{
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("그릴");
-        dto.setLevel(1L);
+        dto.setLevel(2L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("버너");
@@ -100,15 +100,15 @@ public class CarCampingServiceImpl implements CarCampingService{
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("숯");
-        dto.setLevel(1L);
+        dto.setLevel(3L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("장작");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("팬");
-        dto.setLevel(1L);
+        dto.setLevel(2L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("코펠");
@@ -120,11 +120,11 @@ public class CarCampingServiceImpl implements CarCampingService{
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("화로대");
-        dto.setLevel(1L);
+        dto.setLevel(3L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("선풍기");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("비상약");
@@ -132,10 +132,10 @@ public class CarCampingServiceImpl implements CarCampingService{
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("모기약");
-        dto.setLevel(1L);
+        dto.setLevel(3L);
         carCampingRepository.save(dto.toEntity());
 
-        dto.setItem("기팔/긴바지");
+        dto.setItem("긴팔/긴바지");
         dto.setLevel(1L);
         carCampingRepository.save(dto.toEntity());
 
@@ -144,11 +144,11 @@ public class CarCampingServiceImpl implements CarCampingService{
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("보조배터리");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("설거지통");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("세면도구");
@@ -176,11 +176,11 @@ public class CarCampingServiceImpl implements CarCampingService{
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("블루투스 스피커");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         carCampingRepository.save(dto.toEntity());
 
         dto.setItem("슬리퍼");
-        dto.setLevel(1L);
+        dto.setLevel(3L);
         return carCampingRepository.save(dto.toEntity()).getId();
     }
 

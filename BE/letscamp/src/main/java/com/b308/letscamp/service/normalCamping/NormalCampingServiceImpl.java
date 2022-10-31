@@ -64,15 +64,15 @@ public class NormalCampingServiceImpl implements NormalCampingService {
         normalRepository.save(dto.toEntity());
 
         dto.setItem("타프");
-        dto.setLevel(1L);
+        dto.setLevel(3L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("자충매트");
-        dto.setLevel(1L);
+        dto.setLevel(2L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("자충베개");
-        dto.setLevel(1L);
+        dto.setLevel(2L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("테이블");
@@ -84,19 +84,19 @@ public class NormalCampingServiceImpl implements NormalCampingService {
         normalRepository.save(dto.toEntity());
 
         dto.setItem("아이스박스");
-        dto.setLevel(2L);
-        normalRepository.save(dto.toEntity());
-
-        dto.setItem("그릴");
         dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
-        dto.setItem("버너");
+        dto.setItem("그릴");
         dto.setLevel(2L);
         normalRepository.save(dto.toEntity());
 
+        dto.setItem("버너");
+        dto.setLevel(1L);
+        normalRepository.save(dto.toEntity());
+
         dto.setItem("부탄가스");
-        dto.setLevel(2L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("숯");
@@ -104,7 +104,7 @@ public class NormalCampingServiceImpl implements NormalCampingService {
         normalRepository.save(dto.toEntity());
 
         dto.setItem("장작");
-        dto.setLevel(2L);
+        dto.setLevel(3L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("팬");
@@ -112,87 +112,87 @@ public class NormalCampingServiceImpl implements NormalCampingService {
         normalRepository.save(dto.toEntity());
 
         dto.setItem("코펠");
-        dto.setLevel(2L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("조명");
-        dto.setLevel(2L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("화로대");
-        dto.setLevel(2L);
+        dto.setLevel(3L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("선풍기");
-        dto.setLevel(0L);
+        dto.setLevel(4L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("비상약");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("모기약");
-        dto.setLevel(0L);
+        dto.setLevel(3L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("긴팔/긴바지");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("담요");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("이불 혹은 침낭");
-        dto.setLevel(0L);
+        dto.setLevel(3L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("보조배터리");
-        dto.setLevel(0L);
+        dto.setLevel(4L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("릴선");
-        dto.setLevel(0L);
+        dto.setLevel(4L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("멀티탭");
-        dto.setLevel(0L);
+        dto.setLevel(4L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("설거지통");
-        dto.setLevel(0L);
+        dto.setLevel(4L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("세면도구");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("수건");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("조리도구");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("휴지");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("물티슈");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("쓰레기봉투");
-        dto.setLevel(0L);
+        dto.setLevel(1L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("블루투스 스피커");
-        dto.setLevel(0L);
+        dto.setLevel(4L);
         normalRepository.save(dto.toEntity());
 
         dto.setItem("슬리퍼");
-        dto.setLevel(0L);
+        dto.setLevel(3L);
         return normalRepository.save(dto.toEntity()).getId();
     }
 

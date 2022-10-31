@@ -1,5 +1,6 @@
 package com.b308.letscamp.jwt;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,7 +12,10 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Base64;
+import java.util.HashMap;
 
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends GenericFilterBean {
@@ -23,7 +27,8 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         // 헤더에서 JWT 를 받아옵니다.
-        String token = resolveToken((HttpServletRequest) request);
+        String token = resolveToken((HttpServletRequest) request, (HttpServletResponse) response);
+
 
         // 유효한 토큰인지 확인합니다.
         if (token != null && jwtTokenProvider.validateToken(token)) {
@@ -35,8 +40,18 @@ public class JwtAuthenticationFilter extends GenericFilterBean {
         chain.doFilter(request, response);
     }
     // Request Header 에서 토큰 정보 추출
-    private String resolveToken(HttpServletRequest request) {
+    private String resolveToken(HttpServletRequest request, HttpServletResponse response) {
         String bearerToken = request.getHeader(AUTHORIZATION_HEADER);
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String s = new String(
+                    Base64.getDecoder().decode(bearerToken.split("\\.")[1]));
+            HashMap<String, Object> map = objectMapper.readValue(s, HashMap.class);
+            response.setHeader("userId",(String) map.get("sub"));
+        }catch(Exception e){
+
+        }
+
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith(BEARER_TYPE)) {
             return bearerToken.substring(7);
         }

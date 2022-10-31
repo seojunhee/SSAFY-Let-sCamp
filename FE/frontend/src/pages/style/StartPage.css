@@ -1,0 +1,41 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
+.startpage{
+    text-align: center;
+}
+
+.startpage-img{
+    width: 300px;
+    height: 300px;
+    margin-top: 15%
+}
+
+.startpage-title{
+    font-size: 24px;
+    font-family: 'Inter';
+    font-weight: bold;
+}
+.startpage-title2{
+    font-size: 24px;
+    font-family: 'Inter';
+    font-weight: bold;
+}
+.startpage-buttonsbox{
+    margin-top: 100px;
+    font-family: 'Inter';
+    font-weight: bold;
+}
+
+.startpage-button{
+    margin-top : 20px;
+    width: 250px;
+    font-size: 24px;
+    border: none;
+    height: 65px;
+    font-family: 'Inter';
+    font-weight: bold;
+}

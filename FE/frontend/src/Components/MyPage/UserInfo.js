@@ -6,7 +6,7 @@ const UserInfo = () => {
   const navigate = useNavigate();
 
   const User = {
-    id: "test",
+    id: "test@test.com",
     password: "test1234",
     address: "대전광역시 싸피",
     nickname: "김싸피",
@@ -14,48 +14,55 @@ const UserInfo = () => {
 
   return (
     <div className="userinfo">
-      <div>
-        <img className="userinfo-img" src="" alt="프로필사진" />
+      <div className="userinfo-img-box">
+        <img
+          className="userinfo-img"
+          src="/asset/campingcar.png"
+          alt="프로필사진"
+        />
       </div>
-      <div className="userinfo-nickname">{User.nickname}</div>
+      <div className="userinfo-nickname">
+        {User.nickname}
+        <img
+          src="/asset/icons/image 7.png"
+          alt="이미지"
+          className="userinfo-pencilimg"
+          onClick={() => {
+            navigate("/editinfo");
+          }}
+        ></img>
+      </div>
       <div className="userinfo-info">
         <div className="userinfo-id">
           <div>아이디</div>
-          <div>
-            {User.id}{" "}
-            <button
-              onClick={() => {
-                navigate("/editinfo");
-              }}
-            >
-              변경하기
-            </button>
-          </div>
+          <div>{User.id}</div>
         </div>
         <div className="userinfo-pw">
           비밀번호
           <div>
-            {User.password}{" "}
-            <button
+            {User.password}
+            <img
+              src="/asset/icons/image 7.png"
+              alt="이미지"
+              className="userinfo-pencilimg"
               onClick={() => {
                 navigate("/editinfo");
               }}
-            >
-              변경하기
-            </button>
+            ></img>
           </div>
         </div>
         <div className="userinfo-address">
           주소
           <div>
             {User.address}{" "}
-            <button
+            <img
+              src="/asset/icons/image 7.png"
+              alt="이미지"
+              className="userinfo-pencilimg"
               onClick={() => {
                 navigate("/editinfo");
               }}
-            >
-              변경하기
-            </button>
+            ></img>
           </div>
         </div>
       </div>
