@@ -1,13 +1,8 @@
 import React from "react";
 
-import { useSetRecoilState } from "recoil";
-import { pageNameState } from "../../Store/state.js";
-
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const setPageName = useSetRecoilState(pageNameState);
-  setPageName("캠핑장 예약");
 
   return (
     <>
