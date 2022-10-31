@@ -58,6 +58,14 @@ public class CarabanServiceImpl implements CarabanService{
                 .id(reservationFindResponse.getId())
                 .build();
         dto.setReservation(reservation);
+        
+        dto.setItem("테이블");
+        dto.setLevel(1L);
+        carabanRepository.save(dto.toEntity());
+        
+        dto.setItem("의자");
+        dto.setLevel(1L);
+        carabanRepository.save(dto.toEntity());
 
         dto.setItem("비상약");
         dto.setLevel(1L);
