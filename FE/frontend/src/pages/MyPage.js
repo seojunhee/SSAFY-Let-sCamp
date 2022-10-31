@@ -13,7 +13,7 @@ const Mypage = () => {
 
   return (
     <div className="mypage">
-      <Header></Header>
+      <Header pageName={"마이페이지"}></Header>
       <hr />
       <UserInfo></UserInfo>
       <hr />

@@ -11,7 +11,7 @@ const SignUp = () => {
 
   return (
     <div className="SignUp">
-      <Header></Header>
+      <Header pageName={"회원가입"}></Header>
       <div>회원정보를 입력해주세요</div>
       <div>
         <input placeholder="아이디(이메일)" />

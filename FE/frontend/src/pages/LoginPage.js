@@ -27,7 +27,7 @@ const Login = () => {
   };
   return (
     <div className="Login">
-      <Header></Header>
+      <Header pageName={"로그인"}></Header>
       <div>
         <input placeholder="아이디" className="input" />
       </div>
