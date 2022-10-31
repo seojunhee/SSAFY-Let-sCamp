@@ -44,13 +44,12 @@ public class CampingServiceImpl implements CampingService {
 
 	@Override
 	@ApiOperation(value = "캠핑장 추천 조회", notes = "캠핑장 추천 조회")
-	public List<CampingFindResponse> findByCore(String category, String animal, String keywords, String jwtToken) throws ParseException {
+	public List<CampingFindResponse> findByCore(Long userId, String category, String animal, String keywords) throws ParseException {
 		// 1. 파라미터를 이용하여 core 서버에 추천 요청
 		ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
 				.codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(-1))
 				.build();
-		Long userId = 0L;
-		String path = userId + "/" + category + "/" + animal + "/" + keywords;
+		String path = category + "/" + animal + "/" + keywords;
 		WebClient webClient = WebClient.builder()
 				.exchangeStrategies(exchangeStrategies)
 				.baseUrl("http://k7b308.p.ssafy.io:8000/recomm/")
@@ -77,11 +76,6 @@ public class CampingServiceImpl implements CampingService {
 			campingList.add(camping);
 		}
 		return campingList;
-	}
-
-	@Override
-	public Long findUserId(String jwtToken) {
-		return null;
 	}
 	
 }
