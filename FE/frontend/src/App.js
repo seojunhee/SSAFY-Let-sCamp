@@ -10,6 +10,7 @@ import DetailPage from "./pages/DetailPage.js";
 import RecommendResult from "./pages/RecommResultPage";
 import Reserve from "./pages/ReservePage";
 import { RecoilRoot } from "recoil";
+import MapPage from "./pages/MapPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/detail" element={<DetailPage />} />
           <Route path="/recommend" element={<RecommendResult />} />
           <Route path="/reserve" element={<Reserve />} />
+          <Route path="/map" element={<MapPage />} />
         </Routes>
       </RecoilRoot>
     </div>
