@@ -1,6 +1,6 @@
 FROM python:3.10.6
 RUN pip install --upgrade pip
-WORKDIR /var/jenkins_home/workspace/b308_core/core
+WORKDIR /var/jenkins_home/jobs/letscamp/workspace/core/core/
 COPY . .
 WORKDIR ../core
 RUN pip3 install -r requirements.txt
