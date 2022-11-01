@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 const RecommendResult = () => {
   
   return (
-    <div>
+    <div style={{height: "100%"}}>
       <Header pageName="캠핑장 추천"/>
       <CampSite />
       <MoreButton />
