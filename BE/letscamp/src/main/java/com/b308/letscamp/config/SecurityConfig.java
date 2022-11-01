@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -24,6 +25,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final JwtTokenProvider jwtTokenProvider;
 
+    @Override // ignore check swagger resource
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**",
+                "/**/swagger-ui.html", "/webjars/**", "/swagger/**");
+    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -67,4 +73,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
+//    @Override // ignore check swagger resource
+//    public void configure(WebSecurity web) {
+//        web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**",
+//                "/**/swagger-ui.html", "/webjars/**", "/swagger/**");
+//    }
 }

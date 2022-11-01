@@ -7,6 +7,7 @@ import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,10 @@ public class GlampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public GlampingSaveResponse create(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public GlampingSaveResponse create(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                        @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         Long resultId = glampingService.create(userId, reservationId);
         return new GlampingSaveResponse(resultId);
     }
@@ -33,8 +36,10 @@ public class GlampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public GlampingDeleteResponse delete(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public GlampingDeleteResponse delete(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         glampingService.delete(userId, reservationId);
         return new GlampingDeleteResponse(true);
     }
@@ -45,8 +50,10 @@ public class GlampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<GlampingFindResponse> readByUserIdAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<GlampingFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                           @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         List<GlampingFindResponse> list = glampingService.findByUserIdAndReservationId(userId, reservationId);
         return list;
     }
@@ -57,9 +64,11 @@ public class GlampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<GlampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<GlampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                   @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                   @PathVariable @ApiParam(value = "Level", required = true) Long level) {
+        String userId = response.getHeader("userId");
         List<GlampingFindResponse> list = glampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
         return list;
     }
