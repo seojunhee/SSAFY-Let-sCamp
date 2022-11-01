@@ -13,13 +13,10 @@ import { pageNameState } from "../Store/state.js";
 import { Link, useNavigate } from "react-router-dom";
 
 const Reserve = () => {
-  const setPageName = useSetRecoilState(pageNameState);
-
-  setPageName("캠핑장 예약");
   
   return (
     <div>
-      <Header />
+      <Header pageName={"캠핑장 예약"}/>
       <hr style={{"border": "solid 1px black", "backgroundColor" : "black"}}/>
       <CampSiteInfo />
       <hr style={{"border": "solid 1px black", "backgroundColor" : "black"}}/>
