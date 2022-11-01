@@ -22,7 +22,7 @@ const SignUp = () => {
     SetUserPw(e.target.value);
   };
 
-  const url = "http://k7b308.p.ssafy.io:8080/api/user/regist";
+  const url = "https://k7b308.p.ssafy.io/api/user/regist";
   const submit = () => {
     const user = {
       address: address,
@@ -62,48 +62,23 @@ const SignUp = () => {
       </div>
       <div className="SignUp-input-box">
         <div>
-          <input
-            placeholder="아이디(이메일)"
-            className="SignUp-input"
-            value={userId}
-            onChange={changeId}
-          />
+          <input placeholder="아이디(이메일)" className="SignUp-input" value={userId} onChange={changeId} />
           <hr className="SignUp-line" />
         </div>
         <div>
-          <input
-            placeholder="닉네임"
-            className="SignUp-input"
-            value={nickName}
-            onChange={changeNickName}
-          />
+          <input placeholder="닉네임" className="SignUp-input" value={nickName} onChange={changeNickName} />
           <hr className="SignUp-line" />
         </div>
         <div>
-          <input
-            placeholder="주소"
-            className="SignUp-input"
-            value={address}
-            onChange={changeAddress}
-          />
+          <input placeholder="주소" className="SignUp-input" value={address} onChange={changeAddress} />
           <hr className="SignUp-line" />
         </div>
         <div>
-          <input
-            placeholder="비밀번호"
-            className="SignUp-input"
-            type="password"
-            value={userPw}
-            onChange={changePw}
-          />
+          <input placeholder="비밀번호" className="SignUp-input" type="password" value={userPw} onChange={changePw} />
           <hr className="SignUp-line" />
         </div>
         <div>
-          <input
-            placeholder="비밀번호 확인"
-            className="SignUp-input"
-            type="password"
-          />
+          <input placeholder="비밀번호 확인" className="SignUp-input" type="password" />
           <hr className="SignUp-line" />
         </div>
       </div>
