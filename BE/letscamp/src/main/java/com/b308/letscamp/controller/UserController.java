@@ -79,6 +79,7 @@ public class UserController {
                                      @RequestBody @ApiParam(value = "수정할 정보를 담고있는 user 객체", required = true) UserUpdateRequest request) {
         UserFindResponse user = userService.findByUserId(userId);
         request.setId(user.getId());
+        request.setUserPw(passwordEncoder.encode(request.getUserPw()));
         Long id = userService.update(request);
         return new UserUpdateResponse(id);
     }
