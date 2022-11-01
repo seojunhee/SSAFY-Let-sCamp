@@ -28,7 +28,7 @@ const NavBar = () => {
           alt="지도페이지"
           className="navbar-icon"
           onClick={() => {
-            navigate("/mypage");
+            navigate("/map");
           }}
         ></img>
         <img
