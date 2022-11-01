@@ -3,6 +3,7 @@ package com.b308.letscamp.service.user;
 import com.b308.letscamp.Exception.UserNotFoundException;
 import com.b308.letscamp.dto.user.UserFindResponse;
 import com.b308.letscamp.dto.user.UserSaveRequest;
+import com.b308.letscamp.dto.user.UserUpdateExpRequest;
 import com.b308.letscamp.dto.user.UserUpdateRequest;
 import com.b308.letscamp.entity.User;
 import com.b308.letscamp.repository.UserRepository;
@@ -30,6 +31,13 @@ public class UserServiceImpl implements UserService {
             throw new UserNotFoundException();
         }
         return userOptional.map(UserFindResponse::new).orElse(null);
+    }
+
+    @Transactional
+    @Override
+    public Long updateExp(UserUpdateExpRequest dto) {
+        User user = userRepository.findById(dto.getId()).orElseThrow(UserNotFoundException::new);
+        return user.updateExp(dto.getExp()).getId();
     }
 
     @Transactional

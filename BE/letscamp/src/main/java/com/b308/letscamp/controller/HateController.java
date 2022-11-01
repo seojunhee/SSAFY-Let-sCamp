@@ -9,6 +9,7 @@ import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -23,9 +24,11 @@ public class HateController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public HateSaveResponse create(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public HateSaveResponse create(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                    @RequestBody @ApiParam(value = "작성할 후기의 정보가 담긴 객체", required = true)HateSaveRequest request,
                                    @PathVariable @ApiParam(value = "Camping ID", required = true) Long id) {
+        String userId = response.getHeader("userId");
         Long resultId = hateService.create(userId, id, request);
         return new HateSaveResponse(resultId);
     }
@@ -47,7 +50,10 @@ public class HateController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<HateFindResponse> readByUserId(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId) {
+    public List<HateFindResponse> readByUserId(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId
+    ) {
+        String userId = response.getHeader("userId");
         List<HateFindResponse> list = hateService.findByUserId(userId);
         return list;
     }
