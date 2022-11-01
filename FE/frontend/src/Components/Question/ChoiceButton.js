@@ -4,15 +4,28 @@ import { questionPage } from "../../Store/state";
 
 import "./style/ChoiceButton.css"
 
-const ChoiceButton = () => {
+const ChoiceButton = () => { 
   const [page] = useRecoilState(questionPage);
+  
 
   const question1 = (
-    <div className="choice-area">
-      <div className="choice-who">가족</div>
-      <div className="choice-who">커플</div>
-      <div className="choice-who">친구</div>
-      <div className="choice-who">아이들과 함께</div>
+    <div className="grid height-55">
+      <div className="item col-6 w-btn">
+        <p>가족</p>
+        <img src="." alt="가족"/>
+      </div>
+      <div className="item col-6 w-btn">
+        <p>커플</p>
+        <img src="." alt="커플"/>
+      </div>
+      <div className="item col-6 w-btn">
+        <p>친구</p>
+        <img src="." alt="친구"/>
+      </div>
+      <div className="item col-6 w-btn">
+        <p>아이들과 함께</p>
+        <img src="." alt="아이들"/>
+      </div>
     </div>
   )
 

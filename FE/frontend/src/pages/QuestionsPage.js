@@ -9,7 +9,10 @@ import Question from "../Components/Question/Question.js";
 // data
 import { useRecoilState } from "recoil";
 import { questionPage } from "../Store/state.js";
+
+// css
 import "../App.css"
+import "./style/Button.css"
 
 const Questions = () => {
 
