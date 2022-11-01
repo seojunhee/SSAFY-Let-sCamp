@@ -40,6 +40,17 @@ public class UserServiceImpl implements UserService {
         return user.updateExp(dto.getExp()).getId();
     }
 
+    @Override
+    public boolean isDupl(String userId) {
+        Optional<User> userOptional = userRepository.findByUserId(userId);
+        if(userOptional.isEmpty()) {
+            // 비었으면 중복이 아니다
+            return false;
+        }
+        // 비어있지 않으니 중복이다.
+        return true;
+    }
+
     @Transactional
     @Override
     public Long update(UserUpdateRequest dto) {

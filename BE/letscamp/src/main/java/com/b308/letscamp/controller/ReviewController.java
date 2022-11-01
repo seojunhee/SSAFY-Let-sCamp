@@ -30,25 +30,27 @@ public class ReviewController {
         return new ReviewSaveResponse(resultId);
     }
 
-//    @GetMapping("/review/{id}")
-//    @ApiOperation(value = "후기 1개 조회", notes = "후기 1개의 정보를 조회한다.")
-//    @ApiResponses({
-//            @ApiResponse(code = 200, message = "요청 성공"),
-//            @ApiResponse(code = 500, message = "서버 에러")
-//    })
-//    public ReviewFindResponse read(@PathVariable @ApiParam(value = "Review ID", required = true) Long id) {
-//        return reviewService.findById(id);
-//    }
+    @GetMapping("/review/user")
+    @ApiOperation(value = "로그인한 유저의 후기 리스트 조회", notes = "로그인한 유저의 후기 리스트 정보를 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public List<ReviewFindResponse> readByUserId(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response) {
+        String userId = response.getHeader("userId");
+        List<ReviewFindResponse> list = reviewService.findByUserId(userId);
+        return list;
+    }
 
-    @GetMapping("/review/{id}")
+    @GetMapping("/review/{campingId}")
     @ApiOperation(value = "해당 캠프의 후기 전체조회", notes = "모든 후기 리스트를 조회한다.")
     @ApiResponses({
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<ReviewFindAllResponse> readByCampingId(@PathVariable @ApiParam(value = "Camping ID", required = true) Long id) {
+    public List<ReviewFindAllResponse> readByCampingId(@PathVariable @ApiParam(value = "Camping ID", required = true) Long campingId) {
         // Id = campingId
-        List<ReviewFindAllResponse> list = reviewService.findByCampingId(id);
+        List<ReviewFindAllResponse> list = reviewService.findByCampingId(campingId);
         return list;
     }
 
