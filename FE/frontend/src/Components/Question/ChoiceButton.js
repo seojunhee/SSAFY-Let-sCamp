@@ -2,7 +2,6 @@ import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { questionPage } from "../../Store/state";
 
-import "./style/ChoiceButton.css"
 
 const ChoiceButton = () => { 
   const [page] = useRecoilState(questionPage);

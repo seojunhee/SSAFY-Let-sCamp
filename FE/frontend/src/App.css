@@ -158,6 +158,21 @@
   position: relative;
 }
 
+.position-left {
+  position: absolute;
+  left: -1%;
+}
+
+.position-right {
+  position: absolute;
+  right: 5%;
+}
+
+.position-center {
+  position: absolute;
+  left: 50%;
+}
+
 .position-bottom {
   position: absolute;
   bottom: 10%;
