@@ -1,0 +1,16 @@
+.width-100 {
+  width: 100%;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+.inner-div {
+  width: 100%;
+}
+
+.outer-div {
+  display : flex;
+  align-items : center;
+}
