@@ -7,4 +7,5 @@ public interface UserService {
     Long update(UserUpdateRequest dto);
     UserFindResponse findByUserId(String userId);
     Long updateExp(UserUpdateExpRequest dto);
+    boolean isDupl(String userId);
 }

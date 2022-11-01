@@ -103,4 +103,25 @@ public class UserController {
         Long id = userService.updateExp(request);
         return new UserUpdateResponse(id);
     }
+
+    @GetMapping("/user/myInfo")
+    @ApiOperation(value = "로그인한 유저 정보", notes = "로그인한 유저 정보 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public UserFindResponse read(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response) {
+        String userId = response.getHeader("userId");
+        return userService.findByUserId(userId);
+    }
+
+    @GetMapping("/user/check/{userId}")
+    @ApiOperation(value = "아이디 중복 여부", notes = "아이디 중복 여부를 확인한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public UserCheckResponse check(@PathVariable @ApiParam(value = "입력한 userId", required = true) String userId) {
+        return new UserCheckResponse(userService.isDupl(userId));
+    }
 }
