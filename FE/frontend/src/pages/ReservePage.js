@@ -23,8 +23,8 @@ const Reserve = () => {
       <div className="grid">
         <h3 className="col-4">예약 정보</h3>
       </div>
-      <ReservationInfo title="날짜" content="2022년 11월 25일 ~ 27일"/>
-      <ReservationInfo title="인원" content="성인 2명 유아 1명 반려동물 1마리"/>
+      <ReservationInfo title="날짜" content="2022년 11월 25일 ~ 2022년 11월 27일"/>
+      <ReservationInfo title="인원" content="성인 20명 유아 10명 반려동물 10마리"/>
       <hr style={{"border": "solid 1px black", "backgroundColor" : "black"}}/>
       <ReserveBtn />  
 

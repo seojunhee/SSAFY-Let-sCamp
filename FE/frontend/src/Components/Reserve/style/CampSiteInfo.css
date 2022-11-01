@@ -20,3 +20,12 @@
 .img {
   object-fit: cover;
 }
+
+.rem117 {
+  font-size: 1.17rem;
+}
+
+.text-h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+}
