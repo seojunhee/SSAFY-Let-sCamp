@@ -158,6 +158,21 @@
   position: relative;
 }
 
+.position-left {
+  position: absolute;
+  left: -1%;
+}
+
+.position-right {
+  position: absolute;
+  right: 5%;
+}
+
+.position-center {
+  position: absolute;
+  left: 50%;
+}
+
 .position-bottom {
   position: absolute;
   bottom: 10%;
@@ -165,4 +180,8 @@
 
 .width-100 {
   width: 100%;
+}
+
+.height-55 {
+  height: 55%;
 }

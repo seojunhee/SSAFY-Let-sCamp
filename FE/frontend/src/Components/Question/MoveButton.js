@@ -3,13 +3,17 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import { Link } from "react-router-dom";
 import { questionPage } from "../../Store/state";
 
+// css
+import "./style/QuestionButton.css"
+
 const MoveButton = () => {
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
 
-  const moveNextPage = () => {
-    setPage(page + 1)
-  }
+  // const moveNextPage = () => {
+  //   setPage(page + 1)
+  // }
+
   const movePrePage = () => {
     setPage(page - 1)
   }
@@ -18,18 +22,18 @@ const MoveButton = () => {
   }
   const submitButton = (
     <Link to="/recommend">
-      <button>제출</button>
+      <button className="item col-2 w-btn" onClick={resetPage}>제출</button>
     </Link>
   )
   return (
     <>
-      <div className="container">
-        {page > 1 && (<button onClick={ movePrePage }>이전</button>)}
+      <div className="position-bottom outer-div width-100">
+      
+        {page > 1 && (<button className="w-btn" onClick={ movePrePage }>이전</button>)}
         <Link to="/">
-          <button onClick={ resetPage }>홈으로</button>
+          <button className="w-btn" onClick={ resetPage }>홈으로</button>
         </Link>
         
-        {page < 5 && <button onClick={ moveNextPage }>다음</button>}
         {page === 5 && submitButton}
       </div>
     </>
