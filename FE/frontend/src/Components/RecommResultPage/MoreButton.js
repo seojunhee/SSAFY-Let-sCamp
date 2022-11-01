@@ -14,7 +14,8 @@ const Header = () => {
           <button className="w-btn w-btn-blue">Let's Camp!</button>
         </Link>
       </div>
-      <div>더 알아보기</div>
+      {/* 모달 적용해서 띄우기 */}
+      <div className="more container">더 알아보기</div>
     </>
   )
 };
