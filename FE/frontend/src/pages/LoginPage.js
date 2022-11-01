@@ -1,23 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style/Login.css";
 import axios from "axios";
+/*
 import { userState } from "../Store/state.js";
 import { useRecoilState } from "recoil";
+*/
 import Header from "../Components/Header/Header.js";
 import { useNavigate } from "react-router-dom";
+import letsCamp from "../api/LetsCamp";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [user] = useRecoilState(userState);
+  //const [user] = useRecoilState(userState);
+  const [id, SetId] = useState("");
+  const [pw, SetPw] = useState("");
 
-  const url = "주소값";
+  //const url = "http://k7b308.p.ssafy.io:8080/api/user/login/" + id + "/" + pw;
+  const url = letsCamp.user.login(id, pw);
+  const changeId = (e) => {
+    SetId(e.target.value);
+  };
+  const changePw = (e) => {
+    SetPw(e.target.value);
+  };
+
   const submit = () => {
+    console.log(url);
+
     axios
-      .get(url, {
-        params: user,
-      })
+      .get(url)
       .then(function (response) {
         console.log("성공");
+        console.log(response);
+        sessionStorage.setItem("accessToken", response.data.accessToken);
+        sessionStorage.setItem("refreshToken", response.data.refreshToken);
+        console.log(sessionStorage.getItem("accessToken"));
+        console.log(sessionStorage.getItem("refreshToken"));
+        navigate("/mypage");
       })
       .catch(function (error) {
         console.log("실패");
@@ -28,11 +47,22 @@ const Login = () => {
       <Header pageName={"로그인"}></Header>
       <div className="inputbox">
         <div>
-          <input placeholder="아이디" className="input" />
+          <input
+            placeholder="아이디"
+            className="input"
+            value={id}
+            onChange={changeId}
+          />
           <hr className="Login-underline" />
         </div>
         <div>
-          <input placeholder="비밀번호" className="input" type="password" />
+          <input
+            placeholder="비밀번호"
+            className="input"
+            type="password"
+            value={pw}
+            onChange={changePw}
+          />
           <hr className="Login-underline" />
         </div>
       </div>
