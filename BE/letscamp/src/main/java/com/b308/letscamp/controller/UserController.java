@@ -17,6 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -75,12 +76,31 @@ public class UserController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public UserUpdateResponse update(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public UserUpdateResponse update(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                      @RequestBody @ApiParam(value = "수정할 정보를 담고있는 user 객체", required = true) UserUpdateRequest request) {
+        String userId = response.getHeader("userId");
         UserFindResponse user = userService.findByUserId(userId);
         request.setId(user.getId());
         request.setUserPw(passwordEncoder.encode(request.getUserPw()));
         Long id = userService.update(request);
+        return new UserUpdateResponse(id);
+    }
+
+    @PutMapping("/user/update/{exp}")
+    @ApiOperation(value = "경험치 수정", notes = "경험치를 수정하는 요청")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public UserUpdateResponse updateExp(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+                                        @PathVariable @ApiParam(value = "경험치 정보", required = true) Long exp,
+                                        UserUpdateExpRequest request) {
+        String userId = response.getHeader("userId");
+        UserFindResponse user = userService.findByUserId(userId);
+        request.setId(user.getId());
+        request.setExp(exp);
+        Long id = userService.updateExp(request);
         return new UserUpdateResponse(id);
     }
 }

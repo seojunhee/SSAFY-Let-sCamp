@@ -6,6 +6,7 @@ import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -20,8 +21,10 @@ public class NormalCampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public NormalCampingSaveResponse create(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public NormalCampingSaveResponse create(HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                             @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         Long resultId = normalCampingService.create(userId, reservationId);
         return new NormalCampingSaveResponse(resultId);
     }
@@ -32,8 +35,10 @@ public class NormalCampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public NormalCampingDeleteResponse delete(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public NormalCampingDeleteResponse delete(HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                               @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         normalCampingService.delete(userId, reservationId);
         return new NormalCampingDeleteResponse(true);
     }
@@ -44,8 +49,10 @@ public class NormalCampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<NormalCampingFindResponse> readByUserIdAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<NormalCampingFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         List<NormalCampingFindResponse> list = normalCampingService.findByUserIdAndReservationId(userId, reservationId);
         return list;
     }
@@ -56,9 +63,11 @@ public class NormalCampingController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<NormalCampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<NormalCampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                @PathVariable @ApiParam(value = "Level", required = true) Long level) {
+        String userId = response.getHeader("userId");
         List<NormalCampingFindResponse> list = normalCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
         return list;
     }

@@ -6,4 +6,5 @@ public interface UserService {
     Long create(UserSaveRequest dto);
     Long update(UserUpdateRequest dto);
     UserFindResponse findByUserId(String userId);
+    Long updateExp(UserUpdateExpRequest dto);
 }

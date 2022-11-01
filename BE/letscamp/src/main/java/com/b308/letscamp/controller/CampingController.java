@@ -15,6 +15,8 @@ import com.b308.letscamp.service.CampingService;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 
+import javax.servlet.http.HttpServletResponse;
+
 @RestController
 @RequiredArgsConstructor
 public class CampingController {
@@ -32,10 +34,12 @@ public class CampingController {
 	
 	@GetMapping("/camping/recomm/{category}/{animal}/{keywords}")
 	public List<CampingFindResponse> readByCore(
-			@ApiParam(value = "현재 유저 PK", required = true) @RequestHeader String userId,
+//			@ApiParam(value = "현재 유저 PK", required = true) @RequestHeader String userId,
+			@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
 			@ApiParam(value = "선택된 캠핑장 유형", required = true) @PathVariable  String category,
 			@ApiParam(value = "선택된 반려견 동반 여부", required = true) @PathVariable String animal,
 			@ApiParam(value = "선택된 캠핑장 키워드들", required = true) @PathVariable String keywords) throws ParseException {
+		String userId = response.getHeader("userId");
 		return campingService.findByCore(userId, category, animal, keywords);
 	}
 }
