@@ -3,7 +3,8 @@ import React from "react";
 const Review = () => {
   return (
     <div>
-      <div>1234</div>
+      <div>유저이름</div>
+      <div>코멘트</div>
     </div>
   );
 };
