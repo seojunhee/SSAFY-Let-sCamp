@@ -55,7 +55,7 @@ public class CampingServiceImpl implements CampingService {
 		String path = category + "/" + animal + "/" + keywords;
 		WebClient webClient = WebClient.builder()
 				.exchangeStrategies(exchangeStrategies)
-				.baseUrl("http://127.0.0.1:8000/recomm/")
+				.baseUrl("http://k7b308.p.ssafy.io:8000/recomm/")
 				.build();
 		String apiResponseToJson = webClient
 				.get()
