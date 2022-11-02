@@ -54,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests() // 요청에 대한 사용권한 체크
 //                .antMatchers("/admin/**").hasRole("ADMIN")
 //                .antMatchers("/api/camping").hasRole("USER")
-                .antMatchers("/user/**","/camping").permitAll()
+                .antMatchers("/user/**","/camping/**").permitAll()
                 .anyRequest().authenticated() // 그외 나머지 요청은 누구나 접근 가능
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider),
@@ -64,7 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.addAllowedOrigin("*");
+        configuration.addAllowedOriginPattern("*");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
         configuration.setAllowCredentials(true);
@@ -73,4 +73,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
+//    @Override // ignore check swagger resource
+//    public void configure(WebSecurity web) {
+//        web.ignoring().antMatchers("/v2/api-docs", "/swagger-resources/**",
+//                "/**/swagger-ui.html", "/webjars/**", "/swagger/**");
+//    }
 }

@@ -37,12 +37,14 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public ReviewFindResponse findById(Long id) {
-        Optional<Review> reviewOptional = reviewRepository.findById(id);
-        if (reviewOptional.isEmpty()) {
-            throw new ReviewNotFoundException();
+    public List<ReviewFindResponse> findByUserId(String userId) {
+        Optional<User> userOptional = userRepository.findByUserId(userId);
+        if (userOptional.isEmpty()) {
+            throw new UserNotFoundException();
         }
-        return reviewOptional.map(ReviewFindResponse::new).orElse(null);
+        UserFindResponse userFindResponse = userOptional.map(UserFindResponse::new).orElse(null);
+        return reviewRepository.findByUserId(userFindResponse.getId()).stream().map(ReviewFindResponse::new)
+                .collect(Collectors.toList());
     }
 
     @Transactional

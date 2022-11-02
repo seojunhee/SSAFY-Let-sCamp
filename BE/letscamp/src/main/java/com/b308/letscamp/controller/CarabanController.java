@@ -8,6 +8,7 @@ import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -22,8 +23,10 @@ public class CarabanController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public CarabanSaveResponse create(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public CarabanSaveResponse create(HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                       @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         Long resultId = carabanService.create(userId, reservationId);
         return new CarabanSaveResponse(resultId);
     }
@@ -34,8 +37,10 @@ public class CarabanController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public CarabanDeleteResponse delete(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public CarabanDeleteResponse delete(HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                         @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         carabanService.delete(userId, reservationId);
         return new CarabanDeleteResponse(true);
     }
@@ -46,8 +51,10 @@ public class CarabanController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<CarabanFindResponse> readByUserIdAndReservationIdResponse(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<CarabanFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
+        String userId = response.getHeader("userId");
         List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationId(userId, reservationId);
         return list;
     }
@@ -58,9 +65,11 @@ public class CarabanController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public List<CarabanFindResponse> readByUserIdAndReservationIdResponseAndLevel(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public List<CarabanFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                  @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                  @PathVariable @ApiParam(value = "Level", required = true) Long level) {
+        String userId = response.getHeader("userId");
         List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
         return list;
     }

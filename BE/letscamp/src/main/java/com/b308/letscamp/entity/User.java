@@ -52,4 +52,9 @@ public class User {
         this.userPw = userPw;
         return this;
     }
+
+    public User updateExp(Long exp) {
+        this.exp = exp;
+        return this;
+    }
 }

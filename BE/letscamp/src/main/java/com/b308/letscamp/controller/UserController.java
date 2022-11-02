@@ -78,14 +78,17 @@ public class UserController {
             @ApiResponse(code = 200, message = "요청 성공"),
             @ApiResponse(code = 500, message = "서버 에러")
     })
-    public UserUpdateResponse update(@RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
+    public UserUpdateResponse update(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                      @RequestBody @ApiParam(value = "수정할 정보를 담고있는 user 객체", required = true) UserUpdateRequest request) {
+        String userId = response.getHeader("userId");
         UserFindResponse user = userService.findByUserId(userId);
         request.setId(user.getId());
         request.setUserPw(passwordEncoder.encode(request.getUserPw()));
         Long id = userService.update(request);
         return new UserUpdateResponse(id);
     }
+
 
     @GetMapping("/user/reissue")
     public ResponseEntity<?> reissueTokens(@RequestHeader(name = "refresh") String refreshToken, @RequestHeader(name = "Access") String aceessToken, HttpServletRequest request, HttpServletResponse response) {
@@ -105,5 +108,43 @@ public class UserController {
                     "토큰이 만료되었습니다.", HttpStatus.BAD_REQUEST
             );
         }
+
+    @PutMapping("/user/update/{exp}")
+    @ApiOperation(value = "경험치 수정", notes = "경험치를 수정하는 요청")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public UserUpdateResponse updateExp(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
+                                        @PathVariable @ApiParam(value = "경험치 정보", required = true) Long exp,
+                                        UserUpdateExpRequest request) {
+        String userId = response.getHeader("userId");
+        UserFindResponse user = userService.findByUserId(userId);
+        request.setId(user.getId());
+        request.setExp(exp);
+        Long id = userService.updateExp(request);
+        return new UserUpdateResponse(id);
+    }
+
+    @GetMapping("/user/myInfo")
+    @ApiOperation(value = "로그인한 유저 정보", notes = "로그인한 유저 정보 조회한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public UserFindResponse read(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response) {
+        String userId = response.getHeader("userId");
+        return userService.findByUserId(userId);
+    }
+
+    @GetMapping("/user/check/{userId}")
+    @ApiOperation(value = "아이디 중복 여부", notes = "아이디 중복 여부를 확인한다.")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public UserCheckResponse check(@PathVariable @ApiParam(value = "입력한 userId", required = true) String userId) {
+        return new UserCheckResponse(userService.isDupl(userId));
+
     }
 }

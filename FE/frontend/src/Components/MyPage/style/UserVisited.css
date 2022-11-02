@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     height: 100px;
+    border : 1px solid;
 }
 
 .uservisited-box-rating{
