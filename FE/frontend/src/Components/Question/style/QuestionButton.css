@@ -10,3 +10,9 @@
 .hidden-btn {
   visibility : hidden;
 }
+
+/* .grid-center {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-items: center;
+} */

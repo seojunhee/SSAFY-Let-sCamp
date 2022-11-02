@@ -27,7 +27,7 @@ const MoveButton = () => {
   )
   return (
     <>
-      <div className="outer-div width-100">
+      <div className="position-bottom outer-div width-100">
       
         {page > 1 && (<button className="w-btn" onClick={ movePrePage }>이전</button>)}
         <Link to="/">

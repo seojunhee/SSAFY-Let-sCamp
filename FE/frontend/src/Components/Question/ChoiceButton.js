@@ -40,13 +40,19 @@ const ChoiceButton = () => {
   )
 
   const question3 = (
-    <div className="grid height-55">
+    <div className="height-30">
+    <div className="grid height-50">
       <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>산</div>
       <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>바다</div>
       <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>도심</div>
+    </div>
+    <div className="grid height-50">
+      <div className="item col-2"></div>
       <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>숲</div>
       <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>섬</div>
     </div>
+    </div>
+
   )
 
   const question4 = (
