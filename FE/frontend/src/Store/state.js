@@ -32,3 +32,8 @@ export const withPet = atom({
   key: "withPet",
   default: ""
 })
+
+export const withWho = atom({
+  key: "withWho",
+  default: ""
+})
