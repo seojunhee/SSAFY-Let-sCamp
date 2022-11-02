@@ -6,6 +6,7 @@ import com.b308.letscamp.entity.User;
 import com.b308.letscamp.jwt.JwtTokenProvider;
 import com.b308.letscamp.jwt.TokenInfo;
 import com.b308.letscamp.service.user.UserService;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -17,6 +18,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
@@ -87,6 +89,26 @@ public class UserController {
         return new UserUpdateResponse(id);
     }
 
+
+    @GetMapping("/user/reissue")
+    public ResponseEntity<?> reissueTokens(@RequestHeader(name = "refresh") String refreshToken, @RequestHeader(name = "Access") String aceessToken, HttpServletRequest request, HttpServletResponse response) {
+        Authentication authentication = jwtTokenProvider.getAuthentication(aceessToken);
+        String DBtoken = (String) redisTemplate.opsForValue().get(authentication.getName());
+        if (refreshToken == null || !DBtoken.equals(refreshToken))
+            return new ResponseEntity<>("토큰이 유효하지 않습니다..", HttpStatus.BAD_REQUEST);
+
+
+        try {
+            jwtTokenProvider.validateToken(refreshToken);
+            TokenInfo tokenInfo = jwtTokenProvider.generateToken(authentication);
+            redisTemplate.opsForValue().set(authentication.getName(), tokenInfo.getRefreshToken(), tokenInfo.getRefreshTokenExpirationTime(), TimeUnit.MILLISECONDS);
+            return new ResponseEntity<>(tokenInfo, HttpStatus.OK);
+        } catch (ExpiredJwtException e) {
+            return new ResponseEntity<>(
+                    "토큰이 만료되었습니다.", HttpStatus.BAD_REQUEST
+            );
+        }
+
     @PutMapping("/user/update/{exp}")
     @ApiOperation(value = "경험치 수정", notes = "경험치를 수정하는 요청")
     @ApiResponses({
@@ -123,5 +145,6 @@ public class UserController {
     })
     public UserCheckResponse check(@PathVariable @ApiParam(value = "입력한 userId", required = true) String userId) {
         return new UserCheckResponse(userService.isDupl(userId));
+
     }
 }
