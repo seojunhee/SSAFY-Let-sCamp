@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import Header from "../Components/Header/Header.js";
 import axios from "axios";
 import "./style/SignUp.css";
+import { useNavigate } from "react-router-dom";
+import LetsCamp from "../api/LetsCamp.js";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [userId, SetUserId] = useState("");
   const [nickName, SetNickName] = useState("");
   const [address, SetAddress] = useState("");
   const [userPw, SetUserPw] = useState("");
+  const [userPw2, SetUserPw2] = useState("");
+  const [duCheck, SetDuCheck] = useState(true);
+  const [pwCheck, SetPwCheck] = useState(true);
 
   const changeId = (e) => {
     SetUserId(e.target.value);
@@ -22,6 +28,26 @@ const SignUp = () => {
     SetUserPw(e.target.value);
   };
 
+  const check = () => {
+    const url = LetsCamp.user.duCheck(userId);
+    axios
+      .get(url)
+      .then(function (response) {
+        console.log("성공");
+        console.log(response);
+        //true면 중복, false 면 중복 아님
+        if (response.data === true) {
+          alert("중복되는 아이디입니다");
+        } else {
+          SetDuCheck(false);
+        }
+      })
+      .catch(function (error) {
+        console.log("실패");
+        console.log(error);
+      });
+  };
+
   const url = "https://k7b308.p.ssafy.io/api/user/regist";
   const submit = () => {
     const user = {
@@ -32,7 +58,6 @@ const SignUp = () => {
       userPw: userPw,
     };
     console.log(user);
-
     axios
       .post(url, {
         address: address,
@@ -47,6 +72,7 @@ const SignUp = () => {
       .then(function (response) {
         console.log("성공");
         console.log(response);
+        navigate("/login");
       })
       .catch(function (error) {
         console.log("실패");
@@ -62,28 +88,55 @@ const SignUp = () => {
       </div>
       <div className="SignUp-input-box">
         <div>
-          <input placeholder="아이디(이메일)" className="SignUp-input" value={userId} onChange={changeId} />
+          <input
+            placeholder="아이디(이메일)"
+            className="SignUp-input"
+            value={userId}
+            onChange={changeId}
+          />
+          <button onClick={check}>중복 체크</button>
           <hr className="SignUp-line" />
         </div>
         <div>
-          <input placeholder="닉네임" className="SignUp-input" value={nickName} onChange={changeNickName} />
+          <input
+            placeholder="닉네임"
+            className="SignUp-input"
+            value={nickName}
+            onChange={changeNickName}
+          />
           <hr className="SignUp-line" />
         </div>
         <div>
-          <input placeholder="주소" className="SignUp-input" value={address} onChange={changeAddress} />
+          <input
+            placeholder="주소"
+            className="SignUp-input"
+            value={address}
+            onChange={changeAddress}
+          />
           <hr className="SignUp-line" />
         </div>
         <div>
-          <input placeholder="비밀번호" className="SignUp-input" type="password" value={userPw} onChange={changePw} />
+          <input
+            placeholder="비밀번호"
+            className="SignUp-input"
+            type="password"
+            value={userPw}
+            onChange={changePw}
+          />
           <hr className="SignUp-line" />
         </div>
         <div>
-          <input placeholder="비밀번호 확인" className="SignUp-input" type="password" />
+          <input
+            placeholder="비밀번호 확인"
+            className="SignUp-input"
+            value={userPw2}
+            type="password"
+          />
           <hr className="SignUp-line" />
         </div>
       </div>
       <div>
-        <button className="SignUp-submit" onClick={submit}>
+        <button disabled={true} className="SignUp-submit" onClick={submit}>
           회원가입
         </button>
       </div>
