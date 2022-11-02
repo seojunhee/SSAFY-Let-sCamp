@@ -98,6 +98,22 @@ const ChoiceButton = () => {
     
   )
 
+  const question6 = (
+    <div>
+      <div className="height-55 outer-div">
+      <Calendar
+        onChange={ onChange }
+        selectRange = {true}
+        defaultValue = {[today, tommorow]}
+        minDate = { new Date() }
+        returnValue = {"range"}
+      />
+      </div>
+      
+    </div>
+    
+  )
+
   switch (page){
     case 1:
       return  question1 
@@ -107,9 +123,13 @@ const ChoiceButton = () => {
       return question3
     case 4:
       return question4
-    default:
+    case 5:
       console.log(value)
       return question5
+    case 6:
+      return question6
+    default:
+      return
   }
 };
 
