@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
@@ -32,9 +33,13 @@ public class Review {
     @Column(name = "comment", nullable = false)
     private String comment;
 
+    @Column(name = "date", nullable = false)
+    private String date;
+
     public Review update(double rate, String comment) {
         this.rate = rate;
         this.comment = comment;
+        this.date = String.valueOf(LocalDate.now());
         return this;
     }
 }

@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class ReviewFindResponse {
     private Long id;
     private Long userId;
+    private String userNickName;
     private Long campingId;
     private double rate;
     private String comment;
@@ -20,6 +21,7 @@ public class ReviewFindResponse {
     public ReviewFindResponse(Review review) {
         this.id = review.getId();
         this.userId = review.getUser().getId();
+        this.userNickName = review.getUser().getNickName();
         this.campingId = review.getCamping().getId();
         this.rate = review.getRate();
         this.comment = review.getComment();
