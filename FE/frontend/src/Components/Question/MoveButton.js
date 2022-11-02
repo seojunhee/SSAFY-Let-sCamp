@@ -10,9 +10,9 @@ const MoveButton = () => {
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
 
-  // const moveNextPage = () => {
-  //   setPage(page + 1)
-  // }
+  const moveNextPage = () => {
+    setPage(page + 1)
+  }
 
   const movePrePage = () => {
     setPage(page - 1)
@@ -20,6 +20,12 @@ const MoveButton = () => {
   const resetPage = () => {
     setPage(1)
   }
+  const DateChoice = () => {
+    
+  }
+  const choiceButton = (
+    <button className="item col-2 w-btn" onClick={ moveNextPage }>선택</button>
+  )
   const submitButton = (
     <Link to="/recommend">
       <button className="item col-2 w-btn" onClick={resetPage}>제출</button>
@@ -33,8 +39,9 @@ const MoveButton = () => {
         <Link to="/">
           <button className="w-btn" onClick={ resetPage }>홈으로</button>
         </Link>
-        
-        {page === 5 && submitButton}
+        {page > 1 && page < 5 && (<button className="w-btn hidden-btn" >다음</button>)}
+        {page === 5 && choiceButton}
+        {page === 6 && submitButton}
       </div>
     </>
   )

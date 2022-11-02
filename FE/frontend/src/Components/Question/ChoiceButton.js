@@ -1,31 +1,77 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { questionPage } from "../../Store/state";
+import { questionPage, startDate, withPet, withWho } from "../../Store/state";
+import 'react-calendar/dist/Calendar.css';
 
+// Component
+import Question6 from "./Question6.js";
+
+// 달력
+import Calendar from 'react-calendar';
+// import moment from "moment";
 
 const ChoiceButton = () => { 
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
 
+  const [season] = useRecoilState(startDate);
+  const setStartDate = useSetRecoilState(startDate);
+
+  const [pet] = useRecoilState(withPet);
+  const setPet = useSetRecoilState(withPet)
+
+  const [who] = useRecoilState(withWho)
+  const setWho = useSetRecoilState(withWho)
+
   const moveNextPage = () => {
     setPage(page + 1)
   }
+
+  const onChangeDate = (e) => {
+    const nowMonth = (e[0].getMonth())
+    if (nowMonth < 2) {
+      setStartDate("겨울")
+    } else if (nowMonth < 5) {
+      setStartDate("봄")
+    } else if (nowMonth < 8) {
+      setStartDate("여름")
+    } else if (nowMonth < 11) {
+      setStartDate("가을")
+    } else {
+      setStartDate("겨울")
+    }
+  }
   
+  const onChangePet = (e) => {
+    moveNextPage();
+    if (e) {
+      setPet("동반");
+    } else {
+      setPet("비동반")
+    }
+  }
+
+  const onChangeWho = (e) => {
+    moveNextPage();
+    setWho(e)  
+    return
+  }
+
   const question1 = (
     <div className="grid height-55">
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeWho("가족") }>
         <p>가족</p>
         <img src="." alt="가족"/>
       </div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeWho("커플") }>
         <p>커플</p>
         <img src="." alt="커플"/>
       </div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeWho("친구") }>
         <p>친구</p>
         <img src="." alt="친구"/>
       </div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeWho("아이들놀기좋은") }>
         <p>아이들과 함께</p>
         <img src="." alt="아이들"/>
       </div>
@@ -33,35 +79,55 @@ const ChoiceButton = () => {
   )
 
   const question2 = (
-    <div className="grid height-55">
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>네</div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>아니요</div>
+    <div className="grid height-271">
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(true) }>네</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(false) }>아니요</div>
     </div>
   )
 
   const question3 = (
-    <div className="grid height-55">
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>산</div>
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>바다</div>
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>도심</div>
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>숲</div>
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>섬</div>
+    <div className="height-30">
+    <div className="grid height-50">
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>산</div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>바다</div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>도심</div>
     </div>
+    <div className="grid height-50">
+      <div className="item col-2"></div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>숲</div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>섬</div>
+    </div>
+    </div>
+
   )
 
   const question4 = (
     <div className="grid height-55">
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>텐트</div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>오토캠핑</div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>카라반</div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>글램핑</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>텐트</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>오토캠핑</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>카라반</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>글램핑</div>
     </div>
   )
 
   const question5 = (
-    <div className="height-55">
-      <input type="date"/>
+    <div>
+      <div className="height-55 outer-div">
+      <Calendar
+        onChange={ onChangeDate }
+        selectRange = { true }
+        minDate = { new Date() }
+        returnValue = {"range"}
+      />
+      </div>
+      
     </div>
+    
+  )
+
+  const question6 = (
+    <Question6 season={season}/>
+    
   )
 
   switch (page){
@@ -73,8 +139,12 @@ const ChoiceButton = () => {
       return question3
     case 4:
       return question4
-    default:
+    case 5:
       return question5
+    case 6:
+      return question6
+    default:
+      return ("잘못된 페이지 요청입니다.")
   }
 };
 
