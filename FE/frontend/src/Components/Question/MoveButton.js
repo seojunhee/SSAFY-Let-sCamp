@@ -21,7 +21,7 @@ const MoveButton = () => {
     setPage(1)
   }
   const choiceButton = (
-    <button className="item col-2 w-btn" onClick={ moveNextPage }></button>
+    <button className="item col-2 w-btn" onClick={ moveNextPage }>선택</button>
   )
   const submitButton = (
     <Link to="/recommend">
