@@ -35,14 +35,14 @@ const letsCamp = {
   review: {
     change: () => Host + Review,
     write: (campingId) => Host + Review + "/"`${campingId}`,
-    get: (campingId) => Host + Review + "/"`${campingId}`,
+    get: (campingId) => Host + Review + `/${campingId}`,
     delete: (id) => Host + Review + "/"`${id}`,
     getUserReview: () => Host + Review + "/user",
   },
   reservation: {
     getReserve: () => Host + Reservation,
-    reserve: (id) => Host + Reservation + "/" + `${id}`,
-    delete: (id) => Host + Reservation + "/" + `${id}`,
+    reserve: (campingId) => Host + Reservation + "/" + `${campingId}`,
+    delete: (reservationId) => Host + Reservation + "/" + `${reservationId}`,
   },
   hate: {
     getHate: () => Host + Hate,
