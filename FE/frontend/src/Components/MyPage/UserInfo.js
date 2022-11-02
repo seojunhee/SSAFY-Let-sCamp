@@ -1,16 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { userState } from "../../Store/state.js";
+import { useRecoilState } from "recoil";
 import "./style/UserInfo.css";
 
 const UserInfo = () => {
   const navigate = useNavigate();
-
-  const User = {
-    id: "test@test.com",
-    password: "test1234",
-    address: "대전광역시 싸피",
-    nickname: "김싸피",
-  };
+  const [userData, SetUser] = useRecoilState(userState);
 
   return (
     <div className="userinfo">
@@ -22,7 +18,7 @@ const UserInfo = () => {
         />
       </div>
       <div className="userinfo-nickname">
-        {User.nickname}
+        {userData.nickName}
         <img
           src="/asset/icons/image7.png"
           alt="이미지"
@@ -35,12 +31,12 @@ const UserInfo = () => {
       <div className="userinfo-info">
         <div className="userinfo-id">
           <div>아이디</div>
-          <div>{User.id}</div>
+          <div>{userData.userId}</div>
         </div>
         <div className="userinfo-pw">
           비밀번호
           <div>
-            {User.password}
+            ******
             <img
               src="/asset/icons/image7.png"
               alt="이미지"
@@ -54,7 +50,7 @@ const UserInfo = () => {
         <div className="userinfo-address">
           주소
           <div>
-            {User.address}{" "}
+            {userData.address}{" "}
             <img
               src="/asset/icons/image7.png"
               alt="이미지"
