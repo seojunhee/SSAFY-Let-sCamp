@@ -108,7 +108,7 @@ public class UserController {
                     "토큰이 만료되었습니다.", HttpStatus.BAD_REQUEST
             );
         }
-
+    }
     @PutMapping("/user/update/{exp}")
     @ApiOperation(value = "경험치 수정", notes = "경험치를 수정하는 요청")
     @ApiResponses({
