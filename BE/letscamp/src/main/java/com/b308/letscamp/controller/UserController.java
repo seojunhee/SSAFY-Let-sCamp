@@ -90,10 +90,7 @@ public class UserController {
     @GetMapping("/user/reissue")
     public ResponseEntity<?> reissueTokens(@RequestHeader(name = "refresh") String refreshToken, @RequestHeader(name = "Access") String aceessToken, HttpServletRequest request, HttpServletResponse response) {
         Authentication authentication = jwtTokenProvider.getAuthentication(aceessToken);
-        System.out.println("refreshToken = " + refreshToken);
-        System.out.println("authentication.getName() = " + authentication.getName());
         String DBtoken = (String) redisTemplate.opsForValue().get(authentication.getName());
-        System.out.println("DBtoken = " + DBtoken);
         if (refreshToken == null || !DBtoken.equals(refreshToken))
             return new ResponseEntity<>("토큰이 유효하지 않습니다..", HttpStatus.BAD_REQUEST);
 
