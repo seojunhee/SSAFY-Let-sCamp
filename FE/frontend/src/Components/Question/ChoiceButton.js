@@ -3,25 +3,22 @@ import { useRecoilState, useSetRecoilState } from "recoil";
 import { questionPage, startDate } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
 
+// Component
+import Question6 from "./Question6.js";
+
 // 달력
 import Calendar from 'react-calendar';
-import moment from "moment";
+// import moment from "moment";
 
 const ChoiceButton = () => { 
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
 
-  // const [value, onChange] = useState(Array());
-
-  const [date] = useRecoilState(startDate);
+  const [season] = useRecoilState(startDate);
   const setStartDate = useSetRecoilState(startDate);
 
   const moveNextPage = () => {
     setPage(page + 1)
-  }
-
-  const transformDate = (e) => {
-    moment(e).format("YYYY년 MM월 DD일")
   }
 
   const onChangeDate = (e) => {
@@ -97,7 +94,7 @@ const ChoiceButton = () => {
       <div className="height-55 outer-div">
       <Calendar
         onChange={ onChangeDate }
-        selectRange = {true}
+        selectRange = { true }
         minDate = { new Date() }
         returnValue = {"range"}
       />
@@ -108,12 +105,7 @@ const ChoiceButton = () => {
   )
 
   const question6 = (
-    <div>
-      <div className="height-55 outer-div">
-        {date}
-      </div>
-      
-    </div>
+    <Question6 season={season}/>
     
   )
 
@@ -127,13 +119,11 @@ const ChoiceButton = () => {
     case 4:
       return question4
     case 5:
-      // console.log(new Date().getMonth)
-      // console.log(value, date);
       return question5
     case 6:
       return question6
     default:
-      return
+      return ("잘못된 페이지 요청입니다.")
   }
 };
 
