@@ -1,14 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { questionPage } from "../../Store/state";
+import 'react-calendar/dist/Calendar.css';
 
+// 달력
+import Calendar from 'react-calendar';
+import moment from "moment";
 
 const ChoiceButton = () => { 
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
 
+  const [value, onChange] = useState(Array());
+  const today = new Date()
+  const tommorow = new Date(today.getDate() + 1);
+
   const moveNextPage = () => {
     setPage(page + 1)
+  }
+
+  const transformDate = (e) => {
+    moment(e).format("YYYY년 MM월 DD일")
+  }
+
+  const onChangeRange = () => {
+    value.map(function(e){
+      return transformDate(e)
+    })
   }
   
   const question1 = (
@@ -65,9 +83,19 @@ const ChoiceButton = () => {
   )
 
   const question5 = (
-    <div className="height-55">
-      <input type="date"/>
+    <div>
+      <div className="height-55 outer-div">
+      <Calendar
+        onChange={ onChange }
+        selectRange = {true}
+        defaultValue = {[today, tommorow]}
+        minDate = { new Date() }
+        returnValue = {"range"}
+      />
+      </div>
+      
     </div>
+    
   )
 
   switch (page){
@@ -80,6 +108,7 @@ const ChoiceButton = () => {
     case 4:
       return question4
     default:
+      console.log(value)
       return question5
   }
 };
