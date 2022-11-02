@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { questionPage, startDate } from "../../Store/state";
+import { questionPage, startDate, withPet, withWho } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
 
 // Component
@@ -16,6 +16,12 @@ const ChoiceButton = () => {
 
   const [season] = useRecoilState(startDate);
   const setStartDate = useSetRecoilState(startDate);
+
+  const [pet] = useRecoilState(withPet);
+  const setPet = useSetRecoilState(withPet)
+
+  const [who] = useRecoilState(withWho)
+  const setWho = useSetRecoilState(withWho)
 
   const moveNextPage = () => {
     setPage(page + 1)
@@ -36,21 +42,36 @@ const ChoiceButton = () => {
     }
   }
   
+  const onChangePet = (e) => {
+    moveNextPage();
+    if (e) {
+      setPet("동반");
+    } else {
+      setPet("비동반")
+    }
+  }
+
+  const onChangeWho = (e) => {
+    moveNextPage();
+    setWho(e)  
+    return
+  }
+
   const question1 = (
     <div className="grid height-55">
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeWho("가족") }>
         <p>가족</p>
         <img src="." alt="가족"/>
       </div>
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeWho("커플") }>
         <p>커플</p>
         <img src="." alt="커플"/>
       </div>
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeWho("친구") }>
         <p>친구</p>
         <img src="." alt="친구"/>
       </div>
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeWho("아이들놀기좋은") }>
         <p>아이들과 함께</p>
         <img src="." alt="아이들"/>
       </div>
@@ -59,8 +80,8 @@ const ChoiceButton = () => {
 
   const question2 = (
     <div className="grid height-271">
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>네</div>
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>아니요</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(true) }>네</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(false) }>아니요</div>
     </div>
   )
 

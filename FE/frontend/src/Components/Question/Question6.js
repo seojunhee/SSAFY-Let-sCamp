@@ -25,7 +25,7 @@ const questionSix = (prod) => {
             일출명소
           </div>
           <div className="item w-btn">
-            일몰명소
+            일몰명소  
           </div>
           <div className="item w-btn">
             낚시
@@ -43,7 +43,7 @@ const questionSix = (prod) => {
       )
     case "겨울":
       return (
-        <div className="height-55 outer-div">
+        <div className="height-55">
           겨울
         </div>
       )
