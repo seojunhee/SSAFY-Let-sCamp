@@ -20,6 +20,9 @@ const MoveButton = () => {
   const resetPage = () => {
     setPage(1)
   }
+  const DateChoice = () => {
+    
+  }
   const choiceButton = (
     <button className="item col-2 w-btn" onClick={ moveNextPage }>선택</button>
   )

@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { questionPage } from "../../Store/state";
+import { questionPage, startDate } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
 
 // 달력
@@ -11,9 +11,10 @@ const ChoiceButton = () => {
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
 
-  const [value, onChange] = useState(Array());
-  const today = new Date()
-  const tommorow = new Date(today.getDate() + 1);
+  // const [value, onChange] = useState(Array());
+
+  const [date] = useRecoilState(startDate);
+  const setStartDate = useSetRecoilState(startDate);
 
   const moveNextPage = () => {
     setPage(page + 1)
@@ -23,10 +24,19 @@ const ChoiceButton = () => {
     moment(e).format("YYYY년 MM월 DD일")
   }
 
-  const onChangeRange = () => {
-    value.map(function(e){
-      return transformDate(e)
-    })
+  const onChangeDate = (e) => {
+    const nowMonth = (e[0].getMonth())
+    if (nowMonth < 2) {
+      setStartDate("겨울")
+    } else if (nowMonth < 5) {
+      setStartDate("봄")
+    } else if (nowMonth < 8) {
+      setStartDate("여름")
+    } else if (nowMonth < 11) {
+      setStartDate("가을")
+    } else {
+      setStartDate("겨울")
+    }
   }
   
   const question1 = (
@@ -86,9 +96,8 @@ const ChoiceButton = () => {
     <div>
       <div className="height-55 outer-div">
       <Calendar
-        onChange={ onChange }
+        onChange={ onChangeDate }
         selectRange = {true}
-        defaultValue = {[today, tommorow]}
         minDate = { new Date() }
         returnValue = {"range"}
       />
@@ -101,13 +110,7 @@ const ChoiceButton = () => {
   const question6 = (
     <div>
       <div className="height-55 outer-div">
-      <Calendar
-        onChange={ onChange }
-        selectRange = {true}
-        defaultValue = {[today, tommorow]}
-        minDate = { new Date() }
-        returnValue = {"range"}
-      />
+        {date}
       </div>
       
     </div>
@@ -124,7 +127,8 @@ const ChoiceButton = () => {
     case 4:
       return question4
     case 5:
-      console.log(value)
+      // console.log(new Date().getMonth)
+      // console.log(value, date);
       return question5
     case 6:
       return question6

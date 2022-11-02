@@ -22,3 +22,8 @@ export const questionPage = atom({
   key: "questionPage",
   default: 1,
 })
+
+export const startDate = atom({
+  key: "startDate",
+  default: "",
+})
