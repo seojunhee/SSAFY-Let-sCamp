@@ -27,3 +27,8 @@ export const startDate = atom({
   key: "startDate",
   default: "",
 })
+
+export const withPet = atom({
+  key: "withPet",
+  default: ""
+})

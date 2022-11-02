@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { questionPage, startDate } from "../../Store/state";
+import { questionPage, startDate, withPet } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
 
 // Component
@@ -16,6 +16,9 @@ const ChoiceButton = () => {
 
   const [season] = useRecoilState(startDate);
   const setStartDate = useSetRecoilState(startDate);
+
+  const [pet] = useRecoilState(withPet);
+  const setPet = useSetRecoilState(withPet)
 
   const moveNextPage = () => {
     setPage(page + 1)
@@ -36,6 +39,16 @@ const ChoiceButton = () => {
     }
   }
   
+  const onChangePet = (e) => {
+    console.log(e)
+    moveNextPage();
+    if (e) {
+      setPet("동반");
+    } else {
+      setPet("비동반")
+    }
+  }
+
   const question1 = (
     <div className="grid height-55">
       <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
@@ -59,8 +72,8 @@ const ChoiceButton = () => {
 
   const question2 = (
     <div className="grid height-271">
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>네</div>
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>아니요</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(true) }>네</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(false) }>아니요</div>
     </div>
   )
 
