@@ -27,13 +27,13 @@ const MoveButton = () => {
   )
   return (
     <>
-      <div className="position-bottom outer-div width-100">
+      <div className="outer-div width-100">
       
         {page > 1 && (<button className="w-btn" onClick={ movePrePage }>이전</button>)}
         <Link to="/">
           <button className="w-btn" onClick={ resetPage }>홈으로</button>
         </Link>
-        
+        {page > 1 && page < 5 && (<button className="w-btn hidden-btn" >다음</button>)}
         {page === 5 && submitButton}
       </div>
     </>
