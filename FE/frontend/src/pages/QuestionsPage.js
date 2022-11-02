@@ -28,7 +28,6 @@ const Questions = () => {
       <Question />
       <ChoiceButton />
       <MoveButton />
-      <div>{page}</div>
     </div>);
 
 }

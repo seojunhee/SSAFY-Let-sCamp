@@ -13,19 +13,19 @@ const ChoiceButton = () => {
   
   const question1 = (
     <div className="grid height-55">
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
         <p>가족</p>
         <img src="." alt="가족"/>
       </div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
         <p>커플</p>
         <img src="." alt="커플"/>
       </div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
         <p>친구</p>
         <img src="." alt="친구"/>
       </div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>
         <p>아이들과 함께</p>
         <img src="." alt="아이들"/>
       </div>
@@ -33,28 +33,28 @@ const ChoiceButton = () => {
   )
 
   const question2 = (
-    <div className="grid height-55">
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>네</div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>아니요</div>
+    <div className="grid height-271">
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>네</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>아니요</div>
     </div>
   )
 
   const question3 = (
     <div className="grid height-55">
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>산</div>
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>바다</div>
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>도심</div>
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>숲</div>
-      <div className="item col-4 w-btn" onClick={ moveNextPage }>섬</div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>산</div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>바다</div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>도심</div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>숲</div>
+      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>섬</div>
     </div>
   )
 
   const question4 = (
     <div className="grid height-55">
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>텐트</div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>오토캠핑</div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>카라반</div>
-      <div className="item col-6 w-btn" onClick={ moveNextPage }>글램핑</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>텐트</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>오토캠핑</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>카라반</div>
+      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>글램핑</div>
     </div>
   )
 
