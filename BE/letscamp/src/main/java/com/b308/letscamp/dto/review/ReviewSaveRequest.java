@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,6 +19,7 @@ public class ReviewSaveRequest {
     private Camping camping;
     private double rate;
     private String comment;
+    private String date;
 
     public Review toEntity() {
         return Review.builder()
@@ -24,6 +27,7 @@ public class ReviewSaveRequest {
                 .camping(camping)
                 .rate(rate)
                 .comment(comment)
+                .date(String.valueOf(LocalDate.now()))
                 .build();
     }
 }
