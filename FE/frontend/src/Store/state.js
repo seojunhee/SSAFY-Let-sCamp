@@ -2,7 +2,7 @@ import { atom, selector } from "recoil";
 
 export const userState = atom({
   key: "userId",
-  default: "temp",
+  default: {},
 });
 
 export const pageNameState = atom({
@@ -21,4 +21,14 @@ export const userCountState = selector({
 export const questionPage = atom({
   key: "questionPage",
   default: 1,
-})
+});
+
+export const campSiteState = atom({
+  key: "campSite",
+  default: {},
+});
+
+export const userReserveState = atom({
+  key: "userReserve",
+  default: {},
+});
