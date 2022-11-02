@@ -53,10 +53,7 @@ const ChoiceButton = () => {
 
   const onChangeWho = (e) => {
     moveNextPage();
-    setWho(e)
-    console.log(e)
-    console.log(who)
-  
+    setWho(e)  
     return
   }
 
