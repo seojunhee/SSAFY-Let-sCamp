@@ -16,3 +16,36 @@
   grid-template-columns: repeat(12, 1fr);
   justify-items: center;
 } */
+
+.tag-div {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: center;
+}
+
+.tag-content {
+  margin: 2%;
+}
+
+.tag-btn {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.tag-btn-active {
+  background-color: blue;
+}
+
+.tag-btn-none-active {
+  background-color: black;
+}
