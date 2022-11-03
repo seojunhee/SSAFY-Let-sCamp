@@ -151,26 +151,26 @@ const ChoiceButton = () => {
         return
       case "가을":
         return (
-          <div className="height-55">
-            <div className="div-inline w-btn outer-div">
+          <div className="tag-div">
+            <div className="div-inline w-btn tag-content">
               가을단풍명소
             </div>
-            <div className="div-inline w-btn outer-div">
+            <div className="div-inline w-btn tag-content">
               일출명소
             </div>
-            <div className="div-inline w-btn outer-div">
+            <div className="div-inline w-btn tag-content">
               일몰명소  
             </div>
-            <div className="div-inline w-btn outer-div">
+            <div className="div-inline w-btn tag-content">
               낚시
             </div>
-            <div className="div-inline w-btn outer-div">
+            <div className="div-inline w-btn tag-content">
               걷기길
             </div>
-            <div className="div-inline w-btn outer-div">
+            <div className="div-inline w-btn tag-content">
               항공레저
             </div>
-            <div className="div-inline w-btn outer-div">
+            <div className="div-inline w-btn tag-content">
               액티비티
             </div>
           </div>
