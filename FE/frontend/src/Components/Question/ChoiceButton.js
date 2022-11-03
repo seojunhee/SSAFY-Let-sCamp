@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { questionPage, startDate, withPet, withWho } from "../../Store/state";
+import { questionPage, startDate, withPet, withWho, campPlace, campingCate } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
 
 // Component
@@ -18,10 +18,16 @@ const ChoiceButton = () => {
   const setStartDate = useSetRecoilState(startDate);
 
   const [pet] = useRecoilState(withPet);
-  const setPet = useSetRecoilState(withPet)
+  const setPet = useSetRecoilState(withPet);
 
-  const [who] = useRecoilState(withWho)
-  const setWho = useSetRecoilState(withWho)
+  const [who] = useRecoilState(withWho);
+  const setWho = useSetRecoilState(withWho);
+
+  const [place] = useRecoilState(campPlace);
+  const setPlace = useSetRecoilState(campPlace);
+
+  const [cate] = useRecoilState(campingCate);
+  const setCate = useSetRecoilState(campingCate);
 
   const moveNextPage = () => {
     setPage(page + 1)
@@ -53,7 +59,19 @@ const ChoiceButton = () => {
 
   const onChangeWho = (e) => {
     moveNextPage();
-    setWho(e)  
+    setWho(e);
+    return
+  }
+
+  const onChangePlace = (e) => {
+    moveNextPage();
+    setPlace(e);
+    return
+  }
+
+  const onChangeCate = (e) => {
+    moveNextPage();
+    setCate(e);
     return
   }
 
@@ -88,14 +106,14 @@ const ChoiceButton = () => {
   const question3 = (
     <div className="height-30">
     <div className="grid height-50">
-      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>산</div>
-      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>바다</div>
-      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>도심</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("산") }>산</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("바다") }>바다</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("도심") }>도심</div>
     </div>
     <div className="grid height-50">
       <div className="item col-2"></div>
-      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>숲</div>
-      <div className="item col-4 w-btn outer-div" onClick={ moveNextPage }>섬</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("숲") }>숲</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("섬") }>섬</div>
     </div>
     </div>
 
@@ -103,10 +121,10 @@ const ChoiceButton = () => {
 
   const question4 = (
     <div className="grid height-55">
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>텐트</div>
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>오토캠핑</div>
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>카라반</div>
-      <div className="item col-6 w-btn outer-div" onClick={ moveNextPage }>글램핑</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("텐트") }>텐트</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("카라반") }>카라반</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("글램핑") }>글램핑</div>
     </div>
   )
 
@@ -125,10 +143,43 @@ const ChoiceButton = () => {
     
   )
 
-  const question6 = (
-    <Question6 season={season}/>
-    
-  )
+  const question6 = ( season ) => {
+    switch (season){
+      case "봄":
+        return 
+      case "여름":
+        return
+      case "가을":
+        return (
+          <div className="height-55">
+            <div className="div-inline w-btn outer-div">
+              가을단풍명소
+            </div>
+            <div className="div-inline w-btn outer-div">
+              일출명소
+            </div>
+            <div className="div-inline w-btn outer-div">
+              일몰명소  
+            </div>
+            <div className="div-inline w-btn outer-div">
+              낚시
+            </div>
+            <div className="div-inline w-btn outer-div">
+              걷기길
+            </div>
+            <div className="div-inline w-btn outer-div">
+              항공레저
+            </div>
+            <div className="div-inline w-btn outer-div">
+              액티비티
+            </div>
+          </div>
+        )
+      default:
+        return
+    }
+  }
+
 
   switch (page){
     case 1:
@@ -142,7 +193,7 @@ const ChoiceButton = () => {
     case 5:
       return question5
     case 6:
-      return question6
+      return question6(season)
     default:
       return ("잘못된 페이지 요청입니다.")
   }
