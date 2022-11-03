@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { questionPage, startDate, withWho, campPlace } from "../../Store/state";
+import { questionPage } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
 
 // 달력
@@ -28,9 +28,6 @@ const ChoiceButton = (props) => {
   //   }
   // })
 
-  const [season] = useRecoilState(startDate);
-  const setStartDate = useSetRecoilState(startDate);
-
   const campSeason = (e) => {
     switch (e) {
       case "봄":
@@ -46,7 +43,7 @@ const ChoiceButton = (props) => {
     }
   }
   
-  const [isActive, setIsActive] = useState(campSeason(season).map((n) => 0));
+  const [isActive, setIsActive] = useState(campSeason(props.season).map((n) => 0));
 
   const onChangeIsActive = (idx) => {
     let tmp = [...isActive];
@@ -64,15 +61,15 @@ const ChoiceButton = (props) => {
   const onChangeDate = (e) => {
     const nowMonth = (e[0].getMonth())
     if (nowMonth < 2) {
-      setStartDate("겨울")
+      props.setSeason("겨울")
     } else if (nowMonth < 5) {
-      setStartDate("봄")
+      props.setSeason("봄")
     } else if (nowMonth < 8) {
-      setStartDate("여름")
+      props.setSeason("여름")
     } else if (nowMonth < 11) {
-      setStartDate("가을")
+      props.setSeason("가을")
     } else {
-      setStartDate("겨울")
+      props.setSeason("겨울")
     }
   }
   
@@ -203,7 +200,7 @@ const ChoiceButton = (props) => {
     case 5:
       return question5
     case 6:
-      return question6(season)
+      return question6(props.season)
     default:
       return ("잘못된 페이지 요청입니다.")
   }

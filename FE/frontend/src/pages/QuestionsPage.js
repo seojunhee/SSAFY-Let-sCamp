@@ -22,6 +22,7 @@ const Questions = () => {
   const [keyword, setKeyword] = useState("")
   const [campingCate, setCampingCate] = useState("")
   const [animal, setAnimal] = useState("")
+  const [season, setSeason] = useState("")
   // 페이지를 구분할 변수가 필요하고
   // 페이지에 따라 ChoiceButton과 Question, MoveButton의 변화가 필요하다.
   // const [page] = useRecoilState(questionPage);
@@ -39,6 +40,8 @@ const Questions = () => {
         setCampingCate={setCampingCate}
         animal={animal}
         setAnimal={setAnimal}
+        season={season}
+        setSeason={setSeason}
         url={url}
       />
       <MoveButton url={url} />
