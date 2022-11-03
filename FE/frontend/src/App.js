@@ -11,6 +11,7 @@ import RecommendResult from "./pages/RecommResultPage";
 import Reserve from "./pages/ReservePage";
 import { RecoilRoot } from "recoil";
 import MapPage from "./pages/MapPage";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Start />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/main" element={<MainPage />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/question" element={<Questions />} />
           <Route path="/editinfo" element={<EditInfo />} />

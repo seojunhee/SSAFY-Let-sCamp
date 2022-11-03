@@ -12,7 +12,7 @@ const NavBar = () => {
           alt="홈으로"
           className="navbar-icon"
           onClick={() => {
-            navigate("/");
+            navigate("/main");
           }}
         ></img>
         <img

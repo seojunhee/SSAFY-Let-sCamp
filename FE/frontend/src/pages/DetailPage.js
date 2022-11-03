@@ -6,10 +6,12 @@ import Review from "../Components/Detail/Review";
 import NavBar from "../Components/NavBar/NavBar";
 import axios from "axios";
 import { useRecoilState } from "recoil";
+import { campSiteState } from "../Store/state.js";
 
 const Detail = () => {
+  const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
   useEffect(() => {
-    const id = 1;
+    const id = "1";
     const url = "http://k7b308.p.ssafy.io:8080/api/camping/" + id;
     axios
       .get(url, {
@@ -19,13 +21,13 @@ const Detail = () => {
       })
       .then(function (response) {
         console.log("성공");
-        console.log(response);
+        SetCampSite(response.data);
       })
       .catch(function (error) {
         console.log("실패");
         console.log(error);
       });
-  });
+  }, []);
 
   return (
     <div>
