@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { questionPage, startDate, withPet, withWho, campPlace, campingCate } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
-
-// Component
-import Question6 from "./Question6.js";
 
 // 달력
 import Calendar from 'react-calendar';
 // import moment from "moment";
 
-const ChoiceButton = () => { 
+const ChoiceButton = () => {
+  const toggleClass = (idx) => {
+    !isActive[idx] ? (isActive[idx] = 1) : (isActive[idx] = 0)
+    console.log(isActive)
+  };
+  
+
+  const fallList = ["가을단풍명소", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
+
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
 
@@ -29,6 +34,10 @@ const ChoiceButton = () => {
   const [cate] = useRecoilState(campingCate);
   const setCate = useSetRecoilState(campingCate);
 
+  const [isActive] = useState(fallList.map(n => 0));
+
+  
+  
   const moveNextPage = () => {
     setPage(page + 1)
   }
@@ -144,7 +153,7 @@ const ChoiceButton = () => {
   )
 
   const question6 = ( season ) => {
-    switch (season){
+    switch ( season ){
       case "봄":
         return 
       case "여름":
@@ -152,27 +161,18 @@ const ChoiceButton = () => {
       case "가을":
         return (
           <div className="tag-div">
-            <div className="div-inline w-btn tag-content">
-              가을단풍명소
-            </div>
-            <div className="div-inline w-btn tag-content">
-              일출명소
-            </div>
-            <div className="div-inline w-btn tag-content">
-              일몰명소  
-            </div>
-            <div className="div-inline w-btn tag-content">
-              낚시
-            </div>
-            <div className="div-inline w-btn tag-content">
-              걷기길
-            </div>
-            <div className="div-inline w-btn tag-content">
-              항공레저
-            </div>
-            <div className="div-inline w-btn tag-content">
-              액티비티
-            </div>
+            {
+              fallList.map((tag, idx) => {
+                return (
+                  <button
+                    className={"div-inline tag-btn tag-content" + (!isActive[idx] ? "tag-btn-active": "")}
+                    onClick={() => { toggleClass(idx) }}
+                  >
+                    { tag }
+                  </button>
+                )
+              })
+            }
           </div>
         )
       default:
