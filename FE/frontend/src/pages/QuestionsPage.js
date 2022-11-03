@@ -39,6 +39,7 @@ const Questions = () => {
         setCampingCate={setCampingCate}
         animal={animal}
         setAnimal={setAnimal}
+        url={url}
       />
       <MoveButton url={url} />
     </div>);

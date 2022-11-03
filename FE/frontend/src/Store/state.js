@@ -37,8 +37,3 @@ export const campPlace = atom({
   key: "campPlace",
   default: ""
 })
-
-export const campingCate = atom({
-  key: "campingCate",
-  default: ""
-})

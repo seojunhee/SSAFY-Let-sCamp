@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { questionPage, startDate, withWho, campPlace, campingCate } from "../../Store/state";
+import { questionPage, startDate, withWho, campPlace } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
 
 // 달력
@@ -36,9 +36,6 @@ const ChoiceButton = (props) => {
 
   const [place] = useRecoilState(campPlace);
   const setPlace = useSetRecoilState(campPlace);
-
-  const [cate] = useRecoilState(campingCate);
-  const setCate = useSetRecoilState(campingCate);
 
   const campSeason = (e) => {
     switch (e) {
@@ -93,9 +90,9 @@ const ChoiceButton = (props) => {
       props.setAnimal("비동반");
     }
   }
-  // useEffect(() => {
-  //   console.log(props.url);
-  // }, [props.animal]);
+  useEffect(() => {
+    console.log(props.url);
+  }, [props.animal, props.campingCate, props.keyword]);
 
   const onChangeWho = (e) => {
     moveNextPage();
@@ -111,7 +108,7 @@ const ChoiceButton = (props) => {
 
   const onChangeCate = (e) => {
     moveNextPage();
-    setCate(e);
+    props.setCampingCate(e)
     return
   }
 
