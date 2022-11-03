@@ -21,6 +21,12 @@ const Login = () => {
     SetPw(e.target.value);
   };
 
+  const handleOnKeyPress = (e) => {
+    if (e.key === "Enter") {
+      submit(); // Enter 입력이 되면 클릭 이벤트 실행
+    }
+  };
+
   const submit = () => {
     console.log(url);
     axios
@@ -44,7 +50,7 @@ const Login = () => {
             //console.log(response);
             SetUser(response.data);
             console.log(userData);
-            navigate("/mypage");
+            navigate("/main");
           })
           .catch(function (error) {
             console.log(error);
@@ -74,6 +80,7 @@ const Login = () => {
             type="password"
             value={pw}
             onChange={changePw}
+            onKeyPress={handleOnKeyPress}
           />
           <hr className="Login-underline" />
         </div>
