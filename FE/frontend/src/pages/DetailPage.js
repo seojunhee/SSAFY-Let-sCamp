@@ -20,16 +20,14 @@ const Detail = () => {
         },
       })
       .then(function (response) {
-        //console.log("성공");
-        //console.log(response);
+        console.log("성공");
         SetCampSite(response.data);
-        console.log(campSiteData);
       })
       .catch(function (error) {
         console.log("실패");
         console.log(error);
       });
-  }, {});
+  }, []);
 
   return (
     <div>

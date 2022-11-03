@@ -23,9 +23,9 @@ const Review = () => {
         console.log("실패");
         console.log(error);
       });
-  });
+  }, []);
 
-  return <div></div>;
+  return <div>{reviewdata ? <div></div> : <div>리뷰없음 </div>}</div>;
 };
 
 export default Review;
