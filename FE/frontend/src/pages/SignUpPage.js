@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Components/Header/Header.js";
 import axios from "axios";
 import "./style/SignUp.css";
@@ -13,7 +13,19 @@ const SignUp = () => {
   const [userPw, SetUserPw] = useState("");
   const [userPw2, SetUserPw2] = useState("");
   const [duCheck, SetDuCheck] = useState(true);
-  const [pwCheck, SetPwCheck] = useState(true);
+  const [btnAct, SetBtnAct] = useState(false);
+
+  useEffect(() => {
+    if (
+      userPw === userPw2 &&
+      userPw !== "" &&
+      duCheck === false &&
+      nickName !== "" &&
+      address !== ""
+    ) {
+      SetBtnAct(true);
+    }
+  });
 
   const changeId = (e) => {
     SetUserId(e.target.value);
@@ -27,6 +39,9 @@ const SignUp = () => {
   const changePw = (e) => {
     SetUserPw(e.target.value);
   };
+  const changePw2 = (e) => {
+    SetUserPw2(e.target.value);
+  };
 
   const check = () => {
     const url = LetsCamp.user.duCheck(userId);
@@ -36,7 +51,7 @@ const SignUp = () => {
         console.log("성공");
         console.log(response);
         //true면 중복, false 면 중복 아님
-        if (response.data === true) {
+        if (response.data.duplication === true) {
           alert("중복되는 아이디입니다");
         } else {
           SetDuCheck(false);
@@ -50,14 +65,6 @@ const SignUp = () => {
 
   const url = "https://k7b308.p.ssafy.io/api/user/regist";
   const submit = () => {
-    const user = {
-      address: address,
-      exp: 0,
-      nickName: nickName,
-      userId: userId,
-      userPw: userPw,
-    };
-    console.log(user);
     axios
       .post(url, {
         address: address,
@@ -129,6 +136,7 @@ const SignUp = () => {
           <input
             placeholder="비밀번호 확인"
             className="SignUp-input"
+            onChange={changePw2}
             value={userPw2}
             type="password"
           />
@@ -136,9 +144,23 @@ const SignUp = () => {
         </div>
       </div>
       <div>
-        <button disabled={true} className="SignUp-submit" onClick={submit}>
-          회원가입
-        </button>
+        {btnAct === true ? (
+          <button
+            disabled={false}
+            className="SignUp-submit-able"
+            onClick={submit}
+          >
+            회원가입
+          </button>
+        ) : (
+          <button
+            disabled={true}
+            className="SignUp-submit-disalbe"
+            onClick={submit}
+          >
+            회원가입
+          </button>
+        )}
       </div>
     </div>
   );
