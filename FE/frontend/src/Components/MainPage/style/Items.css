@@ -1,0 +1,26 @@
+
+.mainpage-items{
+    margin-top: 20px;
+    height: 300px;
+    border: 3px solid;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+    border-color: #F6EFB4;
+    height: 300px;
+    text-align: left;
+}
+
+.mainpage-items-cover{
+    margin-left: 10px;
+}
+
+.mainpage-items-title{
+  margin-top: 10px;
+    font-size: 24px;
+
+}
+
+.mainpage-items-list{
+    font-size: 20px;
+}

@@ -12,8 +12,6 @@ const Mypage = () => {
       <Header pageName={"마이페이지"}></Header>
       <UserInfo></UserInfo>
       <hr />
-      <UserReserve></UserReserve>
-      <hr />
       <UserVisited></UserVisited>
       <NavBar></NavBar>
     </div>

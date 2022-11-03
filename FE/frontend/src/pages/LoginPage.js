@@ -1,21 +1,18 @@
 import React, { useState } from "react";
 import "./style/Login.css";
 import axios from "axios";
-/*
 import { userState } from "../Store/state.js";
 import { useRecoilState } from "recoil";
-*/
 import Header from "../Components/Header/Header.js";
 import { useNavigate } from "react-router-dom";
 import letsCamp from "../api/LetsCamp";
 
 const Login = () => {
+  const [userData, SetUser] = useRecoilState(userState);
   const navigate = useNavigate();
-  //const [user] = useRecoilState(userState);
   const [id, SetId] = useState("");
   const [pw, SetPw] = useState("");
 
-  //const url = "http://k7b308.p.ssafy.io:8080/api/user/login/" + id + "/" + pw;
   const url = letsCamp.user.login(id, pw);
   const changeId = (e) => {
     SetId(e.target.value);
@@ -24,9 +21,14 @@ const Login = () => {
     SetPw(e.target.value);
   };
 
+  const handleOnKeyPress = (e) => {
+    if (e.key === "Enter") {
+      submit(); // Enter 입력이 되면 클릭 이벤트 실행
+    }
+  };
+
   const submit = () => {
     console.log(url);
-
     axios
       .get(url)
       .then(function (response) {
@@ -36,7 +38,23 @@ const Login = () => {
         sessionStorage.setItem("refreshToken", response.data.refreshToken);
         console.log(sessionStorage.getItem("accessToken"));
         console.log(sessionStorage.getItem("refreshToken"));
-        navigate("/mypage");
+        const url2 = letsCamp.user.info();
+        console.log(url2);
+        axios
+          .get(url2, {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.accessToken}`,
+            },
+          })
+          .then(function (response) {
+            //console.log(response);
+            SetUser(response.data);
+            console.log(userData);
+            navigate("/main");
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
       })
       .catch(function (error) {
         console.log("실패");
@@ -62,6 +80,7 @@ const Login = () => {
             type="password"
             value={pw}
             onChange={changePw}
+            onKeyPress={handleOnKeyPress}
           />
           <hr className="Login-underline" />
         </div>
