@@ -15,7 +15,7 @@ import "../App.css"
 import "./style/Button.css"
 
 const Questions = () => {
-
+  // const [season, setSeason] = useState("")
   // 페이지를 구분할 변수가 필요하고
   // 페이지에 따라 ChoiceButton과 Question, MoveButton의 변화가 필요하다.
   // const [page] = useRecoilState(questionPage);

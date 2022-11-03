@@ -43,11 +43,9 @@
 }
 
 .tag-btn-active {
-  outline: 0;
   background-color: blue;
 }
 
 .tag-btn-none-active {
-  outline: 0;
   background-color: black;
 }

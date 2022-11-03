@@ -7,17 +7,26 @@ import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 // import moment from "moment";
 
-const ChoiceButton = () => {
+const ChoiceButton = ({someState, setSomeState}) => {
+  // /api/camping/recomm/일반야영장/동반/아이들과놀기좋은 가족 바다가보이는 여름물놀이 낚시
   const toggleClass = (idx) => {
-    !isActive[idx] ? (isActive[idx] = 1) : (isActive[idx] = 0)
-    console.log(isActive)
+    !isActive[idx] ? (isActive[idx] = 1) : (isActive[idx] = 0);
+    console.log(isActive);
   };
   
-
+  const springList = ["봄꽃여행", "일출명소", "낚시", "걷기길", "항공레저", "액티비티"]
+  const summerList = ["수상레저", "여름물놀이", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
   const fallList = ["가을단풍명소", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
+  const winterList = ["겨울눈꽃명소", "스키", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
 
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
+
+  // navigate("/somepage", {
+  //   state: {
+  //     buttons: ["1", "2"]
+  //   }
+  // })
 
   const [season] = useRecoilState(startDate);
   const setStartDate = useSetRecoilState(startDate);
@@ -34,8 +43,32 @@ const ChoiceButton = () => {
   const [cate] = useRecoilState(campingCate);
   const setCate = useSetRecoilState(campingCate);
 
-  const [isActive] = useState(fallList.map(n => 0));
+  const campSeason = (e) => {
+    switch (e) {
+      case "봄":
+        return springList
+      case "여름":
+        return summerList
+      case "가을":
+        return fallList
+      case "겨울":
+        return winterList
+      default:
+        return []
+    }
+  }
+  
+  const [isActive, setIsActive] = useState(campSeason(season).map((n, i) => 0));
 
+  const onChangeIsActive = (idx) => {
+    let tmp = [...isActive];
+    !tmp[idx] ?(tmp[idx] = 1) : (tmp[idx] = 0);
+    setIsActive(tmp);
+  }
+
+  // useEffect(() => {
+  //   console.log(isActive);
+  // }, [isActive]);
   
   
   const moveNextPage = () => {
@@ -153,32 +186,26 @@ const ChoiceButton = () => {
   )
 
   const question6 = ( season ) => {
-    switch ( season ){
-      case "봄":
-        return 
-      case "여름":
-        return
-      case "가을":
-        return (
-          <div className="tag-div">
-            {
-              fallList.map((tag, idx) => {
-                return (
-                  <button
-                    className={"div-inline tag-btn tag-content" + (!isActive[idx] ? "tag-btn-active": "")}
-                    onClick={() => { toggleClass(idx) }}
-                  >
-                    { tag }
-                  </button>
-                )
-              })
-            }
-          </div>
-        )
-      default:
-        return
+    const seasonList = campSeason(season);
+    return (
+      <div className="tag-div">
+        {
+          seasonList.map((tag, idx) => {
+            return (
+              <button
+                key={idx}
+                className={ "div-inline tag-btn tag-content" }
+                onClick={ () => onChangeIsActive(idx) }
+                style={{ backgroundColor: isActive[idx] ? "green" : "white" }}
+              >
+                { tag }
+              </button>
+            )
+          })
+        }
+      </div>
+    )
     }
-  }
 
 
   switch (page){
