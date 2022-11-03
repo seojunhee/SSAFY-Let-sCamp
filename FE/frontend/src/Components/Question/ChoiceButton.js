@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { questionPage, startDate, withPet, withWho, campPlace, campingCate } from "../../Store/state";
+import { questionPage, startDate, withWho, campPlace, campingCate } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
 
 // 달력
 import Calendar from 'react-calendar';
 // import moment from "moment";
 
-const ChoiceButton = ({someState, setSomeState}) => {
+const ChoiceButton = (props) => {
   // /api/camping/recomm/일반야영장/동반/아이들과놀기좋은 가족 바다가보이는 여름물놀이 낚시
-  const toggleClass = (idx) => {
-    !isActive[idx] ? (isActive[idx] = 1) : (isActive[idx] = 0);
-    console.log(isActive);
-  };
+  // const toggleClass = (idx) => {
+  //   !isActive[idx] ? (isActive[idx] = 1) : (isActive[idx] = 0);
+  //   console.log(isActive);
+  // };
   
   const springList = ["봄꽃여행", "일출명소", "낚시", "걷기길", "항공레저", "액티비티"]
   const summerList = ["수상레저", "여름물놀이", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
@@ -20,7 +20,7 @@ const ChoiceButton = ({someState, setSomeState}) => {
   const winterList = ["겨울눈꽃명소", "스키", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
 
   const [page] = useRecoilState(questionPage);
-  const setPage =  useSetRecoilState(questionPage);
+  const setPage = useSetRecoilState(questionPage);
 
   // navigate("/somepage", {
   //   state: {
@@ -30,9 +30,6 @@ const ChoiceButton = ({someState, setSomeState}) => {
 
   const [season] = useRecoilState(startDate);
   const setStartDate = useSetRecoilState(startDate);
-
-  const [pet] = useRecoilState(withPet);
-  const setPet = useSetRecoilState(withPet);
 
   const [who] = useRecoilState(withWho);
   const setWho = useSetRecoilState(withWho);
@@ -58,7 +55,7 @@ const ChoiceButton = ({someState, setSomeState}) => {
     }
   }
   
-  const [isActive, setIsActive] = useState(campSeason(season).map((n, i) => 0));
+  const [isActive, setIsActive] = useState(campSeason(season).map((n) => 0));
 
   const onChangeIsActive = (idx) => {
     let tmp = [...isActive];
@@ -66,9 +63,7 @@ const ChoiceButton = ({someState, setSomeState}) => {
     setIsActive(tmp);
   }
 
-  // useEffect(() => {
-  //   console.log(isActive);
-  // }, [isActive]);
+
   
   
   const moveNextPage = () => {
@@ -93,11 +88,14 @@ const ChoiceButton = ({someState, setSomeState}) => {
   const onChangePet = (e) => {
     moveNextPage();
     if (e) {
-      setPet("동반");
+      props.setAnimal("동반");
     } else {
-      setPet("비동반")
+      props.setAnimal("비동반");
     }
   }
+  // useEffect(() => {
+  //   console.log(props.url);
+  // }, [props.animal]);
 
   const onChangeWho = (e) => {
     moveNextPage();
