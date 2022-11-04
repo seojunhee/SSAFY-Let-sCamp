@@ -14,10 +14,7 @@ const ChoiceButton = (props) => {
   //   console.log(isActive);
   // };
   
-  const springList = ["봄꽃여행", "일출명소", "낚시", "걷기길", "항공레저", "액티비티"]
-  const summerList = ["수상레저", "여름물놀이", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
-  const fallList = ["가을단풍명소", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
-  const winterList = ["겨울눈꽃명소", "스키", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
+  
 
   const [page] = useRecoilState(questionPage);
   const setPage = useSetRecoilState(questionPage);
@@ -28,31 +25,29 @@ const ChoiceButton = (props) => {
   //   }
   // })
 
-  const campSeason = (e) => {
-    switch (e) {
-      case "봄":
-        return springList
-      case "여름":
-        return summerList
-      case "가을":
-        return fallList
-      case "겨울":
-        return winterList
-      default:
-        return []
-    }
-  }
+  // const campSeason = (e) => {
+  //   switch (e) {
+  //     case "봄":
+  //       return springList
+  //     case "여름":
+  //       return summerList
+  //     case "가을":
+  //       return fallList
+  //     case "겨울":
+  //       return winterList
+  //     default:
+  //       return []
+  //   }
+  // }
   
-  const [isActive, setIsActive] = useState(campSeason(props.season).map((n) => 0));
+  // const [isActive, setIsActive] = useState(props.allSeasonList[props.season].map((n) => 0));
 
   const onChangeIsActive = (idx) => {
-    let tmp = [...isActive];
+    let tmp = [...props.isActive];
     !tmp[idx] ?(tmp[idx] = 1) : (tmp[idx] = 0);
-    setIsActive(tmp);
+    props.setIsActive(tmp);
   }
 
-
-  
   
   const moveNextPage = () => {
     setPage(page + 1)
@@ -83,7 +78,7 @@ const ChoiceButton = (props) => {
   }
   useEffect(() => {
     console.log(props.url);
-  }, [props.animal, props.campingCate, props.keyword]);
+  }, [props.animal, props.campingCate, props.keyword, props.season]);
 
   const onChangeKeyword = (e) => {
     moveNextPage();
@@ -143,7 +138,7 @@ const ChoiceButton = (props) => {
 
   const question4 = (
     <div className="grid height-55">
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("텐트") }>텐트</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("일반야영장") }>텐트</div>
       <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
       <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("카라반") }>카라반</div>
       <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("글램핑") }>글램핑</div>
@@ -166,17 +161,17 @@ const ChoiceButton = (props) => {
   )
 
   const question6 = ( season ) => {
-    const seasonList = campSeason(season);
+    // const seasonList = campSeason(season);
     return (
       <div className="tag-div">
         {
-          seasonList.map((tag, idx) => {
+          props.allSeasonList[season].map((tag, idx) => {
             return (
               <button
                 key={idx}
                 className={ "div-inline tag-btn tag-content" }
                 onClick={ () => onChangeIsActive(idx) }
-                style={{ backgroundColor: isActive[idx] ? "green" : "white" }}
+                style={{ backgroundColor: props.isActive[idx] ? "green" : "white" }}
               >
                 { tag }
               </button>

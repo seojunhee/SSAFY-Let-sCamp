@@ -10,9 +10,11 @@ import NavBar from "../Components/NavBar/NavBar.js"
 import "./style/Button.css"
 
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const RecommendResult = () => {
+  let location = useLocation();
+  console.log('state', location);
   
   return (
     <div style={{height: "100%"}}>

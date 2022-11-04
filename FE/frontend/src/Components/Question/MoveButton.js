@@ -1,35 +1,60 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import axios from "axios";
 import { questionPage } from "../../Store/state";
 
 // css
 import "./style/QuestionButton.css"
 
-const MoveButton = () => {
+const MoveButton = (props) => {
   const [page] = useRecoilState(questionPage);
   const setPage =  useSetRecoilState(questionPage);
-
+  const navigate = useNavigate();
   const moveNextPage = () => {
     setPage(page + 1)
   }
-
   const movePrePage = () => {
     setPage(page - 1)
+    props.setSeason("")
+    props.setIsActive([])
   }
   const resetPage = () => {
     setPage(1)
+    props.setSeason("")
+    props.setIsActive([])
   }
-  const DateChoice = () => {
+
+  const submitAnswer = () => {
+    let tagKeyword = ""
+    props.setKeyword(props.keyword + props.season + " ")
+    // console.log(props.isActive)
+    // console.log(props.season)
+    props.isActive.map((n, idx) => !!n ? tagKeyword = tagKeyword + props.allSeasonList[props.season][idx] + " ": null)
+    props.setKeyword(props.keyword + tagKeyword)
+    console.log(props.url)
+    
+    axios
+      .get(props.url)
+      .then(function (response) {
+        console.log(response.data)
+        navigate("/recommend", {state: {"data": response.data}});
+      })
+    resetPage()
     
   }
+  // useEffect(() => {
+  //   console.log(props.url);
+  // }, [props.animal, props.campingCate, props.keyword, props.season]);
+
   const choiceButton = (
     <button className="item col-2 w-btn" onClick={ moveNextPage }>선택</button>
   )
   const submitButton = (
-    <Link to="/recommend">
-      <button className="item col-2 w-btn" onClick={resetPage}>제출</button>
-    </Link>
+
+    <button className="item col-2 w-btn" onClick={ submitAnswer }>제출</button>
+
   )
   return (
     <>
