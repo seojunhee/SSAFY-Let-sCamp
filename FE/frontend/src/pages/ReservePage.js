@@ -21,7 +21,7 @@ const Reserve = () => {
   const [ isDateActive, setIsDateActive ] = useState(true)
   const [ isPeopleActive, setIsPeopleActive ] = useState(true)
   const [ dateContent, setDateContent ] = useState([])
-  const [ peopleContent, setPeopleContent ] = useState(0)
+  const [ peopleContent, setPeopleContent ] = useState({"성인": 0, "유아": 0, "반려동물": 0})
 
   console.log(!!peopleContent && !!dateContent)
 
