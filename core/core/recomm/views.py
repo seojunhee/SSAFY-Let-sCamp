@@ -46,7 +46,7 @@ def recommend_campings(request, category, animal, keywords):
 
         # 유사도 높은 순 정렬
         sorted_ind = keywords_sim.argsort()[:, ::-1]
-        base_index = new_df.shape[0] - 1
+        base_index = campings_df.shape[0] - 1
         similar_indexes = sorted_ind[base_index]
         result = pd.DataFrame(similar_indexes)
         result.columns = ['인덱스']
@@ -79,7 +79,7 @@ def recommend_campings(request, category, animal, keywords):
 
         # 유사도 높은 순 정렬
         sorted_ind = keywords_sim.argsort()[:, ::-1]
-        base_index = new_df.shape[0] - 1
+        base_index = campings_df.shape[0] - 1
         similar_indexes = sorted_ind[base_index]
         result = pd.DataFrame(similar_indexes)
         result.columns = ['인덱스']

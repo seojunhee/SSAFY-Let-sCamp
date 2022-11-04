@@ -17,7 +17,9 @@ public class ReservationFindByUserIdResponse {
     private String startDate;
     private String endDate;
     private String category;
-    private Long count;
+    private Long countAdult;
+    private Long countKid;
+    private Long countPet;
     private Long level;
 
     public ReservationFindByUserIdResponse(Reservation reservation) {
@@ -27,7 +29,9 @@ public class ReservationFindByUserIdResponse {
         this.startDate = reservation.getStartDate();
         this.endDate = reservation.getEndDate();
         this.category = reservation.getCategory();
-        this.count = reservation.getCount();
+        this.countAdult = reservation.getCountAdult();
+        this.countKid = reservation.getCountKid();
+        this.countPet = reservation.getCountPet();
         this.level = reservation.getLevel();
     }
 }
