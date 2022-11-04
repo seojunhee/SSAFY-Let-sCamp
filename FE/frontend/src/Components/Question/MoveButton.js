@@ -22,6 +22,8 @@ const MoveButton = (props) => {
   }
   const resetPage = () => {
     setPage(1)
+    props.setSeason("")
+    props.setIsActive([])
   }
 
   const submitAnswer = () => {
