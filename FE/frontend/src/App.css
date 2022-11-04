@@ -222,7 +222,12 @@
 .height-271 {
   height: 27.1%;
 }
-
+.height-20vh {
+  height: 20vh;
+}
+.height-50vh {
+  height: 50vh;
+}
 .margin-bottom-5 {
   margin-bottom: 5%;
 }
@@ -230,4 +235,7 @@
 .div-inline {
   display: inline;
   width: max-content;
+}
+.div-block {
+  display: block;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import "./style/ReservationInfo.css"
 
@@ -6,6 +6,8 @@ import Calendar from 'react-calendar';
 import moment from "moment";
 
 const ReservationInfo = (props) => {
+  
+  const [ disableBtn, setDisableBtn ] = useState(true)
 
   const toggleIsActive = () => {
     props.setIsDateActive(!props.isDateActive)
@@ -16,6 +18,7 @@ const ReservationInfo = (props) => {
       return moment(date).format('YYYY-MM-DD')
     })
     props.setContent(nowMonth)
+    setDisableBtn(false)
   }
 
   return (
@@ -34,9 +37,9 @@ const ReservationInfo = (props) => {
             }
           </div>
         </div>
-        <div className="update-btn" onClick={toggleIsActive}>
+        <button className="w-btn" onClick={toggleIsActive} disabled={disableBtn}>
           {!!props.isDateActive ? "완료" : "수정"}
-        </div>
+        </button>
         </div>
       <div>
       {

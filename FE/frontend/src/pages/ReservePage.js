@@ -50,6 +50,7 @@ const Reserve = () => {
         setIsPeopleActive = {setIsPeopleActive}
        />
       <hr/>
+      <div className="height-20vh display-block"></div>
       <ReserveBtn 
         dateContent = {dateContent}
         peopleContent = {peopleContent}
