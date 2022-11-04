@@ -1,14 +1,24 @@
 import React from "react";
 import { useRecoilState } from "recoil";
 import { campSiteState } from "../../Store/state.js";
+import { useNavigate } from "react-router-dom";
 
 const Contents = () => {
+  const navigate = useNavigate();
   const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
 
+  const search = () => {
+    console.log(campSiteData.lat);
+    console.log(campSiteData.lon);
+    navigate("/map", { lat: campSiteData.lat, lon: campSiteData.lon });
+  };
   return (
     <div>
       <div>별점</div>
-      <div>위치 {campSiteData.address}</div>
+      <div>
+        위치 {campSiteData.address}{" "}
+        <button onClick={search}>지도로 보기</button>
+      </div>
       <div>전화번호 : {campSiteData.tel}</div>
       <div>{campSiteData.simple_des}</div>
       <hr />
