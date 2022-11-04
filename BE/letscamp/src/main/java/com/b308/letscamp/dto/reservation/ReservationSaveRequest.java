@@ -18,7 +18,9 @@ public class ReservationSaveRequest {
     private String startDate;
     private String endDate;
     private String category;
-    private Long count;
+    private Long countAdult;
+    private Long countKid;
+    private Long countPet;
     private Long level;
 
     public Reservation toEntity() {
@@ -28,7 +30,9 @@ public class ReservationSaveRequest {
                 .startDate(startDate)
                 .endDate(endDate)
                 .category(category)
-                .count(count)
+                .countAdult(countAdult)
+                .countKid(countKid)
+                .countPet(countPet)
                 .level(0L)
                 .build();
     }

@@ -38,8 +38,14 @@ public class Reservation {
     @Column(name = "category", nullable = false)
     private String category;
 
-    @Column(name = "count", nullable = false)
-    private Long count;
+    @Column(name = "count_adult", nullable = false)
+    private Long countAdult;
+
+    @Column(name = "count_kid", nullable = false)
+    private Long countKid;
+
+    @Column(name = "count_pet", nullable = false)
+    private Long countPet;
 
     @Column(name = "level", nullable = false)
     @ColumnDefault("0")
