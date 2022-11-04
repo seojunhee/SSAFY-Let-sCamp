@@ -154,6 +154,17 @@
   border: none;
 }
 
+.reserve-button-disable{
+  margin-top: 50px;
+  width: 85%;
+  height: 60px;
+  background-color: gray;
+  color: black;   
+  font-size: 36px;
+  border-radius: 10px;
+  border: none;
+}
+
 .position-relative {
   position: relative;
 }

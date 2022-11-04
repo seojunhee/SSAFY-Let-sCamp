@@ -16,13 +16,14 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const Reserve = () => {
 
   let location = useLocation();
-  console.log(location.state.data)
+  
   const campSiteData = location.state.data
   const [ isDateActive, setIsDateActive ] = useState(true)
   const [ isPeopleActive, setIsPeopleActive ] = useState(true)
   const [ dateContent, setDateContent ] = useState([])
-  const [ peopleContent, setPeopleContent ] = useState("")
+  const [ peopleContent, setPeopleContent ] = useState(0)
 
+  console.log(!!peopleContent && !!dateContent)
 
   return (
     <div>
@@ -49,7 +50,10 @@ const Reserve = () => {
         setIsPeopleActive = {setIsPeopleActive}
        />
       <hr/>
-      <ReserveBtn />  
+      <ReserveBtn 
+        dateContent = {dateContent}
+        peopleContent = {peopleContent}
+      />
 
     </div>
   )
