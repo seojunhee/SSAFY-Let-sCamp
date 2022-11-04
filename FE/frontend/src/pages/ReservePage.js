@@ -16,11 +16,14 @@ const Reserve = () => {
 
   let location = useLocation();
   console.log(location.state.data)
+  const campSiteData = location.state.data
   
   return (
     <div>
       <Header pageName={"캠핑장 예약"}/>
-      <CampSiteInfo />
+      <CampSiteInfo
+        campSiteData={campSiteData}
+      />
       <hr/>
       <div className="grid">
         <h3 className="col-4">예약 정보</h3>

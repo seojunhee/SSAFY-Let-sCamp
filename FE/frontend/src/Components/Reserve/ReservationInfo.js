@@ -16,7 +16,7 @@ const ReservationInfo = (props) => {
         </div>
       </div>
       <div className="item col-2 update-btn">
-        <a href=".">수정</a>
+        수정
       </div>
     </div>
   )
