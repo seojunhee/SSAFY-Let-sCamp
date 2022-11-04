@@ -8,19 +8,17 @@ import { useNavigate } from "react-router-dom";
 import letsCamp from "../api/LetsCamp";
 
 const Login = () => {
-  const [userData, SetUser] = useRecoilState(userState);
   const navigate = useNavigate();
+  const [userData, SetUser] = useRecoilState(userState);
   const [id, SetId] = useState("");
   const [pw, SetPw] = useState("");
 
-  const url = letsCamp.user.login(id, pw);
   const changeId = (e) => {
     SetId(e.target.value);
   };
   const changePw = (e) => {
     SetPw(e.target.value);
   };
-
   const handleOnKeyPress = (e) => {
     if (e.key === "Enter") {
       submit(); // Enter 입력이 되면 클릭 이벤트 실행
@@ -28,18 +26,13 @@ const Login = () => {
   };
 
   const submit = () => {
-    console.log(url);
+    const url = letsCamp.user.login(id, pw);
     axios
       .get(url)
       .then(function (response) {
-        console.log("성공");
-        console.log(response);
         sessionStorage.setItem("accessToken", response.data.accessToken);
         sessionStorage.setItem("refreshToken", response.data.refreshToken);
-        console.log(sessionStorage.getItem("accessToken"));
-        console.log(sessionStorage.getItem("refreshToken"));
         const url2 = letsCamp.user.info();
-        console.log(url2);
         axios
           .get(url2, {
             headers: {
@@ -47,7 +40,6 @@ const Login = () => {
             },
           })
           .then(function (response) {
-            //console.log(response);
             SetUser(response.data);
             console.log(userData);
             navigate("/main");
