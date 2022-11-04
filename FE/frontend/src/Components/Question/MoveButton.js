@@ -32,13 +32,15 @@ const MoveButton = (props) => {
     props.isActive.map((n, idx) => !!n ? tagKeyword = tagKeyword + props.allSeasonList[props.season][idx] + " ": null)
     props.setKeyword(props.keyword + tagKeyword)
     console.log(props.url)
+    
     axios
       .get(props.url)
       .then(function (response) {
-        console.log(response)
-        navigate("/recommend");
+        console.log(response.data)
+        navigate("/recommend", {state: {"data": response.data}});
       })
-    resetPage;
+    resetPage()
+    
   }
   // useEffect(() => {
   //   console.log(props.url);

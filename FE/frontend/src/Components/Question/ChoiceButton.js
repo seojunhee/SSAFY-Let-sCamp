@@ -138,7 +138,7 @@ const ChoiceButton = (props) => {
 
   const question4 = (
     <div className="grid height-55">
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("텐트") }>텐트</div>
+      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("일반야영장") }>텐트</div>
       <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
       <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("카라반") }>카라반</div>
       <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("글램핑") }>글램핑</div>
