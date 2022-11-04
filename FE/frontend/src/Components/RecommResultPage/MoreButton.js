@@ -4,12 +4,16 @@ import { Link } from "react-router-dom";
 
 //css
 import "./style/MoreButton.css"
-const Header = () => {
+const Header = (props) => {
+
+  const changeIdx = () => {
+    props.setListIdx((props.listIdx + 1) % props.numberOfCampSite)
+  }
 
   return (
     <>
       <div className="container">
-        <button className="w-btn w-btn-again">다시 추천 받기</button>
+        <button onClick={ changeIdx } className="w-btn w-btn-again">다시 추천 받기</button>
         <Link to="/reserve">
           <button className="w-btn w-btn-blue">Let's Camp!</button>
         </Link>

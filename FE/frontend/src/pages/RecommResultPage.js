@@ -17,7 +17,8 @@ const RecommendResult = () => {
   // console.log('state', location.state.data);
   const campSiteList = location.state.data
   // const [campSiteList, setCampSiteList] = useState( { campSiteData } )
-  // console.log(campSiteList)
+  const numberOfCampSite = (campSiteList).length
+  const [listIdx, setListIdx] = useState(0)
   
   
   return (
@@ -25,8 +26,15 @@ const RecommendResult = () => {
       <Header pageName="캠핑장 추천"/>
       <CampSite 
         campSiteList={ campSiteList }
+        listIdx={listIdx}
+        setListIdx={setListIdx}
       />
-      <MoreButton />
+      <MoreButton 
+        campSiteList={ campSiteList }
+        listIdx={listIdx}
+        setListIdx={setListIdx}
+        numberOfCampSite={numberOfCampSite}
+      />
       <NavBar />
     </div>
   )
