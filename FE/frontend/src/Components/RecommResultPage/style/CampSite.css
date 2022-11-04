@@ -1,6 +1,6 @@
 .imgBox{
   width: auto;
-  height: 50%;
-  border: 1px solid;
+  height: 55%;
+  object-fit: cover;
 
 }

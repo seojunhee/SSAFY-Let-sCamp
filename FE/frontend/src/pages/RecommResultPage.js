@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 
 // Components
 import Header from "../Components/Header/Header.js";
@@ -14,12 +14,18 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const RecommendResult = () => {
   let location = useLocation();
-  console.log('state', location);
+  // console.log('state', location.state.data);
+  const campSiteList = location.state.data
+  // const [campSiteList, setCampSiteList] = useState( { campSiteData } )
+  // console.log(campSiteList)
+  
   
   return (
     <div style={{height: "100%"}}>
       <Header pageName="캠핑장 추천"/>
-      <CampSite />
+      <CampSite 
+        campSiteList={ campSiteList }
+      />
       <MoreButton />
       <NavBar />
     </div>

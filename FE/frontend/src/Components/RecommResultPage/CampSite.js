@@ -1,23 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./style/CampSite.css"
-const CampSite = () => {
-  // 캠핑장 추천 장소 리스트
-  const [recommendCampList, setRecList] = useState(null);
-
-  // 캠핑장 추천장소 api 호출
-  // const RecCampLoad = async () => {
-  //   const RecCampData = await getRec();
-  //   if (RecCampData.code === 200) setRecList(RecCampData);
-  // };
-
-  // 전역 변수로 리스트 컨트롤
+const CampSite = (props) => {
 
   return (
     <>
       <h4>당신에게 알맞은 캠핑장은</h4>
-      <h3>솔내음 캠핑장</h3>
+      <h3> {(props.campSiteList[0].name)} </h3>
       <div className="imgBox">
-        <img src="." alt="캠핑장 사진" />
+        <p></p>
+        <img src={props.campSiteList[0].thumb} alt="캠핑장 사진" />
       </div>
       
     </>
