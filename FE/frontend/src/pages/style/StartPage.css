@@ -38,4 +38,7 @@ html { font-family: 'Inter', sans-serif; }
     height: 65px;
     font-family: 'Inter';
     font-weight: bold;
+    background-color: #35C2BD;
+    border-radius: 20px;
+    color: white;
 }
