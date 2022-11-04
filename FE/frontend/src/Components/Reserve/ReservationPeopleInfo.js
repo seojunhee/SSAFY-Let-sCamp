@@ -55,8 +55,8 @@ const ReservationInfo = (props) => {
           </div>
           <div className="text-left">
             {!props.isPeopleActive
-            ?"성인 " + props.content["성인"] + "명 유아" + props.content["유아"] + "명 반려동물" + props.content["반려동물"] + "마리"
-            : "인원을 입력 후 완료 버튼을 눌러 주세요."}
+            ?"성인 " + props.content["성인"] + "명 유아 " + props.content["유아"] + "명 반려동물 " + props.content["반려동물"] + "마리"
+            : "인원 입력 후 완료 버튼을 눌러 주세요."}
           </div>
         </div>
         <button className="w-btn" onClick={toggleIsActive}>
@@ -97,7 +97,7 @@ const ReservationInfo = (props) => {
               </div>
             </div>
               <div className="outer-div">
-                반려동물과 함께 하시나요?
+                반려동물
                 <div className="container">
                   <div className="w-btn" onClick={withPet}>예</div>
                   <div className="w-btn" onClick={notPet}>아니요</div>

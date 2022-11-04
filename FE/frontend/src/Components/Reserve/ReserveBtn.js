@@ -2,7 +2,7 @@ import React from "react";
 
 const ReserveBtn = (props) => {
 
-  const btnDisable = (!props.dateContent || !props.peopleContent)
+  const btnDisable = (props.dateContent == 0)
 
   return (
     <div className="width-100">
