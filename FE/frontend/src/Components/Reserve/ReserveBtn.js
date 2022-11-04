@@ -2,10 +2,11 @@ import React from "react";
 
 const ReserveBtn = (props) => {
 
+  const btnDisable = (props.dateContent == 0)
 
   return (
-    <div className="position-bottom width-100">
-      <button className="reserveButton">
+    <div className="width-100">
+      <button className={ btnDisable ? "reserve-button-disable" : "reserveButton"} disabled={btnDisable} onClick={() => {console.log("예약")}}>
         예약하기
       </button>
     </div>
