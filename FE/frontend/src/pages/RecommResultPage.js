@@ -9,6 +9,9 @@ import NavBar from "../Components/NavBar/NavBar.js"
 // css
 import "./style/Button.css"
 
+// api
+import letsCamp from "../api/LetsCamp";
+
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -19,7 +22,6 @@ const RecommendResult = () => {
   // const [campSiteList, setCampSiteList] = useState( { campSiteData } )
   const numberOfCampSite = (campSiteList).length
   const [listIdx, setListIdx] = useState(0)
-  
   
   return (
     <div style={{height: "100%"}}>
