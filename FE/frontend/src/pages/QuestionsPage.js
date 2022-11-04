@@ -19,10 +19,10 @@ import "../App.css"
 import "./style/Button.css"
 
 const Questions = () => {
-  const springList = ["봄꽃여행", "일출명소", "낚시", "걷기길", "항공레저", "액티비티"]
-  const summerList = ["수상레저", "여름물놀이", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
-  const fallList = ["가을단풍명소", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
-  const winterList = ["겨울눈꽃명소", "스키", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티"]
+  const springList = ["꽃여행", "일출명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
+  const summerList = ["수상레저", "물놀이", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
+  const fallList = ["단풍명소", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
+  const winterList = ["눈꽃명소", "스키", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
 
   const allSeasonList = {"": [], "봄": springList, "여름": summerList, "가을": fallList, "겨울": winterList}
 
