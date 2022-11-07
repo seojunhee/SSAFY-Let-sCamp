@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     # APP
     'recomm',
+    'classification',
 
     # Library
     'rest_framework',
