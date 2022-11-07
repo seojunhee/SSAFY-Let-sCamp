@@ -12,7 +12,6 @@ from io import BytesIO
 # 이미지 분류
 @api_view(['GET'])
 def trash_classification(request, filename):
-    test_dir = "C:/Users/multicampus/PycharmProjects/imageDetection/test"
     image_w = 64
     image_h = 64
 
@@ -43,7 +42,7 @@ def trash_classification(request, filename):
     X = np.array(X)
 
     # 모델 불러오기
-    model = load_model('C:/Users/multicampus/PycharmProjects/imageDetection/model/multi_img_classification.model')
+    model = load_model('./model/multi_img_classification.model')
 
     # 모델로 예측하기
     prediction = model.predict(X)
