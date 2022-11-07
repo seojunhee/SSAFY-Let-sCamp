@@ -14,6 +14,7 @@ public class ReviewFindResponse {
     private Long id;
     private Long userId;
     private String userNickName;
+    private Long userExp;
     private Long campingId;
     private String campingName;
     private String campingThumb;
@@ -25,6 +26,7 @@ public class ReviewFindResponse {
         this.id = review.getId();
         this.userId = review.getUser().getId();
         this.userNickName = review.getUser().getNickName();
+        this.userExp = review.getUser().getExp();
         this.campingId = review.getCamping().getId();
         this.campingName = review.getCamping().getName();
         this.campingThumb = review.getCamping().getThumb();
