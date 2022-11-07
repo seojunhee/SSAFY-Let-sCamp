@@ -56,6 +56,7 @@ const SignUp = () => {
           alert("중복되는 아이디입니다");
         } else {
           SetDuCheck(false);
+          alert("사용 가능한 아이디입니다");
         }
       })
       .catch(function (error) {
