@@ -10,6 +10,9 @@ import ReserveBtn from "../Components/Reserve/ReserveBtn.js";
 import { useSetRecoilState } from "recoil";
 import { pageNameState } from "../Store/state.js";
 
+// api
+import letsCamp from "../api/LetsCamp";
+
 
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
@@ -18,18 +21,23 @@ const Reserve = () => {
   let location = useLocation();
   
   const campSiteData = location.state.data
+  // console.log(campSiteData.id)
+  const url = letsCamp.reservation.reserve(campSiteData.id)
   const [ isDateActive, setIsDateActive ] = useState(true)
   const [ isPeopleActive, setIsPeopleActive ] = useState(true)
+  const [ campingCate, setCampingCate ]  = useState(campSiteData.category)
   const [ dateContent, setDateContent ] = useState([])
   const [ peopleContent, setPeopleContent ] = useState({"성인": 0, "유아": 0, "반려동물": 0})
 
-  console.log(!!peopleContent && !!dateContent)
+  // console.log(!!peopleContent && !!dateContent)
 
   return (
     <div>
       <Header pageName={"캠핑장 예약"}/>
       <CampSiteInfo
-        campSiteData={campSiteData}
+        campSiteData = {campSiteData}
+        
+        setCampingCate = {setCampingCate}
       />
       <hr/>
       <div className="grid">
@@ -51,7 +59,9 @@ const Reserve = () => {
        />
       <hr/>
       <div className="height-20vh display-block"></div>
-      <ReserveBtn 
+      <ReserveBtn
+        url = {url}
+        campingCate = {campingCate}
         dateContent = {dateContent}
         peopleContent = {peopleContent}
       />

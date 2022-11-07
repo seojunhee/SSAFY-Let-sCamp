@@ -24,11 +24,14 @@ const SignUp = () => {
       address !== ""
     ) {
       SetBtnAct(true);
+    } else {
+      SetBtnAct(false);
     }
-  });
+  }, [userPw, userPw2, duCheck, nickName, address]);
 
   const changeId = (e) => {
     SetUserId(e.target.value);
+    SetDuCheck(true);
   };
   const changeNickName = (e) => {
     SetNickName(e.target.value);
@@ -48,23 +51,21 @@ const SignUp = () => {
     axios
       .get(url)
       .then(function (response) {
-        console.log("성공");
-        console.log(response);
         //true면 중복, false 면 중복 아님
         if (response.data.duplication === true) {
           alert("중복되는 아이디입니다");
         } else {
           SetDuCheck(false);
+          alert("사용 가능한 아이디입니다");
         }
       })
       .catch(function (error) {
-        console.log("실패");
         console.log(error);
       });
   };
 
-  const url = "https://k7b308.p.ssafy.io/api/user/regist";
   const submit = () => {
+    const url = LetsCamp.user.regist();
     axios
       .post(url, {
         address: address,
@@ -77,12 +78,10 @@ const SignUp = () => {
         },
       })
       .then(function (response) {
-        console.log("성공");
         console.log(response);
         navigate("/login");
       })
       .catch(function (error) {
-        console.log("실패");
         console.log(error);
       });
   };
