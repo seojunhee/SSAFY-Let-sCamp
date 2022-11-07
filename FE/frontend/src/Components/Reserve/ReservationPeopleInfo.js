@@ -26,7 +26,7 @@ const ReservationInfo = (props) => {
   }
 
   const minusAdultNum = () => {
-    if (adultNum <= 0) {
+    if (adultNum <= 1) {
       return
     }
     setAdultNum(adultNum - 1)
@@ -73,29 +73,29 @@ const ReservationInfo = (props) => {
               <div className="outer-div">
                 성인
               <div className="container">
-              <div className="w-btn" onClick={minusAdultNum}>
+              <button className="w-btn" onClick={minusAdultNum} disabled={(adultNum <= 1)}>
                 -
-              </div>
+              </button>
               <div className="w-btn">
                 {adultNum}
               </div>
-              <div className="w-btn" onClick={addAdultNum}>
+              <button className="w-btn" onClick={addAdultNum} disabled={(adultNum >= 4)}>
                 +
-              </div>
+              </button>
               </div>
             </div>
             <div className="outer-div">
               유아
               <div className="container">
-                <div className="w-btn" onClick={minusBabyNum}>
+                <button className="w-btn" onClick={minusBabyNum} disabled={(babyNum <= 0)}>
                   -
-                </div>
+                </button>
                 <div className="w-btn">
                   {babyNum}
                 </div>
-                <div className="w-btn" onClick={addBabyNum}>
+                <button className="w-btn" onClick={addBabyNum}>
                   +
-                </div>
+                </button>
               </div>
             </div>
               <div className="outer-div">
