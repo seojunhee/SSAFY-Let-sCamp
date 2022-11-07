@@ -10,6 +10,7 @@ import Main from "../Components/MainPage/Main";
 const MainPage = () => {
   const [reservationData, SetReservation] = useState();
   const [items, SetItems] = useState();
+  const [campingData, SetCamping] = useState();
   useEffect(() => {
     const url = LetsCamp.reservation.getReserve();
     axios
@@ -20,18 +21,33 @@ const MainPage = () => {
       })
       .then(function (response) {
         SetReservation(response.data);
-        console.log(response);
+        const getOne = LetsCamp.camping.getOne(response.data[0].campingId);
+        axios
+          .get(getOne, {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.accessToken}`,
+            },
+          })
+          .then(function (response) {
+            console.log(response);
+            SetCamping(response.data.name);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
         switch (response.data[0].category) {
           case "일반야영장": {
-            const url2 = LetsCamp.normal.getAll(response.data[0].id);
+            const getItem = LetsCamp.normal.getAll(response.data[0].id);
             axios
-              .get(url2, {
+              .get(getItem, {
                 headers: {
                   Authorization: `Bearer ${sessionStorage.accessToken}`,
                 },
               })
               .then(function (response) {
                 SetItems(response.data);
+                console.log(response.data);
               })
               .catch(function (error) {
                 console.log(error);
@@ -39,9 +55,9 @@ const MainPage = () => {
             break;
           }
           case "글램핑": {
-            const url2 = LetsCamp.glamping.getAll(response.data[0].id);
+            const getItem = LetsCamp.glamping.getAll(response.data[0].id);
             axios
-              .get(url2, {
+              .get(getItem, {
                 headers: {
                   Authorization: `Bearer ${sessionStorage.accessToken}`,
                 },
@@ -55,9 +71,9 @@ const MainPage = () => {
             break;
           }
           case "카라반": {
-            const url2 = LetsCamp.caraban.getAll(response.data[0].id);
+            const getItem = LetsCamp.caraban.getAll(response.data[0].id);
             axios
-              .get(url2, {
+              .get(getItem, {
                 headers: {
                   Authorization: `Bearer ${sessionStorage.accessToken}`,
                 },
@@ -71,9 +87,9 @@ const MainPage = () => {
             break;
           }
           case "자동차야영장": {
-            const url2 = LetsCamp.carcamping.getAll(response.data[0].id);
+            const getItem = LetsCamp.carcamping.getAll(response.data[0].id);
             axios
-              .get(url2, {
+              .get(getItem, {
                 headers: {
                   Authorization: `Bearer ${sessionStorage.accessToken}`,
                 },
@@ -98,8 +114,11 @@ const MainPage = () => {
   return (
     <div>
       <Header pageName={"메인페이지"}></Header>
-      {reservationData ? (
-        <MyReserve reservationData={reservationData}></MyReserve>
+      {reservationData && campingData ? (
+        <MyReserve
+          reservationData={reservationData}
+          campingData={campingData}
+        ></MyReserve>
       ) : (
         <div> </div>
       )}

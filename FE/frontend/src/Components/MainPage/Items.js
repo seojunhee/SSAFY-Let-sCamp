@@ -1,15 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LetsCamp from "../../api/LetsCamp";
 import "./style/Items.css";
 
 const Items = ({ items, reservationData }) => {
+  const [itemState, SetItem] = useState(items);
+
+  const List = () => {
+    return (
+      <div>
+        {itemState.map((itemState, key) => (
+          <div className="item" key={itemState.id}>
+            <div className="">
+              {itemState.item}
+              <input
+                type="checkbox"
+                className=""
+                value={itemState.id}
+                onChange={checking}
+                checked={itemState.check}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   const checking = (e) => {
     const url = LetsCamp.normal.change();
+    const findIndex = itemState.findIndex((data) => data.id == e.target.value);
+    console.log(e.target.value);
+    console.log(findIndex);
+    let copyArray = [...itemState];
+    if (findIndex !== -1) {
+      copyArray[findIndex] = {
+        ...copyArray[findIndex],
+        check: e.target.checked,
+      };
+    }
+    console.log(copyArray);
+
+    SetItem(copyArray);
+
     axios
       .put(
         url,
-        { check: true, id: items[0].id },
+        { check: e.target.checked, id: e.target.value },
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.accessToken}`,
@@ -30,16 +67,7 @@ const Items = ({ items, reservationData }) => {
       <div className="mainpage-items-cover">
         <div className="mainpage-items-title">준비물</div>
         <div className="mainpage-items-list">준비물 목록</div>
-        <div>
-          {items ? (
-            <div className="">
-              {items[0].item}
-              <input type="checkbox" className="" value={items[0].item} />
-            </div>
-          ) : (
-            <h1>준비물 정보가 없습니다.</h1>
-          )}
-        </div>
+        <div>{items ? <List></List> : <h1>준비물 정보가 없습니다.</h1>}</div>
       </div>
     </div>
   );
