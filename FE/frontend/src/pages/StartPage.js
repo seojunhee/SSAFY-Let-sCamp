@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./style/StartPage.css";
 
 const Start = () => {
+  const navigate = useNavigate();
   return (
     <div className="startpage">
       <img src="/asset/campingcar.png" alt="이미지" className="startpage-img" />
@@ -10,21 +11,34 @@ const Start = () => {
       <div className="startpage-title2">렛츠 캠프!</div>
       <div className="startpage-buttonsbox">
         <div>
-          <Link to="/question">
-            <button className="startpage-button">
-              가입 없이 <br></br>바로 추천받으러 가기
-            </button>
-          </Link>
+          <button
+            className="startpage-button"
+            onClick={() => {
+              navigate("/question");
+            }}
+          >
+            가입 없이 <br></br>바로 추천받으러 가기
+          </button>
         </div>
         <div>
-          <Link to="/login">
-            <button className="startpage-button">로그인</button>
-          </Link>
+          <button
+            className="startpage-button"
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            로그인
+          </button>
         </div>
         <div>
-          <Link to="/signup">
-            <button className="startpage-button">회원가입</button>
-          </Link>
+          <button
+            className="startpage-button"
+            onClick={() => {
+              navigate("/signup");
+            }}
+          >
+            회원가입
+          </button>
         </div>
       </div>
     </div>
