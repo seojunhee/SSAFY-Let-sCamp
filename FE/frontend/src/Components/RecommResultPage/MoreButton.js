@@ -15,7 +15,13 @@ const MoreButton = (props) => {
   }
 
   const toReserve = () => {
-    navigate("/reserve", {state: {"data": props.campSiteList[props.listIdx]}});
+    console.log(sessionStorage.getItem("accessToken"))
+    if (sessionStorage.getItem("accessToken") == null) {
+      alert('로그인이 필요한 페이지 입니다.')
+      navigate("/login")
+    } else {
+      navigate("/reserve", {state: {"data": props.campSiteList[props.listIdx]}});
+    }
   }
 
   return (

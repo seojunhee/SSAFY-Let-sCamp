@@ -11,6 +11,14 @@ const ReserveBtn = (props) => {
 
   const reserveCampSite = () => {
     console.log("예약")
+    console.log({
+      "category": props.campingCate,
+      "endDate": props.dateContent[1],
+      "startDate": props.dateContent[0],
+      "countAdult": props.peopleContent["성인"],
+      "countKid": props.peopleContent["유아"],
+      "countPet": props.peopleContent["반려동물"]
+    })
     axios
       .post(props.url, {
         "category": props.campingCate,
@@ -19,10 +27,15 @@ const ReserveBtn = (props) => {
         "countAdult": props.peopleContent["성인"],
         "countKid": props.peopleContent["유아"],
         "countPet": props.peopleContent["반려동물"]
+      },
+      {
+        headers: {
+          Authorization: "Bearer " + sessionStorage.getItem("accessToken")
+        }
       })
       .then(function (response) {
         console.log(response.data)
-        navigate("/", {state: {"data": response.data}});
+        navigate("/");
       })
   }
 

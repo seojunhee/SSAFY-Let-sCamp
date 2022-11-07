@@ -20,13 +20,12 @@ const Reserve = () => {
 
   let location = useLocation();
   
-  
   const campSiteData = location.state.data
   // console.log(campSiteData.id)
   const url = letsCamp.reservation.reserve(campSiteData.id)
   const [ isDateActive, setIsDateActive ] = useState(true)
   const [ isPeopleActive, setIsPeopleActive ] = useState(true)
-  const [ campingCate, setCampingCate ]  = useState("")
+  const [ campingCate, setCampingCate ]  = useState(campSiteData.category)
   const [ dateContent, setDateContent ] = useState([])
   const [ peopleContent, setPeopleContent ] = useState({"성인": 0, "유아": 0, "반려동물": 0})
 
