@@ -10,10 +10,12 @@ const ReservationInfo = (props) => {
 
   const withPet = () => {
     setPetNum(1)
+    props.setContent({"성인": adultNum, "유아": babyNum, "반려동물": 1})
   }
 
   const notPet = () => {
     setPetNum(0)
+    props.setContent({"성인": adultNum, "유아": babyNum, "반려동물": 0})
   }
 
   const addAdultNum = () => {
@@ -55,7 +57,7 @@ const ReservationInfo = (props) => {
           </div>
           <div className="text-left">
             {!props.isPeopleActive
-            ?"성인 " + props.content["성인"] + "명 유아 " + props.content["유아"] + "명 반려동물 " + props.content["반려동물"] + "마리"
+            ?"성인 " + props.content["성인"] + "명 유아 " + props.content["유아"] + "명 반려동물 " + (!!props.content["반려동물"]? "동반": "비동반")
             : "인원 입력 후 완료 버튼을 눌러 주세요."}
           </div>
         </div>
@@ -97,11 +99,13 @@ const ReservationInfo = (props) => {
               </div>
             </div>
               <div className="outer-div">
-                반려동물
-                <div className="container">
-                  <div className="w-btn" onClick={withPet}>예</div>
-                  <div className="w-btn" onClick={notPet}>아니요</div>
+                <div>
+                  반려동물
                 </div>
+                
+                  <div className={!props.content["반려동물"]? "w-btn" : "w-btn div-blue"} onClick={withPet}>동반</div>
+                  <div className={!props.content["반려동물"]? "w-btn div-blue" : "w-btn"} onClick={notPet}>비동반</div>
+                
 
               </div>
             </div>
