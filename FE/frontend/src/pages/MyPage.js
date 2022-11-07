@@ -9,8 +9,26 @@ import axios from "axios";
 
 const Mypage = () => {
   const [reviewdata, SetReview] = useState();
+  const [userData, SetUser] = useState();
 
   useEffect(() => {
+    const url2 = LetsCamp.user.info();
+    axios
+      .get(url2, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.accessToken}`,
+        },
+      })
+      .then(function (response) {
+        console.log(response.data);
+        SetUser(response.data);
+        console.log(userData);
+      })
+      .catch(function (error) {
+        console.log("실패");
+        console.log(error);
+      });
+
     const url = LetsCamp.review.getUserReview();
     axios
       .get(url, {
@@ -32,7 +50,7 @@ const Mypage = () => {
   return (
     <div className="mypage">
       <Header pageName={"마이페이지"}></Header>
-      <UserInfo></UserInfo>
+      {userData ? <UserInfo userData={userData}></UserInfo> : <div></div>}
       <hr />
       {reviewdata ? (
         <UserVisited reviewdata={reviewdata}></UserVisited>
