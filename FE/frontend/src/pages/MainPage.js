@@ -5,13 +5,14 @@ import NavBar from "../Components/NavBar/NavBar";
 import Items from "../Components/MainPage/Items";
 import MyReserve from "../Components/MainPage/MyReserve";
 import Header from "../Components/Header/Header";
+import Main from "../Components/MainPage/Main";
 
 const MainPage = () => {
   const [reservationData, SetReservation] = useState();
   const [items, SetItems] = useState();
+  const [campingData, SetCamping] = useState();
   useEffect(() => {
     const url = LetsCamp.reservation.getReserve();
-    console.log(url);
     axios
       .get(url, {
         headers: {
@@ -19,34 +20,113 @@ const MainPage = () => {
         },
       })
       .then(function (response) {
-        console.log("성공");
         SetReservation(response.data);
-        const url2 = LetsCamp.glamping.getAll(response.data[0].id);
+        const getOne = LetsCamp.camping.getOne(response.data[0].campingId);
         axios
-          .get(url2, {
+          .get(getOne, {
             headers: {
               Authorization: `Bearer ${sessionStorage.accessToken}`,
             },
           })
           .then(function (response) {
-            console.log("2번째 성공");
-            SetItems(response.data);
+            console.log(response);
+            SetCamping(response.data.name);
           })
           .catch(function (error) {
-            console.log("실패");
             console.log(error);
           });
+
+        switch (response.data[0].category) {
+          case "일반야영장": {
+            const getItem = LetsCamp.normal.getAll(response.data[0].id);
+            axios
+              .get(getItem, {
+                headers: {
+                  Authorization: `Bearer ${sessionStorage.accessToken}`,
+                },
+              })
+              .then(function (response) {
+                SetItems(response.data);
+                console.log(response.data);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            break;
+          }
+          case "글램핑": {
+            const getItem = LetsCamp.glamping.getAll(response.data[0].id);
+            axios
+              .get(getItem, {
+                headers: {
+                  Authorization: `Bearer ${sessionStorage.accessToken}`,
+                },
+              })
+              .then(function (response) {
+                SetItems(response.data);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            break;
+          }
+          case "카라반": {
+            const getItem = LetsCamp.caraban.getAll(response.data[0].id);
+            axios
+              .get(getItem, {
+                headers: {
+                  Authorization: `Bearer ${sessionStorage.accessToken}`,
+                },
+              })
+              .then(function (response) {
+                SetItems(response.data);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            break;
+          }
+          case "자동차야영장": {
+            const getItem = LetsCamp.carcamping.getAll(response.data[0].id);
+            axios
+              .get(getItem, {
+                headers: {
+                  Authorization: `Bearer ${sessionStorage.accessToken}`,
+                },
+              })
+              .then(function (response) {
+                SetItems(response.data);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            break;
+          }
+          default: {
+            alert("에러 발생");
+          }
+        }
       })
       .catch(function (error) {
-        console.log("실패");
         console.log(error);
       });
   }, []);
   return (
     <div>
       <Header pageName={"메인페이지"}></Header>
-      <MyReserve reservationData={reservationData}></MyReserve>
-      <Items items={items}></Items>
+      {reservationData && campingData ? (
+        <MyReserve
+          reservationData={reservationData}
+          campingData={campingData}
+        ></MyReserve>
+      ) : (
+        <div> </div>
+      )}
+      {items ? (
+        <Items items={items} reservationData={reservationData}></Items>
+      ) : (
+        <div></div>
+      )}
       <NavBar></NavBar>
     </div>
   );

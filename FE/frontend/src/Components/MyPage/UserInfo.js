@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { userState } from "../../Store/state.js";
-import { useRecoilState } from "recoil";
 import "./style/UserInfo.css";
 
-const UserInfo = () => {
+const UserInfo = (userData) => {
   const navigate = useNavigate();
-  const [userData, SetUser] = useRecoilState(userState);
 
   return (
     <div className="userinfo">
@@ -18,7 +15,7 @@ const UserInfo = () => {
         />
       </div>
       <div className="userinfo-nickname">
-        {userData.nickName}
+        {userData.userData.nickName}
         <img
           src="/asset/icons/image7.png"
           alt="이미지"
@@ -31,7 +28,7 @@ const UserInfo = () => {
       <div className="userinfo-info">
         <div className="userinfo-id">
           <div>아이디</div>
-          <div>{userData.userId}</div>
+          <div>{userData.userData.userId}</div>
         </div>
         <div className="userinfo-pw">
           비밀번호
@@ -50,7 +47,7 @@ const UserInfo = () => {
         <div className="userinfo-address">
           주소
           <div>
-            {userData.address}{" "}
+            {userData.userData.address}{" "}
             <img
               src="/asset/icons/image7.png"
               alt="이미지"

@@ -9,6 +9,7 @@
     border-color: #F6EFB4;
     height: 300px;
     text-align: left;
+    overflow-y: scroll;
 }
 
 .mainpage-items-cover{
