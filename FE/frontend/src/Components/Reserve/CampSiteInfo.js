@@ -15,6 +15,11 @@ const CampSite = (props) => {
   const cateList = props.campSiteData.category.split(', ')
   // 전역 변수로 리스트 컨트롤
   
+  const selectCate = (e) => {
+    console.log(e.target.value)
+    props.setCampingCate(e.target.value)
+  }
+
   return (
     <>
       <div className="grid">
@@ -36,7 +41,7 @@ const CampSite = (props) => {
         <h3 className="item col-4">캠핑 유형</h3>
         <div className="item col-8 outer-div">
           <div className="inner-div">
-            <select name="campCategory" className="width-80 rem117">
+            <select name="campCategory" className="width-80 rem117" onChange={ selectCate }>
               {
                 cateList.map((cate, idx) => {
                   return (
