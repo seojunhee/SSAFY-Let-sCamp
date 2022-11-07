@@ -7,11 +7,14 @@ import NavBar from "../Components/NavBar/NavBar";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { campSiteState } from "../Store/state.js";
+import { useLocation } from "react-router-dom";
 
 const Detail = () => {
   const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
+  const location = useLocation();
+  const id = location.state.campingId;
+
   useEffect(() => {
-    const id = "1";
     const url = "http://k7b308.p.ssafy.io:8080/api/camping/" + id;
     axios
       .get(url, {
@@ -22,6 +25,7 @@ const Detail = () => {
       .then(function (response) {
         console.log("성공");
         SetCampSite(response.data);
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log("실패");
@@ -34,7 +38,6 @@ const Detail = () => {
       <Header pageName={"상세 정보"}></Header>
       <DetailImg></DetailImg>
       <Contents></Contents>
-      <hr />
       <Review></Review>
       <NavBar></NavBar>
     </div>

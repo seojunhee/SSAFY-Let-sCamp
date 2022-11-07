@@ -15,17 +15,31 @@ const Contents = () => {
   return (
     <div>
       <div>별점</div>
-      <div>
-        위치 {campSiteData.address}{" "}
+      <details>
+        <summary>위치</summary>
+        <div class="tpt">{campSiteData.address}</div>
         <button onClick={search}>지도로 보기</button>
-      </div>
-      <div>전화번호 : {campSiteData.tel}</div>
-      <div>{campSiteData.simple_des}</div>
-      <hr />
-      <div>애완동물 가능 여부 : {campSiteData.animal}</div>
-      <div>영업 여부 : {campSiteData.running}</div>
-      <div>영업 시즌 : {campSiteData.running_season}</div>
-      <div>테마 : {campSiteData.theme}</div>
+      </details>
+      <details>
+        <summary>운영시간</summary>
+        <div class="tpt">{campSiteData.running_day}</div>
+      </details>
+      <details>
+        <summary>전화번호</summary>
+        <div class="tpt">전화번호 : {campSiteData.tel}</div>
+      </details>
+      <details>
+        <summary>홈페이지</summary>
+        <div>{campSiteData.homepage}</div>
+      </details>
+      <details>
+        <summary>설명</summary>
+        <div>{campSiteData.simple_des}</div>
+      </details>
+      <details>
+        <summary>태그</summary>
+        <div>{campSiteData.keywords}</div>
+      </details>
     </div>
   );
 };
