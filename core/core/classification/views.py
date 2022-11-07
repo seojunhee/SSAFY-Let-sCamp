@@ -31,14 +31,6 @@ def trash_classification(request, filename):
     filenames.append(img)
     X.append(data)
 
-    # for i, f in enumerate(files):
-    #     img = Image.open(f)
-    #     img = img.convert("RGB")
-    #     img = img.resize((image_w, image_h))
-    #     data = np.asarray(img)
-    #     filenames.append(f)
-    #     X.append(data)
-
     X = np.array(X)
 
     # 모델 불러오기
@@ -47,38 +39,6 @@ def trash_classification(request, filename):
     # 모델로 예측하기
     prediction = model.predict(X)
     np.set_printoptions(formatter={'float': lambda x: "{0:0.3f}".format(x)})
-    cnt = 0
-
-    # for i in prediction:
-    #     pre_ans = i.argmax()
-
-    #     pre_ans_str = ''
-    #     if pre_ans == 0:
-    #         pre_ans_str = "cardboard"
-    #     elif pre_ans == 1:
-    #         pre_ans_str = "glass"
-    #     elif pre_ans == 2:
-    #         pre_ans_str = "metal"
-    #     elif pre_ans == 3:
-    #         pre_ans_str = "paper"
-    #     elif pre_ans == 4:
-    #         pre_ans_str = "plastic"
-    #     else:
-    #         pre_ans_str = "trash"
-
-    #     if i[0] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "로 추정됩니다")
-
-    #     if i[1] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "로 추정됩니다.")
-
-    #     if i[2] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "으로 추정됩니다.")
-
-    #     if i[3] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "으로 추정됩니다.")
-
-    #     if i[4] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "으로 추정됩니다.")
-
-    #     if i[5] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "으로 추정됩니다.")
-    #     cnt += 1
-
     
     pre_ans = prediction.argmax()
 
@@ -97,18 +57,5 @@ def trash_classification(request, filename):
         pre_ans_str = "trash"
 
     print(prediction)
-
-    # if prediction[0][0] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "로 추정됩니다")
-
-    # if prediction[0][1] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "로 추정됩니다.")
-
-    # if prediction[0][2] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "으로 추정됩니다.")
-
-    # if prediction[0][3] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "으로 추정됩니다.")
-
-    # if prediction[0][4] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "으로 추정됩니다.")
-
-    # if prediction[0][5] >= 0.8: print("해당 " + filenames + " 이미지는 " + pre_ans_str + "으로 추정됩니다.")
-    # cnt += 1
 
     return Response(pre_ans_str, status=status.HTTP_200_OK)

@@ -19,6 +19,7 @@ public class ReviewFindResponse {
     private String campingThumb;
     private double rate;
     private String comment;
+    private String date;
 
     public ReviewFindResponse(Review review) {
         this.id = review.getId();
@@ -29,5 +30,6 @@ public class ReviewFindResponse {
         this.campingThumb = review.getCamping().getThumb();
         this.rate = review.getRate();
         this.comment = review.getComment();
+        this.date = review.getDate();
     }
 }
