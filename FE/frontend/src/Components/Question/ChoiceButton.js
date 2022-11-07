@@ -54,7 +54,7 @@ const ChoiceButton = (props) => {
   }
 
   const onChangeDate = (e) => {
-    const nowMonth = (e[0].getMonth())
+    const nowMonth = (e.getMonth())
     if (nowMonth < 2) {
       props.setSeason("겨울")
     } else if (nowMonth < 5) {
@@ -149,10 +149,11 @@ const ChoiceButton = (props) => {
     <div>
       <div className="height-55 outer-div">
       <Calendar
+        calendarType="US"
         onChange={ onChangeDate }
-        selectRange = { true }
+        // selectRange = { true }
         minDate = { new Date() }
-        returnValue = {"range"}
+        // returnValue = {"range"}
       />
       </div>
       
