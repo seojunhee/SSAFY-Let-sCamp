@@ -17,6 +17,7 @@ public class ReviewFindAllResponse {
     private Long campingId;
     private double rate;
     private String comment;
+    private String date;
 
     public ReviewFindAllResponse(Review review) {
         this.id = review.getId();
@@ -25,5 +26,6 @@ public class ReviewFindAllResponse {
         this.campingId = review.getCamping().getId();
         this.rate = review.getRate();
         this.comment = review.getComment();
+        this.date = review.getDate();
     }
 }
