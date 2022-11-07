@@ -45,6 +45,7 @@ const ReservationInfo = (props) => {
       {
         !!props.isDateActive 
         ? (<Calendar
+          calendarType="US"
           className="width-100 height-auto"
           onChange={ onChangeDate }
           selectRange = { true }
