@@ -14,6 +14,11 @@ const MoveButton = (props) => {
   const navigate = useNavigate();
   const moveNextPage = () => {
     setPage(page + 1)
+    switch (page){
+      case 3:
+        props.setKeyword(props.keyword + props.place + " ")
+        return
+    }
   }
   const movePrePage = () => {
     setPage(page - 1)
@@ -25,6 +30,22 @@ const MoveButton = (props) => {
     props.setSeason("")
     props.setIsActive([])
   }
+
+  const nextBtnState = (p) => {
+    switch (p){
+      case 1:
+        return !(props.keyword)? false: true
+      case 2:
+        return !(props.animal)? false: true
+      case 3:
+        return !(props.place)? false: true
+      case 4:
+        return !(props.campingCate)? false: true
+      default:
+        return true
+    }
+  }
+
 
   const submitAnswer = () => {
     let tagKeyword = ""
@@ -60,11 +81,11 @@ const MoveButton = (props) => {
     <>
       <div className="position-bottom outer-div width-100">
       
-        {page > 1 && (<button className="w-btn" onClick={ movePrePage }>이전</button>)}
+        {(<button className={"w-btn " + (!!(page > 1) ? "": "hidden-btn")} onClick={ movePrePage }>이전</button>)}
         <Link to="/">
           <button className="w-btn" onClick={ resetPage }>홈으로</button>
         </Link>
-        {page > 1 && page < 5 && (<button className="w-btn hidden-btn" >다음</button>)}
+        {page > 0 && page < 5 && (<button className="w-btn" onClick={moveNextPage} disabled={!!(nextBtnState(page))? false: true}>다음</button>)}
         {page === 5 && choiceButton}
         {page === 6 && submitButton}
       </div>

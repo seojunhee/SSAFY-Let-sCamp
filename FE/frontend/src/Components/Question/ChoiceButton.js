@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { questionPage } from "../../Store/state";
 import 'react-calendar/dist/Calendar.css';
+import './style/QuestionButton.css'
 
 // 달력
 import Calendar from 'react-calendar';
@@ -14,33 +15,10 @@ const ChoiceButton = (props) => {
   //   console.log(isActive);
   // };
   
-  
+  const [q1Img, setQ1Img] = useState("family");  
 
   const [page] = useRecoilState(questionPage);
   const setPage = useSetRecoilState(questionPage);
-
-  // navigate("/somepage", {
-  //   state: {
-  //     buttons: ["1", "2"]
-  //   }
-  // })
-
-  // const campSeason = (e) => {
-  //   switch (e) {
-  //     case "봄":
-  //       return springList
-  //     case "여름":
-  //       return summerList
-  //     case "가을":
-  //       return fallList
-  //     case "겨울":
-  //       return winterList
-  //     default:
-  //       return []
-  //   }
-  // }
-  
-  // const [isActive, setIsActive] = useState(props.allSeasonList[props.season].map((n) => 0));
 
   const onChangeIsActive = (idx) => {
     let tmp = [...props.isActive];
@@ -69,7 +47,6 @@ const ChoiceButton = (props) => {
   }
   
   const onChangePet = (e) => {
-    moveNextPage();
     if (e) {
       props.setAnimal("동반");
     } else {
@@ -81,34 +58,64 @@ const ChoiceButton = (props) => {
   }, [props.animal, props.campingCate, props.keyword, props.season]);
 
   const onChangeKeyword = (e) => {
-    moveNextPage();
-    props.setKeyword(props.keyword + e + " ")
+
+    switch (e){
+      case "가족":
+        setQ1Img("family")
+        break
+      case "커플":
+        setQ1Img("couple")
+        break
+      case "친구":
+        setQ1Img("friend")
+        break
+      default:
+        setQ1Img("child")
+
+    }
+    props.setKeyword(e + " ")
+    return
+  }
+
+  const onChangePlace = (e) => {
+    switch (e){
+      case "산":
+        props.setPlace(e)
+        break
+      case "커플":
+        props.setPlace(e)
+        break
+      case "친구":
+        props.setPlace(e)
+        break
+      default:
+        props.setPlace(e)
+
+    }
     return
   }
 
   const onChangeCate = (e) => {
-    moveNextPage();
     props.setCampingCate(e)
     return
   }
 
   const question1 = (
-    <div className="grid height-55">
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeKeyword("가족") }>
-        <p>가족</p>
-        <img src="." alt="가족"/>
-      </div>
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeKeyword("커플") }>
-        <p>커플</p>
-        <img src="." alt="커플"/>
-      </div>
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeKeyword("친구") }>
-        <p>친구</p>
-        <img src="." alt="친구"/>
-      </div>
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeKeyword("아이들놀기좋은") }>
-        <p>아이들과 함께</p>
-        <img src="." alt="아이들"/>
+    <div className="height-55">
+      <img src={"/img/" + q1Img +".png"} className="height-75"/>
+      <div className="grid height-25">
+        <div className="item col-6 w-btn" onClick={ () => onChangeKeyword("가족") }>
+          가족
+        </div>
+        <div className="item col-6 w-btn" onClick={ () => onChangeKeyword("커플") }>
+          커플
+        </div>
+        <div className="item col-6 w-btn" onClick={ () => onChangeKeyword("친구") }>
+          친구
+        </div>
+        <div className="item col-6 w-btn" onClick={ () => onChangeKeyword("아이들놀기좋은") }>
+          아이들과 함께
+        </div>
       </div>
     </div>
   )
@@ -123,14 +130,14 @@ const ChoiceButton = (props) => {
   const question3 = (
     <div className="height-30">
     <div className="grid height-50">
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangeKeyword("산") }>산</div>
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangeKeyword("바다가보이는") }>바다</div>
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangeKeyword("도심") }>도심</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("산") }>산</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("바다가보이는") }>바다</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("도심") }>도심</div>
     </div>
     <div className="grid height-50">
       <div className="item col-2"></div>
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangeKeyword("숲") }>숲</div>
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangeKeyword("섬") }>섬</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("숲") }>숲</div>
+      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("섬") }>섬</div>
     </div>
     </div>
 
