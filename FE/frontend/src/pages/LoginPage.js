@@ -43,7 +43,7 @@ const Login = () => {
           .then(function (response) {
             SetUser(response.data);
             console.log(userData);
-            !(location.state) ? navigate("/main"): navigate(-1, {state: {"data": location.state.data}})
+            !(sessionStorage.getItem("reserveInfo")) ? navigate("/main"): navigate(-1, {state: {"data": location.state.data}})
             
           })
           .catch(function (error) {

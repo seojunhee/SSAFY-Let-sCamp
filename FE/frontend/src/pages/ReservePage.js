@@ -18,9 +18,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Reserve = () => {
 
-  let location = useLocation();
-  
-  const campSiteData = location.state.data
+  const campSiteData = JSON.parse(sessionStorage.getItem("reserveInfo"))
   // console.log(campSiteData.id)
   const url = letsCamp.reservation.reserve(campSiteData.id)
   const [ isDateActive, setIsDateActive ] = useState(true)

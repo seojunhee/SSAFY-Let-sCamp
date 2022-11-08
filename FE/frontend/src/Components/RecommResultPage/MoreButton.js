@@ -15,6 +15,8 @@ const MoreButton = (props) => {
   }
 
   const toReserve = () => {
+    sessionStorage.setItem("reserveInfo", JSON.stringify(props.campSiteList[props.listIdx]))
+    // console.log(sessionStorage.getItem("reserveInfo"))
     console.log(sessionStorage.getItem("accessToken"))
     if (sessionStorage.getItem("accessToken") == null) {
       alert('로그인이 필요한 페이지 입니다.')
