@@ -4,15 +4,16 @@ import axios from "axios";
 import { userState } from "../Store/state.js";
 import { useRecoilState } from "recoil";
 import Header from "../Components/Header/Header.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import letsCamp from "../api/LetsCamp";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [userData, SetUser] = useRecoilState(userState);
   const [id, SetId] = useState("");
   const [pw, SetPw] = useState("");
-
+  
   const changeId = (e) => {
     SetId(e.target.value);
   };
@@ -42,7 +43,8 @@ const Login = () => {
           .then(function (response) {
             SetUser(response.data);
             console.log(userData);
-            navigate("/main");
+            !(sessionStorage.getItem("reserveInfo")) ? navigate("/main"): navigate("/reserve")
+            
           })
           .catch(function (error) {
             console.log(error);

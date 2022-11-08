@@ -49,3 +49,15 @@
 .tag-btn-none-active {
   background-color: black;
 }
+
+.align-center {
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 2vh;
+}
+
+.text-center {
+  display : flex;
+  justify-content : center;
+  align-items : center;
+}

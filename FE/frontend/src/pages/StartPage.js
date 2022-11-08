@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style/StartPage.css";
 
 const Start = () => {
   const navigate = useNavigate();
+  
+
+  useEffect(() => {
+    !!(sessionStorage.getItem("accessToken")) ? navigate("/main") : console.log("유저정보 없음");
+  });
+
   return (
     <div className="startpage">
       <img src="/asset/campingcar.png" alt="이미지" className="startpage-img" />

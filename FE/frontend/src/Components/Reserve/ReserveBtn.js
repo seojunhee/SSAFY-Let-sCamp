@@ -35,7 +35,7 @@ const ReserveBtn = (props) => {
       })
       .then(function (response) {
         console.log(response.data)
-        navigate("/");
+        navigate("/main");
       })
   }
 
