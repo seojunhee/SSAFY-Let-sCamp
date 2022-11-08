@@ -15,7 +15,10 @@ const ChoiceButton = (props) => {
   //   console.log(isActive);
   // };
   
-  const [q1Img, setQ1Img] = useState("family");  
+  const [q1Img, setQ1Img] = useState("family");
+  const [q2Img, setQ2Img] = useState("noPet");
+  const [q3Img, setQ3Img] = useState("mountain")
+  const [q4Img, setQ4Img] = useState("camping")
 
   const [page] = useRecoilState(questionPage);
   const setPage = useSetRecoilState(questionPage);
@@ -48,8 +51,10 @@ const ChoiceButton = (props) => {
   
   const onChangePet = (e) => {
     if (e) {
+      setQ2Img("withPet")
       props.setAnimal("동반");
     } else {
+      setQ2Img("noPet")
       props.setAnimal("비동반");
     }
   }
@@ -80,22 +85,46 @@ const ChoiceButton = (props) => {
   const onChangePlace = (e) => {
     switch (e){
       case "산":
-        props.setPlace(e)
+        setQ3Img("mountain")
         break
-      case "커플":
-        props.setPlace(e)
+      case "바다":
+        setQ3Img("sea")
         break
-      case "친구":
-        props.setPlace(e)
+      case "도심":
+        setQ3Img("city")
+        break
+      case "숲":
+        setQ3Img("forest")
+        break
+      case "섬":
+        setQ3Img("island")
         break
       default:
-        props.setPlace(e)
+        return
 
     }
+    props.setPlace(e)
     return
   }
 
   const onChangeCate = (e) => {
+    switch (e){
+      case "일반야영장":
+        setQ4Img("camping")
+        break
+      case "오토캠핑":
+        setQ4Img("autoCamping")
+        break
+      case "글램핑":
+        setQ4Img("glamping")
+        break
+      case "카라반":
+        setQ4Img("caravan")
+        break
+      default:
+        return
+
+    }
     props.setCampingCate(e)
     return
   }
@@ -121,35 +150,51 @@ const ChoiceButton = (props) => {
   )
 
   const question2 = (
-    <div className="grid height-271">
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(true) }>네</div>
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(false) }>아니요</div>
-    </div>
+    <>
+      <div className="height-40">
+        <img src={"/img/" + q2Img +".png"} className="height-100"/>
+      </div>
+      <div className="grid height-7">
+        <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(true) }>네</div>
+        <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(false) }>아니요</div>
+      </div>
+    </>
   )
 
   const question3 = (
-    <div className="height-30">
-    <div className="grid height-50">
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("산") }>산</div>
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("바다가보이는") }>바다</div>
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("도심") }>도심</div>
-    </div>
-    <div className="grid height-50">
-      <div className="item col-2"></div>
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("숲") }>숲</div>
-      <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("섬") }>섬</div>
-    </div>
-    </div>
+    <>
+      <div className="height-40">
+        <img src={"/img/" + q3Img +".png"} className="height-100"/>
+      </div>
+      <div className="height-30">
+        <div className="grid height-50">
+          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("산") }>산</div>
+          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("바다가보이는") }>바다</div>
+          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("도심") }>도심</div>
+        </div>
+        <div className="grid height-50">
+          <div className="item col-2"></div>
+          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("숲") }>숲</div>
+          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("섬") }>섬</div>
+        </div>
+      </div>
+    </>
 
   )
 
   const question4 = (
-    <div className="grid height-55">
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("일반야영장") }>텐트</div>
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("카라반") }>카라반</div>
-      <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("글램핑") }>글램핑</div>
-    </div>
+    <>
+      <div className="height-40">
+        <img src={"/img/" + q4Img +".png"} className="height-100"/>
+
+      </div>
+      <div className="grid height-15">
+        <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("일반야영장") }>텐트</div>
+        <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
+        <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("카라반") }>카라반</div>
+        <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("글램핑") }>글램핑</div>
+      </div>
+    </>
   )
 
   const question5 = (
