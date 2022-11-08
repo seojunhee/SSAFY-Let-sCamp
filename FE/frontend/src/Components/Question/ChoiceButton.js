@@ -71,9 +71,6 @@ const ChoiceButton = (props) => {
       case "커플":
         setQ1Img("couple")
         break
-      case "친구":
-        setQ1Img("friend")
-        break
       default:
         setQ1Img("child")
 
@@ -133,17 +130,14 @@ const ChoiceButton = (props) => {
     <div className="height-55">
       <img src={"/img/" + q1Img +".png"} className="height-75"/>
       <div className="grid height-25">
-        <div className="item col-6 w-btn" onClick={ () => onChangeKeyword("가족") }>
+        <div className="item col-4 w-btn text-center" onClick={ () => onChangeKeyword("가족") }>
           가족
         </div>
-        <div className="item col-6 w-btn" onClick={ () => onChangeKeyword("커플") }>
+        <div className="item col-4 w-btn text-center" onClick={ () => onChangeKeyword("커플") }>
           커플
         </div>
-        <div className="item col-6 w-btn" onClick={ () => onChangeKeyword("친구") }>
-          친구
-        </div>
-        <div className="item col-6 w-btn" onClick={ () => onChangeKeyword("아이들놀기좋은") }>
-          아이들과 함께
+        <div className="item col-4 w-btn text-center" onClick={ () => onChangeKeyword("아이들놀기좋은") }>
+          아이들
         </div>
       </div>
     </div>
