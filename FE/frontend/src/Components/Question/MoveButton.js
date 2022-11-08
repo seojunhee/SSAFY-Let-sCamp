@@ -46,6 +46,10 @@ const MoveButton = (props) => {
     }
   }
 
+  const choiceButtonState = () => {
+    return !!(props.season) ? true : false
+  }
+
 
   const submitAnswer = () => {
     let tagKeyword = ""
@@ -70,7 +74,7 @@ const MoveButton = (props) => {
   // }, [props.animal, props.campingCate, props.keyword, props.season]);
 
   const choiceButton = (
-    <button className="item col-2 w-btn" onClick={ moveNextPage }>선택</button>
+    <button className="item col-2 w-btn" onClick={ moveNextPage } disabled={!!(choiceButtonState())? false: true}>선택</button>
   )
   const submitButton = (
 

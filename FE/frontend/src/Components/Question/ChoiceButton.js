@@ -87,7 +87,7 @@ const ChoiceButton = (props) => {
       case "산":
         setQ3Img("mountain")
         break
-      case "바다":
+      case "바다가보이는":
         setQ3Img("sea")
         break
       case "도심":
