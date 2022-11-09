@@ -14,7 +14,7 @@ import java.util.List;
 @Api(tags = {"Caraban API"})
 public class CarabanController {
     private final CarabanService carabanService;
-    private final String tokenUserId = "userId";
+    String tokenUserId = "userId";
 
     @PostMapping("/caraban/{reservationId}")
     @ApiOperation(value = "카라반 일정 추가", notes = "카라반 일정을 추가하는 요청")
@@ -51,8 +51,7 @@ public class CarabanController {
     public List<CarabanFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader(tokenUserId);
-        List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationId(userId, reservationId);
-        return list;
+        return carabanService.findByUserIdAndReservationId(userId, reservationId);
     }
 
     @GetMapping("/caraban/{reservationId}/{level}")
@@ -65,8 +64,7 @@ public class CarabanController {
                                                                                  @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                  @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         String userId = response.getHeader(tokenUserId);
-        List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
-        return list;
+        return carabanService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
     }
 
     @PutMapping("/caraban")

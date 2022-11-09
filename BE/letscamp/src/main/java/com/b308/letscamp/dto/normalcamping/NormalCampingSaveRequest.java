@@ -16,7 +16,6 @@ public class NormalCampingSaveRequest {
     private User user;
     private Reservation reservation;
     private String item;
-    private boolean isCheck;
     private long level;
 
     public NormalCamping toEntity() {

@@ -14,7 +14,7 @@ import java.util.List;
 @Api(tags = {"NormalCamping API"})
 public class NormalCampingController {
     private final NormalCampingService normalCampingService;
-    private final String tokenUserId = "userId";
+    String tokenUserId = "userId";
 
     @PostMapping("/normalCamping/{reservationId}")
     @ApiOperation(value = "일반 캠핑장 일정 추가", notes = "일반 캠피장 일정을 추가하는 요청")
@@ -51,8 +51,7 @@ public class NormalCampingController {
     public List<NormalCampingFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                                @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader(tokenUserId);
-        List<NormalCampingFindResponse> list = normalCampingService.findByUserIdAndReservationId(userId, reservationId);
-        return list;
+        return normalCampingService.findByUserIdAndReservationId(userId, reservationId);
     }
 
     @GetMapping("/normalCamping/{reservationId}/{level}")
@@ -65,8 +64,7 @@ public class NormalCampingController {
                                                                                @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         String userId = response.getHeader(tokenUserId);
-        List<NormalCampingFindResponse> list = normalCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
-        return list;
+        return normalCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
     }
 
     @PutMapping("/normalCamping")
