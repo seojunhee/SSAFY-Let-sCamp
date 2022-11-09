@@ -22,7 +22,6 @@ public class ReviewController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public ReviewSaveResponse create(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                      @PathVariable @ApiParam(value = "Camping ID", required = true) Long campingId,
                                      @RequestBody @ApiParam(value = "작성할 후기의 정보가 담긴 객체", required = true) ReviewSaveRequest request) {
         String userId = response.getHeader("userId");
@@ -38,8 +37,7 @@ public class ReviewController {
     })
     public List<ReviewFindResponse> readByUserId(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response) {
         String userId = response.getHeader("userId");
-        List<ReviewFindResponse> list = reviewService.findByUserId(userId);
-        return list;
+        return reviewService.findByUserId(userId);
     }
 
     @GetMapping("/review/{campingId}")
@@ -49,9 +47,7 @@ public class ReviewController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<ReviewFindAllResponse> readByCampingId(@PathVariable @ApiParam(value = "Camping ID", required = true) Long campingId) {
-        // Id = campingId
-        List<ReviewFindAllResponse> list = reviewService.findByCampingId(campingId);
-        return list;
+        return reviewService.findByCampingId(campingId);
     }
 
     @PutMapping("/review")

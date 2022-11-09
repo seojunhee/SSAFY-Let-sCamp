@@ -1,4 +1,4 @@
-package com.b308.letscamp.dto.normalCamping;
+package com.b308.letscamp.dto.normalcamping;
 
 import com.b308.letscamp.entity.NormalCamping;
 import com.b308.letscamp.entity.Reservation;
@@ -16,7 +16,6 @@ public class NormalCampingSaveRequest {
     private User user;
     private Reservation reservation;
     private String item;
-    private boolean isCheck;
     private long level;
 
     public NormalCamping toEntity() {

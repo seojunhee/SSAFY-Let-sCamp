@@ -52,6 +52,7 @@ const Login = () => {
       })
       .catch(function (error) {
         console.log("실패");
+        alert("아이디 혹은 비밀번호가 정확하지 않습니다.");
       });
   };
   return (

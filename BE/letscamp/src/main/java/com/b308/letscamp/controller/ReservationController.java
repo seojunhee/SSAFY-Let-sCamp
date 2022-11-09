@@ -25,7 +25,6 @@ public class ReservationController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public ReservationSaveResponse create(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                           @PathVariable @ApiParam(value = "Camping ID", required = true) Long campingId,
                                           @RequestBody @ApiParam(value = "작성할 예약의 정보가 담긴 객체", required = true)ReservationSaveRequest request) {
         String userId = response.getHeader("userId");
@@ -40,11 +39,9 @@ public class ReservationController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<ReservationFindByUserIdResponse> readByUserId(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId
     ) {
         String userId = response.getHeader("userId");
-        List<ReservationFindByUserIdResponse> list = reservationService.findByUserId(userId);
-        return list;
+        return reservationService.findByUserId(userId);
     }
 
     @DeleteMapping("/reservation/{reservationId}")

@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class GlampingUpdateRequest {
-    private Long id;
-    private boolean isCheck;
+    Long id;
+    boolean isCheck;
 }

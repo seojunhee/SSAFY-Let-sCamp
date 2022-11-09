@@ -21,7 +21,6 @@ public class ReservationSaveRequest {
     private Long countAdult;
     private Long countKid;
     private Long countPet;
-    private Long level;
 
     public Reservation toEntity() {
         return Reservation.builder()

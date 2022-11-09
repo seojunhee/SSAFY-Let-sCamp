@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class TrashFindResponse {
-    private String result;
+    String result;
 }

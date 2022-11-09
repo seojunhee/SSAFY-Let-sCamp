@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserLoginResponse {
-    private Long id;
-    private String userId;
-    private String userPw;
-    private String nickName;
-    private Long exp;
-    private String address;
+    Long id;
+    String userId;
+    String userPw;
+    String nickName;
+    Long exp;
+    String address;
 
     public UserLoginResponse(User user) {
         this.id = user.getId();

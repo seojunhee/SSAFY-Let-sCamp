@@ -19,7 +19,6 @@ public class ReviewSaveRequest {
     private Camping camping;
     private double rate;
     private String comment;
-    private String date;
 
     public Review toEntity() {
         return Review.builder()

@@ -1,4 +1,4 @@
-package com.b308.letscamp.dto.normalCamping;
+package com.b308.letscamp.dto.normalcamping;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class NormalCampingDeleteResponse {
-    boolean success;
+public class NormalCampingUpdateResponse {
+    Long id;
 }

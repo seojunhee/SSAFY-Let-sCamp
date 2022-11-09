@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class CarabanUpdateResponse {
-    private Long id;
+    Long id;
 }

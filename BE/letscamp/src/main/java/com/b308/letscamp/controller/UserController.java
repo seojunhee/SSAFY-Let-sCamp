@@ -29,12 +29,13 @@ public class UserController {
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final RedisTemplate redisTemplate;
+    String tokenUserId = "userId";
 
     @GetMapping("/user/login/{id}/{pw}")
-    public ResponseEntity<?> login(@PathVariable String id, @PathVariable String pw){
+    public ResponseEntity<TokenInfo> login(@PathVariable String id, @PathVariable String pw) {
         // 1. Login ID/PW 를 기반으로 Authentication 객체 생성
         // 이때 authentication 는 인증 여부를 확인하는 authenticated 값이 false
-        UsernamePasswordAuthenticationToken authenticationToken =new UsernamePasswordAuthenticationToken(id,pw);
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(id, pw);
 
         // 2. 실제 검증 (사용자 비밀번호 체크)이 이루어지는 부분
         // authenticate 매서드가 실행될 때 CustomUserDetailsService 에서 만든 loadUserByUsername 메서드가 실행
@@ -43,11 +44,11 @@ public class UserController {
         // 3. 인증 정보를 기반으로 JWT 토큰 생성
         TokenInfo tokenInfo = jwtTokenProvider.generateToken(authentication);
 
-        // TODO:: RefreshToken Redis 저장
+        // RefreshToken Redis 저장
 
-        redisTemplate.opsForValue().set(authentication.getName(), tokenInfo.getRefreshToken(),tokenInfo.getRefreshTokenExpirationTime(), TimeUnit.MILLISECONDS);
+        redisTemplate.opsForValue().set(authentication.getName(), tokenInfo.getRefreshToken(), tokenInfo.getRefreshTokenExpirationTime(), TimeUnit.MILLISECONDS);
 
-        return new ResponseEntity<> (tokenInfo,  HttpStatus.OK);
+        return new ResponseEntity<>(tokenInfo, HttpStatus.OK);
 
 
     }
@@ -72,7 +73,7 @@ public class UserController {
     })
     public UserUpdateResponse update(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                      @RequestBody @ApiParam(value = "수정할 정보를 담고있는 user 객체", required = true) UserUpdateRequest request) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         UserFindResponse user = userService.findByUserId(userId);
         request.setId(user.getId());
         request.setUserPw(passwordEncoder.encode(request.getUserPw()));
@@ -82,11 +83,11 @@ public class UserController {
 
 
     @GetMapping("/user/reissue")
-    public ResponseEntity<?> reissueTokens(@RequestHeader(name = "refresh") String refreshToken, @RequestHeader(name = "Access") String aceessToken, HttpServletRequest request, HttpServletResponse response) {
+    public ResponseEntity<TokenInfo> reissueTokens(@RequestHeader(name = "refresh") String refreshToken, @RequestHeader(name = "Access") String aceessToken, HttpServletRequest request, HttpServletResponse response) {
         Authentication authentication = jwtTokenProvider.getAuthentication(aceessToken);
-        String DBtoken = (String) redisTemplate.opsForValue().get(authentication.getName());
-        if (refreshToken == null || !DBtoken.equals(refreshToken))
-            return new ResponseEntity<>("토큰이 유효하지 않습니다..", HttpStatus.BAD_REQUEST);
+        String dBtoken = (String) redisTemplate.opsForValue().get(authentication.getName());
+        if (refreshToken == null || !dBtoken.equals(refreshToken))
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 
 
         try {
@@ -95,11 +96,10 @@ public class UserController {
             redisTemplate.opsForValue().set(authentication.getName(), tokenInfo.getRefreshToken(), tokenInfo.getRefreshTokenExpirationTime(), TimeUnit.MILLISECONDS);
             return new ResponseEntity<>(tokenInfo, HttpStatus.OK);
         } catch (ExpiredJwtException e) {
-            return new ResponseEntity<>(
-                    "토큰이 만료되었습니다.", HttpStatus.BAD_REQUEST
-            );
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
     @PutMapping("/user/update/{exp}")
     @ApiOperation(value = "경험치 수정", notes = "경험치를 수정하는 요청")
     @ApiResponses({
@@ -109,7 +109,7 @@ public class UserController {
     public UserUpdateResponse updateExp(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                         @PathVariable @ApiParam(value = "경험치 정보", required = true) Long exp,
                                         UserUpdateExpRequest request) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         UserFindResponse user = userService.findByUserId(userId);
         request.setId(user.getId());
         request.setExp(exp);
@@ -124,7 +124,7 @@ public class UserController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public UserFindResponse read(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         return userService.findByUserId(userId);
     }
 

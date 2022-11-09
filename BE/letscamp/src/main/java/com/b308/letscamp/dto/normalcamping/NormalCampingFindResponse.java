@@ -1,4 +1,4 @@
-package com.b308.letscamp.dto.normalCamping;
+package com.b308.letscamp.dto.normalcamping;
 
 import com.b308.letscamp.entity.NormalCamping;
 import lombok.AllArgsConstructor;
@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class NormalCampingFindResponse {
-    private Long id;
-    private Long userId;
-    private Long reservationId;
-    private String item;
-    private boolean isCheck;
-    private Long level;
+    Long id;
+    Long userId;
+    Long reservationId;
+    String item;
+    boolean isCheck;
+    Long level;
 
     public NormalCampingFindResponse(NormalCamping normalCamping) {
         this.id = normalCamping.getId();

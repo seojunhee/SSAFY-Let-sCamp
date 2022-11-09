@@ -17,7 +17,6 @@ public class UserSaveRequest {
     private String nickName;
     private Long exp;
     private String address;
-    private String role;
 
     public User toEntity() {
         return User.builder()

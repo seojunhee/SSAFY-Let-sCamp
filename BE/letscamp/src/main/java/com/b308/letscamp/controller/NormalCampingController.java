@@ -1,7 +1,7 @@
 package com.b308.letscamp.controller;
 
-import com.b308.letscamp.dto.normalCamping.*;
-import com.b308.letscamp.service.normalCamping.NormalCampingService;
+import com.b308.letscamp.dto.normalcamping.*;
+import com.b308.letscamp.service.normalcamping.NormalCampingService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +14,7 @@ import java.util.List;
 @Api(tags = {"NormalCamping API"})
 public class NormalCampingController {
     private final NormalCampingService normalCampingService;
+    String tokenUserId = "userId";
 
     @PostMapping("/normalCamping/{reservationId}")
     @ApiOperation(value = "일반 캠핑장 일정 추가", notes = "일반 캠피장 일정을 추가하는 요청")
@@ -23,7 +24,7 @@ public class NormalCampingController {
     })
     public NormalCampingSaveResponse create(HttpServletResponse response,
                                             @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         Long resultId = normalCampingService.create(userId, reservationId);
         return new NormalCampingSaveResponse(resultId);
     }
@@ -36,7 +37,7 @@ public class NormalCampingController {
     })
     public NormalCampingDeleteResponse delete(HttpServletResponse response,
                                               @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         normalCampingService.delete(userId, reservationId);
         return new NormalCampingDeleteResponse(true);
     }
@@ -49,9 +50,8 @@ public class NormalCampingController {
     })
     public List<NormalCampingFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                                @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
-        List<NormalCampingFindResponse> list = normalCampingService.findByUserIdAndReservationId(userId, reservationId);
-        return list;
+        String userId = response.getHeader(tokenUserId);
+        return normalCampingService.findByUserIdAndReservationId(userId, reservationId);
     }
 
     @GetMapping("/normalCamping/{reservationId}/{level}")
@@ -63,9 +63,8 @@ public class NormalCampingController {
     public List<NormalCampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                                @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                @PathVariable @ApiParam(value = "Level", required = true) Long level) {
-        String userId = response.getHeader("userId");
-        List<NormalCampingFindResponse> list = normalCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
-        return list;
+        String userId = response.getHeader(tokenUserId);
+        return normalCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
     }
 
     @PutMapping("/normalCamping")

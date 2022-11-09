@@ -1,6 +1,5 @@
 package com.b308.letscamp.repository;
 
-import com.b308.letscamp.entity.Caraban;
 import com.b308.letscamp.entity.Glamping;
 import org.springframework.data.jpa.repository.JpaRepository;
 

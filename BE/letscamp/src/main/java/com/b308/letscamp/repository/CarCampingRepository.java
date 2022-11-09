@@ -1,7 +1,6 @@
 package com.b308.letscamp.repository;
 
 import com.b308.letscamp.entity.CarCamping;
-import com.b308.letscamp.entity.NormalCamping;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

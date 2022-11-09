@@ -1,7 +1,7 @@
-package com.b308.letscamp.service.carCamping;
+package com.b308.letscamp.service.carcamping;
 
-import com.b308.letscamp.dto.carCamping.CarCampingFindResponse;
-import com.b308.letscamp.dto.carCamping.CarCampingUpdateRequest;
+import com.b308.letscamp.dto.carcamping.CarCampingFindResponse;
+import com.b308.letscamp.dto.carcamping.CarCampingUpdateRequest;
 
 import java.util.List;
 
