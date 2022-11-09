@@ -1,62 +1,45 @@
 import React, { useEffect, useState } from "react";
 import "./style/UserVisited.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import LetsCamp from "../../api/LetsCamp";
 
-const UserVisited = () => {
+const UserVisited = (reviewdata) => {
   const navigate = useNavigate();
-  const [reviewdata, SetReview] = useState();
+  const [reviewData, SetReview] = useState(reviewdata);
 
-  useEffect(() => {
-    const url = LetsCamp.review.getUserReview();
-    axios
-      .get(url, {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.accessToken}`,
-        },
-      })
-      .then(function (response) {
-        console.log("성공");
-        console.log(response);
-        SetReview(response.data);
-      })
-      .catch(function (error) {
-        console.log("실패");
-        console.log(error);
-      });
-  }, {});
+  const List = () => {
+    return (
+      <div>
+        {reviewData.reviewdata.map((reviewData, key) => (
+          <div
+            className="uservisited-box"
+            key={reviewData.id}
+            onClick={() => {
+              navigate("/detail", {
+                state: { campingId: reviewData.campingId },
+              });
+            }}
+          >
+            <img
+              src={reviewData.campingThumb}
+              alt="캠핑장사진"
+              className="uservisited-thumb"
+            />
+            <div className="uservisited-campsitename">
+              {reviewData.campingName}
+            </div>
+            <div className="uservisited-content-box">
+              <div className="uservisited-content">{reviewData.rate}</div>
+              <div className="uservisited-content">{reviewData.comment}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className="uservisited">
-      <div
-        className="uservisited-box"
-        onClick={() => {
-          navigate("/detail");
-        }}
-      >
-        <img src="/asset/campingcar.png" alt="캠핑장사진" />
-        <div className="">캠핑장 정보</div>
-        <div className="uservisited-box-">
-          <div>내가 준 별점</div>
-          <div>내가 준 댓글</div>
-        </div>
-      </div>
-      <div className="uservisited-box">
-        <img src="/asset/campingcar.png" alt="캠핑장사진" />
-        <div className="">캠핑장 정보</div>
-        <div className="uservisited-box-">
-          <div>내가 준 별점</div>
-          <div>내가 준 댓글</div>
-        </div>
-      </div>
-      <div className="uservisited-box">
-        <img src="/asset/campingcar.png" alt="캠핑장사진" />
-        <div className="">캠핑장 정보</div>
-        <div className="uservisited-box-">
-          <div>내가 준 별점</div>
-          <div>내가 준 댓글</div>
-        </div>
-      </div>
+      {reviewData ? <List></List> : <div></div>}
     </div>
   );
 };

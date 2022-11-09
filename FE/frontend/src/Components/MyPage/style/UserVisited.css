@@ -10,3 +10,20 @@
     flex-wrap: wrap;
     align-content: space-between;
 }
+
+.uservisited-campsitename{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.uservisited-content-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uservisited-content{
+    font-size: 16px;
+}

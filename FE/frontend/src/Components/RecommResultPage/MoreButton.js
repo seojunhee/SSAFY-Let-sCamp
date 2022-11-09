@@ -15,7 +15,15 @@ const MoreButton = (props) => {
   }
 
   const toReserve = () => {
-    navigate("/reserve", {state: {"data": props.campSiteList[props.listIdx]}});
+    sessionStorage.setItem("reserveInfo", JSON.stringify(props.campSiteList[props.listIdx]))
+    // console.log(sessionStorage.getItem("reserveInfo"))
+    console.log(sessionStorage.getItem("accessToken"))
+    if (sessionStorage.getItem("accessToken") == null) {
+      alert('로그인이 필요한 페이지 입니다.')
+      navigate("/login", {state: {"data": props.campSiteList}})
+    } else {
+      navigate("/reserve", {state: {"data": props.campSiteList[props.listIdx]}});
+    }
   }
 
   return (
@@ -25,7 +33,7 @@ const MoreButton = (props) => {
         <button onClick={ toReserve } className="w-btn w-btn-blue">Let's Camp!</button>
       </div>
       {/* 모달 적용해서 띄우기 */}
-      <div className="more container">더 알아보기</div>
+      <div className="more container width-100">더 알아보기</div>
     </>
   )
 };

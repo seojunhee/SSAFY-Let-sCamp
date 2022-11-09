@@ -1,7 +1,7 @@
 .w-btn {
   position: relative;
   border: none;
-  display: inline-block;
+  display: flex;
   padding: 15px 30px;
   border-radius: 15px;
   font-family: "paybooc-Light", sans-serif;

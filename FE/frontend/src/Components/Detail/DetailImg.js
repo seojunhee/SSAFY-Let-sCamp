@@ -10,7 +10,7 @@ const DetailImg = () => {
     <div className="detailimg">
       <div className="detailimg-title">{campSiteData.name}</div>
       <img
-        src="https://gocamping.or.kr/upload/camp/4/thumb/thumb_720_4548WQ5JCsRSkbHrBAaZylrQ.jpg"
+        src={campSiteData.thumb}
         alt="대충 이미지"
         className="detailimg-img"
       />
