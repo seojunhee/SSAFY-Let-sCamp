@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class HateDeleteResponse {
-    private boolean success;
+    boolean success;
 }

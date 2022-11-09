@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserUpdateExpRequest {
-    private Long id;
-    private Long exp;
+    Long id;
+    Long exp;
 }

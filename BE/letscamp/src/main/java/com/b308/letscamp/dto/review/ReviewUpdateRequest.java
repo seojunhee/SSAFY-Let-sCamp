@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class ReviewUpdateRequest {
-    private Long id;
-    private double rate;
-    private String comment;
+    Long id;
+    double rate;
+    String comment;
 }
