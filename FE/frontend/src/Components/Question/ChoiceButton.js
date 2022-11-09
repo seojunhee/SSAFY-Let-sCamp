@@ -148,7 +148,7 @@ const ChoiceButton = (props) => {
       <div className="height-40">
         <img src={"/img/" + q2Img +".png"} className="height-100"/>
       </div>
-      <div className="grid height-7">
+      <div className="grid height-15">
         <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(true) }>네</div>
         <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(false) }>아니요</div>
       </div>
@@ -182,7 +182,7 @@ const ChoiceButton = (props) => {
         <img src={"/img/" + q4Img +".png"} className="height-100"/>
 
       </div>
-      <div className="grid height-15">
+      <div className="grid height-30">
         <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("일반야영장") }>텐트</div>
         <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
         <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("카라반") }>카라반</div>

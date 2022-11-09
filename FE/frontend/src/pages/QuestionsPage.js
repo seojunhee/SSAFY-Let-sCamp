@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 // Components
 import Header from "../Components/Question/Header.js";
 import MoveButton from "../Components/Question/MoveButton.js";
 import ChoiceButton from "../Components/Question/ChoiceButton.js";
 import Question from "../Components/Question/Question.js";
+import Loading from "../Components/Question/Loading.js";
 
 // api
 import letsCamp from "../api/LetsCamp";
@@ -23,9 +24,9 @@ const Questions = () => {
   const summerList = ["수상레저", "물놀이", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
   const fallList = ["단풍명소", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
   const winterList = ["눈꽃명소", "스키", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
-
   const allSeasonList = {"": [], "봄": springList, "여름": summerList, "가을": fallList, "겨울": winterList}
 
+  const [loading, setLoading] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [campingCate, setCampingCate] = useState("");
   const [animal, setAnimal] = useState("");
@@ -40,6 +41,7 @@ const Questions = () => {
 
   return (
     <div className="App">
+      {loading ? <Loading />: null}
       <Header />
       <Question />
       <ChoiceButton 
@@ -60,6 +62,8 @@ const Questions = () => {
       />
       <MoveButton
         url={url}
+        loading={loading}
+        setLoading={setLoading}
         keyword={keyword}
         setKeyword={setKeyword}
         place={place}
