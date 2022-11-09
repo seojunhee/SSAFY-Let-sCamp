@@ -8,6 +8,7 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import { campSiteState } from "../Store/state.js";
 import { useLocation } from "react-router-dom";
+import LetsCamp from "../api/LetsCamp";
 
 const Detail = () => {
   const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
@@ -15,7 +16,7 @@ const Detail = () => {
   const id = location.state.campingId;
 
   useEffect(() => {
-    const url = "http://k7b308.p.ssafy.io:8080/api/camping/" + id;
+    const url = LetsCamp.camping.getOne(id);
     axios
       .get(url, {
         headers: {
@@ -38,7 +39,8 @@ const Detail = () => {
       <Header pageName={"상세 정보"}></Header>
       <DetailImg></DetailImg>
       <Contents></Contents>
-      <Review></Review>
+      <hr></hr>
+      {id ? <Review id={id}></Review> : <div></div>}
       <NavBar></NavBar>
     </div>
   );

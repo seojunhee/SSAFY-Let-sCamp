@@ -1,0 +1,19 @@
+
+.detail-contents-box{
+    width: 90%;
+    margin-left: 5%;
+    height: 50px;
+    text-align: left;
+    display: flex;
+}
+
+
+.detail-contents-box-summary::-webkit-details-maker{
+   display: none; 
+}
+
+
+.detail-contents-icons{
+    width: 20px;
+    height: 20px;
+}
