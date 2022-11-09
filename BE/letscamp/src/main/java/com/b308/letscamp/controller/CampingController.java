@@ -42,4 +42,16 @@ public class CampingController {
 		String userId = response.getHeader("userId");
 		return campingService.findByCore(userId, category, animal, keywords);
 	}
+	
+	@GetMapping("/camping/searchbyname/{name}")
+	public List<CampingFindResponse> selectByName(
+			@ApiParam(value = "입력된 이름을 포함한 캠핑장들 조회", required = true) @PathVariable  String name) {
+		return campingService.findByName(name);
+	}
+	
+	@GetMapping("/camping/searchbydosi/{dosi}")
+	public List<CampingFindResponse> selectByDosi(
+			@ApiParam(value = "입력된 시,도 내의 캠핑장들 조회", required = true) @PathVariable  String dosi) {
+		return campingService.findByDosi(dosi);
+	}
 }
