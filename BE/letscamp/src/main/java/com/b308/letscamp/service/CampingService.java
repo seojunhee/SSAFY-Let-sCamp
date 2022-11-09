@@ -12,4 +12,6 @@ public interface CampingService {
 	CampingFindResponse findById(long id);
 	List<CampingFindAllResponse> findAll();
 	List<CampingFindResponse> findByCore(String userId, String category, String animal, String keywords) throws ParseException;
+	List<CampingFindResponse> findByName(String name);
+	List<CampingFindResponse> findByDosi(String dosi);
 }
