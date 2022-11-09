@@ -26,7 +26,7 @@ const Questions = () => {
   const winterList = ["눈꽃명소", "스키", "일출명소", "일몰명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
   const allSeasonList = {"": [], "봄": springList, "여름": summerList, "가을": fallList, "겨울": winterList}
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [keyword, setKeyword] = useState("");
   const [campingCate, setCampingCate] = useState("");
   const [animal, setAnimal] = useState("");
