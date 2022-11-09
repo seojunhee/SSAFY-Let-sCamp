@@ -1,7 +1,7 @@
 package com.b308.letscamp.service.reservation;
 
-import com.b308.letscamp.Exception.CampingNotFoundException;
-import com.b308.letscamp.Exception.UserNotFoundException;
+import com.b308.letscamp.exception.CampingNotFoundException;
+import com.b308.letscamp.exception.UserNotFoundException;
 import com.b308.letscamp.dto.camping.CampingFindResponse;
 import com.b308.letscamp.dto.reservation.ReservationFindByUserIdResponse;
 import com.b308.letscamp.dto.reservation.ReservationSaveRequest;
@@ -90,7 +90,6 @@ public class ReservationServiceImpl implements ReservationService {
         }
         UserFindResponse userFindResponse = userOptional.map(UserFindResponse::new).orElse(null);
         Long id = userFindResponse.getId();
-        System.out.println(reservationRepository.findByUserId(id).toString());
         return reservationRepository.findByUserId(id).stream().map(ReservationFindByUserIdResponse::new)
                 .collect(Collectors.toList());
     }

@@ -1,6 +1,6 @@
 package com.b308.letscamp.advice;
 
-import com.b308.letscamp.Exception.ReviewNotFoundException;
+import com.b308.letscamp.exception.ReviewNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,7 +1,7 @@
 package com.b308.letscamp.controller;
 
 import com.b308.letscamp.dto.trash.TrashFindResponse;
-import com.b308.letscamp.service.Trash.TrashService;
+import com.b308.letscamp.service.trash.TrashService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;

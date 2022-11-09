@@ -1,7 +1,5 @@
 package com.b308.letscamp.config;
 
-import io.swagger.annotations.ApiParam;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;

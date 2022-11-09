@@ -1,6 +1,5 @@
 package com.b308.letscamp.dto.glamping;
 
-import com.b308.letscamp.entity.CarCamping;
 import com.b308.letscamp.entity.Glamping;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

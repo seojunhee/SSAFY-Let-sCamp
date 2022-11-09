@@ -1,4 +1,4 @@
-package com.b308.letscamp.Exception;
+package com.b308.letscamp.exception;
 
 public class CarCampingNotFoundException extends RuntimeException{
 }

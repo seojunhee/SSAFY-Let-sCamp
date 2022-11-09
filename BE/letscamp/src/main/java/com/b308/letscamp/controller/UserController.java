@@ -1,8 +1,6 @@
 package com.b308.letscamp.controller;
 
-import com.b308.letscamp.dto.review.ReviewUpdateRequest;
 import com.b308.letscamp.dto.user.*;
-import com.b308.letscamp.entity.User;
 import com.b308.letscamp.jwt.JwtTokenProvider;
 import com.b308.letscamp.jwt.TokenInfo;
 import com.b308.letscamp.service.user.UserService;
@@ -18,12 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
-import static javax.security.auth.message.AuthStatus.FAILURE;
-import static javax.security.auth.message.AuthStatus.SUCCESS;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,7 +24,6 @@ import static javax.security.auth.message.AuthStatus.SUCCESS;
 public class UserController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
-//    private final Response response;
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final RedisTemplate redisTemplate;
@@ -77,7 +69,6 @@ public class UserController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public UserUpdateResponse update(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                      @RequestBody @ApiParam(value = "수정할 정보를 담고있는 user 객체", required = true) UserUpdateRequest request) {
         String userId = response.getHeader("userId");
         UserFindResponse user = userService.findByUserId(userId);

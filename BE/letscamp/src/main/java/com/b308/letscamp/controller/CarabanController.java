@@ -1,8 +1,6 @@
 package com.b308.letscamp.controller;
 
-import com.b308.letscamp.dto.carCamping.CarCampingUpdateRequest;
 import com.b308.letscamp.dto.caraban.*;
-import com.b308.letscamp.entity.Caraban;
 import com.b308.letscamp.service.caraban.CarabanService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +22,6 @@ public class CarabanController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public CarabanSaveResponse create(HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                       @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader("userId");
         Long resultId = carabanService.create(userId, reservationId);
@@ -38,7 +35,6 @@ public class CarabanController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public CarabanDeleteResponse delete(HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                         @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader("userId");
         carabanService.delete(userId, reservationId);
@@ -52,7 +48,6 @@ public class CarabanController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<CarabanFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader("userId");
         List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationId(userId, reservationId);
@@ -66,7 +61,6 @@ public class CarabanController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<CarabanFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                  @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                  @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         String userId = response.getHeader("userId");

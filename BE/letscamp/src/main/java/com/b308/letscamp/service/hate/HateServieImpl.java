@@ -1,7 +1,7 @@
 package com.b308.letscamp.service.hate;
 
-import com.b308.letscamp.Exception.CampingNotFoundException;
-import com.b308.letscamp.Exception.UserNotFoundException;
+import com.b308.letscamp.exception.CampingNotFoundException;
+import com.b308.letscamp.exception.UserNotFoundException;
 import com.b308.letscamp.dto.camping.CampingFindResponse;
 import com.b308.letscamp.dto.hate.HateFindResponse;
 import com.b308.letscamp.dto.hate.HateSaveRequest;
