@@ -95,5 +95,15 @@ public class CampingServiceImpl implements CampingService {
 		
 		return campingList;
 	}
+
+	@Override
+	public List<CampingFindResponse> findByName(String name) {
+		return campingRepository.findByNameContaining(name);
+	}
+
+	@Override
+	public List<CampingFindResponse> findByDosi(String dosi) {
+		return campingRepository.findByDosi(dosi);
+	}
 	
 }
