@@ -130,13 +130,13 @@ const ChoiceButton = (props) => {
     <div className="height-55">
       <img src={"/img/" + q1Img +".png"} className="height-75"/>
       <div className="grid height-25">
-        <div className="item col-4 w-btn text-center" onClick={ () => onChangeKeyword("가족") }>
+        <div className={"item col-4 w-btn text-center" + ((q1Img==="family") ? " choice-btn" : "")} onClick={ () => onChangeKeyword("가족") }>
           가족
         </div>
-        <div className="item col-4 w-btn text-center" onClick={ () => onChangeKeyword("커플") }>
+        <div className={"item col-4 w-btn text-center" + ((q1Img==="couple") ? " choice-btn" : "")} onClick={ () => onChangeKeyword("커플") }>
           커플
         </div>
-        <div className="item col-4 w-btn text-center" onClick={ () => onChangeKeyword("아이들놀기좋은") }>
+        <div className={"item col-4 w-btn text-center" + ((q1Img==="child") ? " choice-btn" : "")} onClick={ () => onChangeKeyword("아이들놀기좋은") }>
           아이들
         </div>
       </div>
@@ -149,8 +149,8 @@ const ChoiceButton = (props) => {
         <img src={"/img/" + q2Img +".png"} className="height-100"/>
       </div>
       <div className="grid height-15">
-        <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(true) }>네</div>
-        <div className="item col-6 w-btn outer-div" onClick={ () => onChangePet(false) }>아니요</div>
+        <div className={"item col-6 w-btn outer-div" + (!!(q2Img === "withPet") ? " choice-btn" : "")} onClick={ () => onChangePet(true) }>네</div>
+        <div className={"item col-6 w-btn outer-div" + (!!(q2Img === "noPet") ? " choice-btn" : "")} onClick={ () => onChangePet(false) }>아니요</div>
       </div>
     </>
   )
@@ -162,14 +162,14 @@ const ChoiceButton = (props) => {
       </div>
       <div className="height-30">
         <div className="grid height-50">
-          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("산") }>산</div>
-          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("바다가보이는") }>바다</div>
-          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("도심") }>도심</div>
+          <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "mountain") ? " choice-btn" : "")} onClick={ () => onChangePlace("산") }>산</div>
+          <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "sea") ? " choice-btn" : "")} onClick={ () => onChangePlace("바다가보이는") }>바다</div>
+          <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "city") ? " choice-btn" : "")} onClick={ () => onChangePlace("도심") }>도심</div>
         </div>
         <div className="grid height-50">
           <div className="item col-2"></div>
-          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("숲") }>숲</div>
-          <div className="item col-4 w-btn outer-div" onClick={ () => onChangePlace("섬") }>섬</div>
+          <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "forest") ? " choice-btn" : "")} onClick={ () => onChangePlace("숲") }>숲</div>
+          <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "island") ? " choice-btn" : "")} onClick={ () => onChangePlace("섬") }>섬</div>
         </div>
       </div>
     </>
@@ -183,10 +183,10 @@ const ChoiceButton = (props) => {
 
       </div>
       <div className="grid height-30">
-        <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("일반야영장") }>텐트</div>
-        <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
-        <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("카라반") }>카라반</div>
-        <div className="item col-6 w-btn outer-div" onClick={ () => onChangeCate("글램핑") }>글램핑</div>
+        <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "camping") ? " choice-btn" : "")} onClick={ () => onChangeCate("일반야영장") }>텐트</div>
+        <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "autoCamping") ? " choice-btn" : "")} onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
+        <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "caravan") ? " choice-btn" : "")} onClick={ () => onChangeCate("카라반") }>카라반</div>
+        <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "glamping") ? " choice-btn" : "")} onClick={ () => onChangeCate("글램핑") }>글램핑</div>
       </div>
     </>
   )
