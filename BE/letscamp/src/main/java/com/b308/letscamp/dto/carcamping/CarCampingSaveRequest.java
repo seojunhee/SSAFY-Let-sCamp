@@ -1,4 +1,4 @@
-package com.b308.letscamp.dto.carCamping;
+package com.b308.letscamp.dto.carcamping;
 
 import com.b308.letscamp.entity.CarCamping;
 import com.b308.letscamp.entity.Reservation;

@@ -14,6 +14,7 @@ import java.util.List;
 @Api(tags = {"Caraban API"})
 public class CarabanController {
     private final CarabanService carabanService;
+    private final String tokenUserId = "userId";
 
     @PostMapping("/caraban/{reservationId}")
     @ApiOperation(value = "카라반 일정 추가", notes = "카라반 일정을 추가하는 요청")
@@ -23,7 +24,7 @@ public class CarabanController {
     })
     public CarabanSaveResponse create(HttpServletResponse response,
                                       @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         Long resultId = carabanService.create(userId, reservationId);
         return new CarabanSaveResponse(resultId);
     }
@@ -36,7 +37,7 @@ public class CarabanController {
     })
     public CarabanDeleteResponse delete(HttpServletResponse response,
                                         @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         carabanService.delete(userId, reservationId);
         return new CarabanDeleteResponse(true);
     }
@@ -49,7 +50,7 @@ public class CarabanController {
     })
     public List<CarabanFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationId(userId, reservationId);
         return list;
     }
@@ -63,7 +64,7 @@ public class CarabanController {
     public List<CarabanFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                                  @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                  @PathVariable @ApiParam(value = "Level", required = true) Long level) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         List<CarabanFindResponse> list = carabanService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
         return list;
     }

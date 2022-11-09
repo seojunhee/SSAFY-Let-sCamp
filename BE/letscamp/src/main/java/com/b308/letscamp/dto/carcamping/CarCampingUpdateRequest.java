@@ -1,4 +1,4 @@
-package com.b308.letscamp.dto.carCamping;
+package com.b308.letscamp.dto.carcamping;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
