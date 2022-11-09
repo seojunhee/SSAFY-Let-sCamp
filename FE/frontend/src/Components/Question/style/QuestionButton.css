@@ -61,3 +61,7 @@
   justify-content : center;
   align-items : center;
 }
+
+.choice-btn {
+  background-color: green;
+}

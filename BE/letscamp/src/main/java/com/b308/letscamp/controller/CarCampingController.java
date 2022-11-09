@@ -22,7 +22,6 @@ public class CarCampingController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public CarCampingSaveResponse create(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader("userId");
         Long resultId = carCampingService.create(userId, reservationId);
@@ -36,7 +35,6 @@ public class CarCampingController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public CarCampingDeleteResponse delete(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                            @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader("userId");
         carCampingService.delete(userId, reservationId);
@@ -64,7 +62,6 @@ public class CarCampingController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<CarCampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                     @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                     @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         String userId = response.getHeader("userId");

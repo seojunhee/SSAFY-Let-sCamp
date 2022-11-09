@@ -1,6 +1,6 @@
 package com.b308.letscamp.service.user;
 
-import com.b308.letscamp.Exception.UserNotFoundException;
+import com.b308.letscamp.exception.UserNotFoundException;
 import com.b308.letscamp.dto.user.UserFindResponse;
 import com.b308.letscamp.dto.user.UserSaveRequest;
 import com.b308.letscamp.dto.user.UserUpdateExpRequest;
