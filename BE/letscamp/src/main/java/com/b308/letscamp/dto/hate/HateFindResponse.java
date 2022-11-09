@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class HateFindResponse {
-    private Long id;
-    private Long userId;
-    private Long campingId;
+    Long id;
+    Long userId;
+    Long campingId;
 
     public HateFindResponse(Hate hate) {
         this.id = hate.getId();

@@ -11,12 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class GlampingFindResponse {
-    private Long id;
-    private Long userId;
-    private Long reservationId;
-    private String item;
-    private boolean isCheck;
-    private Long level;
+    Long id;
+    Long userId;
+    Long reservationId;
+    String item;
+    boolean isCheck;
+    Long level;
 
     public GlampingFindResponse(Glamping glamping) {
         this.id = glamping.getId();

@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class ReviewFindAllResponse {
-    private Long id;
-    private Long userId;
-    private String userNickName;
-    private Long userExp;
-    private Long campingId;
-    private double rate;
-    private String comment;
-    private String date;
+    Long id;
+    Long userId;
+    String userNickName;
+    Long userExp;
+    Long campingId;
+    double rate;
+    String comment;
+    String date;
 
     public ReviewFindAllResponse(Review review) {
         this.id = review.getId();

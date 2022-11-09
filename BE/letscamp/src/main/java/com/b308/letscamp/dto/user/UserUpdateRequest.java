@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserUpdateRequest {
-    private Long id;
-    private String nickName;
-    private String address;
-    private String userPw;
+    Long id;
+    String nickName;
+    String address;
+    String userPw;
 }
