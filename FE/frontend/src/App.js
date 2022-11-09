@@ -12,6 +12,7 @@ import Reserve from "./pages/ReservePage";
 import { RecoilRoot } from "recoil";
 import MapPage from "./pages/MapPage";
 import MainPage from "./pages/MainPage";
+import Recycle from "./pages/RecyclePage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/recommend" element={<RecommendResult />} />
           <Route path="/reserve" element={<Reserve />} />
           <Route path="/map" element={<MapPage />} />
+          <Route path="/recycle" element={<Recycle/>} />
         </Routes>
       </RecoilRoot>
     </div>
