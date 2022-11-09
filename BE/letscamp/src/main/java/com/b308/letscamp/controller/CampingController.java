@@ -1,21 +1,17 @@
 package com.b308.letscamp.controller;
 
-import java.util.List;
-
+import com.b308.letscamp.dto.camping.CampingFindAllResponse;
+import com.b308.letscamp.dto.camping.CampingFindResponse;
+import com.b308.letscamp.service.CampingService;
+import io.swagger.annotations.ApiParam;
+import lombok.RequiredArgsConstructor;
 import org.json.simple.parser.ParseException;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.b308.letscamp.dto.camping.*;
-import com.b308.letscamp.service.CampingService;
-
-import io.swagger.annotations.ApiParam;
-import lombok.RequiredArgsConstructor;
-
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -34,7 +30,6 @@ public class CampingController {
 	
 	@GetMapping("/camping/recomm/{category}/{animal}/{keywords}")
 	public List<CampingFindResponse> readByCore(
-//			@ApiParam(value = "현재 유저 PK", required = true) @RequestHeader String userId,
 			@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
 			@ApiParam(value = "선택된 캠핑장 유형", required = true) @PathVariable  String category,
 			@ApiParam(value = "선택된 반려견 동반 여부", required = true) @PathVariable String animal,

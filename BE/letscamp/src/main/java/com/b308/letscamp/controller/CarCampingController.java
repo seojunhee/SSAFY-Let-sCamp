@@ -14,7 +14,7 @@ import java.util.List;
 @Api(tags = {"CarCamping API"})
 public class CarCampingController {
     private final CarCampingService carCampingService;
-    private final String tokenUserId = "userId";
+    String tokenUserId = "userId";
 
     @PostMapping("/carCamping/{reservationId}")
     @ApiOperation(value = "자동차 캠핑장 일정 추가", notes = "자동차 캠피장 일정을 추가하는 요청")
@@ -49,11 +49,9 @@ public class CarCampingController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<CarCampingFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                             @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader(tokenUserId);
-        List<CarCampingFindResponse> list = carCampingService.findByUserIdAndReservationId(userId, reservationId);
-        return list;
+        return carCampingService.findByUserIdAndReservationId(userId, reservationId);
     }
 
     @GetMapping("/carCamping/{reservationId}/{level}")
@@ -66,8 +64,7 @@ public class CarCampingController {
                                                                                     @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                     @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         String userId = response.getHeader(tokenUserId);
-        List<CarCampingFindResponse> list = carCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
-        return list;
+        return carCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
     }
 
     @PutMapping("/carCamping")

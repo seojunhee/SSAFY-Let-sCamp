@@ -29,7 +29,7 @@ public class UserController {
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final RedisTemplate redisTemplate;
-    private final String tokenUserId = "userId";
+    String tokenUserId = "userId";
 
     @GetMapping("/user/login/{id}/{pw}")
     public ResponseEntity<?> login(@PathVariable String id, @PathVariable String pw){
@@ -85,8 +85,8 @@ public class UserController {
     @GetMapping("/user/reissue")
     public ResponseEntity<?> reissueTokens(@RequestHeader(name = "refresh") String refreshToken, @RequestHeader(name = "Access") String aceessToken, HttpServletRequest request, HttpServletResponse response) {
         Authentication authentication = jwtTokenProvider.getAuthentication(aceessToken);
-        String DBtoken = (String) redisTemplate.opsForValue().get(authentication.getName());
-        if (refreshToken == null || !DBtoken.equals(refreshToken))
+        String dBtoken = (String) redisTemplate.opsForValue().get(authentication.getName());
+        if (refreshToken == null || !dBtoken.equals(refreshToken))
             return new ResponseEntity<>("토큰이 유효하지 않습니다..", HttpStatus.BAD_REQUEST);
 
 
