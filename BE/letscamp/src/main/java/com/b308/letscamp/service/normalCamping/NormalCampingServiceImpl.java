@@ -1,8 +1,8 @@
 package com.b308.letscamp.service.normalCamping;
 
-import com.b308.letscamp.Exception.NormalCampingNotFoundException;
-import com.b308.letscamp.Exception.ReservationNotFoundException;
-import com.b308.letscamp.Exception.UserNotFoundException;
+import com.b308.letscamp.exception.NormalCampingNotFoundException;
+import com.b308.letscamp.exception.ReservationNotFoundException;
+import com.b308.letscamp.exception.UserNotFoundException;
 import com.b308.letscamp.dto.normalCamping.NormalCampingFindResponse;
 import com.b308.letscamp.dto.normalCamping.NormalCampingSaveRequest;
 import com.b308.letscamp.dto.normalCamping.NormalCampingUpdateRequest;

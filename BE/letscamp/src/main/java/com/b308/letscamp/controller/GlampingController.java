@@ -1,6 +1,5 @@
 package com.b308.letscamp.controller;
 
-import com.b308.letscamp.dto.caraban.CarabanUpdateRequest;
 import com.b308.letscamp.dto.glamping.*;
 import com.b308.letscamp.service.glamping.GlampingService;
 import io.swagger.annotations.*;
@@ -23,7 +22,6 @@ public class GlampingController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public GlampingSaveResponse create(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                        @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader("userId");
         Long resultId = glampingService.create(userId, reservationId);
@@ -37,7 +35,6 @@ public class GlampingController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public GlampingDeleteResponse delete(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader("userId");
         glampingService.delete(userId, reservationId);
@@ -51,7 +48,6 @@ public class GlampingController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<GlampingFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                           @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
         String userId = response.getHeader("userId");
         List<GlampingFindResponse> list = glampingService.findByUserIdAndReservationId(userId, reservationId);
@@ -65,7 +61,6 @@ public class GlampingController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public List<GlampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
-//            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                                   @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                   @PathVariable @ApiParam(value = "Level", required = true) Long level) {
         String userId = response.getHeader("userId");

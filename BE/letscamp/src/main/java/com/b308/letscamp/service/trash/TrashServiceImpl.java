@@ -1,4 +1,4 @@
-package com.b308.letscamp.service.Trash;
+package com.b308.letscamp.service.trash;
 
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

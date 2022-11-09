@@ -1,8 +1,8 @@
 package com.b308.letscamp.service.glamping;
 
-import com.b308.letscamp.Exception.GlampingNotFoundException;
-import com.b308.letscamp.Exception.ReservationNotFoundException;
-import com.b308.letscamp.Exception.UserNotFoundException;
+import com.b308.letscamp.exception.GlampingNotFoundException;
+import com.b308.letscamp.exception.ReservationNotFoundException;
+import com.b308.letscamp.exception.UserNotFoundException;
 import com.b308.letscamp.dto.glamping.GlampingFindResponse;
 import com.b308.letscamp.dto.glamping.GlampingSaveRequest;
 import com.b308.letscamp.dto.glamping.GlampingUpdateRequest;

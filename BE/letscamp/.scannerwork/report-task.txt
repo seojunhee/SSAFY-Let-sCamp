@@ -1,0 +1,6 @@
+projectKey=S07P31B308
+serverUrl=https://sonarqube.ssafy.com
+serverVersion=8.9.9.56886
+dashboardUrl=https://sonarqube.ssafy.com/dashboard?id=S07P31B308
+ceTaskId=AYRaQFm7yVDXWrOcelNK
+ceTaskUrl=https://sonarqube.ssafy.com/api/ce/task?id=AYRaQFm7yVDXWrOcelNK
