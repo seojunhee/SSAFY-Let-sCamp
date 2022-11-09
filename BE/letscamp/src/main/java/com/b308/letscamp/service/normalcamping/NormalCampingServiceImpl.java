@@ -1,17 +1,17 @@
-package com.b308.letscamp.service.carCamping;
+package com.b308.letscamp.service.normalcamping;
 
-import com.b308.letscamp.exception.CarCampingNotFoundException;
+import com.b308.letscamp.exception.NormalCampingNotFoundException;
 import com.b308.letscamp.exception.ReservationNotFoundException;
 import com.b308.letscamp.exception.UserNotFoundException;
-import com.b308.letscamp.dto.carCamping.CarCampingFindResponse;
-import com.b308.letscamp.dto.carCamping.CarCampingSaveRequest;
-import com.b308.letscamp.dto.carCamping.CarCampingUpdateRequest;
+import com.b308.letscamp.dto.normalcamping.NormalCampingFindResponse;
+import com.b308.letscamp.dto.normalcamping.NormalCampingSaveRequest;
+import com.b308.letscamp.dto.normalcamping.NormalCampingUpdateRequest;
 import com.b308.letscamp.dto.reservation.ReservationFindResponse;
 import com.b308.letscamp.dto.user.UserFindResponse;
-import com.b308.letscamp.entity.CarCamping;
+import com.b308.letscamp.entity.NormalCamping;
 import com.b308.letscamp.entity.Reservation;
 import com.b308.letscamp.entity.User;
-import com.b308.letscamp.repository.CarCampingRepository;
+import com.b308.letscamp.repository.NormalCampingRepository;
 import com.b308.letscamp.repository.ReservationRepository;
 import com.b308.letscamp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,15 +24,15 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CarCampingServiceImpl implements CarCampingService{
-    private final CarCampingRepository carCampingRepository;
+public class NormalCampingServiceImpl implements NormalCampingService {
+    private final NormalCampingRepository normalRepository;
     private final UserRepository userRepository;
     private final ReservationRepository reservationRepository;
 
     @Transactional
     @Override
     public Long create(String userId, Long reservationId) {
-        CarCampingSaveRequest dto = new CarCampingSaveRequest();
+        NormalCampingSaveRequest dto = new NormalCampingSaveRequest();
 
         Optional<User> userOptional = userRepository.findByUserId(userId);
         if (userOptional.isEmpty()) {
@@ -59,129 +59,141 @@ public class CarCampingServiceImpl implements CarCampingService{
                 .build();
         dto.setReservation(reservation);
 
-        dto.setItem("차박용 텐트");
-        dto.setLevel(2L);
-        carCampingRepository.save(dto.toEntity());
-
-        dto.setItem("차량 평탄화 매트");
+        dto.setItem("텐트");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
-        dto.setItem("자충베개 혹은 베개");
-        dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
-
-        dto.setItem("이불 혹은 침낭");
+        dto.setItem("타프");
         dto.setLevel(3L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
-        dto.setItem("차량용 냉장고");
-        dto.setLevel(4L);
-        carCampingRepository.save(dto.toEntity());
+        dto.setItem("자충매트");
+        dto.setLevel(2L);
+        normalRepository.save(dto.toEntity());
+
+        dto.setItem("자충베개");
+        dto.setLevel(2L);
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("테이블");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("의자");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
+
+        dto.setItem("아이스박스");
+        dto.setLevel(1L);
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("그릴");
         dto.setLevel(2L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("버너");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("부탄가스");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("숯");
-        dto.setLevel(3L);
-        carCampingRepository.save(dto.toEntity());
+        dto.setLevel(2L);
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("장작");
-        dto.setLevel(4L);
-        carCampingRepository.save(dto.toEntity());
+        dto.setLevel(3L);
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("팬");
         dto.setLevel(2L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("코펠");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
-        dto.setItem("조면");
+        dto.setItem("조명");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("화로대");
         dto.setLevel(3L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("선풍기");
         dto.setLevel(4L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("비상약");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("모기약");
         dto.setLevel(3L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("긴팔/긴바지");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("담요");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
+
+        dto.setItem("이불 혹은 침낭");
+        dto.setLevel(3L);
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("보조배터리");
         dto.setLevel(4L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
+
+        dto.setItem("릴선");
+        dto.setLevel(4L);
+        normalRepository.save(dto.toEntity());
+
+        dto.setItem("멀티탭");
+        dto.setLevel(4L);
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("설거지통");
         dto.setLevel(4L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("세면도구");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("수건");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("조리도구");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("휴지");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("물티슈");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("쓰레기봉투");
         dto.setLevel(1L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("블루투스 스피커");
         dto.setLevel(4L);
-        carCampingRepository.save(dto.toEntity());
+        normalRepository.save(dto.toEntity());
 
         dto.setItem("슬리퍼");
         dto.setLevel(3L);
-        return carCampingRepository.save(dto.toEntity()).getId();
+        return normalRepository.save(dto.toEntity()).getId();
     }
 
     @Transactional
@@ -193,37 +205,39 @@ public class CarCampingServiceImpl implements CarCampingService{
         }
         UserFindResponse userFindResponse = userOptional.map(UserFindResponse::new).orElse(null);
 
-        carCampingRepository.deleteByUserIdAndReservationId(userFindResponse.getId(), reservationId);
+        normalRepository.deleteByUserIdAndReservationId(userFindResponse.getId(), reservationId);
     }
 
     @Override
-    public List<CarCampingFindResponse> findByUserIdAndReservationId(String userId, Long reservationId) {
+    public List<NormalCampingFindResponse> findByUserIdAndReservationId(String userId, Long reservationId) {
         Optional<User> userOptional = userRepository.findByUserId(userId);
         if (userOptional.isEmpty()) {
             throw new UserNotFoundException();
         }
         UserFindResponse userFindResponse = userOptional.map(UserFindResponse::new).orElse(null);
 
-        return carCampingRepository.findByUserIdAndReservationId(userFindResponse.getId(), reservationId)
-                .stream().map(CarCampingFindResponse::new).collect(Collectors.toList());
+        return normalRepository.findByUserIdAndReservationId(userFindResponse.getId(), reservationId)
+                .stream().map(NormalCampingFindResponse::new).collect(Collectors.toList());
     }
 
     @Override
-    public List<CarCampingFindResponse> findByUserIdAndReservationIdAndLevel(String userId, Long reservationId, Long level) {
+    public List<NormalCampingFindResponse> findByUserIdAndReservationIdAndLevel(String userId, Long reservationId, Long level) {
         Optional<User> userOptional = userRepository.findByUserId(userId);
         if (userOptional.isEmpty()) {
             throw new UserNotFoundException();
         }
         UserFindResponse userFindResponse = userOptional.map(UserFindResponse::new).orElse(null);
 
-        return carCampingRepository.findByUserIdAndReservationIdAndLevel(userFindResponse.getId(), reservationId, level)
-                .stream().map(CarCampingFindResponse::new).collect(Collectors.toList());
+        return normalRepository.findByUserIdAndReservationIdAndLevel(userFindResponse.getId(), reservationId, level)
+                .stream().map(NormalCampingFindResponse::new).collect(Collectors.toList());
     }
 
     @Transactional
     @Override
-    public Long update(CarCampingUpdateRequest dto) {
-        CarCamping carCamping = carCampingRepository.findById(dto.getId()).orElseThrow(CarCampingNotFoundException::new);
-        return carCamping.update(dto.isCheck()).getId();
+    public Long update(NormalCampingUpdateRequest dto) {
+        NormalCamping normalCamping = normalRepository.findById(dto.getId()).orElseThrow(NormalCampingNotFoundException::new);
+        return normalCamping.update(dto.isCheck()).getId();
     }
+
+
 }

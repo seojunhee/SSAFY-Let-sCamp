@@ -1,7 +1,7 @@
-package com.b308.letscamp.service.normalCamping;
+package com.b308.letscamp.service.normalcamping;
 
-import com.b308.letscamp.dto.normalCamping.NormalCampingFindResponse;
-import com.b308.letscamp.dto.normalCamping.NormalCampingUpdateRequest;
+import com.b308.letscamp.dto.normalcamping.NormalCampingFindResponse;
+import com.b308.letscamp.dto.normalcamping.NormalCampingUpdateRequest;
 
 import java.util.List;
 

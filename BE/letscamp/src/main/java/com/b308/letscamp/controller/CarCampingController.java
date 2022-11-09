@@ -1,7 +1,7 @@
 package com.b308.letscamp.controller;
 
-import com.b308.letscamp.dto.carCamping.*;
-import com.b308.letscamp.service.carCamping.CarCampingService;
+import com.b308.letscamp.dto.carcamping.*;
+import com.b308.letscamp.service.carcamping.CarCampingService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +14,7 @@ import java.util.List;
 @Api(tags = {"CarCamping API"})
 public class CarCampingController {
     private final CarCampingService carCampingService;
+    private final String tokenUserId = "userId";
 
     @PostMapping("/carCamping/{reservationId}")
     @ApiOperation(value = "자동차 캠핑장 일정 추가", notes = "자동차 캠피장 일정을 추가하는 요청")
@@ -23,7 +24,7 @@ public class CarCampingController {
     })
     public CarCampingSaveResponse create(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         Long resultId = carCampingService.create(userId, reservationId);
         return new CarCampingSaveResponse(resultId);
     }
@@ -36,7 +37,7 @@ public class CarCampingController {
     })
     public CarCampingDeleteResponse delete(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                            @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         carCampingService.delete(userId, reservationId);
         return new CarCampingDeleteResponse(true);
     }
@@ -50,7 +51,7 @@ public class CarCampingController {
     public List<CarCampingFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
 //            @RequestHeader @ApiParam(value = "로그인 상태 정보", required = true) String userId,
                                                                             @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         List<CarCampingFindResponse> list = carCampingService.findByUserIdAndReservationId(userId, reservationId);
         return list;
     }
@@ -64,7 +65,7 @@ public class CarCampingController {
     public List<CarCampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                                     @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                     @PathVariable @ApiParam(value = "Level", required = true) Long level) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         List<CarCampingFindResponse> list = carCampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
         return list;
     }

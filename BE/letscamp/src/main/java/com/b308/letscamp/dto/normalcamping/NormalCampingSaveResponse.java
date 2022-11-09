@@ -1,4 +1,4 @@
-package com.b308.letscamp.dto.normalCamping;
+package com.b308.letscamp.dto.normalcamping;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class NormalCampingUpdateRequest {
-    private Long id;
-    private boolean isCheck;
+public class NormalCampingSaveResponse {
+    Long id;
 }

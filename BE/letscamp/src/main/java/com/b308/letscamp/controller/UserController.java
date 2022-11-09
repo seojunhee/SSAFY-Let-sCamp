@@ -29,6 +29,7 @@ public class UserController {
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final RedisTemplate redisTemplate;
+    private final String tokenUserId = "userId";
 
     @GetMapping("/user/login/{id}/{pw}")
     public ResponseEntity<?> login(@PathVariable String id, @PathVariable String pw){
@@ -72,7 +73,7 @@ public class UserController {
     })
     public UserUpdateResponse update(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                      @RequestBody @ApiParam(value = "수정할 정보를 담고있는 user 객체", required = true) UserUpdateRequest request) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         UserFindResponse user = userService.findByUserId(userId);
         request.setId(user.getId());
         request.setUserPw(passwordEncoder.encode(request.getUserPw()));
@@ -109,7 +110,7 @@ public class UserController {
     public UserUpdateResponse updateExp(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                         @PathVariable @ApiParam(value = "경험치 정보", required = true) Long exp,
                                         UserUpdateExpRequest request) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         UserFindResponse user = userService.findByUserId(userId);
         request.setId(user.getId());
         request.setExp(exp);
@@ -124,7 +125,7 @@ public class UserController {
             @ApiResponse(code = 500, message = "서버 에러")
     })
     public UserFindResponse read(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         return userService.findByUserId(userId);
     }
 

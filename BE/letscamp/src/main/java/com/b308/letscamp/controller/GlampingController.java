@@ -14,6 +14,7 @@ import java.util.List;
 @Api(tags = {"Glamping API"})
 public class GlampingController {
     private final GlampingService glampingService;
+    private final String tokenUserId = "userId";
 
     @PostMapping("/glamping/{reservationId}")
     @ApiOperation(value = "글램핑 일정 추가", notes = "글램핑 일정을 추가하는 요청")
@@ -23,7 +24,7 @@ public class GlampingController {
     })
     public GlampingSaveResponse create(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                        @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         Long resultId = glampingService.create(userId, reservationId);
         return new GlampingSaveResponse(resultId);
     }
@@ -36,7 +37,7 @@ public class GlampingController {
     })
     public GlampingDeleteResponse delete(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                          @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         glampingService.delete(userId, reservationId);
         return new GlampingDeleteResponse(true);
     }
@@ -49,7 +50,7 @@ public class GlampingController {
     })
     public List<GlampingFindResponse> readByUserIdAndReservationIdResponse(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                           @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         List<GlampingFindResponse> list = glampingService.findByUserIdAndReservationId(userId, reservationId);
         return list;
     }
@@ -63,7 +64,7 @@ public class GlampingController {
     public List<GlampingFindResponse> readByUserIdAndReservationIdResponseAndLevel(@ApiParam(value = "유저 토큰 정보", required = true) HttpServletResponse response,
                                                                                   @PathVariable @ApiParam(value = "Reservation ID", required = true) Long reservationId,
                                                                                   @PathVariable @ApiParam(value = "Level", required = true) Long level) {
-        String userId = response.getHeader("userId");
+        String userId = response.getHeader(tokenUserId);
         List<GlampingFindResponse> list = glampingService.findByUserIdAndReservationIdAndLevel(userId, reservationId, level);
         return list;
     }
