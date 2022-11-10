@@ -5,6 +5,11 @@ import "./style/UserInfo.css";
 const UserInfo = (userData) => {
   const navigate = useNavigate();
 
+  const Logout = () => {
+    sessionStorage.clear();
+    navigate("/");
+  };
+
   const Profile = (userData) => {
     if (userData.userData.userData.exp < 500) {
       return (
@@ -140,31 +145,29 @@ const UserInfo = (userData) => {
         </div>
         <div className="userinfo-pw">
           닉네임
-          <div>
-            {userData.userData.nickName}
-            <img
-              src="/asset/icons/image7.png"
-              alt="이미지"
-              className="userinfo-pencilimg"
-              onClick={() => {
-                navigate("/editinfo");
-              }}
-            ></img>
-          </div>
+          <div>{userData.userData.nickName}</div>
         </div>
         <div className="userinfo-address">
           주소
-          <div>
-            {userData.userData.address}{" "}
-            <img
-              src="/asset/icons/image7.png"
-              alt="이미지"
-              className="userinfo-pencilimg"
-              onClick={() => {
-                navigate("/editinfo");
-              }}
-            ></img>
-          </div>
+          <div>{userData.userData.address}</div>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              navigate("/editinfo");
+            }}
+            className="userinfo-editinfobtn"
+          >
+            회원정보 수정
+          </button>
+          <button
+            onClick={() => {
+              Logout();
+            }}
+            className="userinfo-logoutbtn"
+          >
+            로그아웃
+          </button>
         </div>
       </div>
     </div>

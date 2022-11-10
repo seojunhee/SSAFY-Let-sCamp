@@ -59,3 +59,20 @@
     position: relative;
     z-index: 3;
 }
+
+.userinfo-editinfobtn{
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #2796CB;
+  border: none;
+}
+
+.userinfo-logoutbtn{
+  margin-left: 10px;
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #FE0808;
+  border: none;
+}

@@ -23,6 +23,9 @@ const letsCamp = {
       `${category}/` +
       `${animal}/` +
       `${keywords}/`,
+    getRandom: () => Host + Camping + "/random",
+    serchByName: (name) => Host + Camping + "/searchbyname/" + `${name}`,
+    searchByDoSi: (dosi) => Host + Camping + "/searchbydosi/" + `${dosi}`,
   },
   user: {
     login: (id, pw) => Host + User + "/login/" + `${id}/` + `${pw}`,

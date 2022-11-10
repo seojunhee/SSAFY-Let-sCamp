@@ -1,0 +1,21 @@
+
+.carousel{
+    height: 370px;
+    display: flex;
+}
+.carousel-box{
+    width: 412px;
+    height: 380px;
+}
+.carousel-img{
+    width: 412px;
+}
+.carousel-text{
+ font-size: 30px;
+}
+.carousel-name{
+    font-size: 32px;
+}
+.mainpage-todayrecomm-btn{
+    margin-top: 50px;
+}
