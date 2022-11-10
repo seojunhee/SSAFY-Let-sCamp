@@ -1,0 +1,67 @@
+.outer-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.hidden-btn {
+  visibility : hidden;
+}
+
+/* .grid-center {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-items: center;
+} */
+
+.tag-div {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: center;
+}
+
+.tag-content {
+  margin: 2%;
+}
+
+.tag-btn {
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.tag-btn-active {
+  background-color: blue;
+}
+
+.tag-btn-none-active {
+  background-color: black;
+}
+
+.align-center {
+  display: flex;
+  flex-direction: column-reverse;
+  font-size: 2vh;
+}
+
+.text-center {
+  display : flex;
+  justify-content : center;
+  align-items : center;
+}
+
+.choice-btn {
+  background-color: green;
+}
