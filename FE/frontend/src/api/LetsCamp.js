@@ -84,6 +84,10 @@ const letsCamp = {
     getByLevel: (reservationId, level) =>
       Host + CarCamping + "/" + `${reservationId}/` + `${level}`,
   },
+  classification: {
+    classify: (filename) => Host + "classification/" + filename
+  }
+
 };
 
 export default letsCamp;
