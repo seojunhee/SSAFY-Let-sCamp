@@ -7,14 +7,14 @@ import ReservationDateInfo from "../Components/Reserve/ReservationDateInfo.js";
 import ReservationPeopleInfo from "../Components/Reserve/ReservationPeopleInfo.js"
 import ReserveBtn from "../Components/Reserve/ReserveBtn.js";
 
-import { useSetRecoilState } from "recoil";
-import { pageNameState } from "../Store/state.js";
+// import { useSetRecoilState } from "recoil";
+// import { pageNameState } from "../Store/state.js";
 
 // api
 import letsCamp from "../api/LetsCamp";
 
 
-import { Link, useNavigate, useLocation } from "react-router-dom";
+// import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Reserve = () => {
 
