@@ -12,6 +12,7 @@ import Reserve from "./pages/ReservePage";
 import { RecoilRoot } from "recoil";
 import MapPage from "./pages/MapPage";
 import MainPage from "./pages/MainPage";
+import SearchPage from "./pages/SearchPage.js";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/recommend" element={<RecommendResult />} />
           <Route path="/reserve" element={<Reserve />} />
           <Route path="/map" element={<MapPage />} />
+          <Route path="/search" element={<SearchPage />} />
         </Routes>
       </RecoilRoot>
     </div>
