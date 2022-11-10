@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import {v4 as uuidv4} from 'uuid';
+
+import {ref, uploadString} from "@firebase/storage"
+import { app, storageService } from "../firebase.js";
 // Component
 import Header from '../Components/Header/Header.js'
 import Loading from "../Components/Recycle/Loading.js";
@@ -10,7 +14,8 @@ const Recycle = () => {
 
   const [loading, setLoading] = useState(false);
   const [files, setFiles] = useState("");
-  const [isComplete, SetIsComplete] = useState(false)
+  const [attachment, setAttachment] = useState();
+  const [isComplete, SetIsComplete] = useState(false);
   
 
   const onLoadFile = (e) => {
@@ -18,9 +23,14 @@ const Recycle = () => {
 
   };
 
-  const onScanning = () => {
+  const onScanning = async () => {
+    const filename = uuidv4();
+    const fileRef = ref(storageService, `${filename}`);
+    console.log(fileRef)
     SetIsComplete(!isComplete)
-
+    uploadString(fileRef, attachment, 'data_url').then(() => {
+      console.log("upload")
+    });
   }
 
   useEffect(() => {
@@ -36,10 +46,16 @@ const Recycle = () => {
 
     const reader = new FileReader();
 
-    reader.onload = () => (imgEl.style.backgroundImage = `url(${reader.result})`);
+    reader.onload = () => {
+      imgEl.style.backgroundImage = `url(${reader.result})`
+      setAttachment(reader.result)
+    };
 
     reader.readAsDataURL(files[0]);
+  
   };
+
+  
 
   
 

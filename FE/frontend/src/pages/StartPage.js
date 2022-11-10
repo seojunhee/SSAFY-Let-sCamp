@@ -4,7 +4,6 @@ import "./style/StartPage.css";
 
 const Start = () => {
   const navigate = useNavigate();
-  
 
   useEffect(() => {
     !!(sessionStorage.getItem("accessToken")) ? navigate("/main") : console.log("유저정보 없음");
