@@ -112,21 +112,19 @@ const Review = (id) => {
     return (
       <div>
         {reviewdata.map((reviewData, key) => (
-          <div className="detail-review" key={key}>
+          <div key={key}>
             <div className="detail-reviewbox">
-              <Profile reviewdata={reviewData}></Profile>
-              <div>
-                <div>
+              <div className="detail-box">
+                <Profile reviewdata={reviewData}></Profile>
+                <div className="detail-box-nickrate">
                   <div>{reviewData.userNickName}</div>
+                  <Rate reviewData={reviewData}></Rate>
                 </div>
-                <Rate reviewData={reviewData}></Rate>
-                <hr className="detail-contents-line"></hr>
-                <div className="">
-                  <div className="detail-review-content">
-                    {reviewData.comment}
-                    {reviewData.date}
-                  </div>
-                </div>
+              </div>
+              <hr className="detail-contents-line"></hr>
+              <div className="detail-review-content">
+                {reviewData.comment}
+                {reviewData.date}
               </div>
             </div>
           </div>
@@ -154,7 +152,13 @@ const Review = (id) => {
       });
   }, []);
 
-  return <div>{reviewdata ? <List></List> : <div>리뷰없음 </div>}</div>;
+  return (
+    <div className="detail-review">
+      <div>사용자들의 한줄 평</div>
+      <hr></hr>
+      {reviewdata ? <List></List> : <div>리뷰없음 </div>}
+    </div>
+  );
 };
 
 export default Review;

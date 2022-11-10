@@ -8,7 +8,7 @@ const NavBar = () => {
     <div>
       <div className="navbar">
         <img
-          src="/asset/icons/Frame1.png"
+          src="/asset/icons/home.png"
           alt="홈으로"
           className="navbar-icon"
           onClick={() => {
@@ -16,7 +16,7 @@ const NavBar = () => {
           }}
         ></img>
         <img
-          src="/asset/icons/Frame2.png"
+          src="/asset/icons/search.png"
           alt="추천페이지"
           className="navbar-icon"
           onClick={() => {
@@ -24,7 +24,7 @@ const NavBar = () => {
           }}
         ></img>
         <img
-          src="/asset/icons/Frame3.png"
+          src="/asset/icons/map.png"
           alt="지도페이지"
           className="navbar-icon"
           onClick={() => {
@@ -32,7 +32,7 @@ const NavBar = () => {
           }}
         ></img>
         <img
-          src="/asset/icons/Frame4.png"
+          src="/asset/icons/bell.png"
           alt="예약페이지"
           className="navbar-icon"
           onClick={() => {
@@ -40,7 +40,7 @@ const NavBar = () => {
           }}
         ></img>
         <img
-          src="/asset/icons/Frame5.png"
+          src="/asset/icons/my.png"
           alt="마이페이지"
           className="navbar-icon"
           onClick={() => {

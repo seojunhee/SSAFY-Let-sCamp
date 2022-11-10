@@ -20,7 +20,8 @@ def trash_classification(request, filename):
     X = []
     filenames = []
 
-    url = "https://firebasestorage.googleapis.com/v0/b/let-s-camp.appspot.com/o/" + filename + ".jpg?alt=media&token=75b212e3-27db-46a1-ab48-ad06afa5d3e2"
+    # url = "https://firebasestorage.googleapis.com/v0/b/let-s-camp.appspot.com/o/" + filename + ".jpg?alt=media&token=75b212e3-27db-46a1-ab48-ad06afa5d3e2"
+    url = "https://firebasestorage.googleapis.com/v0/b/let-s-camp-35f60.appspot.com/o/" + filename + "?alt=media&token=e403e6fb-8585-4be6-84ab-bbac84c94004"
     res = req.urlopen(url).read()
     print(type(res))
 
