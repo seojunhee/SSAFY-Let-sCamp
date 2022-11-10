@@ -6,7 +6,7 @@ const UserInfo = (userData) => {
   const navigate = useNavigate();
 
   const Logout = () => {
-    sessionStorage.removeItem("accessToken");
+    sessionStorage.clear();
     navigate("/");
   };
 
