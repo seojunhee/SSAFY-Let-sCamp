@@ -6,6 +6,7 @@ import Items from "../Components/MainPage/Items";
 import MyReserve from "../Components/MainPage/MyReserve";
 import Header from "../Components/Header/Header";
 import Main from "../Components/MainPage/Main";
+import TodayRecomm from "../Components/MainPage/TodayRecomm.js";
 
 const MainPage = () => {
   const [reservationData, SetReservation] = useState();
@@ -120,12 +121,12 @@ const MainPage = () => {
           campingData={campingData}
         ></MyReserve>
       ) : (
-        <div> </div>
+        <TodayRecomm></TodayRecomm>
       )}
       {items ? (
         <Items items={items} reservationData={reservationData}></Items>
       ) : (
-        <div></div>
+        <Main></Main>
       )}
       <NavBar></NavBar>
     </div>

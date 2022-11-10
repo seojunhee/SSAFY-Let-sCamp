@@ -1,0 +1,20 @@
+
+.searchpage-btn1{
+    border-radius: 50px;
+    background-color: white;
+    height: 40px;
+    width: 150px;
+    margin-left: 10px;
+    box-shadow: 1px 1px 5px -3px;
+    border: none;
+}
+.searchpage-btn2{
+    border-radius: 50px;
+    background-color: #35C2BD;
+    height: 40px;
+    width: 150px;
+    margin-left: 10px;
+    box-shadow: 1px 1px 5px -3px;
+    border: none;
+    color: white;
+}
