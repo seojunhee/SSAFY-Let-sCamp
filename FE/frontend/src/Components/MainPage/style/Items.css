@@ -21,7 +21,20 @@
     font-size: 24px;
 
 }
-
 .mainpage-items-list{
     font-size: 20px;
+}
+.mainpage-items-box{
+    display: flex;
+}
+.mainpage-items-img{
+    width: 200px;
+    height: 200px;
+}
+
+.mainpage-items-boxmodal{
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background-color: gray;
 }
