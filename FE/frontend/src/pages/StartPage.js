@@ -5,6 +5,8 @@ import "./style/StartPage.css";
 const Start = () => {
   const navigate = useNavigate();
 
+  console.log(process.env.REACT_APP_API_KEY)
+
   useEffect(() => {
     !!(sessionStorage.getItem("accessToken")) ? navigate("/main") : console.log("유저정보 없음");
   });
