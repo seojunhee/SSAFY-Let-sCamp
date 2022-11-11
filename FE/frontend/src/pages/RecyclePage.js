@@ -13,6 +13,9 @@ import Header from '../Components/Header/Header.js'
 import Loading from "../Components/Recycle/Loading.js";
 import Navbar from "../Components/NavBar/NavBar.js"
 
+// css
+import './style/Button.css'
+
 const Recycle = () => {
 
   const navigate = useNavigate()
@@ -138,16 +141,16 @@ const Recycle = () => {
         <img src={attachment} className="img-cover width-100 height-100"></img>
       </div>
       <div className="filebox">
-        <label for="file">파일찾기</label> 
+        <label htmlFor="file">파일찾기</label> 
         <input type="file" id="file" onChange={onLoadFile}/>
       </div>
       <div className="height-15 outer-div">
         {isComplete? `${trash}입니다. 분리수거를 잘 해주세요`: "쓰레기 사진을 올리면 분석하여 알려드립니다."}
       </div>
       <div className="container">
-        <button onClick={onScanning} disabled={!files}>분석하기</button>
+        <button className="move-btn" onClick={onScanning} disabled={!files}>분석하기</button>
         <Link to={"/main"}>
-          <button>메인으로</button>
+          <button className="move-btn-white" >메인으로</button>
         </Link>
       </div>
       <Navbar />
