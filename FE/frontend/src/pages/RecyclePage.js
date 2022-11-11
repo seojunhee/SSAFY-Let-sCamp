@@ -135,7 +135,7 @@ const Recycle = () => {
       {loading ? <Loading /> : null}
       <Header />
       <div className="width-100 height-55">
-        <img src={attachment} className="img-cover width-100"></img>
+        <img src={attachment} className="img-cover width-100 height-100"></img>
       </div>
       <input type="file" onChange={onLoadFile}/>
       <div className="height-15 outer-div">
