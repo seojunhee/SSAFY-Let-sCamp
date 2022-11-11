@@ -1,21 +1,27 @@
 .header{
-    margin-top: 20px;
-    margin-left: 5%;
-    width: 90%;
-    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
     text-align: left;
     font-weight: bold;
 }
 
 .header-back{
     font-size: 32px;
+    align-self: center;
 }
 
 .header-pagename{
-    margin-left: 33%;
     font-size: 24px;
+    align-self: center;
+
 }
 
 .header-line{
+    color: aliceblue;
+}
 
+.header-hidden{
+    visibility: hidden;
 }
