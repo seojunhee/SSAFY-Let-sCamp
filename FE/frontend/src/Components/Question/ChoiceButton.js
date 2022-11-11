@@ -109,7 +109,7 @@ const ChoiceButton = (props) => {
       case "일반야영장":
         setQ4Img("camping")
         break
-      case "오토캠핑":
+      case "자동차야영장":
         setQ4Img("autoCamping")
         break
       case "글램핑":
@@ -184,7 +184,7 @@ const ChoiceButton = (props) => {
       </div>
       <div className="grid height-30">
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "camping") ? " choice-btn" : "")} onClick={ () => onChangeCate("일반야영장") }>텐트</div>
-        <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "autoCamping") ? " choice-btn" : "")} onClick={ () => onChangeCate("오토캠핑") }>오토캠핑</div>
+        <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "autoCamping") ? " choice-btn" : "")} onClick={ () => onChangeCate("자동차야영장") }>오토캠핑</div>
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "caravan") ? " choice-btn" : "")} onClick={ () => onChangeCate("카라반") }>카라반</div>
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "glamping") ? " choice-btn" : "")} onClick={ () => onChangeCate("글램핑") }>글램핑</div>
       </div>

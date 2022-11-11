@@ -32,6 +32,7 @@
 }
 
 .img-header {
+    margin-top: 4%;
     height: 10vh;
     overflow: hidden;
     position: relative;
