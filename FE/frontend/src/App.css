@@ -256,7 +256,8 @@
 }
 
 .img-cover {
-  object-fit: fill;
+  object-fit: cover;
+
 }
 
 

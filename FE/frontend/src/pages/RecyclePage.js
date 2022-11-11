@@ -19,7 +19,7 @@ const Recycle = () => {
 
   const [loading, setLoading] = useState(false);
   const [files, setFiles] = useState("");
-  const [attachment, setAttachment] = useState();
+  const [attachment, setAttachment] = useState("./asset/Recycle.png");
   const [isComplete, SetIsComplete] = useState(false);
   const [trash, setTrash] = useState();
   
@@ -117,13 +117,10 @@ const Recycle = () => {
   const preview = () => {
     
     if (!(files) || (files) === []) return false;
-    
-    const imgEl = document.querySelector('.img__box')
 
     const reader = new FileReader();
 
     reader.onload = () => {
-      imgEl.style.backgroundImage = `url(${reader.result})`
       setAttachment(reader.result)
     };
 
@@ -137,7 +134,8 @@ const Recycle = () => {
     <div className="App">
       {loading ? <Loading /> : null}
       <Header />
-      <div className="width-100 height-55 img__box">
+      <div className="width-100 height-55">
+        <img src={attachment} className="img-cover width-100"></img>
       </div>
       <input type="file" onChange={onLoadFile}/>
       <div className="height-15 outer-div">
