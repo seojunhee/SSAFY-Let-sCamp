@@ -25,3 +25,23 @@
 .header-hidden{
     visibility: hidden;
 }
+
+.header-img {
+    object-fit: contain;
+    height: 10vh;
+}
+
+.img-header {
+    height: 10vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-header > img {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
