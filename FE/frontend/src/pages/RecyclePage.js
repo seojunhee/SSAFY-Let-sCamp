@@ -52,6 +52,7 @@ const Recycle = () => {
 
   const isLogined = () => {
     if (!sessionStorage.getItem("accessToken")) {
+      alert("잘못된 페이지 접근입니다.")
       navigate("/login")
       
     }
