@@ -140,7 +140,7 @@ const Recycle = () => {
       <div className="width-100 height-55 img__box">
       </div>
       <input type="file" onChange={onLoadFile}/>
-      <div className="height-15">
+      <div className="height-15 outer-div">
         {isComplete? `${trash}입니다. 분리수거를 잘 해주세요`: "쓰레기 사진을 올리면 분석하여 알려드립니다."}
       </div>
       <div className="container">
