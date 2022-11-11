@@ -15,6 +15,10 @@ import Navbar from "../Components/NavBar/NavBar.js"
 
 const Recycle = () => {
 
+  if (!sessionStorage.getItem("accessToken")) {
+    console.log("유저 정보 없음")
+  }
+
   const [loading, setLoading] = useState(false);
   const [files, setFiles] = useState("");
   const [attachment, setAttachment] = useState();
@@ -74,6 +78,7 @@ const Recycle = () => {
           console.log(response.data.result)
           onChangeTrash(response.data.result)
           setLoading(false)
+          setFiles("")
         })
         .catch(function (error) {
           if (error.response) {
@@ -130,7 +135,7 @@ const Recycle = () => {
         {isComplete? `${trash}입니다. 분리수거를 잘 해주세요`: "쓰레기 사진을 올리면 분석하여 알려드립니다."}
       </div>
       <div className="container">
-        <button onClick={onScanning}>분석하기</button>
+        <button onClick={onScanning} disabled={!files}>분석하기</button>
         <Link to={"/main"}>
           <button>메인으로</button>
         </Link>
