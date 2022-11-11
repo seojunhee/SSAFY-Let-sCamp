@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import axios from 'axios'
 import letsCamp from "../api/LetsCamp"
@@ -15,9 +15,7 @@ import Navbar from "../Components/NavBar/NavBar.js"
 
 const Recycle = () => {
 
-  if (!sessionStorage.getItem("accessToken")) {
-    console.log("유저 정보 없음")
-  }
+  const navigate = useNavigate()
 
   const [loading, setLoading] = useState(false);
   const [files, setFiles] = useState("");
@@ -50,6 +48,13 @@ const Recycle = () => {
     }
     setTrash(trashName)
     return
+  }
+
+  const isLogined = () => {
+    if (!sessionStorage.getItem("accessToken")) {
+      navigate("/login")
+      
+    }
   }
 
   const onLoadFile = (e) => {
@@ -103,6 +108,7 @@ const Recycle = () => {
 
   useEffect(() => {
     preview();
+    isLogined();
 
     return () => preview();
   })
@@ -123,6 +129,8 @@ const Recycle = () => {
     reader.readAsDataURL(files[0]);
   
   };
+
+  
 
   return (
     <div className="App">
