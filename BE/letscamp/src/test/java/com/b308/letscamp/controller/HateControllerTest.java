@@ -41,8 +41,9 @@ class HateControllerTest {
     void readByUserId() throws Exception {
         //then
         //MockMvc를 통해 /hate 주소로 GET 요청
-        mockMvc.perform(get("/hate").queryParam("lang", "ko").header("Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJxIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2ODA0MzA4Mn0.r8j3TnS9VdALo3C9NXCMWwtszP8tGvdD3zZWaFWlfbI"))
+        mockMvc.perform(get("/hate").queryParam("lang", "ko").header("Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzc2FmeSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE2NjgwNjgxMzB9.E5CdB5bs-0Cg8e57m3TMI5fBz80C5oMBOt9-C7bT2_U"))
                 //mvc.perform()의 결과를 검증
                 .andExpect(status().isOk()); //200 상태
+
     }
 }
