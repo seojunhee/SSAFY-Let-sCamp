@@ -36,7 +36,7 @@ const RecommendResult = () => {
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
       />
-      { modalOpen &&
+      {
         (<ModalBasic
         campSiteList={ campSiteList }
         listIdx={listIdx}
