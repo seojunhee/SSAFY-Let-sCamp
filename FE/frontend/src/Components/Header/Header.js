@@ -8,15 +8,24 @@ const Header = ({ pageName }) => {
   return (
     <div>
       <div className="header">
+        <div className="header-back">
+          <span
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            &lt;
+          </span>
+        </div>
+        <div className="header-pagename">
+          <span className="">{pageName}</span>
+        </div>
         <span
-          className="header-back"
-          onClick={() => {
-            navigate(-1);
-          }}
+          className="header-hidden"
         >
-          &lt;
+          ||
         </span>
-        <span className="header-pagename">{pageName}</span>
+        
       </div>
       <hr className="header-line" />
     </div>
