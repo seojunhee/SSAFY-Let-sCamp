@@ -97,7 +97,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     private void makeCampingTask(int level, int[] sublevel, User user, Reservation reservation) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < level; i++) {
             for (int j = 0; j < sublevel[i]; j++) {
                 taskRepository.save(new Task(0, i + 1, j + 1, false, reservation, user));
             }
