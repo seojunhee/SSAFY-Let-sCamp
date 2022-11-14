@@ -1,5 +1,7 @@
 package com.b308.letscamp.service.reservation;
 
+import com.b308.letscamp.entity.Reservation;
+import com.b308.letscamp.entity.Task;
 import com.b308.letscamp.exception.CampingNotFoundException;
 import com.b308.letscamp.exception.UserNotFoundException;
 import com.b308.letscamp.dto.camping.CampingFindResponse;
@@ -10,6 +12,7 @@ import com.b308.letscamp.entity.Camping;
 import com.b308.letscamp.entity.User;
 import com.b308.letscamp.repository.CampingRepository;
 import com.b308.letscamp.repository.ReservationRepository;
+import com.b308.letscamp.repository.TaskRepository;
 import com.b308.letscamp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,7 @@ public class ReservationServiceImpl implements ReservationService {
     private final ReservationRepository reservationRepository;
     private final UserRepository userRepository;
     private final CampingRepository campingRepository;
+    private final TaskRepository taskRepository;
 
     @Transactional
     @Override
@@ -45,7 +49,7 @@ public class ReservationServiceImpl implements ReservationService {
         dto.setUser(user);
 
         Optional<Camping> campingOptional = campingRepository.findById(campingId);
-        if(campingOptional.isEmpty()) {
+        if (campingOptional.isEmpty()) {
             throw new CampingNotFoundException();
         }
         CampingFindResponse campingFindResponse = campingOptional.map(CampingFindResponse::new).orElse(null);
@@ -78,8 +82,26 @@ public class ReservationServiceImpl implements ReservationService {
                 .keywords(campingFindResponse.getKeywords())
                 .build();
         dto.setCamping(camping);
+        Reservation saveReservation = dto.toEntity();
+        Long id = reservationRepository.save(saveReservation).getId();
+        if (dto.getCategory().equals("일반야영장")) {
+            makeCampingTask(4, new int[]{3, 5, 8, 4}, user, saveReservation);
+        } else if (dto.getCategory().equals("카라반")) {
+            makeCampingTask(4, new int[]{4, 3, 6, 3}, user, saveReservation);
+        } else if (dto.getCategory().equals("글램핑")) {
+            makeCampingTask(4, new int[]{3, 3, 6, 3}, user, saveReservation);
+        } else if (dto.getCategory().equals("자동차야영장")) {
+            makeCampingTask(4, new int[]{3, 5, 8, 4}, user, saveReservation);
+        }
+        return id;
+    }
 
-        return reservationRepository.save(dto.toEntity()).getId();
+    private void makeCampingTask(int level, int[] sublevel, User user, Reservation reservation) {
+        for (int i = 0; i < level; i++) {
+            for (int j = 0; j < sublevel[i]; j++) {
+                taskRepository.save(new Task(0, i + 1, j + 1, false, reservation, user));
+            }
+        }
     }
 
     @Override
