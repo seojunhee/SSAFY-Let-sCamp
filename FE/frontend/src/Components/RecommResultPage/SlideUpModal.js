@@ -18,9 +18,6 @@ function ModalBasic(props) {
       <div className={props.modalOpen ? "open-modal": "close-modal"}>
         <div className="detail-contents">
           <div className="margin-bottom-5">
-            <button className="w-btn btn-right" onClick={closeModal}>
-              X
-            </button>
             <h4>
               {campSiteData.simple_des}
             </h4>
