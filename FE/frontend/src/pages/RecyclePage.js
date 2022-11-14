@@ -136,9 +136,9 @@ const Recycle = () => {
   return (
     <div className="App">
       {loading ? <Loading /> : null}
-      <Header />
+      <Header pageName="캠핑 마무리"/>
       <div className="width-100 height-55">
-        <img src={attachment} className="img-cover width-100 height-100"></img>
+        <img src={attachment} className="img-cover width-100 height-100" alt="쓰레기 사진"></img>
       </div>
       <div className="filebox">
         <label htmlFor="file">파일찾기</label> 
