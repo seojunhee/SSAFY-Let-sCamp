@@ -13,4 +13,5 @@ public class TaskDTO {
     long reservationId;
     int level;
     int sublevel;
+    boolean done;
 }

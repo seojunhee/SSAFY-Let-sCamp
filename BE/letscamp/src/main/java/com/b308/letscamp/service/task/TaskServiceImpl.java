@@ -23,6 +23,6 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public List<TaskDTO> getTasks(Long reservationId) {
-        return taskRepository.findTaskByReservationId(reservationId).stream().map(t -> new TaskDTO(reservationId, t.getLevel(), t.getSubLevel())).collect(Collectors.toList());
+        return taskRepository.findTaskByReservationId(reservationId).stream().map(t -> new TaskDTO(reservationId, t.getLevel(), t.getSubLevel(),t.isDone())).collect(Collectors.toList());
     }
 }

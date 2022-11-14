@@ -36,6 +36,5 @@ public class Task {
     public boolean changeStatus() {
         this.done = !this.done;
         return this.done;
-
     }
 }
