@@ -24,15 +24,7 @@ const NavBar = () => {
           }}
         ></img>
         <img
-          src="/asset/icons/map.png"
-          alt="지도페이지"
-          className="navbar-icon"
-          onClick={() => {
-            navigate("/map");
-          }}
-        ></img>
-        <img
-          src="/asset/icons/bell.png"
+          src="/asset/icons/thumbsUp.png"
           alt="예약페이지"
           className="navbar-icon"
           onClick={() => {
