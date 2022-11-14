@@ -11,7 +11,6 @@ import "./style/Map.css";
 
 const KakaoMap = () => {
   const location = useLocation();
-  console.log(location.state)
   const [hiddenLabel, sethiddenLabel] = useState(false)
 
   const toggleExplain = () => {
