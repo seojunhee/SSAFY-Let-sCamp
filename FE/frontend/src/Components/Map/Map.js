@@ -6,7 +6,6 @@ import { useLocation } from "react-router-dom";
 
 const Map = () => {
   const location = useLocation();
-  console.log(location)
   useEffect(() => {
     let container = document.getElementById("map");
 
@@ -26,9 +25,8 @@ const Map = () => {
 
 
   return (
-    <div>
-      <div>아래쪽이 맵입니당</div>
-      <div id="map"></div>
+    <div className="height-100vh">
+      <div id="map" style={{height: "100vh"}}></div>
     </div>
   );
 };

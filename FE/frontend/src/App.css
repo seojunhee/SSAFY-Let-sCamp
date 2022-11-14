@@ -246,6 +246,9 @@
 .height-50vh {
   height: 50vh;
 }
+.height-100vh {
+  height: 100vh;
+}
 .margin-bottom-5 {
   margin-bottom: 5%;
 }
