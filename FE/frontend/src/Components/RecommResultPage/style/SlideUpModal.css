@@ -1,11 +1,11 @@
 .open-modal {
   position: absolute;
   width: 100%;
-  height: 65%;
+  height: 60%;
   bottom: 20%;
   z-index: 999;
   transition: .35s linear;
-  overflow: hidden;
+  overflow: scroll;
   border-radius: 15px 15px;
   background-color: white;
 }
@@ -18,4 +18,34 @@
   bottom: 20%;
   z-index: -50;
   overflow: scroll;
+}
+
+.btn-right {
+  position: relative;
+  left: 80%;
+}
+
+.btn-right2 {
+  position: relative;
+  left: 55%;
+}
+
+
+.detail-contents-box{
+  width: 90%;
+  margin-left: 5%;
+  height: 50px;
+  text-align: left;
+  display: flex;
+}
+
+
+.detail-contents-box-summary::-webkit-details-maker{
+ display: none; 
+}
+
+
+.detail-contents-icons{
+  width: 20px;
+  height: 20px;
 }
