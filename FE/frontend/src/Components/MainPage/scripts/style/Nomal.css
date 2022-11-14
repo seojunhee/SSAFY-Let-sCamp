@@ -1,0 +1,42 @@
+
+.checked{
+    text-decoration: line-through;
+}
+
+.levelbox{
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.levelimg{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.mainpage-items-img{
+    position: fixed;
+    top: 80%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.boxmodal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.boxmodal-button{
+   display: flex;
+   justify-content: right;
+}

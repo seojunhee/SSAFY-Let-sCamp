@@ -30,7 +30,6 @@ const MainPage = () => {
             },
           })
           .then(function (response) {
-            console.log(response);
             SetCamping(response.data.name);
           })
           .catch(function (error) {
@@ -48,7 +47,6 @@ const MainPage = () => {
               })
               .then(function (response) {
                 SetItems(response.data);
-                console.log(response.data);
               })
               .catch(function (error) {
                 console.log(error);
