@@ -16,7 +16,6 @@ const TodayRecomm = () => {
         },
       })
       .then(function (response) {
-        console.log(response);
         SetList(response.data);
       })
       .catch(function (error) {

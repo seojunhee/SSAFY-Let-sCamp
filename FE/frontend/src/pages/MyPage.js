@@ -45,7 +45,7 @@ const Mypage = () => {
         console.log("실패");
         console.log(error);
       });
-  }, []);
+  }, [userData]);
 
   return (
     <div className="mypage">

@@ -150,7 +150,7 @@ const Review = (id) => {
         console.log("실패");
         console.log(error);
       });
-  }, []);
+  }, [id.id]);
 
   return (
     <div className="detail-review">

@@ -3,45 +3,112 @@ import axios from "axios";
 import LetsCamp from "../../api/LetsCamp";
 import "./style/Items.css";
 
-const Items = ({ items, reservationData }) => {
+const Items = ({ items }) => {
   const [itemState, SetItem] = useState(items);
+  const [boxState, SetBoxState] = useState(false);
 
-  const List = () => {
+  let dragitem;
+
+  const Box = () => {
     return (
-      <div>
-        {itemState.map((itemState, key) => (
-          <div className="item" key={itemState.id}>
-            <div className="" draggable="true">
-              {itemState.item}
-              <input
-                type="checkbox"
-                className=""
-                value={itemState.id}
-                onChange={checking}
-                checked={itemState.check}
-              />
-            </div>
+      <div className="boxmodal">
+        <div className="boxmodal-button">
+          <button
+            onClick={() => {
+              closeBox();
+            }}
+          >
+            x
+          </button>
+        </div>
+        {itemState.map((items, key) => (
+          <div className="item" key={items.id}>
+            {items.check === true ? (
+              <div className="">
+                {items.item}
+                <button
+                  onClick={() => {
+                    checking(items);
+                  }}
+                >
+                  꺼내기
+                </button>
+              </div>
+            ) : null}
           </div>
         ))}
       </div>
     );
   };
 
-  const checking = (e) => {
+  const openBox = () => {
+    SetBoxState(true);
+  };
+
+  const closeBox = () => {
+    SetBoxState(false);
+  };
+
+  const dragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const drag = (item) => {
+    dragitem = item;
+    console.log(dragitem);
+  };
+
+  const onDropFiles = (event) => {
+    console.log("드롭함");
+    checking(dragitem);
+  };
+
+  const setTouchPosition = (itemState) => {
+    dragitem = itemState;
+    console.log(itemState);
+  };
+
+  const touchEnd = (e) => {
+    console.log("드롭함");
+    checking(dragitem);
+  };
+
+  const List = () => {
+    return (
+      <div>
+        {itemState.map((itemState, key) => (
+          <div className="item" key={itemState.id}>
+            {itemState.check === false ? (
+              <div
+                className=""
+                draggable
+                onDragStart={() => drag(itemState)}
+                onTouchStart={() => setTouchPosition(itemState)}
+              >
+                {itemState.item}
+              </div>
+            ) : null}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const checking = (item) => {
     const url = LetsCamp.normal.change();
-    const findIndex = itemState.findIndex((data) => data.id === e.target.value);
+    const findIndex = itemState.findIndex((data) => data.id === item.id);
     let copyArray = [...itemState];
     if (findIndex !== -1) {
       copyArray[findIndex] = {
         ...copyArray[findIndex],
-        check: e.target.checked,
+        check: !item.check,
       };
     }
     SetItem(copyArray);
     axios
       .put(
         url,
-        { check: e.target.checked, id: e.target.value },
+        { check: !item.check, id: item.id },
         {
           headers: {
             Authorization: `Bearer ${sessionStorage.accessToken}`,
@@ -50,7 +117,6 @@ const Items = ({ items, reservationData }) => {
       )
       .then(function (response) {
         console.log("변경성공");
-        console.log(response);
       })
       .catch(function (error) {
         console.log("실패");
@@ -65,9 +131,20 @@ const Items = ({ items, reservationData }) => {
         <div className="mainpage-items-list">준비물 목록</div>
         <div className="mainpage-items-box">
           <div>{items ? <List></List> : <h1>준비물 정보가 없습니다.</h1>}</div>
-          <img src="/asset/box.gif" alt="" className="mainpage-items-img"></img>
+          <img
+            src="/asset/box.gif"
+            alt=""
+            className="mainpage-items-img"
+            onClick={() => {
+              openBox();
+            }}
+            onDragOver={(event) => dragOver(event)}
+            onDrop={(event) => onDropFiles(event)}
+            onTouchEnd={(event) => touchEnd(event)}
+          ></img>
         </div>
       </div>
+      {boxState === true ? <Box></Box> : null}
     </div>
   );
 };
