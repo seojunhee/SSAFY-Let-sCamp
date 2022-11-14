@@ -1,9 +1,9 @@
-@media(min-width: 490px){
+@media(min-width: 480px){
  .App {
   height: 100vh;
   background-color: white;
   position: relative;
-  width: 530px;
+  width: 480px;
   overflow-y: scroll;
   -ms-overflow-style: none;
 }

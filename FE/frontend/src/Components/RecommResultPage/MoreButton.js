@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 
 import { Link, useNavigate } from "react-router-dom";
+
+//component
+import ModalBasic from './SlideUpModal.js'
 
 //css
 import "./style/MoreButton.css"
@@ -10,6 +13,11 @@ const MoreButton = (props) => {
 
   const navigate = useNavigate();
   
+
+  const showModal = () => {
+    props.setModalOpen(true)
+  }
+
   const changeIdx = () => {
     props.setListIdx((props.listIdx + 1) % props.numberOfCampSite)
   }
@@ -33,7 +41,7 @@ const MoreButton = (props) => {
         <button onClick={ toReserve } className="w-btn w-btn-blue">Let's Camp!</button>
       </div>
       {/* 모달 적용해서 띄우기 */}
-      <div className="more container width-100">더 알아보기</div>
+      <div className="more container" onClick={showModal}>{"더 알아보기"}</div>
     </>
   )
 };
