@@ -51,6 +51,9 @@ public class Reservation {
     @ColumnDefault("0")
     private Long level;
 
-    @OneToMany(mappedBy = "reservation")
+    @OneToMany(mappedBy = "reservation" , cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<NormalCamping> normalCampings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "reservation" , cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Task> tasks = new ArrayList<>();
 }
