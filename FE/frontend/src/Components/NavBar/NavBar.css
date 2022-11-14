@@ -2,12 +2,23 @@
 .navbar{
     width: 100%;
     position: fixed;
-    bottom: 0; left: 0;
+    bottom: 0;
     display: flex;
     justify-content: space-evenly;
     background-color: white;
 }
 }
+
+@media(min-width: 480px){
+  .navbar{
+      width: 480px;
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      justify-content: space-evenly;
+      background-color: white;
+  }
+  }
 
 .navbar-icon{
   margin-bottom: 10px;

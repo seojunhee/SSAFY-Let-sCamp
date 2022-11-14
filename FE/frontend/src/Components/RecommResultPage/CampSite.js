@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./style/CampSite.css"
 const CampSite = (props) => {
 
+  const closeModal = () => {
+    props.setModalOpen(false)
+  }
+
   return (
-    <div className="height-55">
+    <div className="height-55" onClick={closeModal}>
       <h4>당신에게 알맞은 캠핑장은</h4>
       <h3> {(props.campSiteList[props.listIdx].name)} </h3>
       <div className="height-65 container">
