@@ -1,13 +1,13 @@
-@media(max-width: 480px){
+
 .navbar{
     width: 100%;
-    position: fixed;
+    position: absolute;
     bottom: 0; left: 0;
     display: flex;
     justify-content: space-evenly;
     background-color: white;
 }
-}
+
 
 .navbar-icon{
   margin-bottom: 10px;
