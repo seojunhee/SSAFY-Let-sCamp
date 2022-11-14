@@ -1,14 +1,18 @@
 import React from "react";
 
+// css
+import './style/SlideUpModal.css'
+
 function ModalBasic(props) {
   // 모달 끄기 
   const closeModal = () => {
       props.setModalOpen(false);
+      console.log("?")
   };
 
   return (
-      <div>
-          <button onClick={closeModal}>
+      <div className={props.modalOpen ? "open-modal": "close-modal"}>
+          <button className="w-btn" onClick={closeModal}>
               X
           </button>
           <p>모달창입니다.</p>
