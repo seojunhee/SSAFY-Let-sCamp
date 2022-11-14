@@ -11,7 +11,7 @@ const Contents = () => {
   const search = () => {
     console.log(campSiteData.lat);
     console.log(campSiteData.lon);
-    navigate("/map", {state:{ lat: campSiteData.lat, lon: campSiteData.lon }});
+    navigate("/map", {state:{ lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name, address: campSiteData.address }});
   };
   return (
     <div className="detail-contents">
