@@ -20,7 +20,7 @@ const NavBar = () => {
           alt="검색페이지"
           className="navbar-icon"
           onClick={() => {
-            navigate("/question");
+            navigate("/search");
           }}
         ></img>
         <img
@@ -28,7 +28,7 @@ const NavBar = () => {
           alt="추천페이지"
           className="navbar-icon"
           onClick={() => {
-            navigate("/search");
+            navigate("/question");
           }}
         ></img>
         <img
