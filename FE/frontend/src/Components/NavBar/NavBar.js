@@ -17,26 +17,18 @@ const NavBar = () => {
         ></img>
         <img
           src="/asset/icons/search.png"
-          alt="추천페이지"
+          alt="검색페이지"
           className="navbar-icon"
           onClick={() => {
             navigate("/question");
           }}
         ></img>
         <img
-          src="/asset/icons/map.png"
-          alt="지도페이지"
+          src="/asset/icons/thumbsUp.png"
+          alt="추천페이지"
           className="navbar-icon"
           onClick={() => {
-            navigate("/map");
-          }}
-        ></img>
-        <img
-          src="/asset/icons/bell.png"
-          alt="예약페이지"
-          className="navbar-icon"
-          onClick={() => {
-            navigate("/mypage");
+            navigate("/search");
           }}
         ></img>
         <img

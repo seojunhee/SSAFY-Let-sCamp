@@ -4,6 +4,11 @@ import axios from "axios";
 
 import { Link, useNavigate } from "react-router-dom";
 
+// api
+import letsCamp from "../../api/LetsCamp";
+
+
+
 const ReserveBtn = (props) => {
 
   const navigate = useNavigate();
@@ -19,6 +24,20 @@ const ReserveBtn = (props) => {
       "countKid": props.peopleContent["유아"],
       "countPet": props.peopleContent["반려동물"]
     })
+
+    const resisterUrl = (reserveId) => {
+      switch (props.campingCate) {
+        case "일반야영장":
+          return letsCamp.normal.add(reserveId)
+        case "글램핑":
+          return letsCamp.glamping.add(reserveId)
+        case "카라반":
+          return letsCamp.caraban.add(reserveId)
+        case "자동차야영장":
+          return letsCamp.carcamping.add(reserveId)
+      }
+    }
+
     axios
       .post(props.url, {
         "category": props.campingCate,
@@ -34,7 +53,15 @@ const ReserveBtn = (props) => {
         }
       })
       .then(function (response) {
-        console.log(response.data)
+        console.log(response.data.id)
+        const resisterPostUrl = resisterUrl(response.data.id)
+        console.log(resisterPostUrl)
+        axios
+        .post(resisterPostUrl, {}, {
+        headers: {
+          Authorization: "Bearer " + sessionStorage.getItem("accessToken")
+        }
+      })
         navigate("/main");
       })
   }
