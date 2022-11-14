@@ -7,7 +7,7 @@ function ModalBasic(props) {
   // 모달 끄기 
   const closeModal = () => {
       props.setModalOpen(false);
-      console.log("?")
+      // console.log(props.campSiteList[props.listIdx].id)
   };
 
   return (
@@ -15,7 +15,7 @@ function ModalBasic(props) {
           <button className="w-btn" onClick={closeModal}>
               X
           </button>
-          <p>모달창입니다.</p>
+          <div>{"하이"}</div>
       </div>
   );
 }
