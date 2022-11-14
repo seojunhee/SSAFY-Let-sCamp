@@ -15,7 +15,7 @@ const MoreButton = (props) => {
   
 
   const showModal = () => {
-    props.setModalOpen(true)
+    props.setModalOpen(!props.modalOpen)
   }
 
   const changeIdx = () => {

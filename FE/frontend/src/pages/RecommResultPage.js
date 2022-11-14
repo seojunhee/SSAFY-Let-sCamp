@@ -27,6 +27,7 @@ const RecommendResult = () => {
         campSiteList={ campSiteList }
         listIdx={listIdx}
         setListIdx={setListIdx}
+        setModalOpen={setModalOpen}
       />
       <MoreButton 
         campSiteList={ campSiteList }
