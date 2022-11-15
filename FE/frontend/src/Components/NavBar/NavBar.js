@@ -24,7 +24,7 @@ const NavBar = () => {
           }}
         ></img>
         <img
-          src="/asset/icons/thumbsUp.png"
+          src="/asset/icons/recomm.png"
           alt="추천페이지"
           className="navbar-icon"
           onClick={() => {
@@ -32,7 +32,7 @@ const NavBar = () => {
           }}
         ></img>
         <img
-          src="/asset/icons/my.png"
+          src="/asset/icons/mypage.png"
           alt="마이페이지"
           className="navbar-icon"
           onClick={() => {

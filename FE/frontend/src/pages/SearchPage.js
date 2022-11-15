@@ -8,7 +8,7 @@ import "./style/SearchPage.css";
 const Search = () => {
   const [changeSearch, SetChange] = useState(true); // true면 이름검색 false면 지역검색(기본은 이름)
   return (
-    <div>
+    <div className="searchpage">
       <Header pageName={"검색"}></Header>
       <div>
         <button
