@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -11,6 +11,19 @@ const Nomal = (day) => {
   const [todoState, SetTodo] = useState(1);
   const [checkState, SetCheck] = useState();
 
+  const sliderRef = useRef();
+
+  const handleOnClick = (index) => {
+    sliderRef.current.slickGoTo(index);
+    console.log(index);
+  };
+
+  const state = {
+    oldSlide: 0,
+    activeSlide: 0,
+    activeSlide2: 0,
+  };
+
   const settings = {
     dots: true,
     infinite: false,
@@ -19,6 +32,11 @@ const Nomal = (day) => {
     autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    beforeChange: (current, next) => {
+      state.oldSlide = current;
+      state.activeSlide = next;
+    },
+    afterChange: (current) => (state.activeSlide2 = current),
   };
 
   useEffect(() => {
@@ -55,7 +73,7 @@ const Nomal = (day) => {
         done: !check.done,
       };
     }
-    //SetCheck(copyArray);
+    SetCheck(copyArray);
     axios
       .get(url, {
         headers: {
@@ -64,6 +82,7 @@ const Nomal = (day) => {
       })
       .then(function (response) {
         console.log(response);
+        handleOnClick(state.activeSlide);
       })
       .catch(function (error) {
         console.log(error);
@@ -76,7 +95,7 @@ const Nomal = (day) => {
       return (
         <div>
           {checkState ? (
-            <Slider {...settings}>
+            <Slider {...settings} ref={sliderRef}>
               <div
                 className={checkState[0].done === true ? "checked" : null}
                 onClick={() => {
@@ -111,7 +130,7 @@ const Nomal = (day) => {
     } else if (todoState === 2) {
       return (
         <div>
-          <Slider {...settings}>
+          <Slider {...settings} ref={sliderRef}>
             <div
               className={checkState[3].done === true ? "checked" : null}
               onClick={() => {
@@ -160,7 +179,7 @@ const Nomal = (day) => {
     } else if (todoState === 3) {
       return (
         <div>
-          <Slider {...settings}>
+          <Slider {...settings} ref={sliderRef}>
             <div
               className={checkState[8].done === true ? "checked" : null}
               onClick={() => {
@@ -240,7 +259,7 @@ const Nomal = (day) => {
     } else if (todoState === 4) {
       return (
         <div>
-          <Slider {...settings}>
+          <Slider {...settings} ref={sliderRef}>
             <div
               className={checkState[16].done === true ? "checked" : null}
               onClick={() => {
