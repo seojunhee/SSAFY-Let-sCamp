@@ -30,6 +30,7 @@ const Nomal = (day) => {
     speed: 500,
     autoplay: false,
     autoplaySpeed: 3000,
+    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (current, next) => {

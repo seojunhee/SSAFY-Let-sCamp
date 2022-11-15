@@ -27,6 +27,7 @@ const Caraban = (day) => {
     dots: true,
     infinite: false,
     speed: 500,
+    arrows: false,
     autoplay: false,
     autoplaySpeed: 3000,
     slidesToShow: 1,

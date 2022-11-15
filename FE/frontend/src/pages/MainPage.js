@@ -7,6 +7,7 @@ import MyReserve from "../Components/MainPage/MyReserve";
 import Header from "../Components/Header/Header";
 import Main from "../Components/MainPage/Main";
 import TodayRecomm from "../Components/MainPage/TodayRecomm.js";
+import "./style/MainPage.css";
 
 const MainPage = () => {
   const [reservationData, SetReservation] = useState();
@@ -111,7 +112,7 @@ const MainPage = () => {
       });
   }, []);
   return (
-    <div>
+    <div className="mainpage">
       <Header pageName={"메인페이지"}></Header>
       {reservationData && campingData ? (
         <MyReserve
