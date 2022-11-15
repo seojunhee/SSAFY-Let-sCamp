@@ -1,13 +1,12 @@
 
 .mainpage-items{
-    margin-top: 20px;
-    height: 300px;
+    margin-top: 70px;
     border: 3px solid;
     width: 90%;
     margin-left: 5%;
     border-radius: 20px;
     border-color: #F6EFB4;
-    height: 300px;
+    height: 250px;
     text-align: left;
     overflow-y: scroll;
 }
@@ -28,13 +27,13 @@
     display: flex;
 }
 .mainpage-items-img{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 .mainpage-items-boxmodal{
     position: fixed;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-color: gray;
 }
