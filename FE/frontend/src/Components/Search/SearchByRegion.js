@@ -5,7 +5,7 @@ import CampingList from "./CampingList.js";
 import "./style/SearchByRegion.css";
 
 const SearchByRegion = () => {
-  const [region, SetRegion] = useState();
+  const [region, SetRegion] = useState("서울시");
   const [CampingListData, SetCampingList] = useState();
 
   const search = () => {
