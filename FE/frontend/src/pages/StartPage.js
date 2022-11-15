@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 
 // css
 import "./style/StartPage.css";
-import "../App.css"
+import "../App.css";
 
 const Start = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     if (sessionStorage.getItem("accessToken")) {
-      navigate("/main")
+      navigate("/main");
     }
   });
 
@@ -27,7 +27,7 @@ const Start = () => {
               navigate("/question");
             }}
           >
-            가입 없이 <br></br>바로 추천받으러 가기
+            추천받기
           </button>
         </div>
         <div>
