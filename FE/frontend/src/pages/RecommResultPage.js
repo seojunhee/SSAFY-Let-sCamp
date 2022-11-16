@@ -37,13 +37,13 @@ const RecommendResult = () => {
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
       />
-      {
-        (<ModalBasic
+      
+      <ModalBasic
         campSiteList={ campSiteList }
         listIdx={listIdx}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
-      />)}
+      />
       
       <NavBar />
     </div>
