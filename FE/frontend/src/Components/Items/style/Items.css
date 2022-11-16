@@ -1,5 +1,28 @@
 
 .items-itemicon{
-    width: 15vw;
-    height: 15vw;
+    width: 8vw;
+    height: 8vw;
+}
+
+.items-before{
+    margin-top: 30px;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 2px 4px 5px -3px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.items-after{
+    margin-top: 30px;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 2px 4px 5px -3px;
+    display: flex;
 }
