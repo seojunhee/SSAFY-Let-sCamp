@@ -15,6 +15,7 @@ import Navbar from "../Components/NavBar/NavBar.js"
 
 // css
 import './style/Button.css'
+import './style/RecyclePage.css'
 
 const Recycle = () => {
 
@@ -134,18 +135,20 @@ const Recycle = () => {
   
 
   return (
-    <div className="App">
+    <div className="App page">
       {loading ? <Loading /> : null}
       <Header pageName="캠핑 마무리"/>
-      <div className="width-100 height-55">
+      <div className="width-100 height-55 section-card">
         <img src={attachment} className="img-cover width-100 height-100" alt="쓰레기 사진"></img>
       </div>
       <div className="filebox">
         <label htmlFor="file">파일찾기</label> 
         <input type="file" id="file" onChange={onLoadFile}/>
       </div>
-      <div className="height-10 outer-div">
-        {isComplete? `${trash}입니다. 분리수거를 잘 해주세요`: "쓰레기 사진을 올리면 분석하여 알려드립니다."}
+      <div className="height-10 section-card item-center">
+        {isComplete
+        ? <div>분석결과<div className="text-size-3">{trash}</div> <div>캠핑장을 잘 정리해주세요!</div></div>
+        : <div>쓰레기 사진을 올리면 경험치가 쌓여요!</div>}
       </div>
       <div className="container">
         <button className="move-btn" onClick={onScanning} disabled={!files}>분석하기</button>
