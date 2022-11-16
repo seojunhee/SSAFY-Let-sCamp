@@ -25,3 +25,14 @@
 .div-blue {
   background-color: #35C2BD;
 }
+
+.add-minus-btn {
+  width: 15vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  border: none;
+  padding: 2% 4%;
+  border-radius: 100px;
+  box-shadow: 2px 4px 5px -3px;
+  transition: 0.25s;
+}

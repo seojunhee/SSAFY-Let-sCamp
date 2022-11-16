@@ -61,7 +61,7 @@ const ReservationInfo = (props) => {
             : "인원 입력 후 완료 버튼을 눌러 주세요."}
           </div>
         </div>
-        <button className="w-btn" onClick={toggleIsActive}>
+        <button className="camp-site-detail-btn" onClick={toggleIsActive}>
           {!!props.isPeopleActive ? "완료" : "수정"}
         </button>
       </div>
@@ -73,13 +73,13 @@ const ReservationInfo = (props) => {
               <div className="outer-div">
                 성인
               <div className="container">
-              <button className="w-btn" onClick={minusAdultNum} disabled={(adultNum <= 1)}>
+              <button className="add-minus-btn" onClick={minusAdultNum} disabled={(adultNum <= 1)}>
                 -
               </button>
               <div className="w-btn">
                 {adultNum}
               </div>
-              <button className="w-btn" onClick={addAdultNum} disabled={(adultNum >= 4)}>
+              <button className="add-minus-btn" onClick={addAdultNum} disabled={(adultNum >= 4)}>
                 +
               </button>
               </div>
@@ -87,13 +87,13 @@ const ReservationInfo = (props) => {
             <div className="outer-div">
               유아
               <div className="container">
-                <button className="w-btn" onClick={minusBabyNum} disabled={(babyNum <= 0)}>
+                <button className="add-minus-btn" onClick={minusBabyNum} disabled={(babyNum <= 0)}>
                   -
                 </button>
                 <div className="w-btn">
                   {babyNum}
                 </div>
-                <button className="w-btn" onClick={addBabyNum}>
+                <button className="add-minus-btn" onClick={addBabyNum}>
                   +
                 </button>
               </div>
