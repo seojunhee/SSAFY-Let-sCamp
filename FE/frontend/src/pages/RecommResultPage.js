@@ -27,6 +27,7 @@ const RecommendResult = () => {
         campSiteList={ campSiteList }
         listIdx={listIdx}
         setListIdx={setListIdx}
+        modalOpen={modalOpen}
         setModalOpen={setModalOpen}
       />
       <MoreButton 
@@ -36,15 +37,7 @@ const RecommendResult = () => {
         numberOfCampSite={numberOfCampSite}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
-      />
-      
-      <ModalBasic
-        campSiteList={ campSiteList }
-        listIdx={listIdx}
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-      />
-      
+      />      
       <NavBar />
     </div>
   )
