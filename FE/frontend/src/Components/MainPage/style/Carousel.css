@@ -1,20 +1,17 @@
-
 .carousel{
-    height: 370px;
+    height: 45vh;
 }
 .carousel-box{
-    width: 412px;
-    height: 380px;
+    width: 90vw;
+    height: 45vh;
 }
 .carousel-img{
-    width: 412px;
+    width: 90vw;
+    height: 38vh;
 }
 .carousel-text{
- font-size: 30px;
+ font-size: 20px;
 }
 .carousel-name{
-    font-size: 32px;
-}
-.mainpage-todayrecomm-btn{
-    margin-top: 50px;
+    font-size: 24px;
 }

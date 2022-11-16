@@ -9,19 +9,19 @@ html { font-family: 'Inter', sans-serif; }
 }
 
 .startpage-img{
-    width: 300px;
-    height: 300px;
-    margin-top: 15%;
+    width: 25vh;
+    height: 25vh;
+    margin-top: 5vh;
     object-fit: contain;
 }
 
 .startpage-title{
-    font-size: 24px;
+    font-size: 16px;
     font-family: 'twayair';
     font-weight: bold;
 }
 .startpage-title2{
-    font-size: 24px;
+    font-size: 16px;
     font-family: 'twayair';
     font-weight: bold;
 }

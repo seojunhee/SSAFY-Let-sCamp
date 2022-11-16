@@ -9,6 +9,8 @@
     padding-left: 5%;
     background-color: white;
     height: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
 
 .uservisited-box{
@@ -55,6 +57,6 @@
     margin-top: 5px;
 }
 .uservisited-contents-line{
-    width: 260px;
+    width: 30vh;
     background-color: white;
 }
