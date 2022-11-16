@@ -15,10 +15,10 @@ const ChoiceButton = (props) => {
   //   console.log(isActive);
   // };
   
-  const [q1Img, setQ1Img] = useState("family");
-  const [q2Img, setQ2Img] = useState("noPet");
-  const [q3Img, setQ3Img] = useState("mountain")
-  const [q4Img, setQ4Img] = useState("camping")
+  const [q1Img, setQ1Img] = useState("question");
+  const [q2Img, setQ2Img] = useState("question");
+  const [q3Img, setQ3Img] = useState("question")
+  const [q4Img, setQ4Img] = useState("question")
 
   const [page] = useRecoilState(questionPage);
   // const setPage = useSetRecoilState(questionPage);
