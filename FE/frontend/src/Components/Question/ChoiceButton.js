@@ -163,12 +163,10 @@ const ChoiceButton = (props) => {
         <img src={"/img/" + q3Img +".png"} className={"height-100"}/>
       </div>
       <div className={"height-15"}>
-        <div className={"grid height-50"}>
+        <div className={"grid"}>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "mountain") ? " choice-btn" : "")} onClick={ () => onChangePlace("산") }>산</div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "sea") ? " choice-btn" : "")} onClick={ () => onChangePlace("바다가보이는") }>바다</div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "city") ? " choice-btn" : "")} onClick={ () => onChangePlace("도심") }>도심</div>
-        </div>
-        <div className={"grid height-50"}>
           <div className={"item col-2"}></div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "forest") ? " choice-btn" : "")} onClick={ () => onChangePlace("숲") }>숲</div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "island") ? " choice-btn" : "")} onClick={ () => onChangePlace("섬") }>섬</div>
