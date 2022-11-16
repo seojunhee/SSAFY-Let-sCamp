@@ -6,7 +6,7 @@ const GoRecycle = () => {
     <div className="main-gorecycle">
       <div className="main-gorecycle-box">
         <img
-          src="/asset/box.gif"
+          src="/asset/recycle.gif"
           alt=""
           className="main-gorecycle-boximg"
         ></img>

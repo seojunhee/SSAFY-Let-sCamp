@@ -23,7 +23,9 @@ const MyReserve = ({ reservationData, campingData }) => {
               alt="예약한 캠핑장 사진"
               className="mainpage-myreserve-img"
             ></img>
-            <div> 예약 날짜까지 {day}일 남았습니다.</div>
+            <div className="mainpage-myreserve-day">
+              캠핑장 예약 날짜까지 {day}일 남았습니다.
+            </div>
             <br></br>
             <Todos reservationData={reservationData} day={day}></Todos>
           </div>
