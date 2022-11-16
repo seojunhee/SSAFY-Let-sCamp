@@ -84,7 +84,7 @@ const MoveButton = (props) => {
   )
   return (
     <>
-      <div className={"outer-div width-100"}>
+      <div className={"outer-div width-100 move-btn-position"}>
       
         {(<button className={"w-btn " + (!!(page > 1) ? "": "hidden-btn")} onClick={ movePrePage }>이전</button>)}
         <Link to="/">
