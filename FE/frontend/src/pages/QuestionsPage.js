@@ -7,6 +7,7 @@ import MoveButton from "../Components/Question/MoveButton.js";
 import ChoiceButton from "../Components/Question/ChoiceButton.js";
 import Question from "../Components/Question/Question.js";
 import Loading from "../Components/Question/Loading.js";
+import NavBar from "../Components/NavBar/NavBar.js"
 
 // api
 import letsCamp from "../api/LetsCamp";
@@ -18,6 +19,7 @@ import letsCamp from "../api/LetsCamp";
 // css
 import "../App.css"
 import "./style/Button.css"
+import "./style/QuestionPage.css"
 
 const Questions = () => {
   const springList = ["꽃여행", "일출명소", "낚시", "걷기길", "항공레저", "액티비티", "체험"]
@@ -40,7 +42,7 @@ const Questions = () => {
   const url = letsCamp.camping.getRecomm(campingCate, animal, keyword)
 
   return (
-    <div className="App">
+    <div className={"page"}>
       {loading ? <Loading />: null}
       <Header />
       <Question />
@@ -75,6 +77,8 @@ const Questions = () => {
         isActive={isActive}
         setIsActive={setIsActive}
       />
+      <NavBar/>
+
     </div>);
 
 }

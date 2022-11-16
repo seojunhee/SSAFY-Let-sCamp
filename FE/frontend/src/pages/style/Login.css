@@ -1,31 +1,26 @@
-.inputbox{
-}
-
-.input{
+.login-input{
     width : 70%;
-    height: 60px;
+    height: 5vh;
     border: none;    
-    font-size: 24px;
+    font-size: 20px;
 }
-.input::placeholder{
-    font-size: 24px;
+.login-input::placeholder{
+    font-size: 20px;
     font-weight: bold;
     color: #D9D9D9;
     font-family: 'twayair';
 }
-.input:focus{
+.login-input:focus{
     outline: none;
 }
-
-
-.Login-underline{
+.login-underline{
     width:70%;
+    margin-left: 15%;
 }
-
-.button{
+.login-button{
     margin-top: 50px;
-    width: 85%;
-    height: 60px;
+    width: 80%;
+    height: 6vh;
     background-color: #35C2BD;
     color: white;   
     font-size: 36px;
@@ -33,19 +28,15 @@
     border: none;
     font-family: 'twayair';
 }
-.back{
-    font-size: 36px;
-    cursor: pointer;
-}
-.subbox{
+.login-subbox{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
-.sub{
+.login-sub{
     display: flex;
     justify-content: space-between;
-    width: 85%;
-    font-size: 18px;
+    width: 80%;
+    font-size: 14px;
     font-weight: bold;
 }

@@ -6,6 +6,15 @@
     overflow-y:auto;
 }
 
+.searchpage-btnbox{
+    background-color: white;
+    padding-top: 1vh;
+    padding-bottom: 2vh;
+    width: 100%;
+    background-color: white;
+    box-shadow: 2px 4px 5px -3px;
+}
+
 .searchpage-btn1{
     border-radius: 50px;
     background-color: white;

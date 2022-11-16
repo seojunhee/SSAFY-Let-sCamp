@@ -43,7 +43,7 @@
 }
 
 .tag-btn-active {
-  background-color: blue;
+  background-color: #35C2BD;
 }
 
 .tag-btn-none-active {
@@ -63,5 +63,14 @@
 }
 
 .choice-btn {
-  background-color: green;
+  background-color: #35C2BD;
+}
+
+.move-btn-position {
+  position: absolute;
+  bottom: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
 }

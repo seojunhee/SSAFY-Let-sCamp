@@ -6,6 +6,15 @@
 
 .mainpage-main-box{
     display: flex;
+    margin-top: 3vh;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 2px 4px 5px -3px;
+    justify-content: center;
+    align-items: center;
 }
 
 .mainpage-main-img{

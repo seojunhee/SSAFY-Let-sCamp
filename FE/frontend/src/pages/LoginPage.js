@@ -56,47 +56,47 @@ const Login = () => {
       });
   };
   return (
-    <div className="Login">
+    <div className="login">
       <Header pageName={"로그인"}></Header>
       <img src="/asset/logo.png" alt="이미지" className="startpage-img" />
-      <div className="inputbox">
+      <div className="login-inputbox">
         <div>
           <input
             placeholder="아이디"
-            className="input"
+            className="login-input"
             value={id}
             onChange={changeId}
           />
-          <hr className="Login-underline" />
+          <hr className="login-underline" />
         </div>
         <div>
           <input
             placeholder="비밀번호"
-            className="input"
+            className="login-input"
             type="password"
             value={pw}
             onChange={changePw}
             onKeyPress={handleOnKeyPress}
           />
-          <hr className="Login-underline" />
+          <hr className="login-underline" />
         </div>
       </div>
       <div>
-        <button className="button" onClick={submit}>
+        <button className="login-button" onClick={submit}>
           로그인
         </button>
       </div>
-      <div className="subbox">
-        <div className="sub">
+      <div className="login-subbox">
+        <div className="login-sub">
           <span
-            className="signup"
+            className="login-signup"
             onClick={() => {
               navigate("/signup");
             }}
           >
             회원가입{" "}
           </span>
-          <span className="findpw">아이디/비밀번호 찾기</span>
+          <span className="login-findpw">아이디/비밀번호 찾기</span>
         </div>
       </div>
     </div>

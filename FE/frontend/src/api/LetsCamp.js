@@ -23,7 +23,7 @@ const letsCamp = {
       "recomm/" +
       `${category}/` +
       `${animal}/` +
-      `${keywords}/`,
+      `${keywords}`,
     getRandom: () => Host + Camping + "/random",
     serchByName: (name) => Host + Camping + `/searchbyname/${name}`,
     searchByDoSi: (dosi) => Host + Camping + `/searchbydosi/${dosi}`,

@@ -6,7 +6,6 @@ const Main = () => {
   const navigate = useNavigate();
   return (
     <div className="mainpage-main">
-      <hr></hr>
       <div className="mainpage-main-box">
         <img src="/asset/search.gif" alt="" className="mainpage-main-img"></img>
         <div className="mainpage-main-text">
@@ -19,7 +18,6 @@ const Main = () => {
           </div>
         </div>
       </div>
-      <hr></hr>
       <div className="mainpage-main-box">
         <div className="mainpage-main-text">
           가고싶은 캠핑장<br></br> 검색하고 예약까지!
