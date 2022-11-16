@@ -14,38 +14,40 @@ const Contents = () => {
     navigate("/map", {state:{ lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name, address: campSiteData.address }});
   };
   return (
-    <div className="detail-contents">
+    <div className="detail-contents section-card">
       <div>
-        
-            <div>
-              <h4>
-                {campSiteData.simple_des}
-              </h4>
-            </div>
-            <div>
-            
-            </div>
-            <div className="modal-summary">
-              <div>
-                <img
-                  src="/asset/icons/location.png"
-                  alt=""
-                  className="detail-contents-icons"
-                ></img>
-              </div>
-              <div className="detail-contents-div">
-                {campSiteData.address}
-              </div>
-            </div>
-            <hr></hr>
-            <div className="modal-summary">
-              <div>
-                <img
-                  src="/asset/icons/time.png"
-                  alt=""
-                  className="detail-contents-icons"
-                ></img>
-              </div>
+        <div className="detailimg-title">{campSiteData.name}</div>
+        <img
+          src={campSiteData.thumb}
+          alt="대충 이미지"
+          className="detailimg-img"
+        />
+        <div>
+          <h4>
+            {campSiteData.simple_des}
+          </h4>
+        </div>
+        <div className="modal-summary">
+          <div>
+            <img
+              src="/asset/icons/location.png"
+              alt=""
+              className="detail-contents-icons"
+            ></img>
+          </div>
+          <div className="detail-contents-div">
+            {campSiteData.address}
+          </div>
+        </div>
+        <hr></hr>
+        <div className="modal-summary">
+          <div>
+            <img
+              src="/asset/icons/time.png"
+              alt=""
+              className="detail-contents-icons"
+            />
+          </div>
           <div className="detail-contents-div">{campSiteData.running_day}</div>
         </div>
         <hr></hr>
@@ -55,7 +57,7 @@ const Contents = () => {
               src="/asset/icons/call.png"
               alt=""
               className="detail-contents-icons"
-            ></img>
+            />
           </div>
           <div className="detail-contents-div">{campSiteData.tel}</div>
         </div>
