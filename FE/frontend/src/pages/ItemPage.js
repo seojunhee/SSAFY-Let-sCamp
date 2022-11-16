@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import "./style/ItemPage.css";
 import axios from "axios";
 import LetsCamp from "../api/LetsCamp";
-import NavBar from "../Components/NavBar/NavBar";
-import Items from "../Components/MainPage/Items";
-import MyReserve from "../Components/MainPage/MyReserve";
-import Header from "../Components/Header/Header";
-import Main from "../Components/MainPage/Main";
-import TodayRecomm from "../Components/MainPage/TodayRecomm.js";
-import GoItems from "../Components/MainPage/GoItems";
-import GoRecycle from "../Components/MainPage/GoRecycle";
-import "./style/MainPage.css";
+import Items from "../Components/Items/Items.js";
 
-const MainPage = () => {
+const ItemPage = () => {
   const [reservationData, SetReservation] = useState();
   const [items, SetItems] = useState();
   const [campingData, SetCamping] = useState();
+
   useEffect(() => {
     const url = LetsCamp.reservation.getReserve();
     axios
@@ -49,6 +43,7 @@ const MainPage = () => {
                 },
               })
               .then(function (response) {
+                console.log(response);
                 SetItems(response.data);
               })
               .catch(function (error) {
@@ -65,6 +60,7 @@ const MainPage = () => {
                 },
               })
               .then(function (response) {
+                console.log(response);
                 SetItems(response.data);
               })
               .catch(function (error) {
@@ -81,6 +77,7 @@ const MainPage = () => {
                 },
               })
               .then(function (response) {
+                console.log(response);
                 SetItems(response.data);
               })
               .catch(function (error) {
@@ -97,6 +94,7 @@ const MainPage = () => {
                 },
               })
               .then(function (response) {
+                console.log(response);
                 SetItems(response.data);
               })
               .catch(function (error) {
@@ -113,22 +111,8 @@ const MainPage = () => {
         console.log(error);
       });
   }, []);
-  return (
-    <div className="mainpage">
-      <Header pageName={"메인페이지"}></Header>
-      {reservationData && campingData ? (
-        <MyReserve
-          reservationData={reservationData}
-          campingData={campingData}
-        ></MyReserve>
-      ) : (
-        <TodayRecomm></TodayRecomm>
-      )}
-      {reservationData && campingData ? <GoItems></GoItems> : <Main></Main>}
-      {reservationData && campingData ? <GoRecycle></GoRecycle> : null}
-      <NavBar></NavBar>
-    </div>
-  );
+
+  return <div>{items ? <Items item={items}></Items> : null}</div>;
 };
 
-export default MainPage;
+export default ItemPage;
