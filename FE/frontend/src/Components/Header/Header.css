@@ -29,11 +29,10 @@
 
 .header-img {
     object-fit: contain;
-    height: 10vh;
+    height: 100%;
 }
 
 .img-header {
-    margin-top: 4%;
     height: 10vh;
     overflow: hidden;
     position: relative;

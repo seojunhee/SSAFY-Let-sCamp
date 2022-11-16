@@ -15,13 +15,13 @@ const ChoiceButton = (props) => {
   //   console.log(isActive);
   // };
   
-  const [q1Img, setQ1Img] = useState("family");
-  const [q2Img, setQ2Img] = useState("noPet");
-  const [q3Img, setQ3Img] = useState("mountain")
-  const [q4Img, setQ4Img] = useState("camping")
+  const [q1Img, setQ1Img] = useState("question");
+  const [q2Img, setQ2Img] = useState("question");
+  const [q3Img, setQ3Img] = useState("question")
+  const [q4Img, setQ4Img] = useState("question")
 
   const [page] = useRecoilState(questionPage);
-  const setPage = useSetRecoilState(questionPage);
+  // const setPage = useSetRecoilState(questionPage);
 
   const onChangeIsActive = (idx) => {
     let tmp = [...props.isActive];
@@ -30,9 +30,9 @@ const ChoiceButton = (props) => {
   }
 
   
-  const moveNextPage = () => {
-    setPage(page + 1)
-  }
+  // const moveNextPage = () => {
+  //   setPage(page + 1)
+  // }
 
   const onChangeDate = (e) => {
     const nowMonth = (e.getMonth())
@@ -127,9 +127,11 @@ const ChoiceButton = (props) => {
   }
 
   const question1 = (
-    <div className="height-55">
-      <img src={"/img/" + q1Img +".png"} className="height-75"/>
-      <div className="grid height-25">
+    <>
+      <div className={"height-40"}>
+        <img src={"/img/" + q1Img +".png"} className={"height-100"}/>
+      </div>
+      <div className={"grid height-15"}>
         <div className={"item col-4 w-btn text-center" + ((q1Img==="family") ? " choice-btn" : "")} onClick={ () => onChangeKeyword("가족") }>
           가족
         </div>
@@ -140,15 +142,15 @@ const ChoiceButton = (props) => {
           아이들
         </div>
       </div>
-    </div>
+    </>
   )
 
   const question2 = (
     <>
-      <div className="height-40">
+      <div className={"height-40"}>
         <img src={"/img/" + q2Img +".png"} className="height-100"/>
       </div>
-      <div className="grid height-15">
+      <div className={"grid height-15"}>
         <div className={"item col-6 w-btn outer-div" + (!!(q2Img === "withPet") ? " choice-btn" : "")} onClick={ () => onChangePet(true) }>네</div>
         <div className={"item col-6 w-btn outer-div" + (!!(q2Img === "noPet") ? " choice-btn" : "")} onClick={ () => onChangePet(false) }>아니요</div>
       </div>
@@ -157,17 +159,15 @@ const ChoiceButton = (props) => {
 
   const question3 = (
     <>
-      <div className="height-40">
-        <img src={"/img/" + q3Img +".png"} className="height-100"/>
+      <div className={"height-40"}>
+        <img src={"/img/" + q3Img +".png"} className={"height-100"}/>
       </div>
-      <div className="height-30">
-        <div className="grid height-50">
+      <div className={"height-15"}>
+        <div className={"grid"}>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "mountain") ? " choice-btn" : "")} onClick={ () => onChangePlace("산") }>산</div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "sea") ? " choice-btn" : "")} onClick={ () => onChangePlace("바다가보이는") }>바다</div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "city") ? " choice-btn" : "")} onClick={ () => onChangePlace("도심") }>도심</div>
-        </div>
-        <div className="grid height-50">
-          <div className="item col-2"></div>
+          <div className={"item col-2"}></div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "forest") ? " choice-btn" : "")} onClick={ () => onChangePlace("숲") }>숲</div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "island") ? " choice-btn" : "")} onClick={ () => onChangePlace("섬") }>섬</div>
         </div>
@@ -178,11 +178,11 @@ const ChoiceButton = (props) => {
 
   const question4 = (
     <>
-      <div className="height-40">
-        <img src={"/img/" + q4Img +".png"} className="height-100"/>
+      <div className={"height-40"}>
+        <img src={"/img/" + q4Img +".png"} className={"height-100"}/>
 
       </div>
-      <div className="grid height-30">
+      <div className={"grid height-15"}>
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "camping") ? " choice-btn" : "")} onClick={ () => onChangeCate("일반야영장") }>텐트</div>
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "autoCamping") ? " choice-btn" : "")} onClick={ () => onChangeCate("자동차야영장") }>오토캠핑</div>
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "caravan") ? " choice-btn" : "")} onClick={ () => onChangeCate("카라반") }>카라반</div>
@@ -193,14 +193,14 @@ const ChoiceButton = (props) => {
 
   const question5 = (
     <div>
-      <div className="height-55 outer-div">
-      <Calendar
-        calendarType="US"
-        onChange={ onChangeDate }
-        // selectRange = { true }
-        minDate = { new Date() }
-        // returnValue = {"range"}
-      />
+      <div className={"height-55 outer-div"}>
+        <Calendar
+          calendarType="US"
+          onChange={ onChangeDate }
+          // selectRange = { true }
+          minDate = { new Date() }
+          // returnValue = {"range"}
+        />
       </div>
       
     </div>
@@ -210,21 +210,23 @@ const ChoiceButton = (props) => {
   const question6 = ( season ) => {
     // const seasonList = campSeason(season);
     return (
-      <div className="tag-div">
-        {
-          props.allSeasonList[season].map((tag, idx) => {
-            return (
-              <button
-                key={idx}
-                className={ "div-inline tag-btn tag-content" }
-                onClick={ () => onChangeIsActive(idx) }
-                style={{ backgroundColor: props.isActive[idx] ? "green" : "white" }}
-              >
-                { tag }
-              </button>
-            )
-          })
-        }
+      <div className={"tag-div"}>
+        <>
+          {
+            props.allSeasonList[season].map((tag, idx) => {
+              return (
+                <button
+                  key={idx}
+                  className={ "div-inline tag-btn tag-content" }
+                  onClick={ () => onChangeIsActive(idx) }
+                  style={{ backgroundColor: props.isActive[idx] ? "#35C2BD" : "white" }}
+                >
+                  { tag }
+                </button>
+              )
+            })
+          }
+        </>
       </div>
     )
     }
