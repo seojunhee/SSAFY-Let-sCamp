@@ -35,11 +35,9 @@ const Detail = () => {
   }, []);
 
   return (
-    <div>
+    <div className="App recycle-page">
       <Header pageName={"상세 정보"}></Header>
-      <DetailImg></DetailImg>
       <Contents></Contents>
-      <hr></hr>
       {id ? <Review id={id}></Review> : <div></div>}
       <NavBar></NavBar>
     </div>

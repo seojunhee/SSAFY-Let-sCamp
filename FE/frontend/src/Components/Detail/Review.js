@@ -153,10 +153,11 @@ const Review = (id) => {
   }, [id.id]);
 
   return (
-    <div className="detail-review">
-      <div>사용자들의 한줄 평</div>
+    <div className="detail-review detail-reviewbox  section-card">
+      <div className="p-y-1">사용자들의 한줄 평</div>
       <hr></hr>
-      {reviewdata ? <List></List> : <div>리뷰없음 </div>}
+      
+      {reviewdata ? <List></List> : <div>리뷰가 없습니다.</div>}
     </div>
   );
 };

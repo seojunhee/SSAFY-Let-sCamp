@@ -21,12 +21,13 @@ const RecommendResult = () => {
   
 
   return (
-    <div style={{height: "100%"}}>
+    <div style={{height: "100%"}} className={"recycle-page"}>
       <Header pageName="캠핑장 추천"/>
       <CampSite 
         campSiteList={ campSiteList }
         listIdx={listIdx}
         setListIdx={setListIdx}
+        modalOpen={modalOpen}
         setModalOpen={setModalOpen}
       />
       <MoreButton 
@@ -36,15 +37,7 @@ const RecommendResult = () => {
         numberOfCampSite={numberOfCampSite}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
-      />
-      {
-        (<ModalBasic
-        campSiteList={ campSiteList }
-        listIdx={listIdx}
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-      />)}
-      
+      />      
       <NavBar />
     </div>
   )
