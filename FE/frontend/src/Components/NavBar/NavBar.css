@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-evenly;
     background-color: white;
-    height: 7vh;
+    height: 5vh;
 }
 }
 
@@ -22,7 +22,8 @@
   }
 
 .navbar-icon{
-  margin-bottom: 10px;
-  width:10%;
-  height:90%;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  width:5%;
+  height:45%;
 }
