@@ -49,7 +49,8 @@ const Reserve = () => {
         setIsDateActive = {setIsDateActive}
       />
       <ReservationPeopleInfo 
-        title="인원" 
+        title="인원"
+        campSiteData={campSiteData}
         content = {peopleContent}
         setContent = {setPeopleContent}
         isPeopleActive = {isPeopleActive}

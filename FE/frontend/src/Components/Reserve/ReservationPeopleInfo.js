@@ -10,6 +10,7 @@ const ReservationInfo = (props) => {
 
   const withPet = () => {
     setPetNum(1)
+    console.log(props.campSiteData.animal==="불가능")
     props.setContent({"성인": adultNum, "유아": babyNum, "반려동물": 1})
   }
 
@@ -103,8 +104,12 @@ const ReservationInfo = (props) => {
                   반려동물
                 </div>
                 
-                  <div className={!props.content["반려동물"]? "w-btn" : "w-btn div-blue"} onClick={withPet}>동반</div>
-                  <div className={!props.content["반려동물"]? "w-btn div-blue" : "w-btn"} onClick={notPet}>비동반</div>
+                  <button
+                   className={!props.content["반려동물"]? "w-btn" : "w-btn div-blue"}
+                   onClick={withPet}
+                   disabled={(props.campSiteData.animal==="불가능")}
+                  >동반</button>
+                  <button className={!props.content["반려동물"]? "w-btn div-blue" : "w-btn"} onClick={notPet}>비동반</button>
                 
 
               </div>
