@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./style/Result.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import letscamp from '../../api/LetsCamp.js'
 
 const Result = () => {
   // endDate가 지나고 예약 리뷰가 없는 캠핑장만 리뷰를 남길 수 있게 만듦
   const navigate = useNavigate();
+  const url = letscamp.reservation.reserve()
 
   const [rateValue, setRateValue] = useState([false, false, false, false, false])
   const [hoverRateValue, setHoverRateValue] = useState([false, false, false, false, false])
@@ -112,12 +115,26 @@ const Result = () => {
   };
 
   const reviewWrite = (e) => {
-    console.log(e.target.value)
     setReviewContent(e.target.value)
   }
-
+// {
+//   "comment": "string",
+//   "id": Long,
+//   "rate": double
+// }
   const toReview = () => {
     console.log("리뷰 작성")
+    axios
+    .post(url, {
+      "comment": reviewContent,
+      "id": "id",
+      "rate": rateValue
+    },
+    {
+      headers: {
+        Authorization: "Bearer " + sessionStorage.getItem("accessToken")
+      }
+    })
   }
 
   
@@ -138,7 +155,7 @@ const Result = () => {
           ></img>
           <div>이전에 갔던 캠핑장은 마음에 들었나요?</div>
           <br></br>
-          <div className="container">
+          <div className="star-box">
             {starArray.map((star, index) => {
               return (
                 <div
@@ -147,11 +164,11 @@ const Result = () => {
                   onMouseEnter={() => handleStarMousehover(star)}
                   onMouseLeave={() => handleStarMouseout()}
                 >
-                {rateValue[star]?"★": "☆"}
+                {rateValue[star]?<div className="star">★</div>: <div className="star">☆</div>}
                 </div>
               );})}
           </div>
-          <textarea className="width-90" placeholder="리뷰를 남겨주세요" onChange={reviewWrite}>
+          <textarea className="width-90 review-content" placeholder="리뷰를 남겨주세요" onChange={reviewWrite}>
 
           </textarea>
         </div>
