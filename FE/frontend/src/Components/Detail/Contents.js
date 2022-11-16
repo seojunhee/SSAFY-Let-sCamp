@@ -14,7 +14,7 @@ const Contents = () => {
     navigate("/map", {state:{ lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name, address: campSiteData.address }});
   };
   return (
-    <div className="detail-contents section-card">
+    <div className="detail-contents p-y-1 section-card">
       <div>
         <div className="detailimg-title">{campSiteData.name}</div>
         <img
