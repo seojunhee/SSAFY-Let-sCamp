@@ -219,7 +219,7 @@ const ChoiceButton = (props) => {
                   key={idx}
                   className={ "div-inline tag-btn tag-content" }
                   onClick={ () => onChangeIsActive(idx) }
-                  style={{ backgroundColor: props.isActive[idx] ? "green" : "white" }}
+                  style={{ backgroundColor: props.isActive[idx] ? "#35C2BD" : "white" }}
                 >
                   { tag }
                 </button>
