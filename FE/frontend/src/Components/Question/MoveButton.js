@@ -75,22 +75,22 @@ const MoveButton = (props) => {
   // }, [props.animal, props.campingCate, props.keyword, props.season]);
 
   const choiceButton = (
-    <button className="item col-2 w-btn" onClick={ moveNextPage } disabled={!!(choiceButtonState())? false: true}>선택</button>
+    <button className={"item col-2 w-btn"} onClick={ moveNextPage } disabled={!!(choiceButtonState())? false: true}>선택</button>
   )
   const submitButton = (
 
-    <button className="item col-2 w-btn" onClick={ submitAnswer }>제출</button>
+    <button className={"item col-2 w-btn"} onClick={ submitAnswer }>제출</button>
 
   )
   return (
     <>
-      <div className="outer-div width-100">
+      <div className={"outer-div width-100"}>
       
         {(<button className={"w-btn " + (!!(page > 1) ? "": "hidden-btn")} onClick={ movePrePage }>이전</button>)}
         <Link to="/">
-          <button className="w-btn" onClick={ resetPage }>홈으로</button>
+          <button className={"w-btn"} onClick={ resetPage }>홈으로</button>
         </Link>
-        {page > 0 && page < 5 && (<button className="w-btn" onClick={moveNextPage} disabled={!!(nextBtnState(page))? false: true}>다음</button>)}
+        {page > 0 && page < 5 && (<button className={"w-btn"} onClick={moveNextPage} disabled={!!(nextBtnState(page))? false: true}>다음</button>)}
         {page === 5 && choiceButton}
         {page === 6 && submitButton}
       </div>
