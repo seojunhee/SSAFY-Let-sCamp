@@ -35,8 +35,8 @@ def trash_classification(request, filename):
     X = np.array(X)
 
     # 모델 불러오기
-    # model = load_model('./model/multi_img_classification.model')
-    model = load_model('./model2/multi_img_classification.model')
+    model = load_model('./model/multi_img_classification.model')
+    # model = load_model('./model2/multi_img_classification.model')
 
     # 모델로 예측하기
     prediction = model.predict(X)
