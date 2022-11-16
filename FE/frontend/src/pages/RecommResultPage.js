@@ -21,7 +21,7 @@ const RecommendResult = () => {
   
 
   return (
-    <div style={{height: "100%"}}>
+    <div style={{height: "100%"}} className={"recycle-page"}>
       <Header pageName="캠핑장 추천"/>
       <CampSite 
         campSiteList={ campSiteList }
