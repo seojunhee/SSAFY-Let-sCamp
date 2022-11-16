@@ -50,6 +50,7 @@ const UserInfo = (userData) => {
               className="userinfo-exp"
               style={{
                 width: (userData.userData.userData.exp / 1500) * 100 + "%",
+                height: 100 + "%",
               }}
             ></div>
             <div className="userinfo-exptext">
@@ -75,6 +76,7 @@ const UserInfo = (userData) => {
               className="userinfo-exp"
               style={{
                 width: (userData.userData.userData.exp / 4000) * 100 + "%",
+                height: 100 + "%",
               }}
             ></div>
             <div className="userinfo-exptext">
@@ -100,6 +102,7 @@ const UserInfo = (userData) => {
               className="userinfo-exp"
               style={{
                 width: (userData.userData.userData.exp / 10000) * 100 + "%",
+                height: 100 + "%",
               }}
             ></div>
             <div className="userinfo-exptext">
@@ -122,6 +125,7 @@ const UserInfo = (userData) => {
               className="userinfo-exp"
               style={{
                 width: 100 + "%",
+                height: 100 + "%",
               }}
             ></div>
             <div className="userinfo-exptext">
