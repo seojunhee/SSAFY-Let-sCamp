@@ -127,9 +127,11 @@ const ChoiceButton = (props) => {
   }
 
   const question1 = (
-    <div className={"height-55"}>
-      <img src={"/img/" + q1Img +".png"} className="height-75"/>
-      <div className="grid height-25">
+    <>
+      <div className={"height-40"}>
+        <img src={"/img/" + q1Img +".png"} className={"height-100"}/>
+      </div>
+      <div className={"grid height-15"}>
         <div className={"item col-4 w-btn text-center" + ((q1Img==="family") ? " choice-btn" : "")} onClick={ () => onChangeKeyword("가족") }>
           가족
         </div>
@@ -140,7 +142,7 @@ const ChoiceButton = (props) => {
           아이들
         </div>
       </div>
-    </div>
+    </>
   )
 
   const question2 = (
@@ -160,7 +162,7 @@ const ChoiceButton = (props) => {
       <div className={"height-40"}>
         <img src={"/img/" + q3Img +".png"} className={"height-100"}/>
       </div>
-      <div className={"height-30"}>
+      <div className={"height-15"}>
         <div className={"grid height-50"}>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "mountain") ? " choice-btn" : "")} onClick={ () => onChangePlace("산") }>산</div>
           <div className={"item col-4 w-btn outer-div" + (!!(q3Img === "sea") ? " choice-btn" : "")} onClick={ () => onChangePlace("바다가보이는") }>바다</div>
@@ -182,7 +184,7 @@ const ChoiceButton = (props) => {
         <img src={"/img/" + q4Img +".png"} className={"height-100"}/>
 
       </div>
-      <div className={"grid height-30"}>
+      <div className={"grid height-15"}>
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "camping") ? " choice-btn" : "")} onClick={ () => onChangeCate("일반야영장") }>텐트</div>
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "autoCamping") ? " choice-btn" : "")} onClick={ () => onChangeCate("자동차야영장") }>오토캠핑</div>
         <div className={"item col-6 w-btn outer-div" + (!!(q4Img === "caravan") ? " choice-btn" : "")} onClick={ () => onChangeCate("카라반") }>카라반</div>
