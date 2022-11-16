@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import LetsCamp from "../../api/LetsCamp";
 import CampingList from "./CampingList.js";
 import "./style/SearchByRegion.css";
 
-const SearchByRegion = () => {
-  const [region, SetRegion] = useState("서울시");
+const SearchByRegion = (address) => {
+  const [region, SetRegion] = useState();
   const [CampingListData, SetCampingList] = useState();
+
+  useEffect(() => {
+    const url = LetsCamp.camping.searchByDoSi(address.address);
+    axios
+      .get(url, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.accessToken}`,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        SetCampingList(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   const search = () => {
     const url = LetsCamp.camping.searchByDoSi(region);
