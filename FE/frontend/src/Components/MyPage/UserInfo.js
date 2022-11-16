@@ -155,7 +155,7 @@ const UserInfo = (userData) => {
           주소
           <div>{userData.userData.address}</div>
         </div>
-        <div>
+        <div className="userinfo-btnbox">
           <button
             onClick={() => {
               navigate("/editinfo");

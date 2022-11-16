@@ -1,7 +1,7 @@
 
 .userinfo{
     width:100%;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .userinfo-img{
@@ -11,12 +11,17 @@
 
 .userinfo-img-box{
     width:100%;
+    padding-top: 2vh;
 }
 
 .userinfo-pencilimg{
     margin-left: 10px;
     width:20px;
     height:20px;
+}
+
+.userinfo-info{
+    margin-top: 2vh;
 }
 
 .userinfo-id{
@@ -57,9 +62,12 @@
     z-index: 2;
 }
 .userinfo-exptext{
+    display: flex;
     position: relative;
     z-index: 3;
     height: 3vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .userinfo-editinfobtn{
@@ -79,4 +87,10 @@
   background-color: #FE0808;
   border: none;
   font-family: 'twayair';
+}
+
+.userinfo-btnbox{
+    height: 5vh;
+    margin-top: 2vh;
+    padding-bottom: 1vh;
 }
