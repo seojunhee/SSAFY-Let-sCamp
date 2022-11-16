@@ -66,6 +66,7 @@
   border-radius: 20px;
   background-color: #2796CB;
   border: none;
+  font-family: 'twayair';
 }
 
 .userinfo-logoutbtn{
@@ -75,4 +76,5 @@
   border-radius: 20px;
   background-color: #FE0808;
   border: none;
+  font-family: 'twayair';
 }

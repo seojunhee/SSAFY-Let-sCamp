@@ -13,6 +13,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #D9D9D9;
+    font-family: 'twayair';
 }
 .input:focus{
     outline: none;
@@ -32,6 +33,7 @@
     font-size: 36px;
     border-radius: 10px;
     border: none;
+    font-family: 'twayair';
 }
 .back{
     font-size: 36px;

@@ -1,3 +1,12 @@
-.searchbyname{
+.search-searchbyname{
     margin-top: 10px;
+    font-family: 'twayair';
+}
+
+.search-searchbyname-input{
+    font-family: 'twayair';
+}
+
+.search-searchbyname-btn{
+    font-family: 'twayair';
 }

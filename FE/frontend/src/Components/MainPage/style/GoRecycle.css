@@ -1,0 +1,9 @@
+.main-gorecycle{
+    margin-top: 30px;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 2px 4px 5px -3px;
+}
