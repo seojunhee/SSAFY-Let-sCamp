@@ -68,5 +68,9 @@
 
 .move-btn-position {
   position: absolute;
-  bottom: 7vh;
+  bottom: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
 }
