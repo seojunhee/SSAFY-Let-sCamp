@@ -135,7 +135,7 @@ const Recycle = () => {
   
 
   return (
-    <div className="App page">
+    <div className="App recycle-page">
       {loading ? <Loading /> : null}
       <Header pageName="캠핑 마무리"/>
       <div className="width-100 height-55 section-card">
