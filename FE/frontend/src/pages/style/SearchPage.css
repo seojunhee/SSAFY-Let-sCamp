@@ -1,4 +1,9 @@
 
+.searchpage{
+    background-color: #F5F5F5;
+    height: 800px;
+}
+
 .searchpage-btn1{
     border-radius: 50px;
     background-color: white;

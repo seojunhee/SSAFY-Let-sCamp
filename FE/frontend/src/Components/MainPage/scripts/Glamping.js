@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,14 +10,33 @@ const Glamping = (day) => {
   const [todoState, SetTodo] = useState(1);
   const [checkState, SetCheck] = useState();
 
+  const sliderRef = useRef();
+
+  const handleOnClick = (index) => {
+    sliderRef.current.slickGoTo(index);
+    console.log(index);
+  };
+
+  const state = {
+    oldSlide: 0,
+    activeSlide: 0,
+    activeSlide2: 0,
+  };
+
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
+    arrows: false,
     autoplay: false,
     autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    beforeChange: (current, next) => {
+      state.oldSlide = current;
+      state.activeSlide = next;
+    },
+    afterChange: (current) => (state.activeSlide2 = current),
   };
 
   useEffect(() => {
@@ -54,7 +73,7 @@ const Glamping = (day) => {
         done: !check.done,
       };
     }
-    //SetCheck(copyArray);
+    SetCheck(copyArray);
     axios
       .get(url, {
         headers: {
@@ -63,6 +82,7 @@ const Glamping = (day) => {
       })
       .then(function (response) {
         console.log(response);
+        handleOnClick(state.activeSlide);
       })
       .catch(function (error) {
         console.log(error);
@@ -75,7 +95,7 @@ const Glamping = (day) => {
       return (
         <div>
           {checkState ? (
-            <Slider {...settings}>
+            <Slider {...settings} ref={sliderRef}>
               <div
                 className={checkState[0].done === true ? "checked" : null}
                 onClick={() => {
@@ -94,7 +114,12 @@ const Glamping = (day) => {
                 글램핑은 말 그대로 정말 모든 용품들이 구비가 되어 있다. 먹고
                 마실 것만 준비해서 가면 된다.
               </div>
-              <div>
+              <div
+                className={checkState[2].done === true ? "checked" : null}
+                onClick={() => {
+                  todoCheck(checkState[2]);
+                }}
+              >
                 예약한 캠핑장 정보를 레츠캠프를 이용하여 확인하고 해당 캠핑장에
                 없어서 미리 준비해야할 용품을 따로 준비한다.
               </div>
@@ -105,39 +130,90 @@ const Glamping = (day) => {
     } else if (todoState === 2) {
       return (
         <div>
-          <Slider {...settings}>
-            <div>세면도구, 비상약, 슬리퍼를 챙긴다.</div>
-            <div>
+          <Slider {...settings} ref={sliderRef}>
+            <div
+              className={checkState[3].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[3]);
+              }}
+            >
+              세면도구, 비상약, 슬리퍼를 챙긴다.
+            </div>
+            <div
+              className={checkState[4].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[4]);
+              }}
+            >
               깨끗한 캠핑장 이용을 위해 설거지통을 준비하고 캠핑을 하며 발생하는
               쓰레기 처리를 위해 쓰레기봉투를 준비한다.
             </div>
-            <div>감성충전을 위한 블루투스 스피커를 챙긴다.</div>
+            <div
+              className={checkState[5].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[5]);
+              }}
+            >
+              감성충전을 위한 블루투스 스피커를 챙긴다.
+            </div>
           </Slider>
         </div>
       );
     } else if (todoState === 3) {
       return (
         <div>
-          <Slider {...settings}>
-            <div>
+          <Slider {...settings} ref={sliderRef}>
+            <div
+              className={checkState[6].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[6]);
+              }}
+            >
               짐을 내리고 글램핑 사이트 내의 냉장고에 식품, 음료, 물, 술 등을
               배치한다.
             </div>
-            <div>
+            <div
+              className={checkState[7].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[7]);
+              }}
+            >
               캠핑장에서의 시간은 생각보다 빠르게 흐른다. 점심 식사를 하고 난
               후에 저녁식사를 준비할 마음가짐을 해야한다. 설거지를 하고 점심
               식사를 하며 발생한 쓰레기를 정리한다.
             </div>
-            <div>
+            <div
+              className={checkState[8].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[8]);
+              }}
+            >
               여유롭게 시간을 즐겨라. 블루투스 스피커는 옆 사이트의 사람들에게
               피해가지 않을 정도의 음량으로 즐기고 너무 시끄럽게 떠들지않는다면
               당신의 시간도 보장받는다.
             </div>
-            <div>저녁식사 = 점심식사</div>
-            <div>
+            <div
+              className={checkState[9].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[9]);
+              }}
+            >
+              저녁식사 = 점심식사
+            </div>
+            <div
+              className={checkState[10].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[10]);
+              }}
+            >
               사무실에 연락하여 장작과 화로대를 지급받아 불멍을 준비해라
             </div>
-            <div>
+            <div
+              className={checkState[11].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[11]);
+              }}
+            >
               저녁 시간에는 더욱 더 조심할 필요가 있다. 최대한 피해가 가지
               않도록 즐긴다.
             </div>
@@ -147,10 +223,31 @@ const Glamping = (day) => {
     } else if (todoState === 4) {
       return (
         <div>
-          <Slider {...settings}>
-            <div>머무른 자리는 티도 안나게끔 깨끗하게 치운다. </div>
-            <div>캠핑장의 시간을 돌아보며 귀가한다.</div>
-            <div>다시 레츠캠프를 이용한다.</div>
+          <Slider {...settings} ref={sliderRef}>
+            <div
+              className={checkState[12].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[12]);
+              }}
+            >
+              머무른 자리는 티도 안나게끔 깨끗하게 치운다.{" "}
+            </div>
+            <div
+              className={checkState[13].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[13]);
+              }}
+            >
+              캠핑장의 시간을 돌아보며 귀가한다.
+            </div>
+            <div
+              className={checkState[14].done === true ? "checked" : null}
+              onClick={() => {
+                todoCheck(checkState[14]);
+              }}
+            >
+              다시 레츠캠프를 이용한다.
+            </div>
           </Slider>
         </div>
       );

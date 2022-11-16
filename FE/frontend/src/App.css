@@ -6,6 +6,7 @@
   width: 480px;
   overflow-y: scroll;
   -ms-overflow-style: none;
+  font-family: "twayair";
 }
 }
 
@@ -17,9 +18,19 @@
    width: 100%;
    overflow-y: scroll;
    -ms-overflow-style: none;
+   font-family: "twayair";
  }
  }
 
+ @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');
+ @import url('https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean');
+
+ @font-face {
+  font-family: 'twayair';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 ::-webkit-scrollbar {
   display: none;
