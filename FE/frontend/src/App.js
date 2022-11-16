@@ -14,7 +14,8 @@ import MapPage from "./pages/MapPage";
 import MainPage from "./pages/MainPage";
 import SearchPage from "./pages/SearchPage.js";
 import Recycle from "./pages/RecyclePage";
-import Review from "./Components/MainPage/Result.js"
+import Review from "./Components/MainPage/Result.js";
+import Item from "./pages/ItemPage.js";
 
 function App() {
   return (
@@ -32,9 +33,10 @@ function App() {
           <Route path="/recommend" element={<RecommendResult />} />
           <Route path="/reserve" element={<Reserve />} />
           <Route path="/map" element={<MapPage />} />
-          <Route path="/recycle" element={<Recycle/>} />
+          <Route path="/recycle" element={<Recycle />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/review" element={<Review />}/>
+          <Route path="/review" element={<Review />} />
+          <Route path="/item" element={<Item />} />
         </Routes>
       </RecoilRoot>
     </div>
