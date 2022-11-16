@@ -21,7 +21,7 @@ const Carousel = (campSiteList) => {
 
   return (
     <div className="carousel">
-      <div className="carousel-text">오늘의 랜덤 추천 캠핑장은...?</div>
+      <div className="carousel-text">오늘의 랜덤 캠핑장은...?</div>
       <Slider {...settings}>
         {campSiteList.campSiteList.map((campSiteList, key) => (
           <div key={key} className="carousel-box">
