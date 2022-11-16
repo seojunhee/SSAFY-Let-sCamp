@@ -10,7 +10,7 @@ const Search = () => {
   return (
     <div className="searchpage">
       <Header pageName={"검색"}></Header>
-      <div>
+      <div className="searchpage-btnbox">
         <button
           onClick={() => {
             SetChange(true);
