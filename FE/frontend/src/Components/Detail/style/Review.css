@@ -29,7 +29,9 @@
     border-radius: 10px;
 }
 
-
+.detail-box{
+    margin-top: 1vh;
+}
 
 .detail-username{
     display: flex;
@@ -63,5 +65,5 @@
     margin-top: 5px;
 }
 .detail-contents-line{
-    width: 370px;
+    width: 100%
 }

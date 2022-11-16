@@ -10,19 +10,19 @@
 }
 
 .campinglist-name{
+   margin-top: 1vh;
    font-size: 24px;
 }
 .campinglist-address{
+   margin-top: 1vh;
    font-size: 18px;
 }
 .campinglist-des{
   font-size: 12px;
 }
 
-
-
 .campinglist-img{
     width: 100%;
-    height: 200px;
+    height: 20vh;
     border-radius: 10px;
 }
