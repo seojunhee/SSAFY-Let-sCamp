@@ -71,4 +71,14 @@ public class ReviewController {
         reviewService.delete(id);
         return new ReviewDeleteResponse(true);
     }
+    
+    @GetMapping("/reviewRate/{campingId}")
+    @ApiOperation(value = "캠핑장 별점 평균", notes = "캠핑장 별점 평균 요청")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "요청 성공"),
+            @ApiResponse(code = 500, message = "서버 에러")
+    })
+    public double ReviewRate(@PathVariable @ApiParam(value = "리뷰 별점을 확인할 캠핑장의 ID", required = true) Long campingId) {
+    	return reviewService.getAverage(campingId); 
+    }
 }

@@ -11,7 +11,7 @@ html { font-family: 'Inter', sans-serif; }
 .startpage-img{
     width: 25vh;
     height: 25vh;
-    margin-top: 5vh;
+    margin-top: 10vh;
     object-fit: contain;
 }
 

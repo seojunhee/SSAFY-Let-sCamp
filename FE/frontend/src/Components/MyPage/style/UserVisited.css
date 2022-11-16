@@ -26,6 +26,7 @@
 }
 
 .uservisited-campsitename{
+    margin-top: 1vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,10 +37,12 @@
 .uservisited-content-box{
     display: flex;
     margin-left: 15px;
+    margin-top: 1vh;
 }
 
 .uservisited-rate{
     font-size: 14px;
+    margin-top: 1vh;
 }
 
 .uservisited-comment{
@@ -53,10 +56,8 @@
     height: 90px;
     border-radius: 70%;
 }
-.uservisited-contents{
-    margin-top: 5px;
-}
 .uservisited-contents-line{
+    margin-top: 1vh;
     width: 30vh;
     background-color: white;
 }

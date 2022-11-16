@@ -33,7 +33,7 @@ const MainPage = () => {
             },
           })
           .then(function (response) {
-            SetCamping(response.data.name);
+            SetCamping(response.data);
           })
           .catch(function (error) {
             console.log(error);

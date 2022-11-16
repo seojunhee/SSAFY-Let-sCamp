@@ -3,6 +3,7 @@
     height: 5vh;
     border: none;    
     font-size: 20px;
+    margin-top: 3vh;
 }
 .login-input::placeholder{
     font-size: 20px;

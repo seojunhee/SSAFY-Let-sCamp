@@ -41,7 +41,7 @@ const MoreButton = (props) => {
         <button onClick={ toReserve } className="w-btn w-btn-blue">Let's Camp!</button>
       </div>
       {/* 모달 적용해서 띄우기 */}
-      <div className="more container" onClick={showModal}>{"더 알아보기"}</div>
+      {/* <div className="more container" onClick={showModal}>{"더 알아보기"}</div> */}
     </>
   )
 };
