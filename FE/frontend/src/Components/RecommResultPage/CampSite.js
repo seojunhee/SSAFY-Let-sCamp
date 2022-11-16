@@ -96,7 +96,7 @@ const CampSite = (props) => {
         </div>
         <img src={props.campSiteList[props.listIdx].thumb} alt="캠핑장 사진" className="width-100"/>
       </div>
-      <button onClick={switchModal}>{props.modalOpen ? "사진 보기": "설명 보기"}</button>
+      <button onClick={switchModal} className={"camp-site-detail-btn"}>{props.modalOpen ? "사진 보기": "설명 보기"}</button>
     </div>
   )
 };
