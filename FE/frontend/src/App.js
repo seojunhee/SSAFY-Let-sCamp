@@ -14,6 +14,7 @@ import MapPage from "./pages/MapPage";
 import MainPage from "./pages/MainPage";
 import SearchPage from "./pages/SearchPage.js";
 import Recycle from "./pages/RecyclePage";
+import Review from "./Components/MainPage/Result.js"
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/map" element={<MapPage />} />
           <Route path="/recycle" element={<Recycle/>} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/review" element={<Review />}/>
         </Routes>
       </RecoilRoot>
     </div>

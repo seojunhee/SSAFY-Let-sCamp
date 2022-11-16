@@ -1,0 +1,14 @@
+.star-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1%
+}
+
+.star {
+  padding: 10px;
+}
+
+.review-content {
+  border-radius: 10px;
+  height: 13vh;
+}

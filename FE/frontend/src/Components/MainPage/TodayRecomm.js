@@ -30,8 +30,6 @@ const TodayRecomm = () => {
       ) : (
         <div></div>
       )}
-      <button className="mainpage-todayrecomm-btn">이전</button>
-      <button className="mainpage-todayrecomm-btn">다음</button>
     </div>
   );
 };

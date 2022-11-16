@@ -23,11 +23,6 @@ const CampingList = (CampingListData) => {
             />
             <div className="campinglist-name">{CampingListData.name}</div>
             <div className="campinglist-address">{CampingListData.address}</div>
-            <div className="campinglist-des">{CampingListData.simple_des}</div>
-            <hr></hr>
-            <div>반려동물 : {CampingListData.animal}</div>
-            <div>카테고리 : {CampingListData.category}</div>
-            <div>테마 : {CampingListData.theme}</div>
           </div>
         </div>
       ))}

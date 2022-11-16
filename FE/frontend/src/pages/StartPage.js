@@ -16,7 +16,7 @@ const Start = () => {
 
   return (
     <div className="startpage">
-      <img src="/asset/campingcar.png" alt="이미지" className="startpage-img" />
+      <img src="/asset/logo.png" alt="이미지" className="startpage-img" />
       <div className="startpage-title">초보자를 위한 캠핑 추천 서비스</div>
       <div className="startpage-title2 mb-20">렛츠 캠프!</div>
       <div className="startpage-buttonsbox">
