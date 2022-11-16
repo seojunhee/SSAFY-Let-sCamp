@@ -1,8 +1,14 @@
 
+.uservisited{
+    height: 60vh;
+}
+
 .uservisited-text{
     text-align: left;
-    width: 90%;
-    margin-left: 5%;
+    width: 100%;
+    padding-left: 5%;
+    background-color: white;
+    height: 3vh;
 }
 
 .uservisited-box{
@@ -14,6 +20,7 @@
     border-radius: 10px;
     box-shadow: 1px 1px 5px -3px;
     margin-top: 15px;
+    background-color: white;
 }
 
 .uservisited-campsitename{
@@ -49,4 +56,5 @@
 }
 .uservisited-contents-line{
     width: 260px;
+    background-color: white;
 }

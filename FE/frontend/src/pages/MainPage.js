@@ -124,10 +124,8 @@ const MainPage = () => {
       ) : (
         <TodayRecomm></TodayRecomm>
       )}
-
-      {reservationData ? <GoItems></GoItems> : null}
-      {reservationData ? <GoRecycle></GoRecycle> : null}
-
+      {reservationData && campingData ? <GoItems></GoItems> : <Main></Main>}
+      {reservationData && campingData ? <GoRecycle></GoRecycle> : null}
       <NavBar></NavBar>
     </div>
   );
