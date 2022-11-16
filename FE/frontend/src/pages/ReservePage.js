@@ -6,6 +6,7 @@ import CampSiteInfo from "../Components/Reserve/CampSiteInfo.js";
 import ReservationDateInfo from "../Components/Reserve/ReservationDateInfo.js";
 import ReservationPeopleInfo from "../Components/Reserve/ReservationPeopleInfo.js"
 import ReserveBtn from "../Components/Reserve/ReserveBtn.js";
+import Navbar from "../Components/NavBar/NavBar.js"
 
 // import { useSetRecoilState } from "recoil";
 // import { pageNameState } from "../Store/state.js";
@@ -57,13 +58,15 @@ const Reserve = () => {
         setIsPeopleActive = {setIsPeopleActive}
        />
       <hr/>
-      <div className="height-20vh display-block"></div>
+      <div className="height-10vh display-block"></div>
       <ReserveBtn
         url = {url}
         campingCate = {campingCate}
         dateContent = {dateContent}
         peopleContent = {peopleContent}
       />
+      <div className="height-10vh"></div>
+      <Navbar />
 
     </div>
   )
