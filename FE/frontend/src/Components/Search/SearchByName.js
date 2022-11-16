@@ -33,14 +33,16 @@ const SearchByName = () => {
   };
 
   return (
-    <div className="searchbyname">
+    <div className="search-searchbyname">
       <input
-        className=""
+        className="search-searchbyname-input"
         placeholder="캠핑장명을 검색하세요"
         value={name}
         onChange={settingName}
       />
-      <button onClick={() => search(name)}>검색</button>
+      <button onClick={() => search(name)} className="search-searchbyname-btn">
+        검색
+      </button>
       {CampingListData ? (
         <CampingList CampingListData={CampingListData}></CampingList>
       ) : (

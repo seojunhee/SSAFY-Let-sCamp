@@ -17,17 +17,17 @@ html { font-family: 'Inter', sans-serif; }
 
 .startpage-title{
     font-size: 24px;
-    font-family: 'Inter';
+    font-family: 'twayair';
     font-weight: bold;
 }
 .startpage-title2{
     font-size: 24px;
-    font-family: 'Inter';
+    font-family: 'twayair';
     font-weight: bold;
 }
 .startpage-buttonsbox{
     margin-bottom: 100px;
-    font-family: 'Inter';
+    font-family: 'twayair';
     font-weight: bold;
 }
 
@@ -37,7 +37,7 @@ html { font-family: 'Inter', sans-serif; }
     font-size: 24px;
     border: none;
     height: 65px;
-    font-family: 'Inter';
+    font-family: 'twayair';
     font-weight: bold;
     background-color: #35C2BD;
     border-radius: 20px;

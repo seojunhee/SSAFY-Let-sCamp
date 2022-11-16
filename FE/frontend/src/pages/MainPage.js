@@ -7,6 +7,8 @@ import MyReserve from "../Components/MainPage/MyReserve";
 import Header from "../Components/Header/Header";
 import Main from "../Components/MainPage/Main";
 import TodayRecomm from "../Components/MainPage/TodayRecomm.js";
+import GoItems from "../Components/MainPage/GoItems";
+import GoRecycle from "../Components/MainPage/GoRecycle";
 import "./style/MainPage.css";
 
 const MainPage = () => {
@@ -122,11 +124,10 @@ const MainPage = () => {
       ) : (
         <TodayRecomm></TodayRecomm>
       )}
-      {items ? (
-        <Items items={items} reservationData={reservationData}></Items>
-      ) : (
-        <Main></Main>
-      )}
+
+      {reservationData ? <GoItems></GoItems> : null}
+      {reservationData ? <GoRecycle></GoRecycle> : null}
+
       <NavBar></NavBar>
     </div>
   );
