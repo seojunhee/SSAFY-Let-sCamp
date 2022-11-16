@@ -58,6 +58,7 @@ const Login = () => {
   return (
     <div className="Login">
       <Header pageName={"로그인"}></Header>
+      <img src="/asset/logo.png" alt="이미지" className="startpage-img" />
       <div className="inputbox">
         <div>
           <input

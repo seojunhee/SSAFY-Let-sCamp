@@ -1,7 +1,9 @@
 
 .searchpage{
     background-color: #F5F5F5;
-    height: 800px;
+    padding-bottom: 7vh;
+    height: 100vh;
+    overflow-y:auto;
 }
 
 .searchpage-btn1{

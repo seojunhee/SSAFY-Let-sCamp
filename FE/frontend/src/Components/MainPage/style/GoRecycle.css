@@ -7,3 +7,31 @@
     background-color: white;
     box-shadow: 2px 4px 5px -3px;
 }
+
+.main-gorecycle-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-gorecycle-boximg{
+    width: 150px;
+    height: 150px;
+}
+
+.main-gorecycle-text{
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.main-gorecycle-btn{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #AEE7E5;
+    border: none;
+    font-family: "twayair";
+    font-size: 20px;
+    margin-top: 20px;
+}
