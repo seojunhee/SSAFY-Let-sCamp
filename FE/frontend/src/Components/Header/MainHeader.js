@@ -8,15 +8,11 @@ const Header = ({ pageName }) => {
   return (
     <div>
       <div className="header">
-        <div className="header-back">
-          <span
-            onClick={() => {
-              navigate(-1);
-            }}
-          >
-            &lt;
-          </span>
-        </div>
+        <span
+          className="header-hidden"
+        >
+          ||
+        </span>
         <span
           className="header-hidden"
         >
