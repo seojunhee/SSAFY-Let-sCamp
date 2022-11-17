@@ -1,9 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = ({ pageName }) => {
-  const navigate = useNavigate();
 
   return (
     <div>
@@ -18,9 +17,11 @@ const Header = ({ pageName }) => {
         >
           ||
         </span>
-        <div className="img-header">
-          <img claseName="header-img" src="./asset/header.png" alt="자동차 사진"/>
-        </div>
+        <Link to={"/"}>
+          <div className="img-header">
+            <img claseName="header-img" src="./asset/header.png" alt="자동차 사진"/>
+          </div>
+        </Link>
         <span
           className="header-hidden"
         >
