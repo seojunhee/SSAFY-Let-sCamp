@@ -10,48 +10,21 @@ const Review = (id) => {
   const urlStar = LetsCamp.review.rate(id.id)
 
   const Rate = (reviewData) => {
-    if (reviewData.reviewData.rate > 4) {
-      return (
-        <div className="detail-rate">
-          ⭐⭐⭐⭐⭐({reviewData.reviewData.rate})
-        </div>
-      );
-    } else if (
-      reviewData.reviewData.rate > 3 &&
-      reviewData.reviewData.rate <= 4
-    ) {
-      return (
-        <div className="detail-rate">
-          ⭐⭐⭐⭐({reviewData.reviewData.rate})
-        </div>
-      );
-    } else if (
-      reviewData.reviewData.rate > 2 &&
-      reviewData.reviewData.rate <= 3
-    ) {
-      return (
-        <div className="detail-rate">⭐⭐⭐({reviewData.reviewData.rate})</div>
-      );
-    } else if (
-      reviewData.reviewData.rate > 1 &&
-      reviewData.reviewData.rate <= 2
-    ) {
-      return (
-        <div className="detail-rate">⭐⭐({reviewData.reviewData.rate})</div>
-      );
-    } else if (reviewData.reviewData.rate > 0) {
-      return (
-        <div className="detail-rate">⭐({reviewData.reviewData.rate})</div>
-      );
-    } else {
-      return <div>별점 정보가 없습니다.</div>;
-    }
+    return (
+      <div className="detail-star">
+        <div className={(reviewData.reviewData.rate >= 1) ? "" : "empty-star"}>⭐</div>
+        <div className={(reviewData.reviewData.rate >= 2) ? "" : "empty-star"}>⭐</div>
+        <div className={(reviewData.reviewData.rate >= 3) ? "" : "empty-star"}>⭐</div>
+        <div className={(reviewData.reviewData.rate >= 4) ? "" : "empty-star"}>⭐</div>
+        <div className={(reviewData.reviewData.rate >= 5) ? "" : "empty-star"}>⭐</div>
+      </div>
+    )
   };
 
   const Profile = (reviewdata) => {
     if (reviewdata.reviewdata.userExp < 500) {
       return (
-        <div className="detail-review-imgbox">
+        <div>
           <img
             src="/asset/profile/camlin.png"
             alt="캠린"
@@ -64,11 +37,10 @@ const Review = (id) => {
       reviewdata.reviewdata.userExp < 1500
     ) {
       return (
-        <div className="detail-review-imgbox">
+        <div>
           <img
             src="/asset/profile/camding.png"
             alt="캠딩"
-            className="detail-review-profile"
           ></img>
         </div>
       );
@@ -81,7 +53,6 @@ const Review = (id) => {
           <img
             src="/asset/profile/camdeahak.png"
             alt="캠대학생"
-            className="detail-review-profile"
           ></img>
         </div>
       );
@@ -94,7 +65,6 @@ const Review = (id) => {
           <img
             src="/asset/profile/camdeahakone.png"
             alt="캠대학원생"
-            className="detail-review-profile"
           ></img>
         </div>
       );
@@ -119,15 +89,21 @@ const Review = (id) => {
             <div className="detail-reviewbox">
               <div className="detail-box">
                 <Profile reviewdata={reviewData}></Profile>
-                <div className="detail-box-nickrate">
-                  <div>{reviewData.userNickName}</div>
+                <div className="detail-star-name">
+                  <div className="detail-name-date">
+                    <div>
+                      {reviewData.userNickName}
+                    </div>
+                    <div>
+                      {reviewData.date}
+                    </div>
+                  </div>
                   <Rate reviewData={reviewData}></Rate>
                 </div>
               </div>
               <hr className="detail-contents-line"></hr>
               <div className="detail-review-content">
                 {reviewData.comment}
-                {reviewData.date}
               </div>
             </div>
           </div>

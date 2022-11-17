@@ -1,3 +1,9 @@
+.detail-review-content {
+    padding: 3%;
+    min-height: 5vh;
+    text-align: start;
+}
+
 
 .detail-review{
     margin-bottom: 65px;
@@ -6,9 +12,6 @@
 .detail-reviewbox{
     width: 90%;
     margin-left: 5%;
-    display: flex;
-    flex-direction: column;
-    height: 100px;
     border-radius: 10px;
     box-shadow: 1px 1px 5px -3px;
     margin-top: 15px;
@@ -16,17 +19,31 @@
 }
 .detail-box{
     display: flex;
-    height: 50px;
-    margin-left: 5px;
+    justify-content: space-around;
 }
-.detail-box-nickrate{
-    margin-left: 90px;
+.detail-star-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: start;
+    width: 75vw;
+}
+
+.detail-star {
+    display: flex;
+}
+
+.detail-name-date{
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+
 }
 
 .detail-review-profile{
     width:50px;
     height: 50px;
-    display: flex;
+    display: inline;
     border-radius: 10px;
 }
 
@@ -71,4 +88,8 @@
 .p-y-1 {
     padding-top: 1%;
     padding-bottom: 1%;
+}
+.empty-star {
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
 }
