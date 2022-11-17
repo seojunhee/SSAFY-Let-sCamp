@@ -70,7 +70,7 @@ const Contents = () => {
               className="detail-contents-icons"
             ></img>
           </div>
-          <div className="detail-contents-div">
+          <div className="detail-contents-text">
             {campSiteData.homepage
             ?(<a href={campSiteData.homepage}>
             {campSiteData.homepage}
