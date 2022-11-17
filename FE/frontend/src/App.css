@@ -326,7 +326,10 @@ hr{
   overflow: hidden;
   border: 0;
 }
-
+.my-5 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 .mt-30 {
   margin-top: 30%;
 }

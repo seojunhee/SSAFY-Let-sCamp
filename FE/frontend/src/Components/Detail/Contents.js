@@ -18,7 +18,7 @@ const Contents = (props) => {
   };
     
   return (
-    <div className="detail-contents p-y-1 section-card">
+    <div className="p-y-1 section-card my-5">
       <div>
         <div className="detailimg-title">{campSiteData.name}</div>
         <div className="detail-title-star">⭐ {props.starPoint}</div>

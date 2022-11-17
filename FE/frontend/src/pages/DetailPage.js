@@ -7,15 +7,24 @@ import NavBar from "../Components/NavBar/NavBar";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { campSiteState } from "../Store/state.js";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import LetsCamp from "../api/LetsCamp";
 
 const Detail = () => {
   const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
   const [starPoint, setStarPoint] = useState(0)
+
   const location = useLocation();
+  const navigate = useNavigate();
+
   const id = location.state.campingId;
   const urlStar = LetsCamp.review.rate(id)
+
+  const toReserve = () => {
+    sessionStorage.setItem("reserveInfo", JSON.stringify(campSiteData))
+    // console.log(sessionStorage.getItem("reserveInfo"))
+    navigate("/reserve", {state: {"data": campSiteData}});
+  }
 
 
   useEffect(() => {
@@ -53,6 +62,9 @@ const Detail = () => {
       <Contents
         starPoint={starPoint}
       ></Contents>
+      <div className="reserve-btn-box my-5">
+        <button onClick={ toReserve } className="w-btn w-btn-blue">Let's Camp!</button>
+      </div>
       {id 
       ? <Review
           id={id}
