@@ -22,8 +22,8 @@ const Header = ({ pageName }) => {
         >
           ||
         </span>
-        <div className="header-pagename">
-          <span className="">{pageName}</span>
+        <div className="img-header">
+          <img claseName="header-img" src="./asset/logo.png" alt="자동차 사진"/>
         </div>
         <span
           className="header-hidden"

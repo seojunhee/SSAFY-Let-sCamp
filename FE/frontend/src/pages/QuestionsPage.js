@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
 // Components
-import Header from "../Components/Header/ImgHeader.js";
+import Header from "../Components/Header/Header.js";
 import MoveButton from "../Components/Question/MoveButton.js";
 import ChoiceButton from "../Components/Question/ChoiceButton.js";
 import Question from "../Components/Question/Question.js";
