@@ -119,7 +119,7 @@ const Contents = () => {
               className="detail-contents-icons"
             ></img>
           </div>
-          <div className="detail-contents-text">{campSiteData.keywords || "태그없음"}</div>
+          <div className="detail-contents-tag">{campSiteData.keywords || "태그없음"}</div>
         </div>
       </div>
     </div>

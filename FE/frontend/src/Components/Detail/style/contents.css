@@ -28,3 +28,9 @@
     text-overflow:ellipsis;
     white-space:nowrap;
 }
+
+.detail-contents-tag {
+    text-align: start;
+    padding-left: 2%;
+    word-break: keep-all;
+}

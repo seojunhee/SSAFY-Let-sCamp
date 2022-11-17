@@ -39,11 +39,11 @@ const Detail = () => {
 
   return (
     <div className="App recycle-page">
-      <Header pageName={"상세 정보"}></Header>
+      <Header></Header>
       <Contents></Contents>
       {id 
       ? <Review
-          id={id} 
+          id={id}
         ></Review> 
       : <div></div>}
       <NavBar></NavBar>
