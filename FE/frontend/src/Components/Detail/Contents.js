@@ -35,7 +35,7 @@ const Contents = () => {
               className="detail-contents-icons"
             ></img>
           </div>
-          <div className="detail-contents-div">
+          <div className="detail-contents-text">
             {campSiteData.address || "정보없음"}
           </div>
         </div>
@@ -48,7 +48,7 @@ const Contents = () => {
               className="detail-contents-icons"
             />
           </div>
-          <div className="detail-contents-div">{campSiteData.running_day || "정보없음"}</div>
+          <div className="detail-contents-text">{campSiteData.running_day || "정보없음"}</div>
         </div>
         <hr></hr>
         <div className="modal-summary">
@@ -59,7 +59,7 @@ const Contents = () => {
               className="detail-contents-icons"
             />
           </div>
-          <div className="detail-contents-div">{campSiteData.tel || "정보없음"}</div>
+          <div className="detail-contents-text">{campSiteData.tel || "정보없음"}</div>
         </div>
         <hr></hr>
         <div className="modal-summary">
@@ -87,7 +87,7 @@ const Contents = () => {
               className="detail-contents-icons"
             ></img>
           </div>
-          <div className="detail-contents-div">{campSiteData.simple_des || "정보없음"}</div>
+          <div className="detail-contents-text">{campSiteData.simple_des || "정보없음"}</div>
         </div>
         <hr></hr>
         <div className="modal-summary">
@@ -98,7 +98,7 @@ const Contents = () => {
               className="detail-contents-icons"
             ></img>
           </div>
-          <div className="detail-contents-div">{campSiteData.keywords || "태그없음"}</div>
+          <div className="detail-contents-text">{campSiteData.keywords || "태그없음"}</div>
         </div>
       </div>
     </div>
