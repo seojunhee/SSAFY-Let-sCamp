@@ -23,9 +23,9 @@ const CampSite = (props) => {
   }
 
   return (
-    <div className="height-55 section-card mt-25">
-      <h4>당신에게 알맞은 캠핑장은</h4>
-      <h3> {(props.campSiteList[props.listIdx].name)} </h3>
+    <div className="height-65 section-card mt-15">
+      <div className="pt-5">당신에게 알맞은 캠핑장은</div>
+      <div className="text-size-3"> {(props.campSiteList[props.listIdx].name)} </div>
       <div className="height-65 container">
         <div className={props.modalOpen ? "open-modal": "close-modal"}>
           <div>
