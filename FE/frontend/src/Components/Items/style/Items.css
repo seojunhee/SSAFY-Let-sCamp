@@ -1,11 +1,26 @@
 
+.itempage-items{
+    margin-top:5vh;
+}
+
 .items-itemicon{
     width: 8vw;
     height: 8vw;
 }
 
+.items-after-text{
+    margin-top: 7vh;
+    margin-bottom: 3vh;
+    font-size: 20px;
+}
+
+.items-before-text{
+    margin-top: 7vh;
+    margin-bottom: 3vh;
+    font-size: 20px;
+}
+
 .items-before{
-    margin-top: 30px;
     width: 90%;
     margin-left: 5%;
     border-radius: 20px;
@@ -17,7 +32,6 @@
 }
 
 .items-after{
-    margin-top: 30px;
     width: 90%;
     margin-left: 5%;
     border-radius: 20px;
@@ -25,4 +39,11 @@
     background-color: white;
     box-shadow: 2px 4px 5px -3px;
     display: flex;
+    flex-wrap: wrap;
+}
+
+.items-icons{
+    margin-top: 1vh;
+    width: 18vw;
+    height: 14vw;
 }
