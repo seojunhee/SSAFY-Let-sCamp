@@ -71,9 +71,11 @@ const Contents = () => {
             ></img>
           </div>
           <div className="detail-contents-div">
-            <a href={campSiteData.homepage}>
-            {campSiteData.homepage || "정보없음"}
-            </a>
+            {campSiteData.homepage
+            ?(<a href={campSiteData.homepage}>
+            {campSiteData.homepage}
+            </a>)
+            :<div>정보없음</div>}
           </div>
         </div>
         <hr></hr>
