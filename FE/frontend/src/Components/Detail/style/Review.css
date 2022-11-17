@@ -51,15 +51,12 @@
     margin-top: 1vh;
 }
 
-.detail-username{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    width: 270px;
+.detail-username {
+    padding-left: 1%;
 }
 .detail-date {
     color: #9f9f9f;
+    padding-right: 4%;
 }
 
 .detail-content-box{

@@ -91,7 +91,7 @@ const Review = (id) => {
                 <Profile reviewdata={reviewData}></Profile>
                 <div className="detail-star-name">
                   <div className="detail-name-date">
-                    <div>
+                    <div className="detail-username">
                       {reviewData.userNickName}
                     </div>
                     <div className="detail-date">
