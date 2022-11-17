@@ -11,7 +11,7 @@ const CampSite = (props) => {
   }
 
   const showMap = () => {
-    navigate("/map", {state : {lat: campSiteData.lat, lon: campSiteData.lon}})
+    navigate("/map", {state : {lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name}})
   }
 
   return (
