@@ -11,17 +11,21 @@ html { font-family: 'Inter', sans-serif; }
 .startpage-img{
     width: 25vh;
     height: 25vh;
-    margin-top: 10vh;
     object-fit: contain;
+    margin-bottom: 20px;
 }
 
 .startpage-title{
+    color: #35C2BD;
+    margin-top: 10vh;
+    margin-bottom: 10px;
     font-size: 16px;
     font-family: 'twayair';
     font-weight: bold;
 }
 .startpage-title2{
-    font-size: 16px;
+    margin-top: 10px;
+    font-size: 32px;
     font-family: 'twayair';
     font-weight: bold;
 }
