@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import { useLocation } from "react-router-dom";
 
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { Map, MapMarker, CustomOverlayMap } from "react-kakao-maps-sdk";
 
 
 // css
@@ -24,11 +24,19 @@ const KakaoMap = () => {
         center={{lat:location.state.lat, lng:location.state.lon}}
         style={{ width: "100%", height: "80vh" }}
         draggable={true}
-        level={3}
+        level={4}
       >
-        <MapMarker position={{lat:location.state.lat, lng:location.state.lon}} onClick={toggleExplain}>
+        <MapMarker style={{backgroundColor : "red"}} position={{lat:location.state.lat, lng:location.state.lon}} onClick={toggleExplain}>
           {!hiddenLabel && <div style={{color:"#000"}} className="map-label">{location.state.name}</div>}
         </MapMarker>
+        {/* <CustomOverlayMap
+          position={{
+            lat: location.state.lat,
+            lng: location.state.lon,
+          }}
+        >
+          이렇게 하면 어떻게 표시 되는 거지?
+        </CustomOverlayMap> */}
 
       </Map>
 
