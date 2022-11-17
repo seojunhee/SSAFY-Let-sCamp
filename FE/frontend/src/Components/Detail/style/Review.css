@@ -93,3 +93,9 @@
     color: transparent;
     text-shadow: 0 0 0 #9f9f9f;
 }
+
+.detail-title-star {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 1%;
+}
