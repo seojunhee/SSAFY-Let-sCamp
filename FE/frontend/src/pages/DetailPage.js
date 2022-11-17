@@ -16,8 +16,6 @@ const Detail = () => {
   const location = useLocation();
   const id = location.state.campingId;
 
-  const urlStar = LetsCamp.review.rate(id)
-  let starPoint = 0
 
   useEffect(() => {
     const url = LetsCamp.camping.getOne(id);
@@ -36,23 +34,18 @@ const Detail = () => {
         console.log("실패");
         console.log(error);
       });
-    axios
-      .get(urlStar, {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.accessToken}`,
-        },
-      })
-      .then(function (response) {
-        starPoint = (response.data);
-        console.log(starPoint);
-      })
+    
   }, []);
 
   return (
     <div className="App recycle-page">
       <Header pageName={"상세 정보"}></Header>
       <Contents></Contents>
-      {id ? <Review id={id} starPoint={starPoint}></Review> : <div></div>}
+      {id 
+      ? <Review
+          id={id} 
+        ></Review> 
+      : <div></div>}
       <NavBar></NavBar>
     </div>
   );

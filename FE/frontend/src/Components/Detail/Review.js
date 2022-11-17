@@ -5,6 +5,9 @@ import "./style/Review.css";
 
 const Review = (id) => {
   const [reviewdata, SetReview] = useState();
+  const [starPoint, setStarPoint] = useState();
+  
+  const urlStar = LetsCamp.review.rate(id.id)
 
   const Rate = (reviewData) => {
     if (reviewData.reviewData.rate > 4) {
@@ -150,11 +153,20 @@ const Review = (id) => {
         console.log("실패");
         console.log(error);
       });
+    axios
+      .get(urlStar, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.accessToken}`,
+        },
+      })
+      .then(function (response) {
+        setStarPoint(response.data);
+      });
   }, [id.id]);
 
   return (
-    <div className="detail-review detail-reviewbox  section-card">
-      <div className="p-y-1">사용자들의 한줄 평</div>
+    <div className="detail-review">
+      <div className="p-y-1">사용자들의 한줄 평 ⭐({starPoint})</div>
       <hr></hr>
       
       {reviewdata ? <List></List> : <div>리뷰가 없습니다.</div>}
