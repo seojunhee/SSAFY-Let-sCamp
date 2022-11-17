@@ -1,7 +1,7 @@
 .mainpage-main{
     width: 100%;
     height: 50vh;
-    background-color: white;
+    background-color: #F5F5F5;
 }
 
 .mainpage-main-box{
@@ -23,13 +23,24 @@
 }
 .mainpage-main-text{
     margin-top: 10px;
-    margin-left: 5%;
+    margin-left: 3vw;
     text-align: left;
-    font-size: 20px;
-    width: 220px;
+    font-size: 18px;
+    width: 44vw;
 }
 .mainpage-main-navigation{
+    width: 30vw;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #AEE7E5;
+    border: none;
+    font-family: "twayair";
+    font-size: 20px;
     margin-top: 20px;
-    text-align: left;
-    font-size: 16px;
+}
+.mainpage-main-btnbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42vw;
 }

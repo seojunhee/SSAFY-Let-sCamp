@@ -5,8 +5,6 @@ import "./style/MyReserve.css";
 const MyReserve = ({ reservationData, campingData }) => {
   const [day, SetDay] = useState();
 
-  console.log(campingData);
-
   useEffect(() => {
     const date = new Date();
     SetDay(reservationData[0].startDate.substring(8, 10) - date.getDate());

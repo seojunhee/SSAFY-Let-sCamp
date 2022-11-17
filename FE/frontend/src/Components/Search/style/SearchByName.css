@@ -5,8 +5,19 @@
 
 .search-searchbyname-input{
     font-family: 'twayair';
+    width: 55vw;
+    height: 3vh;
+    border-radius: 10px;
+    border: 1px solid;
 }
 
 .search-searchbyname-btn{
     font-family: 'twayair';
+    height: 3.6vh;
+    background-color: #35C2BD;
+    color: white;
+    border: none;
+    margin-left: 1vw;
+    border-radius: 10px;
+    width: 25vw;
 }
