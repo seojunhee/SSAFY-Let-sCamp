@@ -17,9 +17,19 @@ const Header = ({ pageName }) => {
             &lt;
           </span>
         </div>
+        <span
+          className="header-hidden"
+        >
+          ||
+        </span>
         <div className="header-pagename">
           <span className="">{pageName}</span>
         </div>
+        <span
+          className="header-hidden"
+        >
+          ||
+        </span>
         <span
           className="header-hidden"
         >
