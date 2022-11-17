@@ -9,6 +9,7 @@ const SearchByRegion = (address) => {
   const [CampingListData, SetCampingList] = useState();
 
   useEffect(() => {
+    SetRegion(address.address);
     const url = LetsCamp.camping.searchByDoSi(address.address);
     axios
       .get(url, {
@@ -48,7 +49,13 @@ const SearchByRegion = (address) => {
 
   return (
     <div className="search-searchbyregion">
-      <select onChange={set} className="search-searchbyregion-selectbox">
+      <select
+        onChange={set}
+        className="search-searchbyregion-selectbox"
+        defaultValue={region}
+        name={region}
+        value={region}
+      >
         <option value="서울시" className="search-searchbyregion-select">
           서울시
         </option>

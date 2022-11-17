@@ -3,7 +3,7 @@
     width: 90%;
     margin-left: 5%;
     border-radius: 20px;
-    height: 200px;
+    height: 18vh;
     background-color: white;
     box-shadow: 2px 4px 5px -3px;
 }
@@ -20,7 +20,7 @@
 .main-goitems-text{
     margin-top: 20px;
     font-size: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .main-goitems-btn{

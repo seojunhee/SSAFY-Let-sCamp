@@ -12,15 +12,6 @@ import "./style/MoreButton.css"
 const MoreButton = (props) => {
 
   const navigate = useNavigate();
-  
-
-  const showModal = () => {
-    props.setModalOpen(!props.modalOpen)
-  }
-
-  const changeIdx = () => {
-    props.setListIdx((props.listIdx + 1) % props.numberOfCampSite)
-  }
 
   const toReserve = () => {
     sessionStorage.setItem("reserveInfo", JSON.stringify(props.campSiteList[props.listIdx]))
@@ -37,7 +28,6 @@ const MoreButton = (props) => {
   return (
     <>
       <div className="container">
-        <button onClick={ changeIdx } className="w-btn w-btn-again">다시 추천 받기</button>
         <button onClick={ toReserve } className="w-btn w-btn-blue">Let's Camp!</button>
       </div>
       {/* 모달 적용해서 띄우기 */}

@@ -1,22 +1,17 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = ({ pageName }) => {
-  const navigate = useNavigate();
 
   return (
     <div>
       <div className="header">
-        <div className="header-back">
-          <span
-            onClick={() => {
-              navigate(-1);
-            }}
-          >
-            &lt;
-          </span>
-        </div>
+        <span
+          className="header-hidden"
+        >
+          ||
+        </span>
         <span
           className="header-hidden"
         >

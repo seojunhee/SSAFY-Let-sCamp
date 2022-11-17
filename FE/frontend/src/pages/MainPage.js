@@ -4,7 +4,7 @@ import LetsCamp from "../api/LetsCamp";
 import NavBar from "../Components/NavBar/NavBar";
 import Items from "../Components/MainPage/Items";
 import MyReserve from "../Components/MainPage/MyReserve";
-import Header from "../Components/Header/Header";
+import Header from "../Components/Header/MainHeader";
 import Main from "../Components/MainPage/Main";
 import TodayRecomm from "../Components/MainPage/TodayRecomm.js";
 import GoItems from "../Components/MainPage/GoItems";
@@ -115,7 +115,7 @@ const MainPage = () => {
   }, []);
   return (
     <div className="mainpage">
-      <Header pageName={"메인페이지"}></Header>
+      <Header></Header>
       {reservationData && campingData ? (
         <MyReserve
           reservationData={reservationData}

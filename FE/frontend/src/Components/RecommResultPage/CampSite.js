@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./style/CampSite.css"
 const CampSite = (props) => {
+  const navigate = useNavigate();
 
   const campSiteData = props.campSiteList[props.listIdx]
 
@@ -8,10 +10,22 @@ const CampSite = (props) => {
     props.setModalOpen(!props.modalOpen)
   }
 
+  const showMap = () => {
+    navigate("/map", {state : {lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name}})
+  }
+
+  const movePre = () => {
+    props.setListIdx((props.listIdx - 1) % props.numberOfCampSite)
+  }
+
+  const moveNext = () => {
+    props.setListIdx((props.listIdx + 1) % props.numberOfCampSite)
+  }
+
   return (
-    <div className="height-55 section-card">
-      <h4>당신에게 알맞은 캠핑장은</h4>
-      <h3> {(props.campSiteList[props.listIdx].name)} </h3>
+    <div className="height-65 section-card mt-15">
+      <div className="pt-5">당신에게 알맞은 캠핑장은</div>
+      <div className="text-size-3"> {(props.campSiteList[props.listIdx].name)} </div>
       <div className="height-65 container">
         <div className={props.modalOpen ? "open-modal": "close-modal"}>
           <div>
@@ -96,7 +110,20 @@ const CampSite = (props) => {
         </div>
         <img src={props.campSiteList[props.listIdx].thumb} alt="캠핑장 사진" className="width-100"/>
       </div>
-      <button onClick={switchModal} className={"camp-site-detail-btn"}>{props.modalOpen ? "사진 보기": "설명 보기"}</button>
+      <div className="map-explain-btn">
+      <div>
+          <button onClick={movePre} className={"camp-site-move-btn"} disabled={(props.listIdx==1)}>&lt;</button>
+        </div>
+        <div>
+          <button onClick={switchModal} className={"camp-site-detail-btn"}>{props.modalOpen ? "사진 보기": "설명 보기"}</button>
+        </div>
+        <div>
+          <button onClick={showMap} className={"camp-site-detail-btn"}>지도 보기</button>
+        </div>
+        <div>
+          <button onClick={moveNext} className={"camp-site-move-btn"}>&gt;</button>
+        </div>
+      </div>
     </div>
   )
 };
