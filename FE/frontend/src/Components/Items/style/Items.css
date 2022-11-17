@@ -40,6 +40,8 @@
     box-shadow: 2px 4px 5px -3px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .items-after{
@@ -51,11 +53,13 @@
     box-shadow: 2px 4px 5px -3px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .items-icons{
     margin-top: 1vh;
-    width: 18vw;
+    width: 20vw;
     height: 14vw;
     margin-bottom: 1vh;
 }

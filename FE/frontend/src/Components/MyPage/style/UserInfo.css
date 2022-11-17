@@ -25,22 +25,30 @@
 }
 
 .userinfo-id{
+    margin-top: 2vh;  
  display: flex;
  justify-content: space-between;
  width: 90%;
  margin-left: 5%;
 }
-.userinfo-pw{   
+.userinfo-pw{  
+    margin-top: 2vh; 
     display: flex;
     justify-content:space-between;
     width: 90%;
     margin-left: 5%;
 }
 .userinfo-address{
+    margin-top: 2vh;
     display: flex;
     justify-content: space-between;
     width: 90%;
     margin-left: 5%;
+}
+
+.userinfo-userstate{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .userinfo-expbar{
@@ -74,7 +82,7 @@
   width: 130px;
   height: 40px;
   border-radius: 20px;
-  background-color: #2796CB;
+  background-color: #35C2BD;
   border: none;
   font-family: 'twayair';
 }
@@ -84,7 +92,7 @@
   width: 130px;
   height: 40px;
   border-radius: 20px;
-  background-color: #FE0808;
+  background-color: #FF7878;
   border: none;
   font-family: 'twayair';
 }
@@ -92,5 +100,5 @@
 .userinfo-btnbox{
     height: 5vh;
     margin-top: 2vh;
-    padding-bottom: 1vh;
+    margin-bottom: 2vh;
 }

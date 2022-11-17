@@ -19,7 +19,7 @@ const UserInfo = (userData) => {
             alt="캠린"
             className="userinfo-img"
           ></img>
-          <div>캠린이</div>
+          <div className="userinfo-userstate">캠린이</div>
           <div className="userinfo-expbar">
             <div
               className="userinfo-exp"
@@ -44,7 +44,7 @@ const UserInfo = (userData) => {
             alt="캠딩"
             className="userinfo-img"
           ></img>
-          <div>캠딩</div>
+          <div className="userinfo-userstate">캠딩</div>
           <div className="userinfo-expbar">
             <div
               className="userinfo-exp"
@@ -70,7 +70,7 @@ const UserInfo = (userData) => {
             alt="캠대학생"
             className="userinfo-img"
           ></img>
-          <div>캠대학생</div>
+          <div className="userinfo-userstate">캠대학생</div>
           <div className="userinfo-expbar">
             <div
               className="userinfo-exp"
@@ -96,7 +96,7 @@ const UserInfo = (userData) => {
             alt="캠대학원생"
             className="userinfo-img"
           ></img>
-          <div>캠대학원생</div>
+          <div className="userinfo-userstate">캠대학원생</div>
           <div className="userinfo-expbar">
             <div
               className="userinfo-exp"
@@ -119,7 +119,7 @@ const UserInfo = (userData) => {
             alt="캠박사"
             className="userinfo-img"
           ></img>
-          <div>캠박사</div>
+          <div className="userinfo-userstate">캠박사</div>
           <div className="userinfo-expbar">
             <div
               className="userinfo-exp"
