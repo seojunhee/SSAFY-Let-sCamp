@@ -3,6 +3,8 @@ import "./style/ItemPage.css";
 import axios from "axios";
 import LetsCamp from "../api/LetsCamp";
 import Items from "../Components/Items/Items.js";
+import Header from "../Components/Header/Header";
+import NavBar from "../Components/NavBar/NavBar.js";
 
 const ItemPage = () => {
   const [reservationData, SetReservation] = useState();
@@ -60,7 +62,6 @@ const ItemPage = () => {
                 },
               })
               .then(function (response) {
-                console.log(response);
                 SetItems(response.data);
               })
               .catch(function (error) {
@@ -112,7 +113,15 @@ const ItemPage = () => {
       });
   }, []);
 
-  return <div>{items ? <Items item={items}></Items> : null}</div>;
+  return (
+    <div className="itempage">
+      <Header pageName={"준비물페이지"}></Header>
+      {items ? (
+        <Items item={items} category={reservationData[0].category}></Items>
+      ) : null}
+      <NavBar></NavBar>
+    </div>
+  );
 };
 
 export default ItemPage;
