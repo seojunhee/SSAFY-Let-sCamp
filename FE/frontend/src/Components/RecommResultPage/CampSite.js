@@ -14,6 +14,14 @@ const CampSite = (props) => {
     navigate("/map", {state : {lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name}})
   }
 
+  const movePre = () => {
+    props.setListIdx((props.listIdx - 1) % props.numberOfCampSite)
+  }
+
+  const moveNext = () => {
+    props.setListIdx((props.listIdx + 1) % props.numberOfCampSite)
+  }
+
   return (
     <div className="height-55 section-card mt-25">
       <h4>당신에게 알맞은 캠핑장은</h4>
@@ -103,11 +111,17 @@ const CampSite = (props) => {
         <img src={props.campSiteList[props.listIdx].thumb} alt="캠핑장 사진" className="width-100"/>
       </div>
       <div className="map-explain-btn">
+      <div>
+          <button onClick={movePre} className={"camp-site-move-btn"} disabled={(props.listIdx==1)}>&lt;</button>
+        </div>
         <div>
           <button onClick={switchModal} className={"camp-site-detail-btn"}>{props.modalOpen ? "사진 보기": "설명 보기"}</button>
         </div>
         <div>
           <button onClick={showMap} className={"camp-site-detail-btn"}>지도 보기</button>
+        </div>
+        <div>
+          <button onClick={moveNext} className={"camp-site-move-btn"}>&gt;</button>
         </div>
       </div>
     </div>
