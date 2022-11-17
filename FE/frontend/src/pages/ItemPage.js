@@ -4,6 +4,7 @@ import axios from "axios";
 import LetsCamp from "../api/LetsCamp";
 import Items from "../Components/Items/Items.js";
 import Header from "../Components/Header/Header";
+import NavBar from "../Components/NavBar/NavBar.js";
 
 const ItemPage = () => {
   const [reservationData, SetReservation] = useState();
@@ -118,6 +119,7 @@ const ItemPage = () => {
       {items ? (
         <Items item={items} category={reservationData[0].category}></Items>
       ) : null}
+      <NavBar></NavBar>
     </div>
   );
 };

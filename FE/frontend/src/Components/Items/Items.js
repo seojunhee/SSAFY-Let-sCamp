@@ -5,6 +5,12 @@ import "./style/Items.css";
 
 const Items = (item) => {
   const [itemState, SetItem] = useState(item.item);
+  const [textstate, SetText] = useState();
+
+  const texthide = () => {
+    const check = !textstate;
+    SetText(check);
+  };
 
   let url;
   const checking = (itemData) => {
@@ -684,9 +690,23 @@ const Items = (item) => {
 
   return (
     <div className="itempage-items">
-      <div>준비물을 챙겨서 경험치를 획득해보세요!</div>
-      <div>준비물을 챙기시고 터치하세요!</div>
-      <div className="items-before-text">챙겨야 할 물품</div>
+      {textstate ? (
+        <div className="itempage-items-text">
+          준비물을 챙겨서 경험치를 획득해보세요! <br></br> 준비물을 챙기시고
+          터치하세요!
+        </div>
+      ) : null}
+      <div className="items-before-text">
+        <img
+          src="./asset/icons/infomation.png"
+          alt=""
+          onClick={() => {
+            texthide();
+          }}
+          className="itempage-items-infoicon"
+        />
+        챙겨야 할 물품
+      </div>
       {itemState ? (
         <div className="items-before">
           {itemState.map((item, key) => (

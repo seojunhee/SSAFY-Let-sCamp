@@ -3,6 +3,16 @@
     margin-top:5vh;
 }
 
+.itempage-items-text{
+
+}
+
+.itempage-items-infoicon{
+    height: 20px;
+    width: 20px;
+    margin-right: 1vw;
+}
+
 .items-itemicon{
     width: 8vw;
     height: 8vw;
@@ -18,13 +28,14 @@
     margin-top: 7vh;
     margin-bottom: 3vh;
     font-size: 20px;
+    
 }
 
 .items-before{
     width: 90%;
     margin-left: 5%;
     border-radius: 20px;
-    height: 200px;
+    min-height: 8vh;
     background-color: white;
     box-shadow: 2px 4px 5px -3px;
     display: flex;
@@ -35,7 +46,7 @@
     width: 90%;
     margin-left: 5%;
     border-radius: 20px;
-    height: 200px;
+    min-height: 8vh;
     background-color: white;
     box-shadow: 2px 4px 5px -3px;
     display: flex;
@@ -46,4 +57,5 @@
     margin-top: 1vh;
     width: 18vw;
     height: 14vw;
+    margin-bottom: 1vh;
 }
