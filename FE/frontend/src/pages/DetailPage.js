@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Components/Header/Header";
 import Contents from "../Components/Detail/Contents";
 import DetailImg from "../Components/Detail/DetailImg";
@@ -12,9 +12,10 @@ import LetsCamp from "../api/LetsCamp";
 
 const Detail = () => {
   const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
-
+  const [starPoint, setStarPoint] = useState(0)
   const location = useLocation();
   const id = location.state.campingId;
+  const urlStar = LetsCamp.review.rate(id)
 
 
   useEffect(() => {
@@ -34,13 +35,24 @@ const Detail = () => {
         console.log("실패");
         console.log(error);
       });
+    axios
+      .get(urlStar, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.accessToken}`,
+        },
+      })
+      .then(function (response) {
+        setStarPoint(response.data);
+      });
     
   }, []);
 
   return (
     <div className="App recycle-page">
       <Header></Header>
-      <Contents></Contents>
+      <Contents
+        starPoint={starPoint}
+      ></Contents>
       {id 
       ? <Review
           id={id}
