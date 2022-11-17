@@ -15,7 +15,7 @@ const CampSite = (props) => {
   }
 
   return (
-    <div className="height-55 section-card">
+    <div className="height-55 section-card mt-25">
       <h4>당신에게 알맞은 캠핑장은</h4>
       <h3> {(props.campSiteList[props.listIdx].name)} </h3>
       <div className="height-65 container">
