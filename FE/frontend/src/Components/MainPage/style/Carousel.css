@@ -7,11 +7,15 @@
 }
 .carousel-img{
     width: 90vw;
-    height: 38vh;
+    height: 30vh;
 }
 .carousel-text{
- font-size: 20px;
+  font-size: 20px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 .carousel-name{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     font-size: 24px;
 }
