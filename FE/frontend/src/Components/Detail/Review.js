@@ -94,7 +94,7 @@ const Review = (id) => {
                     <div>
                       {reviewData.userNickName}
                     </div>
-                    <div>
+                    <div className="detail-date">
                       {reviewData.date}
                     </div>
                   </div>

@@ -58,6 +58,9 @@
     font-size: 16px;
     width: 270px;
 }
+.detail-date {
+    color: #9f9f9f;
+}
 
 .detail-content-box{
     display: flex;
@@ -91,5 +94,5 @@
 }
 .empty-star {
     color: transparent;
-    text-shadow: 0 0 0 #f0f0f0;
+    text-shadow: 0 0 0 #9f9f9f;
 }
