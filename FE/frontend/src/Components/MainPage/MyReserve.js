@@ -11,29 +11,33 @@ const MyReserve = ({ reservationData, campingData }) => {
   }, []);
 
   return (
-    <div className="mainpage-myreserve">
-      <div>
-        {reservationData ? (
-          <div className="mainpage-myreserve-reservebox">
-            <div className="mainpage-myreserve-title">
-              당신이 예약한 캠핑장은
+    <div>
+      {reservationData ? (
+        <div>
+          <div className="mainpage-myreserve">
+            <div className="mainpage-myreserve-reservebox">
+              <div className="mainpage-myreserve-title">
+                당신이 예약한 캠핑장은
+              </div>
+              <div className="mainpage-myreserve-title">{campingData.name}</div>
+              <img
+                src={campingData.thumb}
+                alt="예약한 캠핑장 사진"
+                className="mainpage-myreserve-img"
+              ></img>
+              <div className="mainpage-myreserve-day">
+                캠핑장 예약 날짜까지 {day}일 남았습니다.
+              </div>
+              <br></br>
             </div>
-            <div className="mainpage-myreserve-title">{campingData.name}</div>
-            <img
-              src={campingData.thumb}
-              alt="예약한 캠핑장 사진"
-              className="mainpage-myreserve-img"
-            ></img>
-            <div className="mainpage-myreserve-day">
-              캠핑장 예약 날짜까지 {day}일 남았습니다.
-            </div>
-            <br></br>
+          </div>
+          <div className="mainpage-myreserve-todo">
             <Todos reservationData={reservationData} day={day}></Todos>
           </div>
-        ) : (
-          <h1>예약정보 없음</h1>
-        )}
-      </div>
+        </div>
+      ) : (
+        <h1>예약정보 없음</h1>
+      )}
     </div>
   );
 };

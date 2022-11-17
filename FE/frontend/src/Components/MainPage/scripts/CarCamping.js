@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LetsCamp from "../../../api/LetsCamp.js";
+import "./style/CarCamping.css";
 const CarCamping = (day) => {
   const [time, SetTime] = useState();
   const [todoState, SetTodo] = useState(1);
@@ -22,6 +23,7 @@ const CarCamping = (day) => {
     activeSlide2: 0,
   };
 
+  /*
   const settings = {
     dots: true,
     infinite: false,
@@ -37,7 +39,7 @@ const CarCamping = (day) => {
     },
     afterChange: (current) => (state.activeSlide2 = current),
   };
-
+*/
   useEffect(() => {
     const time = new Date().getHours();
     SetTime(time);
@@ -94,205 +96,526 @@ const CarCamping = (day) => {
       return (
         <div>
           {checkState ? (
-            <Slider {...settings} ref={sliderRef}>
+            <div className="main-todobox">
+              <div className="main-todobox-level">미리 준비할 것</div>
+              <hr></hr>
               <div
-                className={checkState[0].done === true ? "checked" : null}
+                className="main-todo-carcamping"
                 onClick={() => {
                   todoCheck(checkState[0]);
                 }}
               >
-                자신이 예약한 캠핑장의 유형이 어떠한 유형인지 체크하고 필요한
-                용품을 확인한다.
+                <div className="main-todo-carcamping-text">
+                  자신이 예약한 캠핑장의 유형이 어떠한 유형인지 체크하고 필요한
+                  용품을 확인
+                </div>
+                {checkState[0].done === true ? (
+                  <img
+                    src="/asset/icons/ok.png"
+                    alt=""
+                    className="main-todo-carcamping-img"
+                  />
+                ) : (
+                  <img
+                    src="/asset/icons/not.png"
+                    alt=""
+                    className="main-todo-carcamping-img"
+                  />
+                )}
               </div>
+              <hr></hr>
               <div
-                className={checkState[1].done === true ? "checked" : null}
+                className="main-todo-carcamping"
                 onClick={() => {
                   todoCheck(checkState[1]);
                 }}
               >
-                차량용 텐트, 차량용 평탄화 매트, 차량용 냉장고, 침구류, 테이블,
-                의자, 조명, 버너, 화로대, 릴선, 멀티탭 등 바로 구하기 힘든
-                캠핑용품을 먼저 준비
+                <div className="main-todo-carcamping-text">
+                  바로 구하기 힘든 차량용텐트, 차량용 평탄화 매트, 침구류,
+                  테이블, 의자, 조명, 버너, 화로대, 릴선, 멀티탭 등의 캠핑용품을
+                  먼저 준비
+                </div>
+                {checkState[1].done === true ? (
+                  <img
+                    src="/asset/icons/ok.png"
+                    alt=""
+                    className="main-todo-carcamping-img"
+                  />
+                ) : (
+                  <img
+                    src="/asset/icons/not.png"
+                    alt=""
+                    className="main-todo-carcamping-img"
+                  />
+                )}
               </div>
+              <hr></hr>
               <div
-                className={checkState[2].done === true ? "checked" : null}
+                className="main-todo-carcamping"
                 onClick={() => {
                   todoCheck(checkState[2]);
                 }}
               >
-                예약한 캠핑장 정보를 레츠캠프를 이용하여 확인하고 해당 캠핑장에
-                없어서 미리 준비해야할 용품을 따로 준비한다.
+                <div className="main-todo-carcamping-text">
+                  예약한 캠핑장 정보를 레츠캠프를 이용하여 확인하고 해당
+                  캠핑장에 없어서 미리 준비해야할 용품을 따로 준비한다.
+                </div>
+                {checkState[2].done === true ? (
+                  <img
+                    src="/asset/icons/ok.png"
+                    alt=""
+                    className="main-todo-carcamping-img"
+                  />
+                ) : (
+                  <img
+                    src="/asset/icons/not.png"
+                    alt=""
+                    className="main-todo-carcamping-img"
+                  />
+                )}
               </div>
-            </Slider>
+            </div>
           ) : null}
         </div>
       );
     } else if (todoState === 2) {
       return (
-        <div>
-          <Slider {...settings} ref={sliderRef}>
-            <div
-              className={checkState[3].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[3]);
-              }}
-            >
+        <div className="main-todobox">
+          <div className="main-todobox-level"> 출발 직전 준비</div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[3]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               미리 준비해둔 캠핑용품 다시 확인
             </div>
-            <div
-              className={checkState[4].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[4]);
-              }}
-            >
+            {checkState[3].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[4]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               아이스박스를 준비했다면 아이스박스를 비워둔 채로 이동 → 이후 장을
               볼 때 얼음을 사서 같이 산 물, 음료, 술 등과 함께 넣어 다시
               이동하는 것이 편리
             </div>
-            <div
-              className={checkState[5].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[5]);
-              }}
-            >
+            {checkState[4].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[5]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               침구류, 세면도구, 조리도구, 비상약, 슬리퍼를 챙긴다.
             </div>
-            <div
-              className={checkState[6].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[6]);
-              }}
-            >
+            {checkState[5].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[6]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               깨끗한 캠핑장 이용을 위해 설거지통을 준비하고 캠핑을 하며 발생하는
               쓰레기 처리를 위해 쓰레기봉투를 준비한다.
             </div>
-            <div
-              className={checkState[7].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[7]);
-              }}
-            >
+            {checkState[6].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[7]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               감성충전을 위한 블루투스 스피커를 챙긴다.
             </div>
-          </Slider>
+            {checkState[7].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
         </div>
       );
     } else if (todoState === 3) {
       return (
-        <div>
-          <Slider {...settings} ref={sliderRef}>
-            <div
-              className={checkState[8].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[8]);
-              }}
-            >
+        <div className="main-todobox">
+          <div className="main-todobox-level">오토캠핑 도착 이후</div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[8]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               짐을 내리고 차량 2열을 내리고 차량용 평탄화 매트를 설치한다.
-            </div>
-            <div
-              className={checkState[9].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[9]);
-              }}
-            >
               차량용 텐트를 설치하는 것은 꽤나 오래 걸리고 꽤나 힘들다. 미리
               테이블과 의자를 설치해서 중간 중간 쉴 수 있도록 한다.
             </div>
-            <div
-              className={checkState[10].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[10]);
-              }}
-            >
-              차량용 텐트를 설치하고 나면 식사를 위한 세팅을 한다. 부탄가스,
-              버너, 그릴 등을 설치하고 점심식사를 진행한다.
+            {checkState[8].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[9]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
+              일부 차량의 배터리는 차량의 문을 열었을 경우에도 닳는다.
+              되도록이면 문을 닫아야 한다.
             </div>
-            <div
-              className={checkState[11].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[11]);
-              }}
-            >
+            {checkState[9].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[10]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
+              점심 식사를 위한 세팅을 한다. 부탄가스, 버너, 그릴 등을 설치하고
+              점심식사를 진행한다.
+            </div>
+            {checkState[10].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[11]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               캠핑장에서의 시간은 생각보다 빠르게 흐른다. 식사를 하고 난 후에
               저녁식사를 준비할 마음가짐을 해야한다. 설거지를 하고 점심 식사를
               하며 발생한 쓰레기를 정리한다.
             </div>
-            <div
-              className={checkState[12].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[12]);
-              }}
-            >
+            {checkState[11].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[12]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               여유롭게 시간을 즐겨라. 블루투스 스피커는 옆 사이트의 사람들에게
               피해가지 않을 정도의 음량으로 즐기고 너무 시끄럽게 떠들지않는다면
               당신의 시간도 보장받는다.
             </div>
-            <div
-              className={checkState[13].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[13]);
-              }}
-            >
-              해가 떨어지면 조명을 키고, 화로대에 장작을 올리고 불을 붙여 감성을
-              더해라
+            {checkState[12].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[13]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
+              조명과 음악과 분위기를 느끼며 저녁을 먹어라. 점심식사와 마찬가지로
+              바로바로 정리하는 것이 좋다.
             </div>
-            <div
-              className={checkState[14].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[14]);
-              }}
-            >
-              저녁식사 = 점심식사
+            {checkState[13].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[14]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
+              가져온 감성템 (조명, 음악 등) 을 이용하여 자신만의 감성에 흠뻑
+              젖어라. 화로대에 장작을 올리고 불을 붙여 감성을 더해라
             </div>
-            <div
-              className={checkState[15].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[15]);
-              }}
-            >
+            {checkState[14].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[15]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               저녁 시간에는 더욱 더 조심할 필요가 있다. 최대한 피해가 가지
               않도록 즐긴다.
             </div>
-          </Slider>
+            {checkState[15].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
         </div>
       );
     } else if (todoState === 4) {
       return (
-        <div>
-          <Slider {...settings} ref={sliderRef}>
-            <div
-              className={checkState[16].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[16]);
-              }}
-            >
+        <div className="main-todobox">
+          <div className="main-todobox-level"> 오토캠핑 마무리</div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[16]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               캠핑장 도착 후 캠핑을 준비한 것의 역순으로 진행한다.
             </div>
-            <div
-              className={checkState[17].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[17]);
-              }}
-            >
-              머무른 자리는 티도 안나게끔 깨끗하게 치운다.{" "}
+            {checkState[16].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[17]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
+              머무른 자리는 티도 안나게끔 깨끗하게 치운다.
             </div>
-            <div
-              className={checkState[18].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[18]);
-              }}
-            >
+            {checkState[17].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[18]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               캠핑장의 시간을 돌아보며 귀가한다.
             </div>
-            <div
-              className={checkState[19].done === true ? "checked" : null}
-              onClick={() => {
-                todoCheck(checkState[19]);
-              }}
-            >
+            {checkState[18].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
+          <hr></hr>
+          <div
+            className="main-todo-carcamping"
+            onClick={() => {
+              todoCheck(checkState[19]);
+            }}
+          >
+            <div className="main-todo-carcamping-text">
               다시 레츠캠프를 이용한다.
             </div>
-          </Slider>
+            {checkState[19].done === true ? (
+              <img
+                src="/asset/icons/ok.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            ) : (
+              <img
+                src="/asset/icons/not.png"
+                alt=""
+                className="main-todo-carcamping-img"
+              />
+            )}
+          </div>
         </div>
       );
     }
