@@ -112,7 +112,7 @@ public class UserController {
         String userId = response.getHeader(tokenUserId);
         UserFindResponse user = userService.findByUserId(userId);
         request.setId(user.getId());
-        request.setExp(exp);
+        request.setExp(user.getExp() + exp);
         Long id = userService.updateExp(request);
         return new UserUpdateResponse(id);
     }
