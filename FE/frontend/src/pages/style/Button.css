@@ -37,3 +37,8 @@
   border-radius: 10px;
   border: black solid 1px;
 }
+
+.detail-btn-box {
+  display: flex;
+  justify-content: space-around;
+}

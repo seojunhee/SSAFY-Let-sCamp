@@ -2,16 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./style/CampSite.css"
 const CampSite = (props) => {
-  const navigate = useNavigate();
 
   const campSiteData = props.campSiteList[props.listIdx]
 
   const switchModal = () => {
     props.setModalOpen(!props.modalOpen)
-  }
-
-  const showMap = () => {
-    navigate("/map", {state : {lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name}})
   }
 
   const movePre = () => {
@@ -116,9 +111,6 @@ const CampSite = (props) => {
         </div>
         <div>
           <button onClick={switchModal} className={"camp-site-detail-btn"}>{props.modalOpen ? "사진 보기": "설명 보기"}</button>
-        </div>
-        <div>
-          <button onClick={showMap} className={"camp-site-detail-btn"}>지도 보기</button>
         </div>
         <div>
           <button onClick={moveNext} className={"camp-site-move-btn"}>&gt;</button>

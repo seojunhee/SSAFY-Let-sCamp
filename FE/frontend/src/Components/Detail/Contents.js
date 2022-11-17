@@ -7,37 +7,14 @@ import axios from "axios";
 import LetsCamp from "../../api/LetsCamp";
 import "./style/contents.css";
 
-const Contents = () => {
-  const navigate = useNavigate();
+const Contents = (props) => {
   const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
-  const [starPoint, setStarPoint] = useState(0)
-  
-  const urlStar = LetsCamp.review.rate(campSiteData.id)
-
-  const search = () => {
-    console.log(campSiteData.lat);
-    console.log(campSiteData.lon);
-    navigate("/map", {state:{ lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name, address: campSiteData.address }});
-  };
-
-  useEffect(() => {
-    axios
-      .get(urlStar, {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.accessToken}`,
-        },
-      })
-      .then(function (response) {
-        setStarPoint(response.data);
-      });
-
-  },[])
     
   return (
-    <div className="detail-contents p-y-1 section-card">
+    <div className="p-y-1 section-card my-5">
       <div>
         <div className="detailimg-title">{campSiteData.name}</div>
-        <div className="detail-title-star">⭐ {starPoint}</div>
+        <div className="detail-title-star">⭐ {props.starPoint}</div>
         <img
           src={campSiteData.thumb}
           alt="대충 이미지"
@@ -119,7 +96,7 @@ const Contents = () => {
               className="detail-contents-icons"
             ></img>
           </div>
-          <div className="detail-contents-text">{campSiteData.keywords || "태그없음"}</div>
+          <div className="detail-contents-tag">{campSiteData.keywords || "태그없음"}</div>
         </div>
       </div>
     </div>

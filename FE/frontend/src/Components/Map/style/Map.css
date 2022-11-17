@@ -4,5 +4,9 @@
 }
 
 .map-label {
-    padding: 1%;
+    word-break: keep-all;
+}
+
+.overlaybox {
+    background-color: red;
 }
