@@ -8,14 +8,7 @@ import LetsCamp from "../../api/LetsCamp";
 import "./style/contents.css";
 
 const Contents = (props) => {
-  const navigate = useNavigate();
   const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
-
-  const search = () => {
-    console.log(campSiteData.lat);
-    console.log(campSiteData.lon);
-    navigate("/map", {state:{ lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name, address: campSiteData.address }});
-  };
     
   return (
     <div className="p-y-1 section-card my-5">

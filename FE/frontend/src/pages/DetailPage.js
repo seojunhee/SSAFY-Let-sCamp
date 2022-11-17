@@ -26,6 +26,12 @@ const Detail = () => {
     navigate("/reserve", {state: {"data": campSiteData}});
   }
 
+  const search = () => {
+    console.log(campSiteData.lat);
+    console.log(campSiteData.lon);
+    navigate("/map", {state:{ lat: campSiteData.lat, lon: campSiteData.lon, name: campSiteData.name, address: campSiteData.address }});
+  };
+
 
   useEffect(() => {
     const url = LetsCamp.camping.getOne(id);
@@ -62,7 +68,8 @@ const Detail = () => {
       <Contents
         starPoint={starPoint}
       ></Contents>
-      <div className="reserve-btn-box my-5">
+      <div className="detail-btn-box my-5">
+        <button onClick={ search } className="w-btn">지도로 보기</button>
         <button onClick={ toReserve } className="w-btn w-btn-blue">Let's Camp!</button>
       </div>
       {id 
