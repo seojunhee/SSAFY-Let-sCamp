@@ -12,8 +12,10 @@ import LetsCamp from "../api/LetsCamp";
 
 const Detail = () => {
   const [campSiteData, SetCampSite] = useRecoilState(campSiteState);
+
   const location = useLocation();
   const id = location.state.campingId;
+
 
   useEffect(() => {
     const url = LetsCamp.camping.getOne(id);
@@ -32,13 +34,18 @@ const Detail = () => {
         console.log("실패");
         console.log(error);
       });
+    
   }, []);
 
   return (
     <div className="App recycle-page">
       <Header pageName={"상세 정보"}></Header>
       <Contents></Contents>
-      {id ? <Review id={id}></Review> : <div></div>}
+      {id 
+      ? <Review
+          id={id} 
+        ></Review> 
+      : <div></div>}
       <NavBar></NavBar>
     </div>
   );

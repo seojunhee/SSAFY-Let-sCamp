@@ -42,6 +42,7 @@ const letsCamp = {
     get: (campingId) => Host + Review + `/${campingId}`,
     delete: (id) => Host + Review + `/${id}`,
     getUserReview: () => Host + Review + "/user",
+    rate: (campingId) => Host + 'reviewRate' + `/${campingId}`,
   },
   reservation: {
     getReserve: () => Host + Reservation,

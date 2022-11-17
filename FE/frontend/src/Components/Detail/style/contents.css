@@ -21,3 +21,10 @@
     width: 20px;
     height: 20px;
 }
+
+.detail-contents-text {
+    padding-left: 2%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
