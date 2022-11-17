@@ -22,11 +22,11 @@ const CampSite = (props) => {
 
   return (
     <>
-      <div className="grid">
-        <div className="item col-4">
-          <img src={props.campSiteData.thumb} className="img" alt="캠핑장 사진" />
+      <div className="">
+        <div className="width-100">
+          <img src={props.campSiteData.thumb} className="width-100" alt="캠핑장 사진" />
         </div>
-        <div className="item col-8">
+        <div className="">
           
           <div className="outer-div text-h3">
             {props.campSiteData.name}

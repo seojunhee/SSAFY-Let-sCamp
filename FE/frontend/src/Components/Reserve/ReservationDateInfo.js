@@ -37,7 +37,7 @@ const ReservationInfo = (props) => {
             }
           </div>
         </div>
-        <button className="w-btn" onClick={toggleIsActive} disabled={disableBtn}>
+        <button className="camp-site-detail-btn" onClick={toggleIsActive} disabled={disableBtn}>
           {!!props.isDateActive ? "완료" : "수정"}
         </button>
         </div>
