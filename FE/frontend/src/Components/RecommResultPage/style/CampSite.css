@@ -3,3 +3,8 @@
 
   background-size: cover;
 }
+
+.map-explain-btn {
+  display: flex;
+  justify-content: space-around;
+}

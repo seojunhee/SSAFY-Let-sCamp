@@ -193,7 +193,7 @@ const ChoiceButton = (props) => {
 
   const question5 = (
     <div>
-      <div className={"height-55 outer-div"}>
+      <div className={"height-55 question5-6"}>
         <Calendar
           calendarType="US"
           onChange={ onChangeDate }

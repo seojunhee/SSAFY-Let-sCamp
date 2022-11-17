@@ -24,11 +24,12 @@ const RecommendResult = () => {
     <div style={{height: "100%"}} className={"recycle-page"}>
       <Header pageName="캠핑장 추천"/>
       <CampSite 
-        campSiteList={ campSiteList }
+        campSiteList={campSiteList}
         listIdx={listIdx}
         setListIdx={setListIdx}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
+        numberOfCampSite={numberOfCampSite}
       />
       <MoreButton 
         campSiteList={ campSiteList }

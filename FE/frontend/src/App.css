@@ -327,3 +327,25 @@ hr{
   border: 0;
 }
 
+.mt-30 {
+  margin-top: 30%;
+}
+.mt-25 {
+  margin-top: 25%;
+}
+.mt-20 {
+  margin-top: 20%;
+}
+.mt-15 {
+  margin-top: 15%;
+}
+
+.pt-15 {
+  padding-top: 15%;
+}
+.pt-10 {
+  padding-top: 10%;
+}
+.pt-5 {
+  padding-top: 5%;
+}

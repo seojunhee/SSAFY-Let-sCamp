@@ -36,8 +36,18 @@
 
 .camp-site-detail-btn {
   border: none;
-  padding: 2% 4%;
+  width: 75px;
+  height: 30px;
   border-radius: 15px;
+  box-shadow: 2px 4px 5px -3px;
+  transition: 0.25s;
+}
+
+.camp-site-move-btn {
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
   box-shadow: 2px 4px 5px -3px;
   transition: 0.25s;
 }
