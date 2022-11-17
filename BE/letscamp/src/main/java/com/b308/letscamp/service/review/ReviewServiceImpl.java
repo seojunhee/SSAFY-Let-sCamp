@@ -115,4 +115,16 @@ public class ReviewServiceImpl implements ReviewService {
     public void delete(Long id) {
         reviewRepository.deleteById(id);
     }
+
+	@Override
+	public double getAverage(Long campingId) {
+		List<Review> reviews = reviewRepository.findByCampingId(campingId);
+		double size = reviews.size();
+		double sum = 0;
+		for (int i = 0; i < reviews.size(); i++) {
+			sum += reviews.get(i).getRate();
+		}
+		
+		return sum / size;
+	}
 }

@@ -10,6 +10,7 @@ import java.util.List;
 public interface ReviewService {
     List<ReviewFindAllResponse> findByCampingId(Long campId);
     List<ReviewFindResponse> findByUserId(String userId);
+    double getAverage(Long campingId);
     Long create(String userId, Long campingId, ReviewSaveRequest dto);
     Long update(ReviewUpdateRequest dto);
     void delete(Long id);

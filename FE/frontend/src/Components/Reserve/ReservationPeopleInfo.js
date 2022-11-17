@@ -10,6 +10,7 @@ const ReservationInfo = (props) => {
 
   const withPet = () => {
     setPetNum(1)
+    console.log(props.campSiteData.animal==="불가능")
     props.setContent({"성인": adultNum, "유아": babyNum, "반려동물": 1})
   }
 
@@ -61,7 +62,7 @@ const ReservationInfo = (props) => {
             : "인원 입력 후 완료 버튼을 눌러 주세요."}
           </div>
         </div>
-        <button className="w-btn" onClick={toggleIsActive}>
+        <button className="camp-site-detail-btn" onClick={toggleIsActive}>
           {!!props.isPeopleActive ? "완료" : "수정"}
         </button>
       </div>
@@ -73,13 +74,13 @@ const ReservationInfo = (props) => {
               <div className="outer-div">
                 성인
               <div className="container">
-              <button className="w-btn" onClick={minusAdultNum} disabled={(adultNum <= 1)}>
+              <button className="add-minus-btn" onClick={minusAdultNum} disabled={(adultNum <= 1)}>
                 -
               </button>
               <div className="w-btn">
                 {adultNum}
               </div>
-              <button className="w-btn" onClick={addAdultNum} disabled={(adultNum >= 4)}>
+              <button className="add-minus-btn" onClick={addAdultNum} disabled={(adultNum >= 4)}>
                 +
               </button>
               </div>
@@ -87,13 +88,13 @@ const ReservationInfo = (props) => {
             <div className="outer-div">
               유아
               <div className="container">
-                <button className="w-btn" onClick={minusBabyNum} disabled={(babyNum <= 0)}>
+                <button className="add-minus-btn" onClick={minusBabyNum} disabled={(babyNum <= 0)}>
                   -
                 </button>
                 <div className="w-btn">
                   {babyNum}
                 </div>
-                <button className="w-btn" onClick={addBabyNum}>
+                <button className="add-minus-btn" onClick={addBabyNum}>
                   +
                 </button>
               </div>
@@ -103,8 +104,12 @@ const ReservationInfo = (props) => {
                   반려동물
                 </div>
                 
-                  <div className={!props.content["반려동물"]? "w-btn" : "w-btn div-blue"} onClick={withPet}>동반</div>
-                  <div className={!props.content["반려동물"]? "w-btn div-blue" : "w-btn"} onClick={notPet}>비동반</div>
+                  <button
+                   className={!props.content["반려동물"]? "w-btn" : "w-btn div-blue"}
+                   onClick={withPet}
+                   disabled={(props.campSiteData.animal==="불가능")}
+                  >동반</button>
+                  <button className={!props.content["반려동물"]? "w-btn div-blue" : "w-btn"} onClick={notPet}>비동반</button>
                 
 
               </div>
