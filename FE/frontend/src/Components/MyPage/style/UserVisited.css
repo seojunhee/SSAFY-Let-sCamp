@@ -27,9 +27,8 @@
 
 .uservisited-campsitename{
     margin-top: 1vh;
+    padding-left: 2%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 16px;
     width: 270px;
 }
