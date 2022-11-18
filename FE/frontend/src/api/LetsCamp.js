@@ -42,7 +42,7 @@ const letsCamp = {
     get: (campingId) => Host + Review + `/${campingId}`,
     delete: (id) => Host + Review + `/${id}`,
     getUserReview: () => Host + Review + "/user",
-    rate: (campingId) => Host + 'reviewRate' + `/${campingId}`,
+    rate: (campingId) => Host + "reviewRate" + `/${campingId}`,
   },
   reservation: {
     getReserve: () => Host + Reservation,
@@ -92,9 +92,8 @@ const letsCamp = {
       Host + Task + `/${reservationId}/${level}/${subLevel}`,
   },
   classification: {
-    classify: (filename) => Host + "classification/" + filename
-  }
-
+    classify: (filename) => Host + "classification/" + filename,
+  },
 };
 
 export default letsCamp;

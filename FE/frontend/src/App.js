@@ -14,7 +14,7 @@ import MapPage from "./pages/MapPage";
 import MainPage from "./pages/MainPage";
 import SearchPage from "./pages/SearchPage.js";
 import Recycle from "./pages/RecyclePage";
-import Review from "./Components/MainPage/Result.js";
+import Review from "./pages/Result.js";
 import Item from "./pages/ItemPage.js";
 
 function App() {
