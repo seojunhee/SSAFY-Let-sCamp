@@ -5,9 +5,18 @@ import "./style/MyReserve.css";
 const MyReserve = ({ reservationData, campingData }) => {
   const [day, SetDay] = useState();
 
+  console.log(reservationData);
+
   useEffect(() => {
     const date = new Date();
-    SetDay(reservationData[0].startDate.substring(8, 10) - date.getDate());
+    const month =
+      reservationData[0].startDate.substring(5, 7) - (date.getMonth() + 1);
+    const lastday = month * 30;
+    SetDay(
+      parseInt(lastday) +
+        parseInt(reservationData[0].startDate.substring(8, 10)) -
+        parseInt(date.getDate())
+    );
   }, []);
 
   return (
