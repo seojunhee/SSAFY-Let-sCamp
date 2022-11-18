@@ -25,6 +25,9 @@ const MainPage = () => {
       })
       .then(function (response) {
         SetReservation(response.data);
+        sessionStorage.setItem("campingId", response.data[0].campingId);
+        sessionStorage.setItem("reservationId", response.data[0].id);
+        sessionStorage.setItem("category", response.data[0].category);
         const getOne = LetsCamp.camping.getOne(response.data[0].campingId);
         axios
           .get(getOne, {
@@ -34,6 +37,10 @@ const MainPage = () => {
           })
           .then(function (response) {
             SetCamping(response.data);
+            console.log(response.data.name);
+            console.log(response.data.thumb);
+            sessionStorage.setItem("name", response.data.name);
+            sessionStorage.setItem("thumb", response.data.thumb);
           })
           .catch(function (error) {
             console.log(error);

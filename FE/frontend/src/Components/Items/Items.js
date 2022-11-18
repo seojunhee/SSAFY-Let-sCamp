@@ -683,6 +683,23 @@ const Items = (item) => {
             {items.items.item}
           </div>
         );
+      case "텐트":
+        return (
+          <div
+            onClick={() => {
+              checking(items.items);
+            }}
+            className="items-icons"
+          >
+            <img
+              src="./asset/itemIcons/tent.png"
+              alt="텐트"
+              className="items-itemicon"
+            />
+            <br></br>
+            {items.items.item}
+          </div>
+        );
       default:
         return <div>아이템이 없습니다.</div>;
     }
