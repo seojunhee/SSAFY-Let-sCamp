@@ -7,46 +7,15 @@ const UserVisited = (reviewdata) => {
   const [reviewData, SetReview] = useState(reviewdata);
 
   const Rate = (reviewData) => {
-    if (reviewData.reviewData.rate > 4) {
-      return (
-        <div className="uservisited-rate">
-          ⭐⭐⭐⭐⭐({reviewData.reviewData.rate})
-        </div>
-      );
-    } else if (
-      reviewData.reviewData.rate > 3 &&
-      reviewData.reviewData.rate <= 4
-    ) {
-      return (
-        <div className="uservisited-rate">
-          ⭐⭐⭐⭐({reviewData.reviewData.rate})
-        </div>
-      );
-    } else if (
-      reviewData.reviewData.rate > 2 &&
-      reviewData.reviewData.rate <= 3
-    ) {
-      return (
-        <div className="uservisited-rate">
-          ⭐⭐⭐({reviewData.reviewData.rate})
-        </div>
-      );
-    } else if (
-      reviewData.reviewData.rate > 1 &&
-      reviewData.reviewData.rate <= 2
-    ) {
-      return (
-        <div className="uservisited-rate">
-          ⭐⭐({reviewData.reviewData.rate})
-        </div>
-      );
-    } else if (reviewData.reviewData.rate > 0) {
-      return (
-        <div className="uservisited-rate">⭐({reviewData.reviewData.rate})</div>
-      );
-    } else {
-      return <div>별점 정보가 없습니다.</div>;
-    }
+    return (
+      <div className="detail-star">
+        <div className={(reviewData.reviewData.rate >= 1) ? "" : "empty-star"}>⭐</div>
+        <div className={(reviewData.reviewData.rate >= 2) ? "" : "empty-star"}>⭐</div>
+        <div className={(reviewData.reviewData.rate >= 3) ? "" : "empty-star"}>⭐</div>
+        <div className={(reviewData.reviewData.rate >= 4) ? "" : "empty-star"}>⭐</div>
+        <div className={(reviewData.reviewData.rate >= 5) ? "" : "empty-star"}>⭐</div>
+      </div>
+    )
   };
 
   const List = () => {
