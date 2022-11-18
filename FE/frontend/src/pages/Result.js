@@ -38,7 +38,6 @@ const Result = () => {
   };
 
   const handleStarClick = (clickedIndex) => {
-    console.log(clickedIndex + 1);
     SetRate(clickedIndex + 1);
     const prevRateValue = [...rateValue];
     const isClickedStarActive = prevRateValue[clickedIndex];
@@ -134,7 +133,6 @@ const Result = () => {
         }
       )
       .then(function (response) {
-        console.log(response);
         const url2 = letscamp.task.get(sessionStorage.getItem("reservationId"));
         axios
           .get(url2, {
@@ -143,7 +141,6 @@ const Result = () => {
             },
           })
           .then(function (response) {
-            console.log(response);
             for (let i = 0; i < response.data.length; i++) {
               if (response.data[i].done === true) {
                 exp = exp + 10;
@@ -166,7 +163,6 @@ const Result = () => {
                 sessionStorage.getItem("reservationId")
               );
             }
-            console.log(url3);
             axios
               .get(url3, {
                 headers: {
@@ -174,7 +170,6 @@ const Result = () => {
                 },
               })
               .then(function (response) {
-                console.log(response);
                 for (let i = 0; i < response.data.length; i++) {
                   if (response.data[i].check === true) {
                     if (response.data[i].level === 1) {
@@ -200,7 +195,6 @@ const Result = () => {
                     }
                   )
                   .then(function (response) {
-                    console.log(response);
                     if (sessionStorage.getItem("category") === "일반야영장") {
                       url5 = letscamp.normal.delete(
                         sessionStorage.getItem("reservationId")
@@ -231,7 +225,6 @@ const Result = () => {
                         },
                       })
                       .then(function (response) {
-                        console.log(response);
                         const url6 = letscamp.reservation.delete(
                           sessionStorage.getItem("reservationId")
                         );
@@ -276,26 +269,26 @@ const Result = () => {
     <div className="result">
       <Header></Header>
       <div className="result-myreserve">
-        <div>리뷰를 남기고 경험치를 획득하세요!</div>
+        <div className="result-myreserve-toptext">
+          리뷰를 남기고 경험치를 획득하세요!
+        </div>
         <div className="result-myreserve-reservebox">
           <div className="result-myreserve-title-box">
-            <div className="result-myreserve-title">당신이 예약한 캠핑장은</div>
-            <div className="result-myreserve-title">
-              {sessionStorage.getItem("name")}
-            </div>
+            <div className="result-myreserve-title">당신이 다녀온 캠핑장은</div>
           </div>
           <img
             src={sessionStorage.getItem("thumb")}
             alt="예약한 캠핑장 사진"
             className="result-myreserve-img"
           ></img>
+          <div className="result-myreserve-title">
+            {sessionStorage.getItem("name")}
+          </div>
         </div>
         <div className="result-reviewbox">
-          <div className="result-text">
-            이전에 갔던 캠핑장은 마음에 들었나요?
-          </div>
+          <div className="result-text">캠핑장은 마음에 들었나요?</div>
           <br></br>
-          <div>별점주기</div>
+          <div>별점과 리뷰 남기기</div>
           <div className="star-box">
             {starArray.map((star, index) => {
               return (
@@ -306,9 +299,9 @@ const Result = () => {
                   onMouseLeave={() => handleStarMouseout()}
                 >
                   {rateValue[star] ? (
-                    <div className="star">★</div>
+                    <div className="star">⭐</div>
                   ) : (
-                    <div className="star">☆</div>
+                    <div className="star-none">☆</div>
                   )}
                 </div>
               );

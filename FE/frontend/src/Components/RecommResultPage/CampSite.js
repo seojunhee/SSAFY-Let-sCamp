@@ -107,7 +107,7 @@ const CampSite = (props) => {
       </div>
       <div className="map-explain-btn">
       <div>
-          <button onClick={movePre} className={"camp-site-move-btn"} disabled={(props.listIdx==1)}>&lt;</button>
+          <button onClick={movePre} className={"camp-site-move-btn"} disabled={(props.listIdx==0)}>&lt;</button>
         </div>
         <div>
           <button onClick={switchModal} className={"camp-site-detail-btn"}>{props.modalOpen ? "사진 보기": "설명 보기"}</button>
