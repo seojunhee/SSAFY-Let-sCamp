@@ -22,7 +22,6 @@ const Mypage = () => {
       .then(function (response) {
         console.log(response.data);
         SetUser(response.data);
-        console.log(userData);
       })
       .catch(function (error) {
         console.log("실패");

@@ -348,7 +348,10 @@ const Glamping = (day) => {
               todoCheck(checkState[9]);
             }}
           >
-            <div className="main-todo-glamping-text">저녁식사 = 점심식사</div>
+            <div className="main-todo-glamping-text">
+              음악과 분위기를 느끼며 저녁을 먹어라. 점심식사와 마찬가지로
+              바로바로 정리하는 것이 좋다.{" "}
+            </div>
             {checkState[9].done === true ? (
               <img
                 src="/asset/icons/ok.png"
@@ -371,7 +374,9 @@ const Glamping = (day) => {
             }}
           >
             <div className="main-todo-glamping-text">
-              사무실에 연락하여 장작과 화로대를 지급받아 불멍을 준비해라
+              글램핑장의 대부분은 장작과 화로대를 제공한다. 사무실에 연락하여
+              장작과 화로대를 구입하여 사용하자. 불멍을 하고 분위기와 음악에
+              취하자.
             </div>
             {checkState[10].done === true ? (
               <img
@@ -474,7 +479,7 @@ const Glamping = (day) => {
             }}
           >
             <div className="main-todo-glamping-text">
-              다시 레츠캠프를 이용한다.
+              리뷰를 작성하고 경험치를 획득한다.
             </div>
             {checkState[14].done === true ? (
               <img

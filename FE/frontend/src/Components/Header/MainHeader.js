@@ -19,7 +19,7 @@ const Header = ({ pageName }) => {
         </span>
         <Link to={"/"}>
           <div className="img-header">
-            <img claseName="header-img" src="./asset/header.png" alt="자동차 사진"/>
+            <img className="header-img" src="./asset/header.png" alt="자동차 사진"/>
           </div>
         </Link>
         <span

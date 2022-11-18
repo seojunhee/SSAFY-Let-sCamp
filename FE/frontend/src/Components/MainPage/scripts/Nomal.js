@@ -599,7 +599,7 @@ const Nomal = (day) => {
             }}
           >
             <div className="main-todo-nomal-text">
-              다시 레츠캠프를 이용한다.
+              리뷰를 작성하고 경험치를 획득한다.
             </div>
             {checkState[19].done === true ? (
               <img
