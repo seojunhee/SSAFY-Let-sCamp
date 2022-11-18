@@ -59,28 +59,20 @@ public class GlampingServiceImpl implements GlampingService{
                 .build();
         dto.setReservation(reservation);
 
-        dto.setItem("테이블");
-        dto.setLevel(1L);
-        glampingRepository.save(dto.toEntity());
-
-        dto.setItem("의자");
-        dto.setLevel(1L);
-        glampingRepository.save(dto.toEntity());
-
         dto.setItem("비상약");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("모기약");
-        dto.setLevel(1L);
+        dto.setLevel(2L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("긴팔/긴바지");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("담요");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("설거지통");
@@ -88,27 +80,27 @@ public class GlampingServiceImpl implements GlampingService{
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("세면도구");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("수건");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("조리도구");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("휴지");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("물티슈");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("쓰레기봉투");
-        dto.setLevel(1L);
+        dto.setLevel(4L);
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("블루투스 스피커");
@@ -116,7 +108,7 @@ public class GlampingServiceImpl implements GlampingService{
         glampingRepository.save(dto.toEntity());
 
         dto.setItem("슬리퍼");
-        dto.setLevel(1L);
+        dto.setLevel(2L);
         return glampingRepository.save(dto.toEntity()).getId();
     }
 
