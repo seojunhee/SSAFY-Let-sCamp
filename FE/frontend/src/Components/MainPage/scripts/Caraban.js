@@ -5,11 +5,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LetsCamp from "../../../api/LetsCamp.js";
 import "./style/Caraban.css";
+import { useNavigate } from "react-router-dom";
 
 const Caraban = (day) => {
   const [time, SetTime] = useState();
   const [todoState, SetTodo] = useState(1);
   const [checkState, SetCheck] = useState();
+  const navigate = useNavigate();
 
   const sliderRef = useRef();
 
@@ -472,6 +474,7 @@ const Caraban = (day) => {
             className="main-todo-caraban"
             onClick={() => {
               todoCheck(checkState[14]);
+              navigate("/review");
             }}
           >
             <div className="main-todo-caraban-text">
@@ -499,15 +502,27 @@ const Caraban = (day) => {
   return (
     <div>
       <div className="levelbox">
-        <img
-          src="/asset/level/level1.png"
-          alt=""
-          className="levelimg"
-          onClick={() => {
-            SetTodo(1);
-          }}
-        ></img>
-        {day.day <= 0 ? (
+        {todoState === 1 ? (
+          <img
+            src="/asset/level/level1.png"
+            alt=""
+            className="levelimg"
+            onClick={() => {
+              SetTodo(1);
+            }}
+          ></img>
+        ) : (
+          <img
+            src="/asset/level/level1false.png"
+            alt=""
+            className="levelimg"
+            onClick={() => {
+              SetTodo(1);
+            }}
+          ></img>
+        )}
+
+        {todoState === 2 ? (
           <img
             src="/asset/level/level2.png"
             alt=""
@@ -526,7 +541,7 @@ const Caraban = (day) => {
             }}
           ></img>
         )}
-        {day.day <= 0 ? (
+        {todoState === 3 ? (
           <img
             src="/asset/level/level3.png"
             alt=""
@@ -545,7 +560,7 @@ const Caraban = (day) => {
             }}
           ></img>
         )}
-        {day.day <= 0 ? (
+        {todoState === 4 ? (
           <img
             src="/asset/level/level4.png"
             alt=""
