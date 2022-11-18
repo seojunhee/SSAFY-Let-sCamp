@@ -5,8 +5,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style/Nomal.css";
 import LetsCamp from "../../../api/LetsCamp.js";
+import { useNavigate } from "react-router-dom";
 
 const Nomal = (day) => {
+  const navigate = useNavigate();
   const [time, SetTime] = useState();
   const [todoState, SetTodo] = useState(1);
   const [checkState, SetCheck] = useState();
@@ -596,6 +598,7 @@ const Nomal = (day) => {
             className="main-todo-nomal"
             onClick={() => {
               todoCheck(checkState[19]);
+              navigate("/review");
             }}
           >
             <div className="main-todo-nomal-text">
@@ -623,15 +626,27 @@ const Nomal = (day) => {
   return (
     <div>
       <div className="levelbox">
-        <img
-          src="/asset/level/level1.png"
-          alt=""
-          className="levelimg"
-          onClick={() => {
-            SetTodo(1);
-          }}
-        ></img>
-        {day.day <= 0 ? (
+        {todoState === 1 ? (
+          <img
+            src="/asset/level/level1.png"
+            alt=""
+            className="levelimg"
+            onClick={() => {
+              SetTodo(1);
+            }}
+          ></img>
+        ) : (
+          <img
+            src="/asset/level/level1false.png"
+            alt=""
+            className="levelimg"
+            onClick={() => {
+              SetTodo(1);
+            }}
+          ></img>
+        )}
+
+        {todoState === 2 ? (
           <img
             src="/asset/level/level2.png"
             alt=""
@@ -650,7 +665,7 @@ const Nomal = (day) => {
             }}
           ></img>
         )}
-        {day.day <= 0 ? (
+        {todoState === 3 ? (
           <img
             src="/asset/level/level3.png"
             alt=""
@@ -669,7 +684,7 @@ const Nomal = (day) => {
             }}
           ></img>
         )}
-        {day.day <= 0 ? (
+        {todoState === 4 ? (
           <img
             src="/asset/level/level4.png"
             alt=""
