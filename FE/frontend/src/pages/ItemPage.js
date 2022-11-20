@@ -5,11 +5,13 @@ import LetsCamp from "../api/LetsCamp";
 import Items from "../Components/Items/Items.js";
 import Header from "../Components/Header/Header";
 import NavBar from "../Components/NavBar/NavBar.js";
+import { useNavigate } from "react-router-dom";
 
 const ItemPage = () => {
   const [reservationData, SetReservation] = useState();
   const [items, SetItems] = useState();
   const [campingData, SetCamping] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const url = LetsCamp.reservation.getReserve();
@@ -119,6 +121,16 @@ const ItemPage = () => {
       {items ? (
         <Items item={items} category={reservationData[0].category}></Items>
       ) : null}
+      <div>
+        <button
+          onClick={() => {
+            navigate("/main");
+          }}
+          className="itempage-homebtn"
+        >
+          메인으로 돌아가기
+        </button>
+      </div>
       <NavBar></NavBar>
     </div>
   );

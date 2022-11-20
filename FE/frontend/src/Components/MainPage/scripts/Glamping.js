@@ -477,8 +477,10 @@ const Glamping = (day) => {
           <div
             className="main-todo-glamping"
             onClick={() => {
-              todoCheck(checkState[14]);
-              navigate("/review");
+              if (window.confirm("댓글을 남기러 떠나보실래요?") === true) {
+                todoCheck(checkState[14]);
+                navigate("/review");
+              }
             }}
           >
             <div className="main-todo-glamping-text">
