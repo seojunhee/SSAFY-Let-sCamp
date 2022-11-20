@@ -1,6 +1,7 @@
 .mainpage{
     background-color: #F5F5F5;
     padding-bottom: 7vh;
+    margin-bottom: 2vh;
     height: 100vh;
     overflow-y: scroll;
 }

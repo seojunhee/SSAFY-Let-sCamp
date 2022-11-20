@@ -33,8 +33,8 @@ const Result = () => {
   const starArray = [0, 1, 2, 3, 4];
 
   const reReserve = () => {
-    sessionStorage.setItem("reserveInfo", JSON.stringify("캠핑장 데이터"));
-    navigate("/reserve");
+    //sessionStorage.setItem("reserveInfo", JSON.stringify("캠핑장 데이터"));
+    navigate("/");
   };
 
   const handleStarClick = (clickedIndex) => {
@@ -314,7 +314,7 @@ const Result = () => {
           ></textarea>
           <div className="result-buttonbox">
             <button className="result-rereservebtn" onClick={reReserve}>
-              다시 예약하기
+              메인으로
             </button>
             <button
               className="result-endbtn"

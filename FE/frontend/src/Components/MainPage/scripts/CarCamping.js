@@ -599,8 +599,10 @@ const CarCamping = (day) => {
           <div
             className="main-todo-carcamping"
             onClick={() => {
-              todoCheck(checkState[19]);
-              navigate("/review");
+              if (window.confirm("댓글을 남기러 떠나보실래요?") === true) {
+                todoCheck(checkState[19]);
+                navigate("/review");
+              }
             }}
           >
             <div className="main-todo-carcamping-text">
