@@ -1,10 +1,10 @@
 
 .mainpage-myreserve{
-    margin-top: 2vh;
+    margin-top: 2%;
     width: 90%;
     margin-left: 5%;
     border-radius: 20px;
-    height: 34vh;
+    height: 34%;
     background-color: white;
     box-shadow: 2px 4px 5px -3px;
 }
@@ -31,7 +31,7 @@
 }
 
 .mainpage-myreserve-day{
-    margin-top: 3vh;
+
     font-size: 20px;
 }
 
