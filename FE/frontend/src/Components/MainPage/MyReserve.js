@@ -4,8 +4,24 @@ import "./style/MyReserve.css";
 
 const MyReserve = ({ reservationData, campingData }) => {
   const [day, SetDay] = useState();
-
-  console.log(reservationData);
+  const reserveMessage = (day) => {
+    if (day > 0) {
+      return (
+        <div className="mainpage-myreserve-day">
+          캠핑장 예약 날짜까지 {day}일 남았습니다.
+        </div>
+      )}
+    else if (day == 0) {
+      return (<div className="mainpage-myreserve-day">
+      캠핑 당일 입니다! 즐거움 캠핑하세요~
+    </div>)
+    }
+    else {
+      return (<div className="mainpage-myreserve-day">
+      캠핑은 잘 마치셨나요? 리뷰를 남겨주세요!
+    </div>)
+    }
+  }
 
   useEffect(() => {
     const date = new Date();
@@ -34,9 +50,7 @@ const MyReserve = ({ reservationData, campingData }) => {
                 alt="예약한 캠핑장 사진"
                 className="mainpage-myreserve-img"
               ></img>
-              <div className="mainpage-myreserve-day">
-                캠핑장 예약 날짜까지 {day}일 남았습니다.
-              </div>
+              {reserveMessage(day)}
               <br></br>
             </div>
           </div>
