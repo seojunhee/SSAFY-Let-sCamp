@@ -1,0 +1,14 @@
+
+.detailimg-title{
+    text-align: center;
+    word-break: keep-all;
+    width: 100%;
+    margin-top: 5%;
+    font-size: 24px;
+}
+
+.detailimg-img{
+    margin-top: 3%;
+    width: 100%;
+    height : 250px;
+}

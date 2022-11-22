@@ -1,0 +1,104 @@
+
+.userinfo{
+    width:100%;
+    font-size: 20px;
+}
+
+.userinfo-img{
+ width: 130px;
+ height: 130px;
+}
+
+.userinfo-img-box{
+    width:100%;
+    padding-top: 2vh;
+}
+
+.userinfo-pencilimg{
+    margin-left: 10px;
+    width:20px;
+    height:20px;
+}
+
+.userinfo-info{
+    margin-top: 2vh;
+}
+
+.userinfo-id{
+    margin-top: 2vh;  
+ display: flex;
+ justify-content: space-between;
+ width: 90%;
+ margin-left: 5%;
+}
+.userinfo-pw{  
+    margin-top: 2vh; 
+    display: flex;
+    justify-content:space-between;
+    width: 90%;
+    margin-left: 5%;
+}
+.userinfo-address{
+    margin-top: 2vh;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.userinfo-userstate{
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.userinfo-expbar{
+    width: 80%;
+    margin-left: 10%;
+    background-color: #D9D9D9;
+    height: 3vh;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.userinfo-exp{
+    background-color: #3CF30E;
+    height: 3vh;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 2;
+}
+.userinfo-exptext{
+    display: flex;
+    position: relative;
+    z-index: 3;
+    height: 3vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.userinfo-editinfobtn{
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #35C2BD;
+  border: none;
+  font-family: 'twayair';
+}
+
+.userinfo-logoutbtn{
+  margin-left: 10px;
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #FF7878;
+  border: none;
+  font-family: 'twayair';
+}
+
+.userinfo-btnbox{
+    height: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}

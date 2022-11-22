@@ -1,0 +1,97 @@
+.result{
+  background-color: #F5F5F5;
+  height: 100%;
+}
+
+.result-myreserve-toptext{
+  margin-top: 4vh;
+}
+
+.result-myreserve-title-box{
+  padding-top: 1vh;
+  padding-bottom: 2vh;
+}
+
+.result-myreserve-title{
+  font-size: 20px;
+  margin-top: 1vh;
+}
+
+.result-myreserve-reservebox{
+  margin-top: 30px;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 20px;
+  height: 35vh;
+  background-color: white;
+  box-shadow: 2px 4px 5px -3px;
+}
+
+.result-myreserve-img{
+  width: 100%;
+  height: 20vh;
+}
+
+.star-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1%
+}
+
+.result-reviewbox{
+  margin-top: 30px;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 20px;
+  height: 36vh;
+  background-color: white;
+  box-shadow: 2px 4px 5px -3px;
+}
+
+.result-buttonbox{
+  margin-top: 1vh;
+}
+
+.star {
+  padding: 10px;
+  font-size: 20px;
+}
+.star-none{
+  padding: 10px;
+  font-size: 30px;
+}
+
+.review-content {
+  border-radius: 10px;
+  height: 13vh;
+}
+
+.width-90-review-content{
+}
+
+.result-text{
+  padding-top: 2vh;
+  font-size: 20px;
+}
+
+.result-rereservebtn{
+  width: 150px;
+  height: 5vh;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+  font-family: "twayair";
+  font-size: 20px;
+  box-shadow: 2px 4px 5px -3px;
+}
+
+.result-endbtn{
+  width: 150px;
+  height: 5vh;
+  border-radius: 10px;
+  background-color: #AEE7E5;
+  border: none;
+  font-family: "twayair";
+  font-size: 20px;
+  margin-left: 3vw;
+}

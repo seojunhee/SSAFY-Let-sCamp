@@ -1,0 +1,44 @@
+.w-btn {
+  position: relative;
+  border: none;
+  display: flex;
+  padding: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 2px 4px 5px -3px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.w-btn-blue {
+  background-color: #35C2BD;
+  color: black;
+}
+
+.w-btn-again {
+  background-color: #F6EFB4;
+  color: black;
+}
+
+.move-btn {
+  padding: 10px 20px;
+  vertical-align: middle;
+  background-color: #35C2BD;
+  color: white;   
+  border-radius: 10px;
+  border: none;
+}
+
+.move-btn-white {
+  padding: 10px 20px;
+  vertical-align: middle;
+  background-color: white;
+  color: black;   
+  border-radius: 10px;
+  border: black solid 1px;
+}
+
+.detail-btn-box {
+  display: flex;
+  justify-content: space-around;
+}

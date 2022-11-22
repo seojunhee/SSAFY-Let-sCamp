@@ -1,0 +1,12 @@
+#map{
+    width:500px;
+    height:400px;     
+}
+
+.map-label {
+    word-break: keep-all;
+}
+
+.overlaybox {
+    background-color: red;
+}

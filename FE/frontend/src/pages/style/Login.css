@@ -1,0 +1,43 @@
+.login-input{
+    width : 70%;
+    height: 5vh;
+    border: none;    
+    font-size: 20px;
+    margin-top: 3vh;
+}
+.login-input::placeholder{
+    font-size: 20px;
+    font-weight: bold;
+    color: #D9D9D9;
+    font-family: 'twayair';
+}
+.login-input:focus{
+    outline: none;
+}
+.login-underline{
+    width:70%;
+    margin-left: 15%;
+}
+.login-button{
+    margin-top: 50px;
+    width: 80%;
+    height: 6vh;
+    background-color: #35C2BD;
+    color: white;   
+    font-size: 36px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'twayair';
+}
+.login-subbox{
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}
+.login-sub{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    font-size: 14px;
+    font-weight: bold;
+}

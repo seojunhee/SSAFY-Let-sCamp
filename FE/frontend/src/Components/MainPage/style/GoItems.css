@@ -1,0 +1,35 @@
+.main-goitems{
+    margin-top: 30px;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 20px;
+    height: 18vh;
+    background-color: white;
+    box-shadow: 2px 4px 5px -3px;
+}
+.main-goitems-boximg{
+    width: 130px;
+    height: 130px;
+}
+.main-goitems-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-goitems-text{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.main-goitems-btn{
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #AEE7E5;
+    border: none;
+    font-family: "twayair";
+    font-size: 20px;
+    margin-top: 20px;
+}

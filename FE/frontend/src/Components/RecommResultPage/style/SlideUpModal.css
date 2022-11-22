@@ -1,0 +1,59 @@
+.open-modal {
+  position: absolute;
+  width: 100%;
+  height: 65%;
+  z-index: 999;
+  transition: .35s;
+  overflow: scroll;
+  background-color: white;
+}
+
+.close-modal {
+  position: absolute;
+  transition: .35s;
+  width: 100%;
+  height: 0;
+  z-index: -50;
+  overflow: scroll;
+}
+
+.btn-right {
+  position: relative;
+  left: 80%;
+}
+
+.btn-right2 {
+  position: relative;
+  left: 55%;
+}
+
+
+.detail-contents-box{
+  width: 90%;
+  margin-left: 5%;
+  height: 50px;
+  text-align: left;
+  display: flex;
+}
+
+
+.detail-contents-box-summary::-webkit-details-maker{
+ display: none; 
+}
+
+
+.detail-contents-icons{
+  width: 20px;
+  height: 20px;
+}
+
+.detail-contents-div{
+margin-left: 1%;
+}
+
+
+.modal-summary {
+  display: flex;
+  justify-content: start;
+  margin: 1%;
+}

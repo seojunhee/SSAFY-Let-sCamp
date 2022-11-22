@@ -1,0 +1,29 @@
+.search-searchbyregion{
+    margin-top: 2vh;
+    background-color: #F5F5F5;
+}
+
+.search-searchbyregion-selectbox{
+    width: 55vw;
+    height: 4.5vh;
+    box-shadow: 2px 4px 5px -3px;
+    font-family: 'twayair';
+    border: none;
+}
+
+.search-searchbyregion-select{
+    min-height: 5px;
+    font-size: 5px;
+    font-family: 'twayair';
+}
+
+.search-searchbyregion-searchbtn{
+    margin-left: 10px;
+    width: 30vw;
+    height: 4.5vh;
+    border-radius: 10px;
+    background-color: #35C2BD;
+    font-family: 'twayair';
+    border: none;
+    color: white;
+}

@@ -1,0 +1,26 @@
+.search-searchbyname{
+    margin-top: 2vh;
+    font-family: 'twayair';
+    font-size: 18px;
+}
+
+.search-searchbyname-input{
+    font-family: 'twayair';
+    width: 55vw;
+    height: 4.5vh;
+    border-radius: 10px;
+    border: 1px solid;
+    border: none;
+    box-shadow: 2px 4px 5px -3px;
+}
+
+.search-searchbyname-btn{
+    font-family: 'twayair';
+    width: 30vw;
+    height: 4.5vh;
+    background-color: #35C2BD;
+    color: white;
+    border: none;
+    margin-left: 1vw;
+    border-radius: 10px;
+}

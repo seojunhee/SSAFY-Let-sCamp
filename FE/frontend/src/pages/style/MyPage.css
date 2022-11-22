@@ -1,0 +1,6 @@
+.mypage{
+    font-size: 24px;
+    height: 100vh;
+    overflow-y: scroll;
+    padding-bottom: 7vh;
+}
